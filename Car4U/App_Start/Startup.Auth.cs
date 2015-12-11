@@ -8,6 +8,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using System;
 using Car4U.Models;
+using Car4U.DAL;
 
 namespace Car4U
 {

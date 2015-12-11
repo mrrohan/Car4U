@@ -10,6 +10,8 @@ namespace Car4U.Models
         public string Id { get; set; }
         public DateTime Date { get; set; }
         public string Observation { get; set; }
+
+
         public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

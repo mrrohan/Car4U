@@ -11,7 +11,11 @@ namespace Car4U.Models
         public string Observation { get; set; }
         public DateTime BeginDate { get; set; }
         public DateTime FinishDate { get; set; }
-   
+
+
+        public int CarID { get; set; }
+        public int StatusID { get; set; }
+
 
         public virtual Status Status { get; set; }
         public virtual Car Car { get; set; }

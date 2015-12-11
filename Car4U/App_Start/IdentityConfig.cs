@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Car4U.Models;
+using Car4U.DAL;
 
 namespace Car4U
 {

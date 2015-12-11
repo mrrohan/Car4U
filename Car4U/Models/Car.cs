@@ -18,7 +18,6 @@ namespace Car4U.Models
 
         public int FuelTypeID { get; set; }
         public int CarModelID { get; set; }
-        public int CarStatusID { get; set; }
 
 
         public virtual ICollection<CarStatus> CarStatus { get; set; }
