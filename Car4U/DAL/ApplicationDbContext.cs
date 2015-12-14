@@ -19,6 +19,7 @@ namespace Car4U.DAL
         public DbSet<CarModel> CarModels { get; set; }
         public DbSet<CarStatus> CarStatus { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Country> Countries { get; set; }
         public DbSet<ExtraItem> ExtraItems { get; set; }
         public DbSet<ExtraModel> ExtraModels { get; set; }
         public DbSet<ExtraModelType> ExtraModelTypes { get; set; }
@@ -34,6 +35,25 @@ namespace Car4U.DAL
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Reservation>()
+                .HasRequired(c => c.MPDelivery)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Reservation>()
+                .HasRequired(c => c.MPReturn)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MeetingPoint>()
+                .HasRequired(s => s.Reservations)
+                .WithMany()
+                .WillCascadeOnDelete(false);
         }
     }
 }

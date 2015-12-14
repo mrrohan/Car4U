@@ -7,7 +7,7 @@ namespace Car4U.Models
 {
     public class MeetingPoint
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         //Mudar o nome de Place.
         public string Place { get; set; }
 

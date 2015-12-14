@@ -7,7 +7,7 @@ namespace Car4U.Models
 {
     public class MomentDelivery
     {
-        public string Id { get; set; }
+        public int ID { get; set; }
         public DateTime Date { get; set; }
         public string Observation { get; set; }
 

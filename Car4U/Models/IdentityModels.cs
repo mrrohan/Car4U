@@ -14,8 +14,13 @@ namespace Car4U.Models
         public string Address { get; set; }
         public string License { get; set; }
         public string BI { get; set; }
-        public string Country { get; set; }
-        public virtual ICollection<Reservation> IdReservations { get; set; }
+
+
+        public int CountryID { get; set; }
+
+
+        public virtual Country Country { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

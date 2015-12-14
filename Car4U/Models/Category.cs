@@ -7,7 +7,7 @@ namespace Car4U.Models
 {
     public class Category
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string CategoryName { get; set; }
         public int Price { get; set; }
         public int Warranty { get; set; }

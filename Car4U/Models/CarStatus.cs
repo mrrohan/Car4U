@@ -7,7 +7,7 @@ namespace Car4U.Models
 {
     public class CarStatus
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string Observation { get; set; }
         public DateTime BeginDate { get; set; }
         public DateTime FinishDate { get; set; }

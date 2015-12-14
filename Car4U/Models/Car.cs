@@ -7,7 +7,7 @@ namespace Car4U.Models
 {
     public class Car
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string LicensePlate { get; set; }
         public string RegisterDate { get; set; }
         public int NDoors { get; set; }

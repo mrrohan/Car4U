@@ -11,12 +11,15 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Car4U.Models;
+using Car4U.DAL;
 
 namespace Car4U.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         private ApplicationUserManager _userManager;
 
         public AccountController()
@@ -78,6 +81,7 @@ namespace Car4U.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
             return View();
         }
 
@@ -90,7 +94,18 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                //var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {  
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    Address = model.Address,
+                    BI = model.BI,
+                    License = model.License,
+                    CountryID = model.Country,
+                    PostalCode = model.PostalCode
+                };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -102,6 +117,7 @@ namespace Car4U.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    ViewBag.Country = new SelectList(db.Countries, "ID", "Name", user.CountryID);
                     return RedirectToAction("Index", "Home");
                 }
                 else

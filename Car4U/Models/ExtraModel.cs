@@ -7,7 +7,7 @@ namespace Car4U.Models
 {
     public class ExtraModel
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string Model { get; set; }
         public double Price { get; set; }
         public int Stock { get; set; }

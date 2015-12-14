@@ -8,7 +8,7 @@ namespace Car4U.Models
     public class Reservation
     {
         //Atributos
-        public string ID { get; set; }
+        public int ID { get; set; }
         public DateTime ReservationDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public DateTime DeliveryDate { get; set; }
