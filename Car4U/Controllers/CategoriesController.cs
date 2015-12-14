@@ -11,120 +11,107 @@ using Car4U.Models;
 
 namespace Car4U.Controllers
 {
-    public class CarsController : Controller
+    public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Cars
+        // GET: Categories
         public ActionResult Index()
         {
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType);
-            return View(cars.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Cars/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(car);
+            return View(category);
         }
 
-        // GET: Cars/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
-            ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description");
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
-            ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description");
             return View();
         }
 
-        // POST: Cars/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car)
+        public ActionResult Create([Bind(Include = "ID,CategoryName,Price,Warranty")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Cars.Add(car);
+                db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
-            ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
-            return View(car);
+            return View(category);
         }
 
-        // GET: Cars/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
-            ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
-            return View(car);
+            return View(category);
         }
 
-        // POST: Cars/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car)
+        public ActionResult Edit([Bind(Include = "ID,CategoryName,Price,Warranty")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(car).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
-            ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
-            return View(car);
+            return View(category);
         }
 
-        // GET: Cars/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(car);
+            return View(category);
         }
 
-        // POST: Cars/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Car car = db.Cars.Find(id);
-            db.Cars.Remove(car);
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

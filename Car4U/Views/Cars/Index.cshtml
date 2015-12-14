@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.carModel.Description)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.fuelType.Description)
         </th>
         <th>
@@ -42,6 +45,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.carModel.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.CategoryName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.fuelType.Description)

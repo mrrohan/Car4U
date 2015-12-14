@@ -13,9 +13,6 @@ namespace Car4U.Models
         public int Warranty { get; set; }
 
 
-        public int CarID { get; set; }
-
-
         public virtual ICollection<Car> Cars { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
     }
