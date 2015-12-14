@@ -109,6 +109,14 @@ namespace Car4U.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var roleStore = new RoleStore<IdentityRole>(db);
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    await roleManager.CreateAsync(new IdentityRole { Name = "Normal" });
+
+                    // var currentUser = UserManager.FindByName(user.UserName);
+                    var roleresult = UserManager.AddToRole(user.Id, "Normal");
+
+
                     await SignInAsync(user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
