@@ -47,9 +47,10 @@ namespace Car4U
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //saiam daki nao mexam em nada NADA
+            app.UseFacebookAuthentication(
+               appId: "1541189936202435",
+               appSecret: "b1c7b8db04e971ca8e1cde37e9bffd3c");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
