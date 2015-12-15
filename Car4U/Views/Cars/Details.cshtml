@@ -12,17 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
 
-    @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
-    {
-        <dd>
-            <img src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo)).FileName" alt="" />
-        </dd>
-    }
-    else
-    {
+        @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+        {
             <dt>
-                <img width="300" height="200" src="~/images/Avatar.jpg" alt="avatar" />
+                Photo
             </dt>
+            <dd>
+                <img width="300" height="200" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+            </dd>
         }
         
         <dt>
