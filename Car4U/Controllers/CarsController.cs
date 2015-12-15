@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Car4U.DAL;
 using Car4U.Models;
+using System.IO;
 
 namespace Car4U.Controllers
 {
@@ -62,9 +63,10 @@ namespace Car4U.Controllers
                         FileName = System.IO.Path.GetFileName(upload.FileName),
                         FileType = FileType.Photo
                     };
+
                     car.FilePaths = new List<FilePath>();
-                    upload.SaveAs(System.IO.Path.Combine(Server.MapPath("~/images"), photo.FileName)); 
-                    car.FilePaths.Add(photo);    
+                    car.FilePaths.Add(photo);
+                    upload.SaveAs(Path.Combine(Server.MapPath("~/images"), photo.FileName));
                 }
 
                 db.Cars.Add(car);

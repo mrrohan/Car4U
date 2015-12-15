@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace Car4U.Models
+﻿namespace Car4U.Models
 {
+    using System.ComponentModel.DataAnnotations;
     public class FilePath
     {
         public int FilePathId { get; set; }
