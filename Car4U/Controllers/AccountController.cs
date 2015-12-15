@@ -18,7 +18,7 @@ namespace Car4U.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private  ApplicationDbContext db = new ApplicationDbContext();
 
         private ApplicationUserManager _userManager;
 
