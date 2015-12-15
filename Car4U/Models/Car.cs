@@ -29,5 +29,6 @@ namespace Car4U.Models
         public virtual FuelType fuelType { get; set; }
         public virtual CarModel carModel { set; get; }
         public virtual Category category { set; get; }
+        public virtual ICollection<FilePath> FilePaths { get; set; }
     }
 }

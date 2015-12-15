@@ -31,6 +31,7 @@ namespace Car4U.DAL
         public DbSet<Promotion_Reservation> Promotion_Reservations { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<FilePath> FilePaths { get; set; }
        
         public static ApplicationDbContext Create()
         {
@@ -50,10 +51,10 @@ namespace Car4U.DAL
                 .WithMany()
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<MeetingPoint>()
-                .HasRequired(s => s.Reservations)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<MeetingPoint>()
+            //    .HasRequired(s => s.Reservations)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
         }
     }
 }

@@ -184,6 +184,8 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\ExtraModel.cs" />
     <Compile Include="Models\ExtraModelType.cs" />
+    <Compile Include="Models\FilePath.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FuelType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ExtraItem.cs" />
@@ -204,6 +206,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Avatar.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

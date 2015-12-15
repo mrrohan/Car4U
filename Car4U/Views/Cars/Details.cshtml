@@ -1,5 +1,6 @@
 ﻿@model Car4U.Models.Car
 
+
 @{
     ViewBag.Title = "Details";
 }
@@ -10,6 +11,20 @@
     <h4>Car</h4>
     <hr />
     <dl class="dl-horizontal">
+
+    @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+    {
+        <dd>
+            <img src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo)).FileName" alt="" />
+        </dd>
+    }
+    else
+    {
+            <dt>
+                <img width="300" height="200" src="~/images/Avatar.jpg" alt="avatar" />
+            </dt>
+        }
+        
         <dt>
             @Html.DisplayNameFor(model => model.carModel.Description)
         </dt>
