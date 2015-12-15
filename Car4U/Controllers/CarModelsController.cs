@@ -58,25 +58,21 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,BrandID")] CarModel carModel, int? BrandID)
+        public ActionResult Create([Bind(Include = "ID,Description,BrandID")] CarModel carModel, int? ID)
         {
             if (ModelState.IsValid)
             {
-                if (BrandID != null)
+                if (ID != null)
                 {
-                    carModel.BrandID = BrandID ?? default(int);
+                    carModel.BrandID = ID ?? default(int);
                 }
 
                 db.CarModels.Add(carModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            if (BrandID == null)
-            {
-                ViewBag.BrandID = new SelectList(db.Brands, "ID", "Description", carModel.BrandID);
-            }
-
+            
+            ViewBag.BrandID = new SelectList(db.Brands, "ID", "Description", carModel.BrandID);
             return View(carModel);
         }
 
