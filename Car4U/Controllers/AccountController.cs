@@ -376,6 +376,7 @@ namespace Car4U.Controllers
             else
             {
                 // If the user does not have an account, then prompt the user to create an account
+                ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                 return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
@@ -401,6 +402,7 @@ namespace Car4U.Controllers
             {
                 return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
             }
+            
             IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             if (result.Succeeded)
             {
@@ -429,13 +431,31 @@ namespace Car4U.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    Address = model.Address,
+                    BI = model.BI,
+                    License = model.License,
+                    CountryID= model.Country,
+                    PostalCode = model.PostalCode
+                };
+
                 IdentityResult result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
+                        var roleStore = new RoleStore<IdentityRole>(db);
+                        var roleManager = new RoleManager<IdentityRole>(roleStore);
+                        await roleManager.CreateAsync(new IdentityRole { Name = "Normal" });
+
+                        // var currentUser = UserManager.FindByName(user.UserName);
+                        var roleresult = UserManager.AddToRole(user.Id, "Normal");
+
                         await SignInAsync(user, isPersistent: false);
                         
                         // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -443,7 +463,8 @@ namespace Car4U.Controllers
                         // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                         // SendEmail(user.Email, callbackUrl, "Confirm your account", "Please confirm your account by clicking this link");
-                        
+
+                        ViewBag.Country = new SelectList(db.Countries, "ID", "Name", user.CountryID);
                         return RedirectToLocal(returnUrl);
                     }
                 }

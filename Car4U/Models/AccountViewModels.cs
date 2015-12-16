@@ -8,6 +8,31 @@ namespace Car4U.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "PostalCode")]
+        public string PostalCode { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "License")]
+        public string License { get; set; }
+
+        [Required]
+        [Display(Name = "BI")]
+        public string BI { get; set; }
+
+        [Required]
+        [Display(Name = "Country")]
+        public int Country { get; set; }
+
     }
 
     public class ExternalLoginListViewModel
