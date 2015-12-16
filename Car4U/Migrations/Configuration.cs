@@ -4,6 +4,7 @@ namespace Car4U.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -30,7 +31,7 @@ namespace Car4U.Migrations
             }
 
 
-            var user = new ApplicationUser { UserName = "SuperAdmin@Super.com",  Name = "MasterAdmin", Email = "SuperAdmin@Super.com" };
+            var user = new ApplicationUser { UserName = "SuperAdmin@Super.com",  Name = "MasterAdmin", Email = "SuperAdmin@Super.com", CountryID=1 };
 
             if (userManager.FindByName("SuperAdmin@Super.com") == null)
             {
@@ -41,6 +42,14 @@ namespace Car4U.Migrations
                     userManager.AddToRole(user.Id, "Admin");
                 }
             }
+
+            var category = new List<Category>
+            {
+                new Category { ID = 1, CategoryName = "Category A", Price = 0, Warranty = 0,  },
+                new Category { ID = 2, CategoryName = "Category B", Price = 0, Warranty = 0,  },
+            };
+            category.ForEach(s => context.Categories.AddOrUpdate(p => p.CategoryName, s));
+            context.SaveChanges();
         }
     }
 }
