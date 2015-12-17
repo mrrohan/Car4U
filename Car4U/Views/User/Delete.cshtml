@@ -1,0 +1,82 @@
+﻿@using Car4U.Models
+@using System.Data.Entity
+@model Car4U.Models.ApplicationUser
+
+@if (Model != null)
+{
+
+    {
+
+        ViewBag.Title = "Delete Account";
+    }
+
+
+    <h2>@ViewBag.Title</h2>
+
+    @Html.AntiForgeryToken()
+
+    <h4>Delete User</h4>
+    <hr />
+    <div class="container jumbotron">
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <ul class="all-blogs">
+                    <li>
+                        @Html.LabelFor(model => model.Email)
+                        :
+                        @Html.DisplayFor(model => model.Email)
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.Name)
+                        :
+                        @Html.DisplayFor(model => model.Name)
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.PostalCode)
+                        :
+                        @Html.DisplayFor(model => model.PostalCode)
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.Address)
+                        :
+                        @Html.DisplayFor(model => model.Address)
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.License)
+                        :
+                        @Html.DisplayFor(model => model.License)
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.BI)
+                        :
+                        @Html.DisplayFor(model => model.BI)
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.Country)
+                        :
+                        @Html.DisplayFor(model => model.Country.Name)
+                    </li>
+                </ul>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <span onclick="return confirm('Are you sure to delete?')"><input type="submit" value="Delete" class="btn btn-danger" /></span>
+                    <hr />
+                    <a id="Voltar para os detalhes" href="/User/Details" class="btn btn-primary login">Cancel</a>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+}
+else
+{
+    <h1>Error</h1>
+}

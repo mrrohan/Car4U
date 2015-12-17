@@ -1,0 +1,117 @@
+﻿@model Car4U.Models.Car
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+        {
+            <dt>
+                Photo
+            </dt>
+            <dd>
+                <img width="300" height="200" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+            </dd>
+        }
+        <dd>
+            <!-- Load Facebook SDK for JavaScript -->
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.5&appId=1541189936202435";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+            <!-- Your share button code -->
+            <div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.carModel.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carModel.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fuelType.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fuelType.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LicensePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LicensePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NDoors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NDoors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NLuggage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLuggage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Engine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Engine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorsePower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorsePower)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
