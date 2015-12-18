@@ -4,167 +4,77 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3>Reservation Details</h3>
+<panel>
+    <table>
+        <div class="col-lg-6 row">
+            <dl>
+                <dt>
+                    @Html.DisplayName("Reservation Number :")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ID)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Name :")
+                </dt>
+                @*<td>
+                        @Html.DisplayFor(model => model.User)
+                    </td>*@
+                <dt>
+                    @Html.DisplayName("Date In :")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DeliveryDate)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Date Out :")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ReturnDate)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Current Category :")
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </dt>
+                <p>
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </dl>
+        </div>
+        <div id="edit-details" class="col-lg-6 jumbotron detaildivsize">
+            <form>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.CategoryName)
-        </dd>
+                <dt>
+                    @Html.DisplayName("Change delivery Date: ")
+                </dt>
+                <dd>
+                    <input type="date" class="form-control input-size-xs" />
+                </dd>
+                <dt>
+                    @Html.DisplayName("Change return Date: ")
+                </dt>
+                <dd>
+                    <input type="date" class="form-control input-size-xs" />
+                </dd>
+                <dt>
+                    @Html.DisplayName("Change Category: ")
+                </dt>
+                <dd>
+                    <input type="text" class="form-control input-size-xs" />
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Country.Name)
-        </dt>
+                <button class="btn btn-secondary btn-sm subButton">Back</button>
+                <button class="btn btn-secondary btn-sm subButton btnsave">Save Change</button>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MomentDelivery.Observation)
-        </dt>
+            </form>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MomentDelivery.Observation)
-        </dd>
+    </table>
+</panel>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MomentReturn.Observation)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MomentReturn.Observation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MPDelivery.Place)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MPDelivery.Place)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MPReturn.Place)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MPReturn.Place)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PostalCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telephone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telephone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.License)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.License)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReservationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReservationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReturnDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DeliveryDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DeliveryDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FinalPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FinalPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ExtraItemsID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ExtraItemsID)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
