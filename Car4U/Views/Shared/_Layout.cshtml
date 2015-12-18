@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Car4U - @ViewBag.Title</title>
+    <link rel="icon" type="image/ico" href="~/Content/Car4U_ico.fw.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,11 +20,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" rel="home" href="@Url.Action("Index", "Home")">
+                    <img src="~/images/Car4ULogo.png" class="img-responsive">
+                </a>
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Categorias", "Index", "Categories")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -31,14 +37,41 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <!--Footer beggining-->
+
+    <footer class="footer-distributed">
+        <div class="container">
+            <div class="footer-left">
+                <img src="~/images/Car4ULogo.png" class="footer-img">
+
+                <p class="footer-links">
+                    @*@Html.ActionLink("Fleet", "", "")*@
+                    -
+                    @Html.ActionLink("About", "About", "Home")
+                    -
+                    @Html.ActionLink("Contact", "Contact", "Home")
+                </p>
+                <div class="footer-icons">
+                    <p>&copy;@DateTime.Now.Year</p>
+                    <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <p>Contact Us</p>
+                <form action="MAILTO:example@car4u.com" method="post" enctype="text/plain">
+                    <input type="text" name="email" placeholder="Email" />
+                    <textarea name="message" placeholder="Message"></textarea>
+                    <button>Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <!--Footer end-->
 </body>
 </html>

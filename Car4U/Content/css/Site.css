@@ -1,0 +1,1858 @@
+﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+
+/*Index moving img*/
+.object {
+    position: absolute;
+}
+.van {
+    top: 45%;
+    left: 44%;
+}
+
+#axis:hover .move-right{
+    transform: translate(550px,0);
+    -webkit-transform: translate(550px,0); /** Chrome & Safari **/
+    -o-transform: translate(550px,0); /** Opera **/
+    -moz-transform: translate(550px,0); /** Firefox **/
+}
+
+#axis:hover .move-right :after{
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.object {
+    position: absolute;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+}
+/**/
+.indexLogo {
+   float:right;
+   margin-right:100px;
+   margin-top:300px;
+}
+
+.home-box{
+    margin-top:20px;
+    float:left;
+}
+
+.input-size-xs{
+    width:150px;
+    
+}
+
+.input-size-xxs{
+    width:100px;   
+}
+
+
+.subButton{
+    float:right;
+    background-color:ActiveCaption;
+    margin-top:10px;
+
+}
+
+/*Select disable text*/
+.placeholder{
+    color: grey;
+    }
+select option:first-child{
+    color: grey; display: none;
+    }
+select option{
+    color: #555;
+    }
+/*Select disable text*/
+/*Index Box label*/
+.label-box {
+color: black;
+font-weight:unset;
+width: 140px;
+font-size:small;
+}
+    .label-box:after {
+        content: ":";
+    }
+/**/
+
+.footer-img{
+    width:25%;
+    height:25%;
+    float:left;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand img {
+    height:50px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.footer-distributed{
+	background-color: #F8F8F8; 
+	border: 1px solid;
+    border-color: #E7E7E7;    
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	height: 45%;
+	font: bold 16px sans-serif;
+	text-align: left;
+	padding: 50px 60px 40px;
+	margin-top: 80px;
+	overflow: hidden;
+	position: relative;
+	bottom:0;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	float: left;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0 0 10px;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer social icons */
+
+.footer-distributed .footer-icons{
+	margin-top: 40px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	float: right;
+}
+
+.footer-distributed .footer-right p{
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px 42px 0 0;
+	color: #ffffff;
+}
+
+/* The contact form */
+
+.footer-distributed form{
+	display: inline-block;
+}
+
+.footer-distributed form input,
+.footer-distributed form textarea{
+	display: block;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background-color:  #1f2022;
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+	border: none;
+	resize: none;
+
+	font: inherit;
+	font-size: 14px;
+	font-weight: normal;
+	color:  #d1d2d2;
+
+	width: 400px;
+	padding: 15px;
+}
+
+.footer-distributed ::-webkit-input-placeholder {
+	color:  #5c666b;
+}
+
+.footer-distributed ::-moz-placeholder {
+	color:  #5c666b;
+	opacity: 1;
+}
+
+.footer-distributed :-ms-input-placeholder{
+	color:  #5c666b;
+}
+
+
+.footer-distributed form input{
+	height: 46px;
+	margin-bottom: 15px;
+}
+
+.footer-distributed form textarea{
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+.footer-distributed form button{
+	border-radius: 3px;
+	background-color:  #33383b;
+	color: #ffffff;
+	border: 0;
+	padding: 15px 50px;
+	font-weight: bold;
+	float: right;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1000px) {
+
+	.footer-distributed {
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-company-name{
+		font-size: 12px;
+	}
+
+	.footer-distributed form input,
+	.footer-distributed form textarea{
+		width: 250px;
+	}
+
+	.footer-distributed form button{
+		padding: 10px 35px;
+	}
+
+}
+
+@media (max-width: 800px) {
+
+	.footer-distributed{
+		padding: 30px;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		float: none;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	.footer-distributed .footer-left{
+		margin-bottom: 40px;
+	}
+
+	.footer-distributed form{
+		margin-top: 30px;
+	}
+
+	.footer-distributed form{
+		display: block;
+	}
+
+	.footer-distributed form button{
+		float: none;
+
+	}
+}
+
+.col-md-5 {
+    margin-left: 350px;
+}
+
+.chatname {
+    text-align: center
+}
+
+.fb-profile img.fb-image-lg {
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile {
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+@media (max-width:768px) {
+    .fb-profile-text > h1 {
+        font-weight: 700;
+        font-size: 16px;
+        margin-left: 100px;
+    }
+
+    .fb-image-profile {
+        margin: -45px 10px 0px 25px;
+        z-index: 9;
+        width: 20%;
+    }
+
+    .titlee {
+        margin-left: 50px;
+    }
+}
+
+.about {
+    padding-left: 40px;
+}
+
+@media (max-width:400px) {
+        .home-box{
+            margin-left:5px;
+        }
+    }
+
+/*
+@font-face {
+    font-family: Arial;
+    src: url('../fonts/OpenSans-Regular-webfont.eot');
+    src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('eot'),
+    url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+    url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+    url('../fonts/OpenSans-Regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: Arial;
+        src: url('../fonts/OpenSans-Regular-webfont.svg') format('svg');
+    }
+}
+*/
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic);
+
+select {
+  font-family: arial, sans-serif;
+}
+
+b {
+  font-family: arial, sans-serif;
+}
+
+
+body {
+    color: #333333;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+legend {
+    font-family: arial,sans-serif;
+    padding-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #111111;
+    font-family: arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+
+}
+
+p {
+    font-family: arial,sans-serif;
+    font-weight: normal;
+}
+
+
+.ui-datepicker table {
+  font-size: 0.8em !important;
+}
+
+.text-link {
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 26px;
+}
+.text-link:hover {
+    cursor: default;
+}
+
+.booking-form-error{
+  position:absolute;
+  display:none;
+  background: white;
+  z-index:10000;
+}
+.booking-form-error .help-block{
+  color:white;
+  font-size:14px;
+}
+
+/* ==================================================
+    Slideshow
+================================================= */
+
+.slideshow { 
+    position: relative;
+    float: left;
+}
+.slideshow img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pattern {
+    background: url("../img/pattern.png") repeat scroll 0 0 transparent;
+    height: 635px;
+    opacity: 0.3;
+    position: absolute;
+    width: 100%;
+}
+
+/* ==================================================
+   Language
+================================================== */
+
+.language {
+    background-color: #2C2D2D;
+    border-top: 0px solid #000000;
+    height: auto;
+    width: 100%;
+}
+
+.language .pt {
+    background: url("../img/pt.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 0 0 0 25px;
+}
+
+.language .en {
+    background: url("../img/en.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 0 0 0 25px;
+}
+
+.language .es {
+    background: url("../img/es.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 0 0 0 25px;
+
+}
+
+.language .fr {
+    background: url("../img/fr.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 0 0 0 25px;
+
+}
+
+.language .de {
+    background: url("../img/de.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 0 0 0 25px;
+
+}
+
+.language ul, ol {
+    list-style: none outside none;
+    margin: 0 !important;
+    padding: 0;
+    float: right;
+}
+.language ul ul, ul ol, ol ol, ol ul {
+    margin-bottom: 0;
+}
+.language li {
+    line-height: 20px;
+}
+.language li a {
+    color: #CCCCCC;
+    font-size: 14px;
+    line-height: 26px;
+}
+.language a:hover {
+    color: #FFFFFF;
+    line-height: 26px;
+}
+
+
+
+/* ==================================================
+   Header
+================================================== */
+
+header {
+    width: 100%;
+    z-index: 1001;
+    height: 110px;
+    top: 0;
+    left: 0; 
+
+}
+
+header .main-nav {
+    width: 100%;
+    height: 110px;
+    background: url("/img/nav.png") repeat-x;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    z-index: 12;
+    position: relative;
+}
+
+header .main-nav.stuck {
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+header #logo {
+    color: #FFFFFF;
+    float: left;
+    padding: 0;
+    margin-left: 0px;
+}
+
+header #logo a {
+    background: url("../img/logo.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 100px;
+    opacity: 1;
+    text-indent: -9999px;
+        width: 295px;
+    filter: alpha(opacity=100);
+    
+    -webkit-transition: opacity 0.25s ease-in-out 0s;   
+       -moz-transition: opacity 0.25s ease-in-out 0s;
+         -o-transition: opacity 0.25s ease-in-out 0s;
+            transition: opacity 0.25s ease-in-out 0s;   
+}
+header #logo a:hover {
+    opacity: 0.65;
+    filter: alpha(opacity=65);  
+}
+
+nav#menu {
+    float: right;
+    margin-right: 10px;
+    margin-top: 25px;
+}
+
+nav#menu #menu-nav {
+    margin: 0;
+    padding: 0; 
+}
+
+nav#menu #menu-nav li {
+    float: left;
+    list-style: none outside none;
+    padding-right: 20px;
+    position: relative;
+}
+
+nav#menu #menu-nav li:first-child {
+    margin-left: 0; 
+}
+
+nav#menu #menu-nav li a {
+    color: #333333;
+    display: block;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    margin-top: 18px;
+    padding: 7px;
+    text-transform: uppercase;
+}
+
+nav#menu #menu-nav li.current a, nav#menu #menu-nav li a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    border-top: 3px solid #FF0000;
+}
+
+nav#menu #menu-nav li a:hover, nav#menu #menu-nav li.sfHover a, nav#menu #menu-nav li.active a {
+    color: #FFFFFF;
+    text-decoration: none;
+    border-top: 3px solid #FF0000;
+}
+
+nav#menu #menu-nav li a:hover, nav#menu #menu-nav li.sfHover a, nav#menu #menu-nav li.active a {
+    color: #000000;
+}
+nav#menu #menu-nav ul {
+    position: absolute;
+    top: -9999em;
+    width: 140px !important;
+}
+nav#menu #menu-nav ul li {
+    width: 100%;
+}
+nav#menu #menu-nav li:hover ul, nav#menu #menu-nav li.sfHover ul {
+    left: 50%;
+    margin-left: -85px;
+    top: 60px;
+    z-index: 99;
+}
+
+nav#menu #menu-nav li:hover li ul, nav#menu #menu-nav li.sfHover li ul, nav#menu #menu-nav li li:hover li ul, nav#menu #menu-nav li li.sfHover li ul, nav#menu #menu-nav li li li:hover li ul, nav#menu #menu-nav li li li.sfHover li ul {
+    top: -9999em;
+}
+nav#menu #menu-nav li li:hover ul, nav#menu #menu-nav li li.sfHover ul, nav#menu #menu-nav li li li:hover ul, nav#menu #menu-nav li li li.sfHover ul, nav#menu #menu-nav li li li li:hover ul, nav#menu #menu-nav li li li li.sfHover ul {
+    left: 241px !important;
+    top: -5px;
+}
+nav#menu #menu-nav li li:hover ul:before, nav#menu #menu-nav li li.sfHover ul:before, nav#menu #menu-nav li li li:hover ul:before, nav#menu #menu-nav li li li.sfHover ul:before, nav#menu #menu-nav li li li li:hover ul:before, nav#menu #menu-nav li li li li.sfHover ul:before {
+    border: medium none;
+}
+nav#menu #menu-nav ul {
+    background: none repeat scroll 0 0 #FC494D;
+    padding: 10px 15px 15px;
+}
+nav#menu #menu-nav ul li {
+    background: none repeat scroll 0 0 transparent;
+    float: none;
+    line-height: 25px;
+    padding: 0;
+    position: relative;
+}
+nav#menu #menu-nav ul li:last-child {
+    border: 0 none;
+}
+nav#menu #menu-nav ul li a {
+    color: #FFFFFF;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    text-align: center;
+}
+nav#menu #menu-nav li.sfHover ul a {
+    color: #FFFFFF;
+    font-size: 13px;
+}
+nav#menu #menu-nav li.sfHover ul a:hover {
+    color: #323A45;
+}
+
+/* ==================================================
+   Mobile Navigation
+================================================== */
+
+#mobile-nav {
+    display: none;  
+}
+
+.menu-nav {
+    background:url(../img/menu-mobile.png) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin: 22px 0 0 0;
+    
+    -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+    
+    -webkit-transition: -webkit-transform 250ms ease-out 0s;    
+       -moz-transition: -moz-transform 250ms ease-out 0s;
+         -o-transition: -o-transform 250ms ease-out 0s;
+            transition: transform 250ms ease-out 0s;
+}
+
+.menu-nav.open {
+    background-position: 0 -16px;
+          
+    -webkit-transform: rotate(-180deg);
+       -moz-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+         -o-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+    
+    -webkit-transition: -webkit-transform 250ms ease-out 0s;    
+       -moz-transition: -moz-transform 250ms ease-out 0s;
+         -o-transition: -o-transform 250ms ease-out 0s;
+            transition: transform 250ms ease-out 0s;    
+}
+
+#navigation-mobile {
+    display: none;
+    text-align: center;
+    width: 100%;
+    background: #26292E;    
+    border-bottom: 1px solid #2F3238;
+    position: relative;
+    float: left;
+    z-index: 9999;
+}
+
+#navigation-mobile li {
+    list-style: none;
+    border-top: 1px solid #2F3238;
+}
+
+#navigation-mobile li a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 16px;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+#menu-nav-mobile ul.sub-menu {
+    background: transparent;
+    margin: 0;
+    position: relative;
+    top: auto;
+    width: auto;
+}
+
+#menu-nav-mobile ul.sub-menu li {
+    border-top: 1px solid #313335;
+    height: auto;
+    margin-top: 0;
+}
+
+#menu-nav-mobile .sub-menu li a {
+    padding-left: 0px; 
+}
+
+.form_hp {
+    background: url("//media.iolnegocios.pt/media1201/14f6c04a05b633181d8e0a7329589e69/") repeat;
+    /*
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    */
+    min-height: 20px;
+    padding: 19px;
+}
+
+.form_hp label {
+    color: #FFFFFF !important;
+    font-weight: 200;
+}
+
+.form_hp button {
+    background: none repeat scroll 0 0 #FF0000;
+    border-radius: 8px;
+    color: #111111;
+    border: 1px solid #FF0000;
+}
+
+
+.mainSlider .slides img {
+    display: block !important;
+    min-height: 655px !important;
+    width: 100% !important;
+}
+
+.mainSlider .slides > li {
+    height: 645px;
+    overflow: hidden;
+}
+
+#homepage_title {
+    color: #FFFFFF;
+    font-size: 58px;
+    font-weight: bold;
+    padding: 2.8em 0 0;
+    text-shadow: 0 0 5px #000000;
+    font-family: Arial,sans-serif;
+}
+
+#homepage_sub_title {
+    color: #FFFFFF;
+    font-size: 42px;
+    text-shadow: 0 0 5px #000000;
+    font-family: Arial,sans-serif;
+}
+
+#homepage_p {
+    color: #FFFFFF;
+    font-size: 24px;
+    text-shadow: 0 0 5px #000000;
+    font-family: Arial,sans-serif;
+}
+
+/* ==================================================
+   Destaques
+================================================== */
+
+
+.destaque {
+    background: url("../img/bg_destaque.png") repeat scroll 0 0 transparent;
+    bottom: 0;
+    height: 60px;
+    margin-top: -80px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.destaque a {
+    text-decoration: none;
+}
+.destaque-title {
+    color: #000000;
+    display: block;
+    font-family: Arial,sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.destaque-subtitle {
+    color: #FF0000;
+    display: block;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.page {
+    background: none repeat scroll 0 0 #2C2D2D;
+    position: relative;
+    min-height: 90px;
+    margin: 0;
+    z-index:9999;
+}
+
+.page_gray {
+    background: none repeat scroll 0 0 #EEEEEE;
+    box-shadow: 0 0 12px #CCCCCC;
+    padding: 0;
+    position: relative;
+}
+
+.submitNextRes {
+    background-color: #FF0000;
+    border: 1px solid #FF0000;
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    width: auto;
+}
+
+/* ==================================================
+   Footer
+================================================== */
+
+footer {
+    background-color: #CCCCCC;
+    border-top: 0 solid #FF0000;
+    float: left;
+    height: auto;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.footer_header {
+    color: #767575;
+    font-family: Arial,sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-left: 0;
+}
+
+.recent_posts .col-md-4 {
+    float: left;
+    margin-left: 0;
+    }
+
+#footer .post {
+    margin-bottom: 70px;
+    width: 93%;
+}
+#footer.post {
+    float: left;
+    margin-right: 20px;
+    color: #CCCCCC;
+}
+#footer .post{
+    color: #CCCCCC;
+    font-style: italic;
+    font-weight: bold;
+}
+#footer .post .title {
+    color: #B5B5B6;
+    display: block;
+    font-size: 14px;
+}
+.post ul, ol {
+    list-style: none outside none;
+    margin: 0 0 10px;
+    padding: 0;
+}
+.post ul ul, ul ol, ol ol, ol ul {
+    margin-bottom: 0;
+}
+.post li {
+    line-height: 20px;
+
+}
+.post li a {
+    color: #000000;
+    font-size: 14px;
+    line-height: 26px;
+    font-family: Arial,sans-serif;
+}
+.post li a:hover {
+    color: #FF0000;
+    line-height: 26px;
+}
+
+.post {
+    color: #CCCCCC;
+    font-size: 12px;
+}
+
+.post p {
+font-family: Arial,sans-serif;
+}
+
+.post .adress {
+    background: url("../img/footer_adress_icon.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 0;
+    padding: 0 0 0 35px;
+    width: 100%;
+    font-family: Arial,sans-serif;
+}
+
+.post .phone {
+    background: url("../img/footer_phone_icon.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 0;
+    padding: 0 0 0 35px;
+    width: 100%;
+}
+
+.post .tlm {
+    background: url("../img/footer_tlm_icon.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 0;
+    padding: 0 0 0 35px;
+    width: 100%;
+}
+
+.post .mail {
+    background: url("../img/footer_mail_icon.png") no-repeat scroll 0 7px transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 0;
+    padding: 0 0 0 35px;
+    width: 100%;
+}
+
+.post .arrow {
+    background: url("../img/footer_arrow.png") no-repeat scroll 0 1px transparent;
+    color: #FFFFFF;
+    float: left;
+    font-size: 13px;
+    list-style: none outside none;
+    margin-bottom: 15px;
+    margin-right: 0;
+    padding: 0 0 0 35px;
+    width: 100%;
+}
+
+
+/* ==================================================
+   Images
+================================================== */
+
+.destaque-image-wrap {
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.destaque-image-wrap {
+    cursor: default;
+}
+.destaque-image-wrap a:hover {
+    text-decoration: none;
+}
+.destaque-image-wrap img {
+    width: 100%;
+}
+
+.image-wrap {
+    margin-bottom: 25px;
+    overflow: hidden;
+    position: relative;
+}
+.image-wrap img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==================================================
+   Pages
+================================================== */
+
+.page-header {
+    border-bottom: 1px solid #F8BA1C;
+    margin: 30px 0 20px;
+    padding-bottom: 9px;
+    font-family: arial,sans-serif;
+    width: 99%;
+}
+
+.page-header2 {
+    border-bottom: 1px solid #FF0000;
+    margin: 30px 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+.page-header h1 {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.page-header2 h1 {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+}
+
+.work-nav {
+    margin-bottom: 30px;
+}
+
+/* ==================================================
+   Filtro Frota
+================================================== */
+
+.fleet-nav > li {
+    float: left;
+    padding: 15px;
+}
+.fleet-nav > li > a {
+    border-radius: 4px;
+    color: #555555;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+.fleet-nav > li + li {
+    margin-left: 2px;
+}
+.fleet-nav > li.active > a, .fleet-nav > li.active > a:hover, .fleet-nav > li.active > a:focus {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+.fleet-nav > li.active > a .caret, .fleet-nav > li.active > a:hover .caret, .fleet-nav > li.active > a:focus .caret {
+    border-bottom-color: #FFFFFF;
+    border-top-color: #FFFFFF;
+}
+
+.fleet-nav #filters li a:hover {
+    color: #FFFFFF;
+}
+
+.fleet-nav #filters li a.selected {
+    color: #DE5E60;
+}
+
+.nav > li {
+    display: block;
+    position: relative;
+}
+.nav > li > a {
+    display: block;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.fleet-nav > li > a:hover, .nav > li > a:focus {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+/* ==================================================
+   Frota
+================================================== */
+
+.frota .modal-dialog {
+    padding-top: 80px !important;
+
+}
+
+.frota h4 {
+    color: #111111;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    height: 40px;
+    overflow: hidden;
+}
+
+.frota .comment {
+    color: red;
+    height: 35px;
+    font-size: 12px;
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    border: 0px solid none;
+    border-radius: 6px;
+    box-shadow: 0 transparent;
+    outline: 0 none;
+    position: relative;
+}
+
+.modal-content h4 {
+    color: #111111;
+}
+
+.modal-body {
+    color: #111111;
+    padding: 20px;
+    position: relative;
+}
+
+.frota label {
+    color: #111111;
+    font-family: Arial,sans-serif;
+}
+
+.banner-text{ position:absolute; top:25px; width:850px; }
+.banner-text:link, .banner-text:hover{ text-decoration:none; }
+
+.form_hp {
+  position:relative;
+  z-index:9999;
+}
+
+.form_hp legend { 
+    font-family: Arial,sans-serif;
+    color: #FFFFFF;
+}
+
+.form_hp .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+    color: #FF0000;
+}
+
+.form_hp .has-error .form-control {
+    border: 3px solid #FF0000;
+    box-shadow: 0 0 0 inset;
+}
+.form_hp .has-error label {
+    color:#FF0000 !important;
+}
+.fleet-booking-form .form-error {
+    font-size:12px;
+    color:#FF0000 !important;
+}
+
+.form-error {
+  display:none;
+  font-size:11px;
+  color:#FF0000;
+}
+
+.frota h5 { 
+    color: #111111;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+}
+
+.frota h6 { 
+    color: #111111;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+}
+
+.frota small { 
+    color: #FF0000;
+    font-weight: normal;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.frota .col-md-4 {
+    box-shadow: 0 0 2px #CCCCCC;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding-bottom: 20px;
+    width: 32.2%;
+}
+
+.frota .col-md-4 img {
+    text-align: center;
+}
+
+/* ==================================================
+   Features
+================================================== */
+
+ul.ffeatures {
+    display: none;
+    padding: 9px;
+    list-style-type: none;
+    background: #f3f3f3;
+    border-radius: 4px;
+}
+ul.ffeatures li {
+    margin-bottom: 8px;
+}
+ul.ffeatures li:last-child {
+    margin-bottom: 0px;
+}
+
+ul.features {
+    float: left;
+    margin-left: -35px;
+    margin-right: 25px;
+    min-height: 135px;
+}
+
+ul.features li {
+    -moz-box-sizing: border-box;
+    background: url(../frota_icons.png)) no-repeat scroll 0 0 transparent;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    padding: 10px 0 10px 45px;
+}
+
+ul.features li.seats {
+    background-position: 0 0;
+}
+ul.features li.baggage {
+    background-position: 0 -60px;
+}
+ul.features li.doors {
+    background-position: 0 -120px;
+}
+ul.features li.fuel {
+    background-position: 0 -175px;
+    width: 100%;
+}
+ul.features li.aircon {
+    background-position: 0 -298px;
+}
+ul.features li.aircon_off {
+    background-position: 0 -415px;
+}
+ul.features li.manual {
+    background-position: 0 -355px;
+}
+ul.features li.automatic {
+    background-position: 0 -300px;
+}
+ul.features li.power {
+    background-position: 0 -420px;
+}
+ul.features li.volume {
+    background-position: 0 -480px;
+}
+ul.features li.maxweight {
+    background-position: 0 -540px;
+}
+ul.features li.emission {
+    background-image: url("../img/emissions.png");
+}
+ul.features li.emission.emission_a {
+    background-position: 0 0;
+}
+ul.features li.emission.emission_b {
+    background-position: 0 -60px;
+}
+ul.features li.emission.emission_c {
+    background-position: 0 -120px;
+}
+ul.features li.emission.emission_d {
+    background-position: 0 -180px;
+}
+ul.features li.emission.emission_e {
+    background-position: 0 -240px;
+}
+ul.features li.emission.emission_f {
+    background-position: 0 -300px;
+}
+ul.features li.emission.emission_g {
+    background-position: 0 -360px;
+}
+ul.features li.milage, ul.features li.minage, ul.features li.reqDL {
+    background: none repeat scroll 0 center transparent;
+    float: none;
+    padding: 0;
+}
+ul.features li.minage {
+    padding-bottom: 10px;
+}
+ul.features li.reqDL {
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+ul.features li.even {
+    padding-right: 10px;
+}
+ul.features li.disabled {
+    opacity: 0.5;
+}
+ul.features li.disabled.drive {
+    background-position: 0 -360px;
+}
+ul.features li.disabled.emission {
+    background-position: 0 -420px;
+}
+ul.features li.disabled .unit {
+    display: none;
+}
+
+/* ==================================================
+   Buttons
+================================================== */
+
+.button .submit {
+    background: none repeat scroll 0 0 #F9BF1D;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 18px;
+    padding: 8px 33px;
+    text-align: center;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+    vertical-align: middle;
+    width: auto;
+    border: 0;
+}
+
+.button .comment {
+    margin-top: 16px;
+    color: red;
+    font-size: 12px;
+}
+
+.button .submit:hover {
+    background: none repeat scroll 0 0 #FF0000;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor:pointer;
+    outline:none;
+}
+
+.button .submit.submit-unavailable {
+    background: none repeat scroll 0 0 #FF0000;
+    cursor: default;
+}
+
+#button {
+    margin-bottom: 3px;
+}
+
+/* ==================================================
+   Booking
+================================================== */
+
+.vehicle-details-btn {
+    padding: 5px;
+    background: #f2f2f2;
+    border: 0;
+    border-radius: 4px;
+    outline: none;
+}
+
+.vehicle-details-btn:hover {
+    background: #ddd;
+}
+
+.reserva {
+    border-bottom: 7px solid #FF0000;
+    box-shadow: 0 0 7px #DEDEDE;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.form-group a {
+    color: #FF0000;
+    border-bottom: 0px solid #6EB663;
+    box-shadow: 0 0 0px #DEDEDE;
+}
+
+.reserva .col-md-6 img {
+    width: 95%
+}
+
+.reserva h2 { 
+    color: #111111;
+    display: inline-block;
+    font-family: arial,sans-serif;
+    width: 100%;
+}
+
+.reserva h3 {
+    color: #333333;
+    display: inline-block;
+    font-family: arial,sans-serif;
+    font-weight: 600;
+    width: 100%;
+}
+
+.reserva h5 { 
+    color: #999999;
+    display: inline-block;
+    font-family: arial,sans-serif;
+}
+
+.reserva h6 { 
+    color: #999999;
+    display: inline-block;
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sidebar-booking {
+    background: none repeat scroll 0 0 #F1F1F1;
+    height: auto;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar-booking .col-md-12 {
+    width: 95%;
+}
+
+.sidebar-booking h3 {
+    background: none repeat scroll 0 0 #FF0000;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: arial,sans-serif;
+    padding: 10px;
+    width: 100%;
+    margin-top: 0;
+}
+
+.sidebar-booking h1 {
+    background: none repeat scroll 0 0 #FF0000;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    padding: 10px;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+
+
+.sidebar-booking .col-md-12 {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.sidebar-booking .row {
+    font-family: Arial,sans-serif;
+}
+
+.sidebar-booking3 {
+    border: 6px solid #FF0000;
+    height: auto;
+    margin: 0;
+    padding: 5px 0 20px;
+    width: 100%;
+}
+
+.sidebar-booking3 .col-md-12 {
+    width: 95%;
+}
+
+.sidebar-booking3 h3 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #111111;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    margin-top: 0;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.sidebar-booking3 .price-per-day{
+    font-size: 18px;
+    color:#999999;
+}
+
+
+.sidebar-booking3 h4 {
+    color: #999999;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    padding: 0px;
+    width: 100%;
+}
+
+.sidebar-booking3 h2 {
+    color: #999999;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0 0 10px;
+    width: 100%;
+}
+
+.sidebar-booking3 h1 {
+    border-bottom: 5px solid #CCCCCC;
+    color: #FF0000;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 32px;
+    margin-top: 0;
+    padding: 15px 0 15px;
+    width: 97%;
+}
+
+.sidebar-booking3 p {
+    font-family: Arial,sans-serif;
+
+}
+
+.sidebar-booking3 .col-md-12 {
+
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.sidebar-booking3 .row {
+        font-family: Arial,sans-serif;
+}
+
+.optional h3 {
+    font-family: Arial,sans-serif;
+    width: 100%;
+    font-size: 18px;
+}
+
+.optional .row {
+    padding: 10px 0;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+}
+
+.optional h3 {
+    color: #111111;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    width: 100%;
+}
+
+.optional .col-md-2 h3 {
+    background: none repeat scroll 0 0 #FF0000;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    width: auto;
+    font-size: 16px;
+}
+
+.optional h5 {
+    color: #777777;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    line-height: 23px;
+    width: 100%;
+}
+
+.optional button {
+    background: none repeat scroll 0 0 #FF0000;
+    border-radius: 8px;
+    color: #FFFFFF;
+    border: 1px solid #FF0000;
+}
+
+.optional button:hover {
+    background: none repeat scroll 0 0 #FF0000;
+    border: 1px solid #FF0000;
+    border-radius: 8px;
+    color: #FFFFFF;
+}
+
+.booking_steps {
+    margin: 0px;
+}
+
+.booking_steps a {
+    font-size: 16px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.booking_steps .first {
+    background: url("../img/arrow.png") no-repeat scroll 190px 21px transparent;
+    color: #444444;
+}
+.booking_steps .active {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 20px;
+}
+
+.booking_steps b {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: -20px;
+}
+
+/* ==================================================
+   News
+================================================== */
+
+.news {
+    margin: 0;
+}
+
+.news .button .submit {
+    background: none repeat scroll 0 0 #FF0000;
+    border-radius: 0px;
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 3px;
+    padding: 5px 10px;
+    text-align: center;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+    vertical-align: middle;
+    width: auto;
+    border: 0;
+}
+
+.news .button .submit:hover {
+    background: none repeat scroll 0 0 #FF0000;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.news p {
+    color: #777777;
+    font-family: Arial,sans-serif;
+}
+
+.news b {
+    color: #333333;
+    font-family: 'arial', sans-serif;
+}
+
+.news i {
+    color: #333333;
+    font-family: 'arial', sans-serif;
+}
+
+.news div {
+    color: #333333;
+    font-family: 'arial', sans-serif;
+}
+
+
+
+.news .slideshow {
+    float: left;
+    height: 135px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.news .slideshow img {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.news h1 {
+    font-size: 21px;
+    font-weight: bold;
+    font-family: Arial,sans-serif;
+    margin-top: 0;
+    }
+
+.news .space {
+    margin-bottom: 20px;
+    border-bottom: 0px solid green;
+    
+    }
+
+/* ==================================================
+   Faq
+================================================== */
+
+.faq {
+    margin: 0;
+}
+
+.faq .panel-default > .panel-heading {
+    background-color: #FF0000;
+    border-color: #FF0000;
+    color: #FFFFFF;
+}
+
+/* ==================================================
+   Contacts
+================================================== */
+
+.contacts {
+    margin: 0;
+}
+
+.contacts p {
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.news_slider {
+    margin: 0;
+}
+
+/* ==================================================
+   Site map
+================================================== */
+
+.sitemap a {
+    color: #333333;
+    font-family: Arial,sans-serif;
+    text-decoration: underline;
+
+    }
+
+.sitemap li {
+    line-height: 32px;
+
+    }
+
+.sitemap a:hover {
+    color: #FF0000;
+    font-family: Arial,sans-serif;
+    text-decoration: none;
+
+    }
+
+.sitemap h4 {
+    color: #FF0000;
+    font-family: Arial,sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+
+    }
+
+#parceiro_homepage {
+    text-align: center;    
+}
