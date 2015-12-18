@@ -30,6 +30,12 @@ namespace Car4U.Migrations
                 roleManager.Create(new IdentityRole("Admin"));
             }
 
+            var country = new List<Country>
+            {
+                new Country { ID = 1, Name = "Portugal",   },
+            };
+            country.ForEach(s => context.Countries.AddOrUpdate(p => p.Name, s));
+            context.SaveChanges();
 
             var user = new ApplicationUser { UserName = "SuperAdmin@Super.com",  Name = "MasterAdmin", Email = "SuperAdmin@Super.com", CountryID=1 };
 

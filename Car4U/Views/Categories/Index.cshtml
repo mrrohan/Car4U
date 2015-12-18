@@ -1,45 +1,97 @@
-﻿@model IEnumerable<Car4U.Models.Category>
+﻿@model Car4U.ViewModels.FleetIndex
+@using Microsoft.AspNet.Identity;
+@using Car4U.DAL;
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+}
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<section class="well">
+    <h2>
+        Categorias
+        <span class="pull-right">
+            @Html.ActionLink(" ", "Create", null, new { @class = "glyphicon glyphicon-plus-sign" })
+        </span>
+    </h2>
+</section>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Warranty)
-        </th>
+        <th></th>
+        <th>Nome</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Warranty)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Categories)
+    {
+        string selectedRow = "";
+        if (item.ID == ViewBag.ID)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow" onclick='window.location.href="/Categories/Index/@item.ID"'>
+            <td>
+                @Html.ActionLink(" ", "Index", new { id = item.ID }, new { @class = "glyphicon glyphicon-hand-right" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <span class="pull-right">
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-wrench" })
+                    @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "glyphicon glyphicon-th-list" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
+                </span>
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div>
+
+    @if (Model.Cars != null)
+    {
+        <section class="well">
+            <h2>
+                SubCategorias
+                <span class="pull-right">
+                    @Html.ActionLink(" ", "Create", "SubCategories", null, new { @class = "glyphicon glyphicon-plus-sign" })
+                </span>
+            </h2>
+        </section>
+
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Cars)
+            {
+                string selectedRow = "";
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.ActionLink(" ", "Index", new { id = item.category.ID, subcatID = item.ID }, new { @class = "glyphicon glyphicon-hand-right" })
+                    </td>
+                    <td>
+                        @item.CarModelID
+                    </td>
+                    <td>
+                        <span class="pull-right">
+                            @Html.ActionLink(" ", "Edit", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-wrench" })
+                            @Html.ActionLink(" ", "Details", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-th-list" })
+                            @Html.ActionLink(" ", "Delete", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
+                        </span>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+</div>

@@ -20,8 +20,7 @@ namespace Car4U.Models
 
 
         public virtual Country Country { get; set; }
-        public virtual ICollection<Reservation> Reservations { get; set; }
-
+        public virtual ICollection<Car> cars { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
