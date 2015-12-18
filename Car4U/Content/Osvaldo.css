@@ -1,5 +1,129 @@
 ﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+.indexLogo{
+
+}
+
+.movingCar{
+    margin-left:600px;
+}
+
+.object {
+    position: absolute;
+}
+.van {
+    top: 45%;
+    left: 44%;
+}
+
+#axis:hover .move-right{
+    transform: translate(550px,0);
+    -webkit-transform: translate(550px,0); /** Chrome & Safari **/
+    -o-transform: translate(550px,0); /** Opera **/
+    -moz-transform: translate(550px,0); /** Firefox **/
+}
+
+#axis:hover .move-right :after{
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.object {
+    position: absolute;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+}
+
+/*Car logo*/
+
+@media(max-width:1280px){
+    .five .shape-container {
+        display:none;
+    }
+    .indexLogo{
+        display:none;
+    }
+    }
+
+.five .shape {
+  animation: five 4s infinite;
+  position: absolute;
+  left: auto;
+  top: auto;
+}
+
+.five .shape-container {
+  animation: five-container 4s infinite ease-in-out;
+  position: center;
+  left: calc(50% - 4em);
+  top: calc(50% - 4em);
+}
+
+@keyframes five {
+  0%, 15% {
+    opacity: 0;
+    transform: translateX(-12em);
+  }
+  15%, 25% {
+    transform: translateX(-12em);
+    opacity: 1;
+  }
+  85%, 90% {
+    transform: translateX(12em);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(12em);
+    opacity: 0;
+  }
+}
+
+@keyframes five-container {
+  0%, 35% {
+    transform: none;
+  }
+  50%, 60% {
+    transform: skewX(20deg);
+  }
+  90%, 100% {
+    transform: none;
+  }
+}
+
+/* General styling */
+
+.principle {
+  width: 100%;
+  height: 100vh;
+  position:center;
+}
+
+.shape {
+  position: absolute;
+  top: calc(50% - 2em);
+  left: calc(50% - 2em);
+}
+/*end Car Logo*/
+
+.home-box{
+    margin-top:20px;
+    float:left;
+}
+
+.input-size-xs{
+    width:150px;
+    
+}
+
+.input-size-xxs{
+    width:100px;   
+}
+
 /*Index moving img*/
 .object {
     position: absolute;
@@ -32,16 +156,157 @@
     -o-transition: all 2s ease-in-out; /** Opera **/
 }
 /**/
-.indexLogo {
-   float:right;
-   margin-right:100px;
-   margin-top:300px;
+/*Button active 3d*/
+button {
+  border: 0;
+  background: #f9bf1d;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 black;
+  color: black;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 12px 20px;
+  transition: all .1s linear;
+  float:right;
+  margin-top:15px;
+}
+button:active {
+  box-shadow: 0 2px 0 black;
+  transform: translateY(3px);
 }
 
+button:hover{
+    background-color: burlywood;
+    color: #f9bf1d;
+}
+/*end Button active 3d*/
+
+/*Image effect Index*/
+@media (max-width:1280px){
+    .card-container{
+        display:none;
+    }
+      
+ }
+.card-container {
+  cursor: pointer;
+  height: 550px;
+  perspective: 600px;
+  position:center;
+  width: 550px;
+  float:right;
+  margin-top:150px;
+  }
+
+.card-container img {
+    width: 450px;
+ }
+
+
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.card:hover {
+  transform: rotateY(180deg);
+}
+.card .side {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card .back {
+  background: none;
+  color: none;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
+  margin-top:100px;
+  margin-left:50px;
+}
+/*end Image effect Index*/
+
+/*Background index slider*/
+.right.carousel-control, .left.carousel-control{
+    display:none;
+}
+
+.carousel { z-index: -99; } /* keeps this behind all content */
+.carousel .item {
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+
+}
+.carousel .one {
+    background: url(car3.jpg);
+    background-size: cover;
+    
+}
+.carousel .two {
+    background: url(car2.jpg);
+    background-size: cover;
+    
+}
+.carousel .three {
+    background: url(car1.png);
+    background-size: cover;
+    
+}
+.carousel .active.left {
+    left:0;
+    opacity:0;
+    z-index:2;
+}
+/* end Background index slider*/
+
+/* Junbotron index*/
 .home-box{
     margin-top:20px;
     float:left;
+    padding-top:10px;
+    padding-bottom:20px;
+    }
+
+@media(max-width: 1280px){
+   
+    .home-box{
+       display: block;
+       clear: both;
+       float: none;
+       margin: 20px auto;
+       width:300px;
+       height:700px;
+       padding-left:10px;
+       padding-right:10px;
+      }
 }
+
+@media(max-width:360px){
+    
+    container{
+        padding:0;
+    }
+
+    col-sm-12{
+        padding:0;
+    }
+   
+}
+
+/* end Junbotron index*/
 
 .input-size-xs{
     width:150px;
@@ -55,9 +320,9 @@
 
 .subButton{
     float:right;
-    background-color:ActiveCaption;
     margin-top:10px;
-
+    background-color:#f9bf1d;
+    color:black;
 }
 
 /*Select disable text*/
@@ -71,7 +336,9 @@ select option{
     color: #555;
     }
 /*Select disable text*/
+
 /*Index Box label*/
+
 .label-box {
 color: black;
 font-weight:unset;
@@ -94,7 +361,7 @@ body {
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
+ /*Set padding to keep content from hitting the edges*/ 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -1283,10 +1550,14 @@ font-family: Arial,sans-serif;
     margin-right: 10px;
     padding-bottom: 20px;
     width: 32.2%;
+    padding-left:5px;
+    
 }
 
 .frota .col-md-4 img {
     text-align: center;
+
+     
 }
 
 /* ==================================================
@@ -1856,3 +2127,420 @@ ul.features li.disabled .unit {
 #parceiro_homepage {
     text-align: center;    
 }
+
+@media (min-width: 980px) and (max-width: 1200px) {
+	
+	#homepage_sub_title {
+	    color: #FFFFFF;
+	    font-size: 32px;
+	    text-shadow: 0 0 5px #000000;
+	    font-family: Arial,sans-serif;
+	}
+
+	nav#menu #menu-nav li {
+	    float: left;
+	    list-style: none outside none;
+	    padding-right: 0px;
+	    position: relative;
+	}
+
+	nav#menu #menu-nav li a {
+	    color: #333333;
+	    display: block;
+	    font-family: Arial,sans-serif;
+	    font-size: 11px;
+	    font-weight: 700;
+	    line-height: 12px;
+	    margin-top: 18px;
+	    padding: 6px;
+	    text-transform: uppercase;
+	}
+
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	#menu {
+		display: none;	
+	}
+	
+	#mobile-nav {
+    	display: block;
+		float: right;
+	}
+	
+	#menu-nav-mobile {
+		margin: 0;
+	}
+	
+	header .main-nav #mobile-nav, header .main-nav.stuck #mobile-nav {
+	    margin-right: 35px;
+	    margin-top: 50px;
+	}
+
+	#homepage_title {
+		display: none;
+	}
+
+	#homepage_sub_title {
+		display: none;
+	}
+
+	#homepage_p {
+		display: none;
+	}
+	
+	.flexslider .slides img {
+	    display: block !important;
+	    min-height: 735px !important;
+	    width: auto !important;
+	}
+
+    .flexslider .slides > li {
+    height: 715px;
+	}
+
+	.news_slider .flexslider .slides li {
+	    height: auto;
+	}
+
+    .news .col-md-4 {
+	    display: none;
+	    margin: 0;
+	}
+
+	.destaque-image-wrap img {
+    	width: 100%;
+	}
+
+	.frota .col-md-4 {
+	    border-bottom: 6px solid #8C393F;
+	    margin-bottom: 40px;
+	    padding-bottom: 20px;
+	   	width: 100%;
+	}
+
+	.news_slider .flexslider .slides img {
+	    display: block !important;
+	    width: 100% !important;
+	    min-height: 100% !important;
+
+	}
+    
+    #parceiro_homepage {
+        text-align: center;
+        display: none;
+    }   
+
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+	#back-to-top {
+		display: none !important;	
+	}
+	
+	#home-slider {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	
+	header .main-nav {
+		position: relative;	
+	}
+	
+	header .main-nav #logo {
+		margin-left: 0;
+	}
+	
+	header .main-nav.stuck #logo {
+		margin-left: 20px;	
+	}
+	
+	header .main-nav #menu {
+		margin-right: 0;
+	}
+	
+	header .main-nav.stuck #mobile-nav {
+		margin-right: 20px;	
+	}
+	
+	#menu {
+		display: none;	
+	}
+	
+	#mobile-nav {
+	    display: block;
+	    float: right;
+	    margin-right: 20px;
+	    margin-top: 50px;
+	}
+	
+	#menu-nav-mobile {
+		margin-left: -20px;
+		margin-bottom: 0;
+	}
+	
+	header .main-nav.stuck #mobile-nav {
+		margin-right: 20px;	
+	}
+	
+	.work-nav {
+		margin-bottom: 30px;	
+	}
+	
+	#homepage_title {
+		display: none;
+	}
+
+	#homepage_sub_title {
+		display: none;
+	}
+
+	#homepage_p {
+		display: none;
+	}
+
+	.flexslider .slides img {
+    display: block !important;
+    min-height: 656px !important;
+    width: auto !important;
+	}
+
+	.page {
+	    background: none repeat scroll 0 0 #333333;
+	    min-height: 80px;
+	    padding-bottom: 30px;
+	    position: relative;
+	}
+
+	.flexslider .slides > li {
+    height: 735px;
+	}
+
+	.news .col-md-4 {
+    display: none;
+    margin: 0;
+	}
+
+	.destaque-image-wrap img {
+    	width: 100%;
+	}
+
+	.frota .col-md-4 {
+	    border-bottom: 6px solid #8C393F;
+	    border-right: 1px dotted #CCCCCC;
+	    margin-bottom: 40px;
+	    padding-bottom: 20px;
+	    width: 100%;
+	}
+
+	.btn-group-justified .btn {
+	    display: table-cell;
+	    float: none;
+	    font-size: 10px;
+	    width: 1%;
+	}
+
+	.booking_steps b {
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin-left: -8px;
+	}
+
+	.booking_steps .first {
+	    background: none;
+	    color: #444444;
+	}
+
+	.news_slider .flexslider .slides img {
+	    display: block !important;
+	    width: 100% !important;
+	    min-height: 100% !important;
+
+	}
+
+	.news_slider .flexslider .slides li {
+	    height: auto;
+	}
+    
+    #parceiro_homepage {
+        text-align: center;
+        display: none;
+    }   
+
+}
+
+@media (max-width: 480px) {
+	#home-slider {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	
+	#home-slider ul#slide-list {
+		display: none;	
+	}
+	
+	header .main-nav {
+		position: relative;	
+	}
+
+	header .main-nav #mobile-nav, header .main-nav.stuck #mobile-nav {
+    	margin-right: 35px;
+   	 margin-top: 50px;
+	}
+	
+	header .main-nav #logo {
+		margin-left: 0;
+	}
+	
+	header .main-nav.stuck #logo {
+		margin-left: 20px;	
+	}
+	
+	header .main-nav #menu {
+		margin-right: 0;
+	}
+	
+	header .main-nav.stuck #menu {
+		margin-right: 20px;	
+	}
+	
+	#menu {
+		display: none;	
+	}
+	
+	#mobile-nav {
+    	display: block;
+		float: right;
+	}
+	
+	#menu-nav-mobile {
+		margin-left: -25px;
+		margin-bottom: 0;
+	}
+	
+	#navigation-mobile li a {
+		font-size: 14px;
+		padding: 12px 0;
+	}
+	
+	header .main-nav.stuck #mobile-nav {
+		margin-right: 20px;	
+	}
+	
+	#homepage_title {
+		display: none;
+	}
+
+	#homepage_sub_title {
+		display: none;
+	}
+
+	#homepage_p {
+		display: none;
+	}
+
+	.flexslider .slides img {
+    	display: block !important;
+    	min-height: 735px !important;
+    	width: auto !important;
+	}
+
+	.flexslider .slides > li {
+    height: 735px;
+	}
+
+	.news_slider .flexslider .slides li {
+	    height: 180px;
+	}
+
+	.page {
+	    background: none repeat scroll 0 0 #333333;
+	    min-height: 80px;
+	    padding-bottom: 30px;
+	    position: relative;
+	}
+
+	.news .col-md-4 {
+    	display: none;
+    	margin: 0;
+	}
+
+	.destaque-image-wrap img {
+    	width: 100%;
+	}
+	
+	.btn-group-justified {
+
+	    display: none;
+	}
+
+	.frota .col-md-4 {
+	    border-bottom: 6px solid #8C393F;
+	    border-right: 1px dotted #CCCCCC;
+	    margin-bottom: 40px;
+	    padding-bottom: 20px;
+	    width: 100%;
+	}
+
+	.news_slider .flexslider .slides img {
+	    display: block !important;
+	    width: 100% !important;
+	    min-height: 100% !important;
+
+	}
+    
+    #parceiro_homepage {
+        text-align: center; 
+        display: none;
+    }   
+	.slides, .flex-control-nav, .flex-direction-nav {
+		margin: 0;
+		padding: 0;
+		display: none;
+		list-style: none;
+	}
+	
+}
+
+@media (max-width: 320px) {
+
+	#navigation-mobile li a {
+		padding: 20px 0;
+	}
+
+	header .main-nav #logo {
+		margin-left: -20px;
+	}
+
+	.news_slider .flexslider .slides img {
+	    display: block !important;
+	    width: 100% !important;
+	    min-height: 100% !important;
+
+	}
+    
+    #parceiro_homepage {
+        text-align: center;  
+        display: none;
+    } 
+
+
+header #logo a {
+	background: url("../img/logo_resp.png") no-repeat scroll 0 0 transparent;
+	width: 220px;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.slides, .flex-control-nav, .flex-direction-nav {
+	margin: 0;
+	padding: 0;
+	display: none;
+	list-style: none;
+}
+
+	
+}
+
