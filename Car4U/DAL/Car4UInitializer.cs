@@ -22,6 +22,13 @@ namespace Car4U.DAL
                 roleManager.Create(new IdentityRole("Admin"));
             }
 
+            var country = new List<Country>
+            {
+                new Country { ID = 1, Name = "Portugal",   },
+            };
+            country.ForEach(s => context.Countries.Add(s));
+            context.SaveChanges();
+
 
             var user = new ApplicationUser { UserName = "SuperAdmin@Super.com", Name = "MasterAdmin", Email = "SuperAdmin@Super.com", CountryID = 1 };
 

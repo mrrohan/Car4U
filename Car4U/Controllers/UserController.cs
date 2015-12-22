@@ -130,5 +130,23 @@ namespace Car4U.Controllers
         {
             return View();
         }
+
+        //
+        //get Follow cars
+        [Authorize]
+        public ActionResult FollowedCars()
+        {
+            ViewBag.Message = "Your contact page.";
+            string userid = User.Identity.GetUserId();
+
+            var currentuser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            //var cars = db.Cars;
+
+            var Cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(x => x.UserID == userid);
+
+            return View(Cars);
+        }
+
     }
 }

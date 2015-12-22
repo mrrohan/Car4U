@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Car4U.DAL;
 using Car4U.Models;
+using Microsoft.AspNet.Identity;
 using System.IO;
 
 namespace Car4U.Controllers
@@ -140,6 +141,36 @@ namespace Car4U.Controllers
             Car car = db.Cars.Find(id);
             db.Cars.Remove(car);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        //
+        // GET: /FollowCar/5
+        [Authorize]
+        public ActionResult FollowCar(int? carModel)
+        {
+            string userid = User.Identity.GetUserId();
+            var currentUser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            if (carModel != null)
+            {
+                int Id = carModel ?? default(int);
+
+                var thisCar = db.Cars.SingleOrDefault(u => u.ID == Id);
+
+                thisCar.UserID = userid;
+                currentUser.cars.Add(thisCar);
+                db.SaveChanges();
+
+                ViewBag.ResultMessage = "A seguir carro com sucesso!";
+            }
+            else
+            {
+                ViewBag.ResultMessage = "Não deu para seguir o carro!";
+            }
+            
+
             return RedirectToAction("Index");
         }
 
