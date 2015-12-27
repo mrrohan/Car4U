@@ -159,7 +159,7 @@ namespace Car4U.Controllers
 
                 var thisCar = db.Cars.SingleOrDefault(u => u.ID == Id);
 
-                thisCar.UserID = userid;
+                //thisCar.UserID = userid;
                 currentUser.cars.Add(thisCar);
                 db.SaveChanges();
 

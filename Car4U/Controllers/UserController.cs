@@ -143,7 +143,7 @@ namespace Car4U.Controllers
 
             //var cars = db.Cars;
 
-            var Cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(x => x.UserID == userid);
+            var Cars = db.Cars.OrderBy(r => r.carModel.Description).Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.users.Select(c => c.Id).Contains(userid));
 
             return View(Cars);
         }
