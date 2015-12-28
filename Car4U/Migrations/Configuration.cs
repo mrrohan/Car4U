@@ -40,7 +40,8 @@ namespace Car4U.Migrations
             var mp = new List<MeetingPoint>
             {
                 new MeetingPoint { ID = 1, Place = "Aeroporto Francisco Sá Carneiro (Porto)" },
-                new MeetingPoint { ID = 2, Place = "Aeroporto da Portela (Lisboa)" }
+                new MeetingPoint { ID = 2, Place = "Aeroporto da Portela (Lisboa)" },
+                new MeetingPoint { ID = 3, Place = "Estação comboio (Aveiro)" }
             };            
             mp.ForEach(s => context.MeetingPoints.AddOrUpdate(p => p.Place, s));
             context.SaveChanges();
@@ -48,7 +49,7 @@ namespace Car4U.Migrations
             var fuel = new List<FuelType>
             {
                 new FuelType { ID = 1, Description = "Diesel" },
-                new FuelType { ID = 2, Description = "Gasoline" }
+                new FuelType { ID = 2, Description = "Gasolina" }
             };
             fuel.ForEach(s => context.FuelTypes.AddOrUpdate(p=> p.Description,s));
             context.SaveChanges();
@@ -91,8 +92,8 @@ namespace Car4U.Migrations
 
             var category = new List<Category>
             {
-                new Category { ID = 1, CategoryName = "Category A", Price = 0, Warranty = 0,  },
-                new Category { ID = 2, CategoryName = "Category B", Price = 0, Warranty = 0,  },
+                new Category { ID = 1, CategoryName = "Category A - Económico", Price = 0, Warranty = 0,  },
+                new Category { ID = 2, CategoryName = "Category B - Familiar", Price = 0, Warranty = 0,  },
             };
             category.ForEach(s => context.Categories.AddOrUpdate(p => p.CategoryName, s));
             context.SaveChanges();

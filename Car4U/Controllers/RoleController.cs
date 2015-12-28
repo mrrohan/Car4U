@@ -17,7 +17,7 @@ using Car4U;
 
 namespace Car4U.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private ApplicationUserManager _userManager;

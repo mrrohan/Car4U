@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ExtraModelsController.cs" />
     <Compile Include="Controllers\ExtraModelTypesController.cs" />
     <Compile Include="Controllers\FuelTypesController.cs" />
+    <Compile Include="Controllers\GearsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeetingPointsController.cs" />
     <Compile Include="Controllers\MomentDeliveriesController.cs" />
@@ -229,6 +230,7 @@
     <Content Include="Content\css\PauloP.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\RicardoOliveira.css" />
+    <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_A_Automatico.jpg" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_A_CDI.jpg" />
@@ -282,7 +284,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -414,6 +418,11 @@
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
     <Content Include="Views\Cars\Index - Copy.cshtml" />
+    <Content Include="Views\Gears\Create.cshtml" />
+    <Content Include="Views\Gears\Delete.cshtml" />
+    <Content Include="Views\Gears\Details.cshtml" />
+    <Content Include="Views\Gears\Edit.cshtml" />
+    <Content Include="Views\Gears\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
