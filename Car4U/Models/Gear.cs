@@ -11,5 +11,6 @@ namespace Car4U.Models
         public string Description { get; set; }
 
         public virtual ICollection<Car> cars { get; set; }
+
     }
 }
