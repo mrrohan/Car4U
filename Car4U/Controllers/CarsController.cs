@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Car4U.DAL;
 using Car4U.Models;
+using Microsoft.AspNet.Identity;
 using System.IO;
 
 namespace Car4U.Controllers
@@ -41,6 +42,7 @@ namespace Car4U.Controllers
         // GET: Cars/Create
         public ActionResult Create()
         {
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description");
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description");
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description");
@@ -52,7 +54,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +76,7 @@ namespace Car4U.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
@@ -140,6 +143,36 @@ namespace Car4U.Controllers
             Car car = db.Cars.Find(id);
             db.Cars.Remove(car);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        //
+        // GET: /FollowCar/5
+        [Authorize]
+        public ActionResult FollowCar(int? carModel)
+        {
+            string userid = User.Identity.GetUserId();
+            var currentUser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            if (carModel != null)
+            {
+                int Id = carModel ?? default(int);
+
+                var thisCar = db.Cars.SingleOrDefault(u => u.ID == Id);
+
+                //thisCar.UserID = userid;
+                currentUser.cars.Add(thisCar);
+                db.SaveChanges();
+
+                ViewBag.ResultMessage = "A seguir carro com sucesso!";
+            }
+            else
+            {
+                ViewBag.ResultMessage = "Não deu para seguir o carro!";
+            }
+            
+
             return RedirectToAction("Index");
         }
 

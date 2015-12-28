@@ -199,6 +199,7 @@
     <Compile Include="Models\FilePath.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FuelType.cs" />
+    <Compile Include="Models\Gear.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ExtraItem.cs" />
     <Compile Include="Models\MeetingPoint.cs" />
@@ -379,6 +380,19 @@
     <Content Include="Views\MeetingPoints\Details.cshtml" />
     <Content Include="Views\MeetingPoints\Edit.cshtml" />
     <Content Include="Views\MeetingPoints\Index.cshtml" />
+    <Content Include="Views\Promotions\Create.cshtml" />
+    <Content Include="Views\Promotions\Delete.cshtml" />
+    <Content Include="Views\Promotions\Details.cshtml" />
+    <Content Include="Views\Promotions\Edit.cshtml" />
+    <Content Include="Views\Promotions\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\User\FollowedCars.cshtml" />
+    <Content Include="Views\Shared\BackOfficePartial.cshtml" />
+    <Content Include="Views\Home\BackOffice.cshtml" />
     <Content Include="Views\MomentDeliveries\Create.cshtml" />
     <Content Include="Views\MomentDeliveries\Delete.cshtml" />
     <Content Include="Views\MomentDeliveries\Details.cshtml" />

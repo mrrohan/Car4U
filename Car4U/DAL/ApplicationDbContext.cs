@@ -32,6 +32,7 @@ namespace Car4U.DAL
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<FilePath> FilePaths { get; set; }
+        public DbSet<FilePath> Gears { get; set; }
        
         public static ApplicationDbContext Create()
         {
