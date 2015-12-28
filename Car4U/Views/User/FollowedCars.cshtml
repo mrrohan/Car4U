@@ -69,7 +69,9 @@
             @Html.DisplayFor(modelItem => item.HorsePower)
         </td>
         <td>
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+           
+            <a id="edit-details" href="~/Cars/Details/@item.ID">Details</a>|
+            @Html.ActionLink("UnfollowCar", "UnfollowCar", new { id = item.ID })
         </td>
     </tr>
 }

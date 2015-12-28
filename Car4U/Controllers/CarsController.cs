@@ -173,7 +173,7 @@ namespace Car4U.Controllers
             }
             
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details/"+carModel);
         }
 
         protected override void Dispose(bool disposing)
