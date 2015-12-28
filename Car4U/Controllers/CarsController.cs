@@ -42,6 +42,7 @@ namespace Car4U.Controllers
         // GET: Cars/Create
         public ActionResult Create()
         {
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description");
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description");
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description");
@@ -53,7 +54,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +76,7 @@ namespace Car4U.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);

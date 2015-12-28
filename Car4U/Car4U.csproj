@@ -199,6 +199,7 @@
     <Compile Include="Models\FilePath.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FuelType.cs" />
+    <Compile Include="Models\Gear.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ExtraItem.cs" />
     <Compile Include="Models\MeetingPoint.cs" />
