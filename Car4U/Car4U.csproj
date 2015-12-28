@@ -206,7 +206,6 @@
     <Compile Include="Models\MomentDelivery.cs" />
     <Compile Include="Models\MomentReturn.cs" />
     <Compile Include="Models\Promotion.cs" />
-    <Compile Include="Models\Promotion_Reservation.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
