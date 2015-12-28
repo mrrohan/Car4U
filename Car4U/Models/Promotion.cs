@@ -12,6 +12,6 @@ namespace Car4U.Models
         public int Percentage { get; set; }
         public int Days { get; set; }
 
-        public virtual ICollection<Promotion_Reservation> Promotion_reservations { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

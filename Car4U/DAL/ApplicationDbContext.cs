@@ -28,7 +28,6 @@ namespace Car4U.DAL
         public DbSet<MomentDelivery> MomentDeliveries { get; set; }
         public DbSet<MomentReturn> MomentReturns { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
-        public DbSet<Promotion_Reservation> Promotion_Reservations { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<FilePath> FilePaths { get; set; }

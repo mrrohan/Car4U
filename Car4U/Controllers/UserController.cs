@@ -148,5 +148,32 @@ namespace Car4U.Controllers
             return View(Cars);
         }
 
+        //
+        // GET: /Unfollowcar
+        public ActionResult UnfollowCar(int? id)
+        {
+            string userid = User.Identity.GetUserId();
+            var currentUser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            if (id != null)
+            {
+                int Id = id ?? default(int);
+
+                var thisCar = db.Cars.SingleOrDefault(u => u.ID == Id);
+
+               
+                currentUser.cars.Remove(thisCar);
+                db.SaveChanges();
+
+                ViewBag.ResultMessage = "Car unfolloed!";
+            }
+            else
+            {
+                ViewBag.ResultMessage = "Operation failed!";
+            }
+
+
+            return RedirectToAction("FollowedCars");
+        }
     }
 }
