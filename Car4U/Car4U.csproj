@@ -379,16 +379,6 @@
     <Content Include="Views\MeetingPoints\Details.cshtml" />
     <Content Include="Views\MeetingPoints\Edit.cshtml" />
     <Content Include="Views\MeetingPoints\Index.cshtml" />
-    <Content Include="Views\MomentDeliveries\Create.cshtml" />
-    <Content Include="Views\MomentDeliveries\Delete.cshtml" />
-    <Content Include="Views\MomentDeliveries\Details.cshtml" />
-    <Content Include="Views\MomentDeliveries\Edit.cshtml" />
-    <Content Include="Views\MomentDeliveries\Index.cshtml" />
-    <Content Include="Views\MomentReturns\Create.cshtml" />
-    <Content Include="Views\MomentReturns\Delete.cshtml" />
-    <Content Include="Views\MomentReturns\Details.cshtml" />
-    <Content Include="Views\MomentReturns\Edit.cshtml" />
-    <Content Include="Views\MomentReturns\Index.cshtml" />
     <Content Include="Views\Promotions\Create.cshtml" />
     <Content Include="Views\Promotions\Delete.cshtml" />
     <Content Include="Views\Promotions\Details.cshtml" />
@@ -400,6 +390,18 @@
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
     <Content Include="Views\User\FollowedCars.cshtml" />
+    <Content Include="Views\Shared\BackOfficePartial.cshtml" />
+    <Content Include="Views\Home\BackOffice.cshtml" />
+    <Content Include="Views\MomentDeliveries\Create.cshtml" />
+    <Content Include="Views\MomentDeliveries\Delete.cshtml" />
+    <Content Include="Views\MomentDeliveries\Details.cshtml" />
+    <Content Include="Views\MomentDeliveries\Edit.cshtml" />
+    <Content Include="Views\MomentDeliveries\Index.cshtml" />
+    <Content Include="Views\MomentReturns\Create.cshtml" />
+    <Content Include="Views\MomentReturns\Delete.cshtml" />
+    <Content Include="Views\MomentReturns\Details.cshtml" />
+    <Content Include="Views\MomentReturns\Edit.cshtml" />
+    <Content Include="Views\MomentReturns\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

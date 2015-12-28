@@ -47,7 +47,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Date,Observation")] MomentDelivery momentDelivery)
+        public ActionResult Create([Bind(Include = "ID,Date,Observation,ReservationID")] MomentDelivery momentDelivery)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Date,Observation")] MomentDelivery momentDelivery)
+        public ActionResult Edit([Bind(Include = "ID,Date,Observation,ReservationID")] MomentDelivery momentDelivery)
         {
             if (ModelState.IsValid)
             {
