@@ -211,6 +211,7 @@
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BrandsIndex.cs" />
     <Compile Include="ViewModels\FleetIndex.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -424,6 +425,7 @@
     <Content Include="Views\Gears\Index.cshtml" />
     <Content Include="Views\Cars\LeavingCars.cshtml" />
     <Content Include="Views\Cars\EnteringCars.cshtml" />
+    <Content Include="Views\Brands\IndexModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
