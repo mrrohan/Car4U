@@ -1,624 +1,87 @@
 ﻿@model IEnumerable<Car4U.Models.Car>
-<!DOCTYPE html>
-
-<h2></h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
 
 @{
     ViewBag.Title = "Index";
 }
 
-<html lang="pt">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.carModel.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fuelType.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LicensePlate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NDoors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NLuggage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Engine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorsePower)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gear.Description)
+        </th>
+        <th></th>
+    </tr>
 
-    <meta name="title" content="Frota ">
-    <meta name="description" content="Aluguer de carros em portugal">
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.carModel.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fuelType.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LicensePlate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegisterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NDoors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLuggage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Engine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorsePower)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gear.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
 
-
-    <!-- Css -->
-    @*<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
-    @*<link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
-    <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
-
-    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
-    @*<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">*@
-
-</head>
-
-<body>
-    <div class="language no-print">
-        <div class="container">
-            <div class="col-md-12">
-                @*idioma - identificado auto pelo idioma do browser*@
-
-                @*<div class="post">
-                    <ul>
-                        <li class="pt"><a href="/pt/"><span style="color:#FFFFFF">PT</span></a></li>
-                        <li class="en"><a href="/en/"><span style="color:#FFFFFF">EN</span></a></li>
-                    </ul>*@
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Category List -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="nav fleet-nav">
-                    <li>
-                        <a href='/Home/frota/'>Todos</a>
-                    </li>
-                    <li>
-                        <a href='/Categories/Index/1'>Económico</a>
-                    </li>
-                    <li>
-                        <a href='/pt/frota/viaturas-compactas-para-alugar/'>Compacto</a>
-                    </li>
-                    <li>
-                        <a href='/pt/frota/automaticos-para-alugar/'>Automático</a>
-                    </li>
-                    <li class="active">
-                        <a href='/pt/frota/viaturas-familiares-para-alugar/'>Familiar</a>
-                    </li>
-                    <li>
-                        <a href='/pt/frota/viaturas-luxo-para-alugar/'>Luxo</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- End Category List -->
-    <!-- Fleet List -->
-    <div class="container">
-        <div class="page-header">
-            <h2>Frota </h2>
-        </div>
-        @foreach (var item in Model)
-        {
-            <div class="frota">
-                <div class="col-md-4">
-                    @*verificar metodo para procurar foto pelo nome do carro com _ *@
-                    <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
-
-                    <br>
-                    <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
-                    <p class="comment"><b></b></p>
-                    <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
-                    <div>
-                        <ul class="features">
-                            <li class="seats" title="Nº de pessoas">4</li>
-                            <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
-                            <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
-                            <li class="manual" title="Caixa de velocidades">Manual</li>
-                            <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
-                            <li class="aircon" title="Ar condicionado">Ar condicionado</li>
-                            <li class="plate" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
-                    </div>
-                    <div class="button">
-                        <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já</button>
-                    </div>
-                </div>
-            </div>
-
-        }
-    </div>
-
-    <!-- End Fleet List -->
-    <!-- Modal -->
-    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="Reserva" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-center">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Reservar</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-danger" style="display: none;" id="alertMessage"></div>
-
-                    <form class="fleet-booking-form" id="bookingForm" method="post" action="/pt/booking-fleet/">
-                        <input type="hidden" id="fleetId" name="fleet_id">
-                        <div class="frota">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="picking_location_id" class="control-label">Local de levantamento</label>
-                                        <select id="picking_location_id" class="form-control" name="picking_location_id" required>
-                                            <option value="">Por favor escolha...</option>
-                                            <option value="1">Lisboa - Aeroporto</option>
-                                            <option value="2">Porto - Aeroporto</option>
-                                            <option value="4">Estação comboio - Aveiro</option>
-                                            <option value="6">Balcão - Oliveira do Bairro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="picking_equals_delivery">
-                                            <input type="checkbox" id="picking_equals_delivery" name="picking_equals_delivery" checked> Local de levantamento igual ao de devolução
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" id="delivery_location_row" style="display: none">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="delivery_location_id" class="control-label">Local de devolução</label>
-                                        <select id="delivery_location_id" class="form-control" name="delivery_location_id" required>
-                                            <option value="">Por favor escolha...</option>
-                                            <option value="1">Lisboa - Aeroporto</option>
-                                            <option value="2">Porto - Aeroporto</option>
-                                            <option value="4">Estação comboio - Aveiro</option>
-                                            <option value="6">Balcão - Oliveira do Bairro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="control-label" for="age">Idade do condutor</label>
-                                        <select id="age" class="form-control" name="age" required>
-                                            <option value="">Por favor escolha...</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21-75" selected>21-75</option>
-                                            <option value="76">76</option>
-                                            <option value="77">77</option>
-                                            <option value="78">78</option>
-                                            <option value="79">79</option>
-                                            <option value="80">80</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" style="display: none;">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <select id="fleet_category_id" class="form-control" name="fleet_category_id">
-                                            <option value="">Todos</option>
-                                            <option value="1">Económico</option>
-                                            <option value="2">Compacto</option>
-                                            <option value="9">Automático</option>
-                                            <option value="3">Familiar</option>
-                                            <option value="11">Luxo</option>
-                                            <option value="5">MiniVan 7 Pax</option>
-                                            <option value="6">MiniBus 9 Pax</option>
-                                            <option value="4">Cabriolet</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="picking_date" class="control-label">Data de levantamento</label>
-                                        <input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>
-
-
-
-                                        <script src="~/Scripts/jquery.min.js"></script>
-                                        <script src="~/Scripts/jquery-ui.min.js"></script>
-                                        <script src="~/Scripts/bootstrap.min.js"></script>
-                                        <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
-                                        <script>
-                                            $("#picking_date").datepicker({
-                                                //changeMonth: true,
-                                                //changeYear: true
-                                            });
-                                        </script>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="picking_hour" class="control-label">Hora</label>
-                                        <select id="picking_hour" class="form-control" name="picking_hour" required>
-                                            <option value="0:00" data-hours="0" data-minutes="0">0:00</option>
-                                            <option value="0:15" data-hours="0" data-minutes="15">0:15</option>
-                                            <option value="0:30" data-hours="0" data-minutes="30">0:30</option>
-                                            <option value="0:45" data-hours="0" data-minutes="45">0:45</option>
-                                            <option value="1:00" data-hours="1" data-minutes="0">1:00</option>
-                                            <option value="1:15" data-hours="1" data-minutes="15">1:15</option>
-                                            <option value="1:30" data-hours="1" data-minutes="30">1:30</option>
-                                            <option value="1:45" data-hours="1" data-minutes="45">1:45</option>
-                                            <option value="2:00" data-hours="2" data-minutes="0">2:00</option>
-                                            <option value="2:15" data-hours="2" data-minutes="15">2:15</option>
-                                            <option value="2:30" data-hours="2" data-minutes="30">2:30</option>
-                                            <option value="2:45" data-hours="2" data-minutes="45">2:45</option>
-                                            <option value="3:00" data-hours="3" data-minutes="0">3:00</option>
-                                            <option value="3:15" data-hours="3" data-minutes="15">3:15</option>
-                                            <option value="3:30" data-hours="3" data-minutes="30">3:30</option>
-                                            <option value="3:45" data-hours="3" data-minutes="45">3:45</option>
-                                            <option value="4:00" data-hours="4" data-minutes="0">4:00</option>
-                                            <option value="4:15" data-hours="4" data-minutes="15">4:15</option>
-                                            <option value="4:30" data-hours="4" data-minutes="30">4:30</option>
-                                            <option value="4:45" data-hours="4" data-minutes="45">4:45</option>
-                                            <option value="5:00" data-hours="5" data-minutes="0">5:00</option>
-                                            <option value="5:15" data-hours="5" data-minutes="15">5:15</option>
-                                            <option value="5:30" data-hours="5" data-minutes="30">5:30</option>
-                                            <option value="5:45" data-hours="5" data-minutes="45">5:45</option>
-                                            <option value="6:00" data-hours="6" data-minutes="0">6:00</option>
-                                            <option value="6:15" data-hours="6" data-minutes="15">6:15</option>
-                                            <option value="6:30" data-hours="6" data-minutes="30">6:30</option>
-                                            <option value="6:45" data-hours="6" data-minutes="45">6:45</option>
-                                            <option value="7:00" data-hours="7" data-minutes="0">7:00</option>
-                                            <option value="7:15" data-hours="7" data-minutes="15">7:15</option>
-                                            <option value="7:30" data-hours="7" data-minutes="30">7:30</option>
-                                            <option value="7:45" data-hours="7" data-minutes="45">7:45</option>
-                                            <option value="8:00" data-hours="8" data-minutes="0">8:00</option>
-                                            <option value="8:15" data-hours="8" data-minutes="15">8:15</option>
-                                            <option value="8:30" data-hours="8" data-minutes="30">8:30</option>
-                                            <option value="8:45" data-hours="8" data-minutes="45">8:45</option>
-                                            <option value="9:00" data-hours="9" data-minutes="0" selected>9:00</option>
-                                            <option value="9:15" data-hours="9" data-minutes="15">9:15</option>
-                                            <option value="9:30" data-hours="9" data-minutes="30">9:30</option>
-                                            <option value="9:45" data-hours="9" data-minutes="45">9:45</option>
-                                            <option value="10:00" data-hours="10" data-minutes="0">10:00</option>
-                                            <option value="10:15" data-hours="10" data-minutes="15">10:15</option>
-                                            <option value="10:30" data-hours="10" data-minutes="30">10:30</option>
-                                            <option value="10:45" data-hours="10" data-minutes="45">10:45</option>
-                                            <option value="11:00" data-hours="11" data-minutes="0">11:00</option>
-                                            <option value="11:15" data-hours="11" data-minutes="15">11:15</option>
-                                            <option value="11:30" data-hours="11" data-minutes="30">11:30</option>
-                                            <option value="11:45" data-hours="11" data-minutes="45">11:45</option>
-                                            <option value="12:00" data-hours="12" data-minutes="0">12:00</option>
-                                            <option value="12:15" data-hours="12" data-minutes="15">12:15</option>
-                                            <option value="12:30" data-hours="12" data-minutes="30">12:30</option>
-                                            <option value="12:45" data-hours="12" data-minutes="45">12:45</option>
-                                            <option value="13:00" data-hours="13" data-minutes="0">13:00</option>
-                                            <option value="13:15" data-hours="13" data-minutes="15">13:15</option>
-                                            <option value="13:30" data-hours="13" data-minutes="30">13:30</option>
-                                            <option value="13:45" data-hours="13" data-minutes="45">13:45</option>
-                                            <option value="14:00" data-hours="14" data-minutes="0">14:00</option>
-                                            <option value="14:15" data-hours="14" data-minutes="15">14:15</option>
-                                            <option value="14:30" data-hours="14" data-minutes="30">14:30</option>
-                                            <option value="14:45" data-hours="14" data-minutes="45">14:45</option>
-                                            <option value="15:00" data-hours="15" data-minutes="0">15:00</option>
-                                            <option value="15:15" data-hours="15" data-minutes="15">15:15</option>
-                                            <option value="15:30" data-hours="15" data-minutes="30">15:30</option>
-                                            <option value="15:45" data-hours="15" data-minutes="45">15:45</option>
-                                            <option value="16:00" data-hours="16" data-minutes="0">16:00</option>
-                                            <option value="16:15" data-hours="16" data-minutes="15">16:15</option>
-                                            <option value="16:30" data-hours="16" data-minutes="30">16:30</option>
-                                            <option value="16:45" data-hours="16" data-minutes="45">16:45</option>
-                                            <option value="17:00" data-hours="17" data-minutes="0">17:00</option>
-                                            <option value="17:15" data-hours="17" data-minutes="15">17:15</option>
-                                            <option value="17:30" data-hours="17" data-minutes="30">17:30</option>
-                                            <option value="17:45" data-hours="17" data-minutes="45">17:45</option>
-                                            <option value="18:00" data-hours="18" data-minutes="0">18:00</option>
-                                            <option value="18:15" data-hours="18" data-minutes="15">18:15</option>
-                                            <option value="18:30" data-hours="18" data-minutes="30">18:30</option>
-                                            <option value="18:45" data-hours="18" data-minutes="45">18:45</option>
-                                            <option value="19:00" data-hours="19" data-minutes="0">19:00</option>
-                                            <option value="19:15" data-hours="19" data-minutes="15">19:15</option>
-                                            <option value="19:30" data-hours="19" data-minutes="30">19:30</option>
-                                            <option value="19:45" data-hours="19" data-minutes="45">19:45</option>
-                                            <option value="20:00" data-hours="20" data-minutes="0">20:00</option>
-                                            <option value="20:15" data-hours="20" data-minutes="15">20:15</option>
-                                            <option value="20:30" data-hours="20" data-minutes="30">20:30</option>
-                                            <option value="20:45" data-hours="20" data-minutes="45">20:45</option>
-                                            <option value="21:00" data-hours="21" data-minutes="0">21:00</option>
-                                            <option value="21:15" data-hours="21" data-minutes="15">21:15</option>
-                                            <option value="21:30" data-hours="21" data-minutes="30">21:30</option>
-                                            <option value="21:45" data-hours="21" data-minutes="45">21:45</option>
-                                            <option value="22:00" data-hours="22" data-minutes="0">22:00</option>
-                                            <option value="22:15" data-hours="22" data-minutes="15">22:15</option>
-                                            <option value="22:30" data-hours="22" data-minutes="30">22:30</option>
-                                            <option value="22:45" data-hours="22" data-minutes="45">22:45</option>
-                                            <option value="23:00" data-hours="23" data-minutes="0">23:00</option>
-                                            <option value="23:15" data-hours="23" data-minutes="15">23:15</option>
-                                            <option value="23:30" data-hours="23" data-minutes="30">23:30</option>
-                                            <option value="23:45" data-hours="23" data-minutes="45">23:45</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="delivery_date" class="control-label">Data de devolução</label>
-                                        <input id="delivery_date" name="delivery_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" disabled required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="delivery_hour" class="control-label">Hora</label>
-                                        <select id="delivery_hour" class="form-control" name="delivery_hour" required disabled>
-                                            <option value="0:00" data-hours="0" data-minutes="0">0:00</option>
-                                            <option value="0:15" data-hours="0" data-minutes="15">0:15</option>
-                                            <option value="0:30" data-hours="0" data-minutes="30">0:30</option>
-                                            <option value="0:45" data-hours="0" data-minutes="45">0:45</option>
-                                            <option value="1:00" data-hours="1" data-minutes="0">1:00</option>
-                                            <option value="1:15" data-hours="1" data-minutes="15">1:15</option>
-                                            <option value="1:30" data-hours="1" data-minutes="30">1:30</option>
-                                            <option value="1:45" data-hours="1" data-minutes="45">1:45</option>
-                                            <option value="2:00" data-hours="2" data-minutes="0">2:00</option>
-                                            <option value="2:15" data-hours="2" data-minutes="15">2:15</option>
-                                            <option value="2:30" data-hours="2" data-minutes="30">2:30</option>
-                                            <option value="2:45" data-hours="2" data-minutes="45">2:45</option>
-                                            <option value="3:00" data-hours="3" data-minutes="0">3:00</option>
-                                            <option value="3:15" data-hours="3" data-minutes="15">3:15</option>
-                                            <option value="3:30" data-hours="3" data-minutes="30">3:30</option>
-                                            <option value="3:45" data-hours="3" data-minutes="45">3:45</option>
-                                            <option value="4:00" data-hours="4" data-minutes="0">4:00</option>
-                                            <option value="4:15" data-hours="4" data-minutes="15">4:15</option>
-                                            <option value="4:30" data-hours="4" data-minutes="30">4:30</option>
-                                            <option value="4:45" data-hours="4" data-minutes="45">4:45</option>
-                                            <option value="5:00" data-hours="5" data-minutes="0">5:00</option>
-                                            <option value="5:15" data-hours="5" data-minutes="15">5:15</option>
-                                            <option value="5:30" data-hours="5" data-minutes="30">5:30</option>
-                                            <option value="5:45" data-hours="5" data-minutes="45">5:45</option>
-                                            <option value="6:00" data-hours="6" data-minutes="0">6:00</option>
-                                            <option value="6:15" data-hours="6" data-minutes="15">6:15</option>
-                                            <option value="6:30" data-hours="6" data-minutes="30">6:30</option>
-                                            <option value="6:45" data-hours="6" data-minutes="45">6:45</option>
-                                            <option value="7:00" data-hours="7" data-minutes="0">7:00</option>
-                                            <option value="7:15" data-hours="7" data-minutes="15">7:15</option>
-                                            <option value="7:30" data-hours="7" data-minutes="30">7:30</option>
-                                            <option value="7:45" data-hours="7" data-minutes="45">7:45</option>
-                                            <option value="8:00" data-hours="8" data-minutes="0">8:00</option>
-                                            <option value="8:15" data-hours="8" data-minutes="15">8:15</option>
-                                            <option value="8:30" data-hours="8" data-minutes="30">8:30</option>
-                                            <option value="8:45" data-hours="8" data-minutes="45">8:45</option>
-                                            <option value="9:00" data-hours="9" data-minutes="0" selected>9:00</option>
-                                            <option value="9:15" data-hours="9" data-minutes="15">9:15</option>
-                                            <option value="9:30" data-hours="9" data-minutes="30">9:30</option>
-                                            <option value="9:45" data-hours="9" data-minutes="45">9:45</option>
-                                            <option value="10:00" data-hours="10" data-minutes="0">10:00</option>
-                                            <option value="10:15" data-hours="10" data-minutes="15">10:15</option>
-                                            <option value="10:30" data-hours="10" data-minutes="30">10:30</option>
-                                            <option value="10:45" data-hours="10" data-minutes="45">10:45</option>
-                                            <option value="11:00" data-hours="11" data-minutes="0">11:00</option>
-                                            <option value="11:15" data-hours="11" data-minutes="15">11:15</option>
-                                            <option value="11:30" data-hours="11" data-minutes="30">11:30</option>
-                                            <option value="11:45" data-hours="11" data-minutes="45">11:45</option>
-                                            <option value="12:00" data-hours="12" data-minutes="0">12:00</option>
-                                            <option value="12:15" data-hours="12" data-minutes="15">12:15</option>
-                                            <option value="12:30" data-hours="12" data-minutes="30">12:30</option>
-                                            <option value="12:45" data-hours="12" data-minutes="45">12:45</option>
-                                            <option value="13:00" data-hours="13" data-minutes="0">13:00</option>
-                                            <option value="13:15" data-hours="13" data-minutes="15">13:15</option>
-                                            <option value="13:30" data-hours="13" data-minutes="30">13:30</option>
-                                            <option value="13:45" data-hours="13" data-minutes="45">13:45</option>
-                                            <option value="14:00" data-hours="14" data-minutes="0">14:00</option>
-                                            <option value="14:15" data-hours="14" data-minutes="15">14:15</option>
-                                            <option value="14:30" data-hours="14" data-minutes="30">14:30</option>
-                                            <option value="14:45" data-hours="14" data-minutes="45">14:45</option>
-                                            <option value="15:00" data-hours="15" data-minutes="0">15:00</option>
-                                            <option value="15:15" data-hours="15" data-minutes="15">15:15</option>
-                                            <option value="15:30" data-hours="15" data-minutes="30">15:30</option>
-                                            <option value="15:45" data-hours="15" data-minutes="45">15:45</option>
-                                            <option value="16:00" data-hours="16" data-minutes="0">16:00</option>
-                                            <option value="16:15" data-hours="16" data-minutes="15">16:15</option>
-                                            <option value="16:30" data-hours="16" data-minutes="30">16:30</option>
-                                            <option value="16:45" data-hours="16" data-minutes="45">16:45</option>
-                                            <option value="17:00" data-hours="17" data-minutes="0">17:00</option>
-                                            <option value="17:15" data-hours="17" data-minutes="15">17:15</option>
-                                            <option value="17:30" data-hours="17" data-minutes="30">17:30</option>
-                                            <option value="17:45" data-hours="17" data-minutes="45">17:45</option>
-                                            <option value="18:00" data-hours="18" data-minutes="0">18:00</option>
-                                            <option value="18:15" data-hours="18" data-minutes="15">18:15</option>
-                                            <option value="18:30" data-hours="18" data-minutes="30">18:30</option>
-                                            <option value="18:45" data-hours="18" data-minutes="45">18:45</option>
-                                            <option value="19:00" data-hours="19" data-minutes="0">19:00</option>
-                                            <option value="19:15" data-hours="19" data-minutes="15">19:15</option>
-                                            <option value="19:30" data-hours="19" data-minutes="30">19:30</option>
-                                            <option value="19:45" data-hours="19" data-minutes="45">19:45</option>
-                                            <option value="20:00" data-hours="20" data-minutes="0">20:00</option>
-                                            <option value="20:15" data-hours="20" data-minutes="15">20:15</option>
-                                            <option value="20:30" data-hours="20" data-minutes="30">20:30</option>
-                                            <option value="20:45" data-hours="20" data-minutes="45">20:45</option>
-                                            <option value="21:00" data-hours="21" data-minutes="0">21:00</option>
-                                            <option value="21:15" data-hours="21" data-minutes="15">21:15</option>
-                                            <option value="21:30" data-hours="21" data-minutes="30">21:30</option>
-                                            <option value="21:45" data-hours="21" data-minutes="45">21:45</option>
-                                            <option value="22:00" data-hours="22" data-minutes="0">22:00</option>
-                                            <option value="22:15" data-hours="22" data-minutes="15">22:15</option>
-                                            <option value="22:30" data-hours="22" data-minutes="30">22:30</option>
-                                            <option value="22:45" data-hours="22" data-minutes="45">22:45</option>
-                                            <option value="23:00" data-hours="23" data-minutes="0">23:00</option>
-                                            <option value="23:15" data-hours="23" data-minutes="15">23:15</option>
-                                            <option value="23:30" data-hours="23" data-minutes="30">23:30</option>
-                                            <option value="23:45" data-hours="23" data-minutes="45">23:45</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row form-error">
-                                <div class="col-md-12 form-error-message">
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6"></div>
-                                <div class="col-md-6">
-                                    <div class="button">
-                                        <button id="bookingFormSubmit" class="submit" type="submit" style="float:right;">Pesquisar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-
-    <hr>
-
-
-    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-        <script type="text/javascript" src="~/Scripts/common.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
-        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
-        <script type="text/javascript" src="~/Scripts/main.js"></script>
-        <script type="text/javascript" src="~/Scripts/slideshow.js"></script>*@
-    <script type="text/javascript">
-        if (jQuery.browser.mozilla) {
-            $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
-        }
-    </script>
-
-
-    <!-- ANALYTICS -->
-
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-38988857-23']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script>
-
-
-
-
-    <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#picking_equals_delivery').click(function () {
-                if ($(this).is(':checked')) {
-                    $('#delivery_location_row').hide();
-                } else {
-                    $('#delivery_location_row').show();
-                }
-            });
-
-            $('#picking_location_id').change(function () {
-                if ($('#picking_equals_delivery').is(':checked')) {
-                    $('#delivery_location_id').val($('#picking_location_id').val());
-                }
-            });
-
-            $('#picking_date').change(function () {
-                $(this).parent().removeClass('has-error');
-            });
-
-            $('#bookingForm').submit(function () {
-                if ($('#picking_date').val() == '' || $('#delivery_date').val() == '') return false;
-
-                var pDate = new Date($('#picking_date').datepicker('getDate').getTime());
-                pDate.setHours($('#picking_hour :selected').data().hours);
-                pDate.setMinutes($('#picking_hour :selected').data().minutes);
-
-                var dDate = new Date($('#delivery_date').datepicker('getDate').getTime());
-                dDate.setHours($('#delivery_hour :selected').data().hours);
-                dDate.setMinutes($('#delivery_hour :selected').data().minutes);
-
-                if (pDate.getTime() >= dDate.getTime()) {
-                    $('.form-error').show().find('.form-error-message').html('Por favor selecione uma data de devolução superior à data de levantamento');
-                    return false;
-                }
-
-                return true;
-            });
-
-            $('#bookingForm').validate({
-                highlight: function (element) {
-                    $(element).closest('.form-group').addClass('has-error');
-                },
-                unhighlight: function (element) {
-                    $(element).closest('.form-group').removeClass('has-error');
-                },
-                errorElement: 'span',
-                errorClass: 'help-block',
-                errorPlacement: function (error, element) {
-                    $('.form-error').show().find('.form-error-message').html('Por favor preencha todos os campos obrigatórios');
-                    return true;
-                }
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var maxBookingDays = 30;
-
-            $('#picking_date').datepicker({
-                dateFormat: 'dd-mm-yy',
-                minDate: 0,
-                onSelect: function () {
-                    var fleetId = $('#fleetId').val();
-                    var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
-                    var endDate = new Date($('button[data-fleet="' + fleetId + '"]').data().endDate);
-                    var minDate = $('#picking_date').datepicker('getDate');
-
-                    if (minDate.getTime() >= startDate.getTime() && minDate.getTime() <= endDate.getTime()) {
-                        $('#alertMessage').html('Não disponível para reserva desde ' + $.datepicker.formatDate('dd-mm-yy', startDate) + ' até ' + $.datepicker.formatDate('dd-mm-yy', endDate) + '.').show();
-                        $('#delivery_date').val('').attr('disabled', 'disabled');
-                        $('#bookingFormSubmit').attr('disabled', 'disabled');
-                    } else {
-                        $('#alertMessage').hide();
-                        $('#delivery_date').datepicker('option', 'minDate', $('#picking_date').datepicker('getDate'));
-                        $('#delivery_date').datepicker('option', 'maxDate', new Date($('#picking_date').datepicker('getDate').getTime() + 1000 * 60 * 60 * 24 * 30));
-                        $('#delivery_date').val('').removeAttr('disabled');
-                        $('#delivery_hour').removeAttr('disabled');
-                        $('#bookingFormSubmit').removeAttr('disabled');
-                    }
-                    $(this).parent().removeClass('has-error');
-                }
-            });
-
-            $('#delivery_date').datepicker({
-                dateFormat: 'dd-mm-yy',
-                onSelect: function () {
-                    $(this).parent().removeClass('has-error');
-                }
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('button[data-target="#formModal"]').click(function () {
-                $('#fleetId').val($(this).data().fleet);
-            });
-
-            $('#bookingForm').submit(function () {
-                var fleetId = $('#fleetId').val();
-                console.log($('button[data-fleet="' + fleetId + '"]'));
-                var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
-                console.log(startDate);
-            });
-        });
-    </script>
-
-
-</body>
-</html>
+</table>

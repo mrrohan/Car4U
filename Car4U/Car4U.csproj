@@ -347,7 +347,7 @@
     <Content Include="Views\Cars\Delete.cshtml" />
     <Content Include="Views\Cars\Details.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
-    <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Cars\Index - Ricardo.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
@@ -416,12 +416,14 @@
     <Content Include="Views\Status\Details.cshtml" />
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
-    <Content Include="Views\Cars\Index - Copy.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
     <Content Include="Views\Gears\Create.cshtml" />
     <Content Include="Views\Gears\Delete.cshtml" />
     <Content Include="Views\Gears\Details.cshtml" />
     <Content Include="Views\Gears\Edit.cshtml" />
     <Content Include="Views\Gears\Index.cshtml" />
+    <Content Include="Views\Cars\LeavingCars.cshtml" />
+    <Content Include="Views\Cars\EnteringCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
