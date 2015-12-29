@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ExtraModelsController.cs" />
     <Compile Include="Controllers\ExtraModelTypesController.cs" />
     <Compile Include="Controllers\FuelTypesController.cs" />
+    <Compile Include="Controllers\GearsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeetingPointsController.cs" />
     <Compile Include="Controllers\MomentDeliveriesController.cs" />
@@ -199,13 +200,13 @@
     <Compile Include="Models\FilePath.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\FuelType.cs" />
+    <Compile Include="Models\Gear.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ExtraItem.cs" />
     <Compile Include="Models\MeetingPoint.cs" />
     <Compile Include="Models\MomentDelivery.cs" />
     <Compile Include="Models\MomentReturn.cs" />
     <Compile Include="Models\Promotion.cs" />
-    <Compile Include="Models\Promotion_Reservation.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +229,7 @@
     <Content Include="Content\css\PauloP.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\RicardoOliveira.css" />
+    <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_A_Automatico.jpg" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_A_CDI.jpg" />
@@ -281,7 +283,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -379,6 +383,19 @@
     <Content Include="Views\MeetingPoints\Details.cshtml" />
     <Content Include="Views\MeetingPoints\Edit.cshtml" />
     <Content Include="Views\MeetingPoints\Index.cshtml" />
+    <Content Include="Views\Promotions\Create.cshtml" />
+    <Content Include="Views\Promotions\Delete.cshtml" />
+    <Content Include="Views\Promotions\Details.cshtml" />
+    <Content Include="Views\Promotions\Edit.cshtml" />
+    <Content Include="Views\Promotions\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\User\FollowedCars.cshtml" />
+    <Content Include="Views\Shared\BackOfficePartial.cshtml" />
+    <Content Include="Views\Home\BackOffice.cshtml" />
     <Content Include="Views\MomentDeliveries\Create.cshtml" />
     <Content Include="Views\MomentDeliveries\Delete.cshtml" />
     <Content Include="Views\MomentDeliveries\Details.cshtml" />
@@ -399,6 +416,12 @@
     <Content Include="Views\Status\Details.cshtml" />
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Cars\Index - Copy.cshtml" />
+    <Content Include="Views\Gears\Create.cshtml" />
+    <Content Include="Views\Gears\Delete.cshtml" />
+    <Content Include="Views\Gears\Details.cshtml" />
+    <Content Include="Views\Gears\Edit.cshtml" />
+    <Content Include="Views\Gears\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

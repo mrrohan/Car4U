@@ -6,7 +6,7 @@
 }
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index"; 
 }
 
 <section class="well">
@@ -77,18 +77,29 @@
                 <tr class="@selectedRow">
                     <td>
                         @Html.ActionLink(" ", "Index", new { id = item.category.ID, subcatID = item.ID }, new { @class = "glyphicon glyphicon-hand-right" })
+
                     </td>
                     <td>
-                        @item.CarModelID
-                    </td>
-                    <td>
-                        <span class="pull-right">
-                            @Html.ActionLink(" ", "Edit", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-wrench" })
-                            @Html.ActionLink(" ", "Details", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-th-list" })
-                            @Html.ActionLink(" ", "Delete", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
-                        </span>
-                    </td>
-                </tr>
+                        @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                    {
+                        
+                        <div>
+                            <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                        </div>
+                    }
+                </td>
+
+                <td>
+                    @item.CarModelID
+                </td>
+                <td>
+                    <span class="pull-right">
+                        @Html.ActionLink(" ", "Edit", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-wrench" })
+                        @Html.ActionLink(" ", "Details", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-th-list" })
+                        @Html.ActionLink(" ", "Delete", "Cars", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })
+                    </span>
+                </td>
+            </tr>
             }
 
         </table>

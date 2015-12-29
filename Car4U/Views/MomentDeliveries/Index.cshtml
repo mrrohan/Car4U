@@ -17,6 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Observation)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationID)
+        </th>
         <th></th>
     </tr>
 
@@ -27,6 +30,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Observation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

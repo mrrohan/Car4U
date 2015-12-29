@@ -31,5 +31,10 @@ namespace Car4U.Controllers
         {
             return View();
         }
+
+        public ActionResult BackOffice()
+        {
+            return View();
+        }
     }
 }

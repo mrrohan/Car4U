@@ -130,5 +130,50 @@ namespace Car4U.Controllers
         {
             return View();
         }
+
+        //
+        //get Follow cars
+        [Authorize]
+        public ActionResult FollowedCars()
+        {
+            ViewBag.Message = "Your contact page.";
+            string userid = User.Identity.GetUserId();
+
+            var currentuser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            //var cars = db.Cars;
+
+            var Cars = db.Cars.OrderBy(r => r.carModel.Description).Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.users.Select(c => c.Id).Contains(userid));
+
+            return View(Cars);
+        }
+
+        //
+        // GET: /Unfollowcar
+        public ActionResult UnfollowCar(int? id)
+        {
+            string userid = User.Identity.GetUserId();
+            var currentUser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            if (id != null)
+            {
+                int Id = id ?? default(int);
+
+                var thisCar = db.Cars.SingleOrDefault(u => u.ID == Id);
+
+               
+                currentUser.cars.Remove(thisCar);
+                db.SaveChanges();
+
+                ViewBag.ResultMessage = "Car unfolloed!";
+            }
+            else
+            {
+                ViewBag.ResultMessage = "Operation failed!";
+            }
+
+
+            return RedirectToAction("FollowedCars");
+        }
     }
 }

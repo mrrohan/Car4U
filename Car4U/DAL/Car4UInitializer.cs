@@ -22,6 +22,54 @@ namespace Car4U.DAL
                 roleManager.Create(new IdentityRole("Admin"));
             }
 
+            var country = new List<Country>
+            {
+                new Country { ID = 1, Name = "Portugal",   },
+            };
+            country.ForEach(s => context.Countries.Add(s));
+            context.SaveChanges();
+
+            var mp = new List<MeetingPoint>
+            {
+                new MeetingPoint { ID = 1, Place = "Aeroporto Francisco Sá Carneiro (Porto)" },
+                new MeetingPoint { ID = 2, Place = "Aeroporto da Portela (Lisboa)" },
+                new MeetingPoint { ID = 3, Place = "Estação Comboios (Aveiro)" }
+
+            };
+            mp.ForEach(s => context.MeetingPoints.Add(s));
+            context.SaveChanges();
+
+            var fuel = new List<FuelType>
+            {
+                new FuelType { ID = 1, Description = "Diesel" },
+                new FuelType { ID = 2, Description = "Gasolina" }
+            };
+            fuel.ForEach(s => context.FuelTypes.Add(s));
+            context.SaveChanges();
+
+            var mtypes = new List<ExtraModelType>
+            {
+                new ExtraModelType {ID = 1, Description = "GPS" },
+                new ExtraModelType {ID = 2, Description = "Car Seat for Baby" }
+            };
+            mtypes.ForEach(s => context.ExtraModelTypes.Add(s));
+            context.SaveChanges();
+
+            var mod = new List<ExtraModel>
+            {
+                new ExtraModel {ID = 1, ExtraModelTypeID = 1,Model="GPS OP", Price = 50, Stock=5 },
+                new ExtraModel {ID = 2, ExtraModelTypeID = 2,Model="Safe Seat", Price = 20, Stock=3 }
+            };
+            mod.ForEach(s => context.ExtraModels.Add(s));
+            context.SaveChanges();
+
+            var item = new List<ExtraItem>
+            {
+                new ExtraItem {ID = 1, ExtraModelID = 1 },
+                new ExtraItem {ID = 1, ExtraModelID = 2 }
+            };
+            item.ForEach(s => context.ExtraItems.Add(s));
+            context.SaveChanges();
 
             var user = new ApplicationUser { UserName = "SuperAdmin@Super.com", Name = "MasterAdmin", Email = "SuperAdmin@Super.com", CountryID = 1 };
 
@@ -38,7 +86,7 @@ namespace Car4U.DAL
             var category = new List<Category>
             {
                 new Category { ID = 1, CategoryName = "Category A", Price = 0, Warranty = 0,  },
-                new Category { ID = 2, CategoryName = "Category b", Price = 0, Warranty = 0,  },
+                new Category { ID = 2, CategoryName = "Category B", Price = 0, Warranty = 0,  },
             };
             category.ForEach(s => context.Categories.Add(s));
             context.SaveChanges();

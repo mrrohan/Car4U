@@ -47,7 +47,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Date,Observation")] MomentReturn momentReturn)
+        public ActionResult Create([Bind(Include = "ID,Date,Observation,ReservationID")] MomentReturn momentReturn)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Date,Observation")] MomentReturn momentReturn)
+        public ActionResult Edit([Bind(Include = "ID,Date,Observation,ReservationID")] MomentReturn momentReturn)
         {
             if (ModelState.IsValid)
             {
