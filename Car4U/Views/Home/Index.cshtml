@@ -2,33 +2,24 @@
     ViewBag.Title = "Home Page";
 }
 
-
-
 <html lang="pt">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
     <meta name="title" content="Frota ">
     <meta name="description" content="Aluguer de carros em portugal">
-
 
     <!-- Css -->
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
-
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
     @*<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">*@
-
 </head>
-
 <body>
-
     @*idioma - identificado auto pelo idioma do browser*@
-
     @*<div class="language no-print">
             <div class="container">
                 <div class="col-md-12">
@@ -42,47 +33,11 @@
             </div>
         </div>*@
 
-
-    <div id="slider">
-        <div class="pattern"></div>
-        <div class="flexslider mainSlider" style="position:absolute; border:none; margin:0; width:100%;">
-            <div style="overflow: hidden;">
-                <ul class="slides">
-                    <li>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-8">
-                                    <a class="banner-text" href="javascript:void(0)" class="nolink">
-                                        <div id="homepage_title"></div>
-                                        <div id="homepage_sub_title"></div>
-                                        <div id="homepage_p"></div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-8">
-                                    <a class="banner-text" href="javascript:void(0)" class="nolink">
-                                        <div id="homepage_title"></div>
-                                        <div id="homepage_sub_title"></div>
-                                        <div id="homepage_p"></div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div id="slider" class="reserveIndex col-md-12 col-sm-12">
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-12">
                     <!-- Search -->
                     <form class="form_hp" id="bookingForm" role="form" method="post" action="/pt/reserva/1/">
                         <legend>Efectuar Reserva</legend>
@@ -101,7 +56,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -111,7 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row" id="delivery_location_row" style="display: none">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -126,7 +79,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -148,7 +100,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -163,14 +114,11 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="picking_date" class="control-label">Data de levantamento</label>
                                         <input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>
-
-
 
                                         <script src="~/Scripts/jquery.min.js"></script>
                                         <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -288,7 +236,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -400,13 +347,10 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row form-error">
                                 <div class="col-md-12 form-error-message">
-
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6">
@@ -419,21 +363,32 @@
                     </form>
                     <!-- End Search -->
                 </div>
+                <div class="col-md-2"></div>
+                @* Animaçao Osvaldo *@
+
+                <div class="col-md-6">
+                    <article class="principle five movingCar">
+                        <div class="shape-container">
+                            <img src="~/images/Car4Ucar.fw.png" class="img-responsiveb shape" />
+                        </div>
+                    </article>
+                    <div class="car4U-text">
+                        <img src="~/images/Car4Utext.fw.png" class="img-responsiveb" />
+                    </div>
+                </div>
+
             </div>
         </div>
+        
     </div>
 
-
-    <hr>
 
     <script type="text/javascript">
         if (jQuery.browser.mozilla) {
             $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
         }
     </script>
-
     <!-- ANALYTICS -->
-
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -447,8 +402,6 @@
         })();
 
     </script>
-
-
 
     <script type="text/javascript" src="/js/jquery.ui.datepicker-pt.js"></script>
     <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
@@ -531,7 +484,6 @@
             });
         });
     </script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('#newsletterForm').submit(function () {
@@ -564,21 +516,7 @@
     </script>
 
 
-    @* Animaçao Osvaldo *@
-    <div id="index-form" class="indexLogo">
-        <img src="/Content/Car4Utext.fw.png" class="img-responsiveb" />
-    </div>
-
-    <article class="principle five movingCar">
-        <div class="shape-container">
-            <img src="~/Content/Car4Ucar.fw.png" class="img-responsiveb shape" />
-        </div>
-    </article>
 
 
 </body>
 </html>
-
-
-
-

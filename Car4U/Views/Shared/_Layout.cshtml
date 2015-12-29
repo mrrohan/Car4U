@@ -50,13 +50,13 @@
             <div class="footer-left">
                 <img src="~/images/Car4ULogo.png" class="footer-img">
 
-                <p class="footer-links">
-                    @*@Html.ActionLink("Fleet", "", "")*@
+                @*<p class="footer-links">
+                    @Html.ActionLink("Fleet", "", "")
                     -
                     @Html.ActionLink("About", "About", "Home")
                     -
                     @Html.ActionLink("Contact", "Contact", "Home")
-                </p>
+                </p>*@
                 <div class="footer-icons">
                     <p>&copy;@DateTime.Now.Year</p>
                     <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
@@ -67,7 +67,9 @@
                 <form action="MAILTO:example@car4u.com" method="post" enctype="text/plain">
                     <input type="text" name="email" placeholder="Email" />
                     <textarea name="message" placeholder="Message"></textarea>
-                    <button>Enviar</button>
+                    <div class="button">
+                        <button id="bookingFormSubmit" class="submit" type="submit">Enviar</button>
+                    </div>
                 </form>
             </div>
         </div>
