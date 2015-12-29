@@ -11,4 +11,7 @@ namespace Car4U.ViewModels
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Car> Cars { get; set; }
     }
+
+
+
 }

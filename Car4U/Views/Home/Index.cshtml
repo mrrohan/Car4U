@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Car4U.Models.MeetingPoint>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -91,10 +93,12 @@
                                         <label for="picking_location_id" class="control-label">Local de levantamento</label>
                                         <select id="picking_location_id" class="form-control" name="picking_location_id" required>
                                             <option value="">Por favor escolha...</option>
-                                            <option value="1">Lisboa - Aeroporto</option>
-                                            <option value="2">Porto - Aeroporto</option>
-                                            <option value="4">Estação comboio - Aveiro</option>
-                                            <option value="6">Balcão - Oliveira do Bairro</option>
+                                            @foreach (var item in Model)
+                                            {
+                                                <option>@Html.DisplayFor(modelItem => item.Place)</option>
+
+                                            }
+
                                         </select>
                                     </div>
                                 </div>
@@ -116,10 +120,11 @@
                                         <label for="delivery_location_id" class="control-label">Local de devolução</label>
                                         <select id="delivery_location_id" class="form-control" name="delivery_location_id" required>
                                             <option value="">Por favor escolha...</option>
-                                            <option value="1">Lisboa - Aeroporto</option>
-                                            <option value="2">Porto - Aeroporto</option>
-                                            <option value="4">Estação comboio - Aveiro</option>
-                                            <option value="6">Balcão - Oliveira do Bairro</option>
+                                            @foreach (var item in Model)
+                                            {
+                                                <option>@Html.DisplayFor(modelItem => item.Place)</option>
+
+                                            }
                                         </select>
                                     </div>
                                 </div>

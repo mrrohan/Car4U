@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" rel="home" href="@Url.Action("Index", "Home")">
+                    <img src="~/images/Car4ULogo.png" class="img-responsive">
+                </a>
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Categorias", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Frota", "Index", "Cars")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            @Html.ActionLink("Office", "BackOffice", "Home")
+                        </li>
+                    }
+                </ul>
+
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <div id="Title" class="sidebar-brand">Car4U - Backoffice</div>
+                </li>
+                <li>
+                    <a id="Brands" href="~/Brands/Index" class="sidebar-brand">Brands</a>
+                </li>
+                <li>
+                    <a id="Cars" href="~/Cars/Index" class="sidebar-brand">Cars</a>
+                </li>
+                <li>
+                    <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">CarModels</a>
+                </li>
+                <li>
+                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">CarStatus</a>
+                </li>
+                <li>
+                    <a id="Categories" href="~/Categories/Index" class="sidebar-brand">Categories</a>
+                </li>
+                <li>
+                    <a id="Countries" href="~/Countries/Index" class="sidebar-brand">Countries</a>
+                </li>
+                <li>
+                    <a id="ExtraModels" href="~/ExtraModels/Index" class="sidebar-brand">ExtraModels</a>
+                </li>
+                <li>
+                    <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">ExtraModelTypes</a>
+                </li>
+                <li>
+                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">FuelTypes</a>
+                </li>
+                <li>
+                    <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">MeetingPoints</a>
+                </li>
+                <li>
+                    <a id="MomentDeliveries" href="~/MomentDeliveries/Index" class="sidebar-brand">MomentDeliveries</a>
+                </li>
+                <li>
+                    <a id="MomentReturns" href="~/MomentReturns/Index" class="sidebar-brand">MomentReturns</a>
+
+                </li>
+                <li>
+                    <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promotions</a>
+                </li>
+                <li>
+                    <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservations</a>
+
+                </li>
+                <li>
+                    <a id="Role" href="~/Role/Index" class="sidebar-brand">Role</a>
+
+                </li>
+                <li>
+                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Status</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="container body-content">
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Esconder Menu</a>
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>

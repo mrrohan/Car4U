@@ -422,6 +422,7 @@
     <Content Include="Views\Gears\Details.cshtml" />
     <Content Include="Views\Gears\Edit.cshtml" />
     <Content Include="Views\Gears\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
