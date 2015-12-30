@@ -1,4 +1,7 @@
 ﻿@model Car4U.Models.Brand
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 
 @{
     ViewBag.Title = "Delete";
@@ -26,7 +29,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Voltar", "Index")
         </div>
     }
 </div>

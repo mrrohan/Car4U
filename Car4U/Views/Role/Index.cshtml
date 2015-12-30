@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
     ViewBag.Title = "Index";
 }
 
@@ -13,7 +16,7 @@
         <p>
             <strong>@role.Name | </strong>
             <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span> |
-            @Html.ActionLink("Edit", "Edit", new { roleName = @role.Name })
+            @Html.ActionLink("Editar", "Edit", new { roleName = @role.Name })
         </p>
     }
 </div>

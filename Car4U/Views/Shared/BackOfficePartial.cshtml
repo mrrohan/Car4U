@@ -104,10 +104,16 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Menu Toggle Script -->
     <script>
-        $("#menu-toggle").click(function (e) {
+        $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
+            toggleB(this); // Chama a funçao toggleB
         });
+
+
+        function toggleB(lnk_obj){
+    lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
+}
     </script>
 </body>
 </html>
