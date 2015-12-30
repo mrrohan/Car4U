@@ -1432,6 +1432,24 @@ ul.features li.disabled .unit {
     border: 0;
 }
 
+.buttonbackoffice .submit {
+    background: none repeat scroll 0 0 #F9BF1D;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 2px 5px;
+    text-align: match-parent;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+    vertical-align: middle;
+    width: auto;
+    border: 0;
+}
+
 .button .comment {
     margin-top: 16px;
     color: red;
@@ -1439,6 +1457,14 @@ ul.features li.disabled .unit {
 }
 
 .button .submit:hover {
+    background: none repeat scroll 0 0 #F9BF1D;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor:pointer;
+    outline:none;
+}
+
+.buttonbackoffice .submit:hover {
     background: none repeat scroll 0 0 #F9BF1D;
     color: #FFFFFF;
     text-decoration: none;
