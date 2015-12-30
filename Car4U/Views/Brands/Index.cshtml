@@ -1,13 +1,21 @@
 ﻿@model IEnumerable<Car4U.Models.Brand>
 
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@{
     ViewBag.Title = "Index";
 }
 
+
+
+
 <h2>Index</h2>
-@Html.Partial("BackOfficePartial")
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("+ Adicionar", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,9 +31,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

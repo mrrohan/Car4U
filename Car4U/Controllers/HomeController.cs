@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Car4U.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,13 @@ namespace Car4U.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
+            //var locais = db.MeetingPoints.ToList();
+            ViewBag.MeetingPointID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
             return View();
         }
 
@@ -36,5 +42,6 @@ namespace Car4U.Controllers
         {
             return View();
         }
+
     }
 }

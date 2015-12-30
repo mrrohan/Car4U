@@ -176,6 +176,24 @@ namespace Car4U.Controllers
             return RedirectToAction("Details/"+carModel);
         }
 
+        // GET: Cars that are leaving
+        public ActionResult LeavingCars()
+        {
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today));
+            return View(cars.ToList());
+        }
+
+        // GET: Cars that are entering
+        public ActionResult EnteringCars()
+        {
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.FinishDate).Contains(today));
+            return View(cars.ToList());
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

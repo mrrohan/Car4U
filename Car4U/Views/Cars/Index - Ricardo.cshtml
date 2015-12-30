@@ -1,7 +1,15 @@
-﻿@model IEnumerable<Car4U.Models.MeetingPoint>
+﻿@model IEnumerable<Car4U.Models.Car>
+<!DOCTYPE html>
+
+<h2></h2>
+
+<p>
+    @Html.ActionLink("+ Adicionar", "Create")
+</p>
+
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Index";
 }
 
 <html lang="pt">
@@ -9,50 +17,136 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
     <meta name="title" content="Frota ">
     <meta name="description" content="Aluguer de carros em portugal">
+
 
     <!-- Css -->
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
     @*<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">*@
+
 </head>
+
 <body>
-    @*idioma - identificado auto pelo idioma do browser*@
-    @*<div class="language no-print">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="post">
-                        <ul>
-                            <li class="pt"><a href="/pt/"><span style="color:#FFFFFF">PT</span></a></li>
-                            <li class="en"><a href="/en/"><span style="color:#FFFFFF">EN</span></a></li>
+    <div class="language no-print">
+        <div class="container">
+            <div class="col-md-12">
+                @*idioma - identificado auto pelo idioma do browser*@
+
+                @*<div class="post">
+                    <ul>
+                        <li class="pt"><a href="/pt/"><span style="color:#FFFFFF">PT</span></a></li>
+                        <li class="en"><a href="/en/"><span style="color:#FFFFFF">EN</span></a></li>
+                    </ul>*@
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Category List -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav fleet-nav">
+                    <li>
+                        <a href='/Home/frota/'>Todos</a>
+                    </li>
+                    <li>
+                        <a href='/Categories/Index/1'>Económico</a>
+                    </li>
+                    <li>
+                        <a href='/pt/frota/viaturas-compactas-para-alugar/'>Compacto</a>
+                    </li>
+                    <li>
+                        <a href='/pt/frota/automaticos-para-alugar/'>Automático</a>
+                    </li>
+                    <li class="active">
+                        <a href='/pt/frota/viaturas-familiares-para-alugar/'>Familiar</a>
+                    </li>
+                    <li>
+                        <a href='/pt/frota/viaturas-luxo-para-alugar/'>Luxo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Category List -->
+    <!-- Fleet List -->
+    <div class="container">
+        <div class="page-header">
+            <h2>Frota </h2>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="frota">
+                <div class="col-md-4">
+                    @*verificar metodo para procurar foto pelo nome do carro com _ *@
+                    <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+
+                    <br>
+                    <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                    <p class="comment"><b></b></p>
+                    <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
+                    <div>
+                        <ul class="features">
+                            <li class="seats" title="Nº de pessoas">4</li>
+                            <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
+                            <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
+                            <li class="manual" title="Caixa de velocidades">Manual</li>
+                            <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
+                            <li class="aircon" title="Ar condicionado">Ar condicionado</li>
+                            <li class="plate" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
                         </ul>
+                    </div>
+                    <div>
+                        <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
+                    </div>
+                    <div class="button">
+                        <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já</button>
                     </div>
                 </div>
             </div>
-        </div>*@
 
-    <div id="slider" class="reserveIndex col-md-12 col-sm-12">
+        }
+    </div>
 
-                        <div class="container">
-                            <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <!-- Search -->
-                    <form class="form_hp" id="bookingForm" role="form" method="post" action="/pt/reserva/1/">
-                        <legend>Efectuar Reserva</legend>
+    <!-- End Fleet List -->
+    <!-- Modal -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="Reserva" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Reservar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger" style="display: none;" id="alertMessage"></div>
+
+                    <form class="fleet-booking-form" id="bookingForm" method="post" action="/pt/booking-fleet/">
+                        <input type="hidden" id="fleetId" name="fleet_id">
                         <div class="frota">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="picking_location_id" class="control-label">Local de levantamento</label>
-                                        <div id="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
-
+                                        <select id="picking_location_id" class="form-control" name="picking_location_id" required>
+                                            <option value="">Por favor escolha...</option>
+                                            <option value="1">Lisboa - Aeroporto</option>
+                                            <option value="2">Porto - Aeroporto</option>
+                                            <option value="4">Estação comboio - Aveiro</option>
+                                            <option value="6">Balcão - Oliveira do Bairro</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -62,14 +156,22 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row" id="delivery_location_row" style="display: none">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="delivery_location_id" class="control-label">Local de devolução</label>
-                                        <div id="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <select id="delivery_location_id" class="form-control" name="delivery_location_id" required>
+                                            <option value="">Por favor escolha...</option>
+                                            <option value="1">Lisboa - Aeroporto</option>
+                                            <option value="2">Porto - Aeroporto</option>
+                                            <option value="4">Estação comboio - Aveiro</option>
+                                            <option value="6">Balcão - Oliveira do Bairro</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -79,9 +181,7 @@
                                             <option value="18">18</option>
                                             <option value="19">19</option>
                                             <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23-75" selected>23-75</option>
+                                            <option value="21-75" selected>21-75</option>
                                             <option value="76">76</option>
                                             <option value="77">77</option>
                                             <option value="78">78</option>
@@ -91,19 +191,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+
+                            <div class="row" style="display: none;">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <div id="fleet_category_id" required>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <select id="fleet_category_id" class="form-control" name="fleet_category_id">
+                                            <option value="">Todos</option>
+                                            <option value="1">Económico</option>
+                                            <option value="2">Compacto</option>
+                                            <option value="9">Automático</option>
+                                            <option value="3">Familiar</option>
+                                            <option value="11">Luxo</option>
+                                            <option value="5">MiniVan 7 Pax</option>
+                                            <option value="6">MiniBus 9 Pax</option>
+                                            <option value="4">Cabriolet</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="picking_date" class="control-label">Data de levantamento</label>
                                         <input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>
+
+
 
                                         <script src="~/Scripts/jquery.min.js"></script>
                                         <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -221,6 +335,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -332,10 +447,13 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row form-error">
                                 <div class="col-md-12 form-error-message">
+
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6">
@@ -346,34 +464,34 @@
                             </div>
                         </div>
                     </form>
-                    <!-- End Search -->
                 </div>
-                <div class="col-md-2"></div>
-                @* Animaçao Osvaldo *@
-
-                <div class="col-md-6">
-                    <article class="principle five movingCar">
-                        <div class="shape-container">
-                            <img src="~/images/Car4Ucar.fw.png" class="img-responsiveb shape" />
-                        </div>
-                    </article>
-                    <div class="car4U-text">
-                        <img src="~/images/Car4Utext.fw.png" class="img-responsiveb" />
-                    </div>
-            </div>
-
-        </div>
-    </div>
-
-    </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
+    <hr>
+
+
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript" src="~/Scripts/common.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+        <script type="text/javascript" src="~/Scripts/slideshow.js"></script>*@
     <script type="text/javascript">
         if (jQuery.browser.mozilla) {
             $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
         }
     </script>
+
+
     <!-- ANALYTICS -->
+
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -388,8 +506,10 @@
 
     </script>
 
-    <script type="text/javascript" src="/js/jquery.ui.datepicker-pt.js"></script>
-    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
+
+
+
+    <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#picking_equals_delivery').click(function () {
@@ -445,6 +565,7 @@
             });
         });
     </script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             var maxBookingDays = 30;
@@ -453,10 +574,23 @@
                 dateFormat: 'dd-mm-yy',
                 minDate: 0,
                 onSelect: function () {
-                    $('#delivery_date').datepicker('option', 'minDate', $('#picking_date').datepicker('getDate'));
-                    $('#delivery_date').datepicker('option', 'maxDate', new Date($('#picking_date').datepicker('getDate').getTime() + 1000 * 60 * 60 * 24 * 30));
-                    $('#delivery_date').val('').removeAttr('disabled');
-                    $('#delivery_hour').removeAttr('disabled');
+                    var fleetId = $('#fleetId').val();
+                    var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
+                    var endDate = new Date($('button[data-fleet="' + fleetId + '"]').data().endDate);
+                    var minDate = $('#picking_date').datepicker('getDate');
+
+                    if (minDate.getTime() >= startDate.getTime() && minDate.getTime() <= endDate.getTime()) {
+                        $('#alertMessage').html('Não disponível para reserva desde ' + $.datepicker.formatDate('dd-mm-yy', startDate) + ' até ' + $.datepicker.formatDate('dd-mm-yy', endDate) + '.').show();
+                        $('#delivery_date').val('').attr('disabled', 'disabled');
+                        $('#bookingFormSubmit').attr('disabled', 'disabled');
+                    } else {
+                        $('#alertMessage').hide();
+                        $('#delivery_date').datepicker('option', 'minDate', $('#picking_date').datepicker('getDate'));
+                        $('#delivery_date').datepicker('option', 'maxDate', new Date($('#picking_date').datepicker('getDate').getTime() + 1000 * 60 * 60 * 24 * 30));
+                        $('#delivery_date').val('').removeAttr('disabled');
+                        $('#delivery_hour').removeAttr('disabled');
+                        $('#bookingFormSubmit').removeAttr('disabled');
+                    }
                     $(this).parent().removeClass('has-error');
                 }
             });
@@ -469,38 +603,21 @@
             });
         });
     </script>
+
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#newsletterForm').submit(function () {
-                if ($('#newsletter').val() == '') {
-                    $('#newsletterErrorModal').modal('toggle');
-                } else {
-                    $('#newsletterForm').ajaxSubmit({
-                        success: function (response) {
-                            if (response.success) {
-                                $('#newsletterModal').modal('toggle');
-                            }
-                        },
-                        dataType: 'json'
-                    });
-                }
-                return false;
+            $('button[data-target="#formModal"]').click(function () {
+                $('#fleetId').val($(this).data().fleet);
             });
 
-            $(window).load(function () {
-                var slideIndex = 1;
-                var slideStep = 1;
-
-                $('.flexslider').flexslider({
-                    slideshowSpeed: 6000,
-                    controlNav: false,
-                    directionNav: true
-                });
+            $('#bookingForm').submit(function () {
+                var fleetId = $('#fleetId').val();
+                console.log($('button[data-fleet="' + fleetId + '"]'));
+                var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
+                console.log(startDate);
             });
         });
     </script>
-
-
 
 
 </body>

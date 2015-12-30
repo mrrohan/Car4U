@@ -6,8 +6,15 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
+        @{
+        var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+        var displayNameClaim = claimsIdentity != null
+            ? claimsIdentity.Claims.SingleOrDefault(x => x.Type == Car4U.Models.ApplicationUser.NameClaimType)
+            : null;
+        var nameToDisplay = displayNameClaim == null ? User.Identity.Name : displayNameClaim.Value;
+        }
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Details", "User", routeValues: null, htmlAttributes: new { title = "Details" })
+            @Html.ActionLink("Hello " + nameToDisplay + "!", "Details", "User", routeValues: null, htmlAttributes: new { title = "Details" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>

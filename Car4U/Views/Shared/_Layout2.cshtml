@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Car4U - Backoffice</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -17,14 +17,58 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" rel="home" href="@Url.Action("Index", "Home")">
+                    <img src="~/images/Car4ULogo.png" class="img-responsive">
+                </a>
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Categorias", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Frota", "Index", "Cars")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            @Html.ActionLink("Office", "BackOffice", "Home")
+                        </li>
+                    }
+                </ul>
+
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <div id="Title" class="sidebar-brand">Car4U - Backoffice</div>                    
+                    <div id="Title" class="sidebar-brand">Car4U - Backoffice</div>
                 </li>
                 <li>
                     <a id="Brands" href="~/Brands/Index" class="sidebar-brand">Brands</a>
@@ -77,8 +121,12 @@
                 <li>
                     <a id="Status" href="~/Status/Index" class="sidebar-brand">Status</a>
                 </li>
-
-
+                <li>
+                    <a id="Role" href="~/Cars/LeavingCars" class="sidebar-brand">Leaving Cars</a>
+                </li>
+                <li>
+                    <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entering Cars</a>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -87,10 +135,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <div class="container body-content">
+                            <div class="buttonbackoffice">
+                                <a href="#menu-toggle" class="btn btn-default submit" id="menu-toggle">Esconder Menu</a>
+                            </div>
+                            @RenderBody()
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,16 +154,21 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Menu Toggle Script -->
     <script>
-        $("#menu-toggle").click(function(e) {
+        $("#menu-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
             toggleB(this); // Chama a funçao toggleB
         });
 
 
-        function toggleB(lnk_obj){
-    lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
-}
+        //        function toggleB(lnk_obj){
+        //    lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
+        //}
+
+        function toggleB(lnk_obj) {
+            lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? 'Esconder Menu' : 'Mostra Menu';
+        }
+
     </script>
 </body>
 </html>
