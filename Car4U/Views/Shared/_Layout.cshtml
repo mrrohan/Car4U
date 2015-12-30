@@ -69,9 +69,11 @@
         @RenderBody()
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    <!-- Estava criar conflito com os Scripts carregados-->
+
+    @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)*@
 
     <!--Footer beggining-->
 
