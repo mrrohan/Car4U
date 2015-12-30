@@ -91,15 +91,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="picking_location_id" class="control-label">Local de levantamento</label>
-                                        <select id="picking_location_id" class="form-control" name="picking_location_id" required>
-                                            <option value="">Por favor escolha...</option>
-                                            @foreach (var item in Model)
-                                            {
-                                                <option>@Html.DisplayFor(modelItem => item.Place)</option>
+                                        <div id="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
 
-                                            }
-
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -118,14 +111,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="delivery_location_id" class="control-label">Local de devolução</label>
-                                        <select id="delivery_location_id" class="form-control" name="delivery_location_id" required>
-                                            <option value="">Por favor escolha...</option>
-                                            @foreach (var item in Model)
-                                            {
-                                                <option>@Html.DisplayFor(modelItem => item.Place)</option>
-
-                                            }
-                                        </select>
+                                        <div id="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
                                     </div>
                                 </div>
                             </div>
@@ -156,13 +142,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <select id="fleet_category_id" class="form-control" name="fleet_category_id">
-                                            <option value="">Todos</option>
-                                            <option value="1">Económico</option>
-                                            <option value="2">Compacto</option>
-                                            <option value="9">Automático</option>
-                                            <option value="3">Familiar</option>
-                                        </select>
+                                        <div id="fleet_category_id" required>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
                                     </div>
                                 </div>
                             </div>

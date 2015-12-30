@@ -13,9 +13,10 @@ namespace Car4U.Controllers
 
         public ActionResult Index()
         {
-            var locais = db.MeetingPoints.ToList();
-
-            return View(locais);
+            //var locais = db.MeetingPoints.ToList();
+            ViewBag.MeetingPointID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
+            return View();
         }
 
         public ActionResult About()
