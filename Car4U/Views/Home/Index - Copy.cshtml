@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Car4U.Models.MeetingPoint>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -8,20 +9,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
     <meta name="title" content="Frota ">
     <meta name="description" content="Aluguer de carros em portugal">
+
 
     <!-- Css -->
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
     @*<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">*@
 
 </head>
+
 <body>
+
     @*idioma - identificado auto pelo idioma do browser*@
+
     @*<div class="language no-print">
             <div class="container">
                 <div class="col-md-12">
@@ -35,8 +42,13 @@
             </div>
         </div>*@
 
-    <div id="slider" class="reserveIndex col-md-12 col-sm-12">
 
+    <div id="slider">
+        <div class="pattern"></div>
+        <div class="flexslider mainSlider" style="position:absolute; border:none; margin:0; width:100%;">
+            <div style="overflow: hidden;">
+                <ul class="slides">
+                    <li>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4"></div>
@@ -72,15 +84,14 @@
             <div class="row">
                 <div class="col-md-4">
                     <!-- Search -->
-                    <form class="form_hp" id="bookingForm" role="form" method="post">
+                    <form class="form_hp" id="bookingForm" role="form" method="post" action="/pt/reserva/1/">
                         <legend>Efectuar Reserva</legend>
                         <div class="frota">
                             <div class="row">
-
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="picking_location_id" class="control-label">Local de levantamento</label>
-                                        <div id="picking_location_id" name="picking_location_id" required="">@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <div id="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
 
                                     </div>
                                 </div>
@@ -95,14 +106,16 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row" id="delivery_location_row" style="display: none">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="delivery_location_id" class="control-label">Local de devolução</label>
-                                        <div id="delivery_location_id" name="delivery_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <div id="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -124,14 +137,16 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <div id="fleet_category_id" name="fleet_category_id">@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <div id="fleet_category_id" required>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -256,6 +271,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -367,10 +383,13 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row form-error">
                                 <div class="col-md-12 form-error-message">
+
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6">
@@ -380,64 +399,42 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- FIM FROTAAAA -->
                     </form>
                     <!-- End Search -->
                 </div>
-                <div class="col-md-2"></div>
-                @* Animaçao Osvaldo *@
-
-                <div class="col-md-6">
-                    <article class="principle five movingCar">
-                        <div class="shape-container">
-                            <img src="~/images/Car4Ucar.fw.png" class="img-responsiveb shape" />
-                        </div>
-                    </article>
-                    <div class="car4U-text">
-                        <img src="~/images/Car4Utext.fw.png" class="img-responsiveb" />
-                    </div>
             </div>
-
         </div>
-
     </div>
 
+
     <hr>
-
-        <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>
-        <script type="text/javascript" src="~/Scripts/common.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
-
-        <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
-        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
-        <script type="text/javascript" src="~/Scripts/main.js"></script>
 
     <script type="text/javascript">
         if (jQuery.browser.mozilla) {
             $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
         }
     </script>
+
     <!-- ANALYTICS -->
+
     <script type="text/javascript">
+
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-38988857-23']);
         _gaq.push(['_trackPageview']);
 
         (function () {
-                var ga = document.createElement('script');
-                ga.type = 'text/javascript';
-                ga.async = true;
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(ga, s);
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+
     </script>
 
 
 
+    <script type="text/javascript" src="/js/jquery.ui.datepicker-pt.js"></script>
+    <script type="text/javascript" src="/js/jquery.flexslider-min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#picking_equals_delivery').click(function () {
@@ -550,7 +547,21 @@
     </script>
 
 
+    @* Animaçao Osvaldo *@
+    <div id="index-form" class="indexLogo">
+        <img src="/Content/Car4Utext.fw.png" class="img-responsiveb" />
+    </div>
+
+    <article class="principle five movingCar">
+        <div class="shape-container">
+            <img src="~/Content/Car4Ucar.fw.png" class="img-responsiveb shape" />
+        </div>
+    </article>
 
 
 </body>
 </html>
+
+
+
+
