@@ -12,6 +12,7 @@ namespace Car4U.Models
         public string Observation { get; set; }
         public string DeliveryPlace {get; set;}
         public string ReturnPlace { get; set; }
+        public bool Outside { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

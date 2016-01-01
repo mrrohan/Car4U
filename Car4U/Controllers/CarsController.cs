@@ -10,6 +10,7 @@ using Car4U.DAL;
 using Car4U.Models;
 using Microsoft.AspNet.Identity;
 using System.IO;
+using Car4U.ViewModels;
 
 namespace Car4U.Controllers
 {
@@ -177,12 +178,62 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars that are leaving
-        public ActionResult LeavingCars()
+        //public ActionResult LeavingCars()
+        //{
+        //    var DateAndTime = DateTime.Now;
+        //    var today = DateAndTime.Date;
+        //    var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
+        //    return View(cars.ToList());
+        //}
+
+        // GET: Leaving Cars Index
+        public ActionResult LeavingCarsIndex(int? id)
         {
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today));
-            return View(cars.ToList());
+            var cars1 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
+            var cars2 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
+
+            var viewModel = new CarStatusIndex();
+
+            viewModel.Cars1 = cars1.ToList();
+            viewModel.Cars2 = cars2.ToList();
+
+            if (id != null)
+            {
+                ViewBag.ID = id;
+            }
+           
+
+            return View(viewModel);
+        }
+
+        //
+        //GET : CarStatus.Outside = true
+        public ActionResult Outside(int? id)
+        {
+            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+
+            carstatustoupdate.Outside = true;
+
+            db.Entry(carstatustoupdate).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("LeavingCarsIndex");
+        }
+
+        //
+        //GET : CarStatus.Outside = false
+        public ActionResult Inside(int? id)
+        {
+            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+
+            carstatustoupdate.Outside = false;
+
+            db.Entry(carstatustoupdate).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("LeavingCarsIndex");
         }
 
         // GET: Cars that are entering
@@ -190,7 +241,7 @@ namespace Car4U.Controllers
         {
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.FinishDate).Contains(today));
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.FinishDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
             return View(cars.ToList());
         }
 

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Car4U.ViewModels
 {
-    public class CarsIndex
+    public class CarStatusIndex
     {
         public IEnumerable<Car> Cars1 { get; set; }
         public IEnumerable<Car> Cars2 { get; set; }
