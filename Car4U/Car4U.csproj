@@ -212,6 +212,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BrandsIndex.cs" />
+    <Compile Include="ViewModels\CarsIndex.cs" />
     <Compile Include="ViewModels\FleetIndex.cs" />
   </ItemGroup>
   <ItemGroup>

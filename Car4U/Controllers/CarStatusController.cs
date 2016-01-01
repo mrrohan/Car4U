@@ -50,7 +50,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Observation,BeginDate,FinishDate,CarID,StatusID")] CarStatus carStatus)
+        public ActionResult Create([Bind(Include = "ID,Observation,DeliveryPlace,ReturnPlace,BeginDate,BeginHour,FinishDate,FinishHour,CarID,StatusID")] CarStatus carStatus)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Observation,BeginDate,FinishDate,CarID,StatusID")] CarStatus carStatus)
+        public ActionResult Edit([Bind(Include = "ID,Observation,DeliveryPlace,ReturnPlace,BeginDate,BeginHour,FinishDate,FinishHour,CarID,StatusID")] CarStatus carStatus)
         {
             if (ModelState.IsValid)
             {
