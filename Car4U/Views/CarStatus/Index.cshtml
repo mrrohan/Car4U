@@ -23,10 +23,22 @@
             @Html.DisplayNameFor(model => model.Observation)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DeliveryPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnPlace)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.BeginDate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.BeginHour)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FinishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishHour)
         </th>
         <th></th>
     </tr>
@@ -43,10 +55,22 @@
             @Html.DisplayFor(modelItem => item.Observation)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.DeliveryPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnPlace)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.BeginDate)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.BeginHour.TimeOfDay)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.FinishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinishHour.TimeOfDay)
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
