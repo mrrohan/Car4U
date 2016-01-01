@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "LeavingCars";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
 }
 
 <h2>LeavingCars</h2>
@@ -15,34 +17,22 @@
             @Html.DisplayNameFor(model => model.CarStatus.FirstOrDefault().Status.Description)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.CarStatus.FirstOrDefault().BeginHour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarStatus.FirstOrDefault().DeliveryPlace)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.carModel.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.category.CategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fuelType.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gear.Description)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.LicensePlate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RegisterDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NDoors)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NLuggage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Engine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorsePower)
         </th>
        
         <th></th>
@@ -53,6 +43,12 @@
         <th>
             @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
         </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.carModel.Description)
         </td>
@@ -60,28 +56,10 @@
             @Html.DisplayFor(modelItem => item.category.CategoryName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fuelType.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gear.Description)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.LicensePlate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RegisterDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NDoors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NLuggage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Engine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorsePower)
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
