@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h3>Reservation</h3>
@@ -74,6 +75,7 @@
                 @Html.DisplayFor(modelItem => item.FinalPrice)
             </td>
             <td>
+                <a id="edit-details" href="~/MomentDeliveries/Details/@item.ID">Begin Moment</a> |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>

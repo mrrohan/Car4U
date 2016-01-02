@@ -31,14 +31,18 @@ namespace Car4U.Controllers
             MomentDelivery momentDelivery = db.MomentDeliveries.Find(id);
             if (momentDelivery == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Create/" + id);
             }
             return View(momentDelivery);
         }
 
         // GET: MomentDeliveries/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
 
@@ -47,13 +51,29 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Date,Observation,ReservationID")] MomentDelivery momentDelivery)
+        public ActionResult Create([Bind(Include = "ID,Date,Observation,ReservationID")] MomentDelivery momentDelivery, int? id)
         {
             if (ModelState.IsValid)
             {
-                db.MomentDeliveries.Add(momentDelivery);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (id != null)
+                {
+                    momentDelivery.ReservationID = id ?? default(int);
+                }
+
+                var reservationid =db.Reservations.Find(momentDelivery.ID);
+                if (reservationid != null)
+                {
+                    momentDelivery.Date = reservationid.DeliveryDate;
+                    db.MomentDeliveries.Add(momentDelivery);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Reservations");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "A DeliveryMoment allready existes for this Reservation");
+                }
+
+            
             }
 
             return View(momentDelivery);
