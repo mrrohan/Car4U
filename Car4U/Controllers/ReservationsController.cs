@@ -35,11 +35,14 @@ namespace Car4U.Controllers
                 return HttpNotFound();
             }
             return View(reservation);
-        }
+        }       
 
         // GET: Reservations/Create
         public ActionResult Create()
-        {
+        {   
+                    
+            ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
+            ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
             ViewBag.MomentDeliveryID = new SelectList(db.MomentDeliveries, "ID", "Observation");
@@ -54,19 +57,49 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID,ExtraItemsID,MomentDeliveryID,MomentReturnID")] Reservation reservation)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels)
         {
             if (ModelState.IsValid)
             {
+                //get model ID from slectedcheckbox and search for the 1st available item of that model and add it to the reservation. 
+                int extid;
+                ExtraItem extritem = new ExtraItem();
+                reservation.ExtraItems = new List<ExtraItem>();
+
+                int s = selectedExtraModels.Count();
+
+                for (int count=0; count<s;count++)
+                {
+                    extid =Convert.ToInt32(selectedExtraModels[count]);
+                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid);
+                    reservation.ExtraItems.Add(extritem);
+                }
+
+
+                //get price and add to FinalPrice from category of car
+                int catid = reservation.CategoryID;
+                Category cat = db.Categories.First(c => c.ID == catid);
+
+                //add price of ExtraItems to FinalPrice
+                foreach (ExtraItem i in reservation.ExtraItems)
+                {
+                    int modelid = i.ExtraModelID;
+                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID==modelid);
+                    reservation.FinalPrice += extrmodel.Price;
+                }
+                var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
+                int ndaysres = span.Days;
+                              
+                reservation.FinalPrice += cat.Price*ndaysres;
+                reservation.ReservationDate = DateTime.Now;
+                               
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+           
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
-            ViewBag.MomentDeliveryID = new SelectList(db.MomentDeliveries, "ID", "Observation", reservation.MomentDeliveryID);
-            ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation", reservation.MomentReturnID);
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
             return View(reservation);
@@ -85,9 +118,7 @@ namespace Car4U.Controllers
                 return HttpNotFound();
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
-            ViewBag.MomentDeliveryID = new SelectList(db.MomentDeliveries, "ID", "Observation", reservation.MomentDeliveryID);
-            ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation", reservation.MomentReturnID);
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
             return View(reservation);
@@ -107,9 +138,7 @@ namespace Car4U.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
-            ViewBag.MomentDeliveryID = new SelectList(db.MomentDeliveries, "ID", "Observation", reservation.MomentDeliveryID);
-            ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation", reservation.MomentReturnID);
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
             return View(reservation);

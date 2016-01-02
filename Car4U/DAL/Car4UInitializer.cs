@@ -85,8 +85,8 @@ namespace Car4U.DAL
 
             var category = new List<Category>
             {
-                new Category { ID = 1, CategoryName = "Category A", Price = 0, Warranty = 0,  },
-                new Category { ID = 2, CategoryName = "Category B", Price = 0, Warranty = 0,  },
+                new Category { ID = 1, CategoryName = "Category A - Económico", Price = 10, Warranty = 0,  },
+                new Category { ID = 2, CategoryName = "Category B - Familiar", Price = 20, Warranty = 0,  },
             };
             category.ForEach(s => context.Categories.Add(s));
             context.SaveChanges();
