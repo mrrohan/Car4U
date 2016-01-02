@@ -28,6 +28,8 @@ namespace Car4U.Controllers
         // GET: Cars
         public ActionResult PublicIndex()
         {
+            ViewBag.MeetingPointID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
             var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear);
             return View(cars.ToList());
         }

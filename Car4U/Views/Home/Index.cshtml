@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
@@ -8,20 +7,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
     <meta name="title" content="Frota ">
     <meta name="description" content="Aluguer de carros em portugal">
 
+
     <!-- Css -->
-    @*<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
-    @*<link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
+    @*
+        <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
+    @*
+        <link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
-    @*<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">*@
+
+    <link rel="stylesheet" href="~/Content/css/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">
 
 </head>
+
 <body>
+
     @*idioma - identificado auto pelo idioma do browser*@
+
     @*<div class="language no-print">
             <div class="container">
                 <div class="col-md-12">
@@ -35,20 +43,9 @@
             </div>
         </div>*@
 
+
     <div id="slider" class="reserveIndex col-md-12 col-sm-12">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-8">
-                    <a class="banner-text" href="javascript:void(0)" class="nolink">
-                        <div id="homepage_title"></div>
-                        <div id="homepage_sub_title"></div>
-                        <div id="homepage_p"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <div class="container">
             <div class="row">
@@ -62,6 +59,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Inicio Reserva -->
+
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -80,6 +80,7 @@
                                 </div>
                             </div>
 
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -89,6 +90,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row" id="delivery_location_row" style="display: none">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -118,6 +120,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -126,24 +129,12 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="picking_date" class="control-label">Data de levantamento</label>
                                         <input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>
-
-
-
-                                        <script src="~/Scripts/jquery.min.js"></script>
-                                        <script src="~/Scripts/jquery-ui.min.js"></script>
-                                        <script src="~/Scripts/bootstrap.min.js"></script>
-                                        <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
-                                        <script>
-                                            $("#picking_date").datepicker({
-                                                //changeMonth: true,
-                                                //changeYear: true
-                                            });
-                                        </script>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -250,6 +241,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -361,10 +353,13 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row form-error">
                                 <div class="col-md-12 form-error-message">
+
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6">
@@ -397,6 +392,10 @@
         </div>
     </div>
 
+
+    <!-- End Reserva -->
+
+
     <hr>
 
     <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -415,7 +414,9 @@
             $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
         }
     </script>
+
     <!-- ANALYTICS -->
+
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-38988857-23']);
@@ -432,6 +433,7 @@
     </script>
 
 
+    <script type="text/javascript" src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -513,39 +515,6 @@
         });
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#newsletterForm').submit(function () {
-                if ($('#newsletter').val() == '') {
-                    $('#newsletterErrorModal').modal('toggle');
-                } else {
-                    $('#newsletterForm').ajaxSubmit({
-                        success: function (response) {
-                            if (response.success) {
-                                $('#newsletterModal').modal('toggle');
-                            }
-                        },
-                        dataType: 'json'
-                    });
-                }
-                return false;
-            });
-
-            $(window).load(function () {
-                var slideIndex = 1;
-                var slideStep = 1;
-
-                $('.flexslider').flexslider({
-                    slideshowSpeed: 6000,
-                    controlNav: false,
-                    directionNav: true
-                });
-            });
-        });
-    </script>
-
-
-
-
 </body>
+
 </html>
