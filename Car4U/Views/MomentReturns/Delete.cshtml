@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h2>Delete</h2>
@@ -42,7 +43,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
+            @Html.ActionLink("Voltar", "Index", "Reservations")
         </div>
     }
 </div>

@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h2>Details</h2>
@@ -38,5 +39,6 @@
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Apagar", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar", "Index", "Reservations")
 </p>

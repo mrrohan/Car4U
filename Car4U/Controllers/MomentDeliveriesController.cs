@@ -28,7 +28,7 @@ namespace Car4U.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MomentDelivery momentDelivery = db.MomentDeliveries.Find(id);
+            MomentDelivery momentDelivery = db.MomentDeliveries.SingleOrDefault(u => u.ReservationID == id);
             if (momentDelivery == null)
             {
                 return RedirectToAction("Create/" + id);
@@ -43,6 +43,12 @@ namespace Car4U.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            MomentDelivery momentDelivery = db.MomentDeliveries.SingleOrDefault(u => u.ReservationID == id);
+            if (momentDelivery != null)
+            {
+                return RedirectToAction("Details/" + id);
+            }
             return View();
         }
 
@@ -55,25 +61,15 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (id != null)
-                {
-                    momentDelivery.ReservationID = id ?? default(int);
-                }
+                    if (id != null)
+                    {
+                        momentDelivery.ReservationID = id ?? default(int);
+                    }
 
-                var reservationid =db.Reservations.Find(momentDelivery.ID);
-                if (reservationid != null)
-                {
-                    momentDelivery.Date = reservationid.DeliveryDate;
+                    momentDelivery.Date = db.Reservations.Find(momentDelivery.ID).DeliveryDate;
                     db.MomentDeliveries.Add(momentDelivery);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Reservations");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "A DeliveryMoment allready existes for this Reservation");
-                }
-
-            
             }
 
             return View(momentDelivery);

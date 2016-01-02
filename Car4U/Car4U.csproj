@@ -393,12 +393,10 @@
     <Content Include="Views\MomentDeliveries\Delete.cshtml" />
     <Content Include="Views\MomentDeliveries\Details.cshtml" />
     <Content Include="Views\MomentDeliveries\Edit.cshtml" />
-    <Content Include="Views\MomentDeliveries\Index.cshtml" />
     <Content Include="Views\MomentReturns\Create.cshtml" />
     <Content Include="Views\MomentReturns\Delete.cshtml" />
     <Content Include="Views\MomentReturns\Details.cshtml" />
     <Content Include="Views\MomentReturns\Edit.cshtml" />
-    <Content Include="Views\MomentReturns\Index.cshtml" />
     <Content Include="Views\Cars\Index - Irritante.cshtml" />
     <Content Include="Views\Gears\Create.cshtml" />
     <Content Include="Views\Gears\Delete.cshtml" />
