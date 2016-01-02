@@ -16,6 +16,13 @@ namespace Car4U.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        // GET: Cars
+        public ActionResult PrivateIndex()
+        {
+            var Cats = db.Categories.OrderBy(i => i.CategoryName);
+            return View(Cats.ToList());
+        }
+
         // GET: Categories
         public ActionResult Index(int? id)
         {
