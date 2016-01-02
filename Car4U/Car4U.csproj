@@ -399,7 +399,7 @@
     <Content Include="Views\MomentReturns\Details.cshtml" />
     <Content Include="Views\MomentReturns\Edit.cshtml" />
     <Content Include="Views\MomentReturns\Index.cshtml" />
-    <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Cars\Index - Irritante.cshtml" />
     <Content Include="Views\Gears\Create.cshtml" />
     <Content Include="Views\Gears\Delete.cshtml" />
     <Content Include="Views\Gears\Details.cshtml" />
@@ -407,7 +407,7 @@
     <Content Include="Views\Gears\Index.cshtml" />
     <Content Include="Views\Cars\EnteringCars.cshtml" />
     <Content Include="Views\Brands\IndexModel.cshtml" />
-    <Content Include="Views\Cars\Index - Copy.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Status\Create.cshtml" />
@@ -421,6 +421,7 @@
     <Content Include="Views\Promotions\Edit.cshtml" />
     <Content Include="Views\Promotions\Index.cshtml" />
     <Content Include="Views\Cars\LeavingCarsIndex.cshtml" />
+    <Content Include="Views\Cars\EditPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

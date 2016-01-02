@@ -28,6 +28,9 @@ namespace Car4U.Controllers
                 viewModel.Cars = viewModel.Categories.FirstOrDefault(c => c.ID == id).Cars;
             }
 
+            ViewBag.MeetingPointID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
+
             return View(viewModel);
         }
 

@@ -28,7 +28,8 @@
             @Html.LabelFor(model => model.RegisterDate, "Data Registo", htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
-                <input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>
+                @Html.EditorFor(model => model.RegisterDate, new { htmlAttributes = new { @id="picking_date", @name="picking_date", @type="text" ,@class="form-control", @placeholder="dd-mm-aaaa" , @autocomplete="off" } })
+                @*<input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>*@
 
                 <script src="~/Scripts/jquery.min.js"></script>
                 <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -40,8 +41,16 @@
                         //changeYear: true
                     });
                 </script>
+                @Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })
+               
+                 @*<div class="form-group">
+                    @Html.LabelFor(model => model.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
+                    </div>*@
+                </div>
 
-            </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.NDoors, "Nº Portas", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -94,7 +103,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GearID, "Caixa", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("GearID", null, "Caixa", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("GearID", null, "-- Caixa --", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.GearID, "", new { @class = "text-danger" })
             </div>
         </div>

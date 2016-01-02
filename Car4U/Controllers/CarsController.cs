@@ -96,6 +96,7 @@ namespace Car4U.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
@@ -107,17 +108,65 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car)
-        {
+        public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car)
+        { 
             if (ModelState.IsValid)
             {
                 db.Entry(car).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
+            return View(car);
+        }
+
+        // GET: Cars/EditPhoto/5
+        public ActionResult EditPhoto(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Car car = db.Cars.Find(id);
+            if (car == null)
+            {
+                return HttpNotFound();
+            }
+            return View(car);
+        }
+
+        // POST: Cars/EditPhoto/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPhoto(HttpPostedFileBase upload, int? id)
+        {
+            Car car = db.Cars.Find(id);
+            if (ModelState.IsValid)
+            {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    if (car.FilePaths.Any(f => f.FileType == FileType.Photo))
+                    {
+                        db.FilePaths.Remove(car.FilePaths.First(f => f.FileType == FileType.Photo));
+                    }
+                    var photo = new FilePath
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Photo
+                    };
+                    car.FilePaths = new List<FilePath>();
+                    car.FilePaths.Add(photo);
+                    upload.SaveAs(Path.Combine(Server.MapPath("~/images"), photo.FileName));
+                }
+                db.Entry(car).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Details/" + id);
+            }
             return View(car);
         }
 
