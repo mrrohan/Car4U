@@ -21,7 +21,14 @@ namespace Car4U.Controllers
         // GET: Cars
         public ActionResult Index()
         {
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType);
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear);
+            return View(cars.ToList());
+        }
+
+        // GET: Cars
+        public ActionResult PublicIndex()
+        {
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear);
             return View(cars.ToList());
         }
 

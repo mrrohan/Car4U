@@ -1,47 +1,21 @@
-﻿@model Car4U.ViewModels.FleetIndex
-@using Microsoft.AspNet.Identity;
-@using Car4U.DAL;
-@{
-    ApplicationDbContext db = new ApplicationDbContext();
-}
+﻿@model IEnumerable<Car4U.Models.Car>
+@using Car4U.Models;
 
 @{
-    ViewBag.Title = "Index"; 
+    ViewBag.Title = "PublicIndex";
 }
 
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav fleet-nav">
-                @foreach (var item in Model.Categories)
-                {
-                    string selectedRow = "";
-                    if (item.ID == ViewBag.ID)
-                    {
-                        selectedRow = "success";
-                    }
-                    <li class="@selectedRow" onclick='window.location.href="/Categories/Index/@item.ID"'>
-                        <a>
-                            @Html.DisplayFor(modelItem => item.CategoryName)
-                        </a>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-</div>
-
+<h2>PublicIndex</h2>
 
 <div>
 
-    @if (Model.Cars != null)
+    @if (Model != null)
     {
         <div class="container">
             <div class="page-header">
-                <h2>Veiculos </h2>
+                <h2>Frota </h2>
             </div>
-            @foreach (var item in Model.Cars)
+            @foreach (var item in Model)
             {
                 <div class="frota">
                     <div class="col-md-4">
@@ -71,6 +45,9 @@
                         <div>
                             <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
                         </div>
+                        <div>
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
+                        </div>
                         <div class="button">
                             <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já</button>
                         </div>
@@ -80,8 +57,7 @@
         </div>
     }
 </div>
-
-    <!-- Modal -->
+  <!-- Modal -->
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="Reserva" aria-hidden="true">
     <div class="modal-dialog modal-dialog-center">
         <div class="modal-content">
@@ -153,7 +129,7 @@
                                     <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
                                     <a required>
                                         @Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control", @id = "fleet_category_id", @name = "fleet_category_id" })
-                                       </a>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -566,4 +542,3 @@
         });
     });
 </script>
-

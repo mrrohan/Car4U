@@ -422,6 +422,7 @@
     <Content Include="Views\Promotions\Index.cshtml" />
     <Content Include="Views\Cars\LeavingCarsIndex.cshtml" />
     <Content Include="Views\Cars\EditPhoto.cshtml" />
+    <Content Include="Views\Cars\PublicIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
