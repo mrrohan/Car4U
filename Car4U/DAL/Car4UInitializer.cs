@@ -71,6 +71,15 @@ namespace Car4U.DAL
             item.ForEach(s => context.ExtraItems.Add(s));
             context.SaveChanges();
 
+            var prom = new List<Promotion>
+            {
+                new Promotion {ID = 1, Description = "Promotion 10%", Percentage=10, Days=10 },
+                new Promotion {ID = 1, Description = "Promotion 15%", Percentage=15, Days=15 },
+                new Promotion {ID = 1, Description = "Promotion 20%", Percentage=20, Days=20  }
+            };
+            prom.ForEach(s => context.Promotions.Add(s));
+            context.SaveChanges();
+
             var user = new ApplicationUser { UserName = "SuperAdmin@Super.com", Name = "MasterAdmin", Email = "SuperAdmin@Super.com", CountryID = 1 };
 
             if (userManager.FindByName("SuperAdmin@Super.com") == null)
