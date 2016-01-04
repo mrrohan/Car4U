@@ -31,16 +31,16 @@
     @*idioma - identificado auto pelo idioma do browser*@
 
     @*<div class="language no-print">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="post">
-                        <ul>
-                            <li class="pt"><a href="/pt/"><span style="color:#FFFFFF">PT</span></a></li>
-                            <li class="en"><a href="/en/"><span style="color:#FFFFFF">EN</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+        <div class="col-md-12">
+        <div class="post">
+        <ul>
+        <li class="pt"><a href="/pt/"><span style="color:#FFFFFF">PT</span></a></li>
+        <li class="en"><a href="/en/"><span style="color:#FFFFFF">EN</span></a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
         </div>*@
 
 
@@ -74,7 +74,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="picking_location_id" class="control-label">Local de levantamento</label>
-                                        <div id="picking_location_id" name="picking_location_id" required="">@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <div id="picking_location_id" name="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control", required = "required" })</div>
 
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="delivery_location_id" class="control-label">Local de devolução</label>
-                                        <div id="delivery_location_id" name="delivery_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <div id="picking_location_id" name="picking_location_id" required>@Html.DropDownList("MeetingPointID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control", required = "required" })</div>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <div id="fleet_category_id" name="fleet_category_id">@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control" })</div>
+                                        <div id="fleet_category_id" name="fleet_category_id">@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @class = "form-control", required = "required"})</div>
                                     </div>
                                 </div>
                             </div>
@@ -392,22 +392,22 @@
         </div>
     </div>
 
-
     <!-- End Reserva -->
-
 
     <hr>
 
-    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>
-    <script type="text/javascript" src="~/Scripts/common.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
 
-    <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
-    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    <!-- coloquei no shared _layout -->
+    @*<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript" src="~/Scripts/common.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+
+        <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>*@
 
     <script type="text/javascript">
         if (jQuery.browser.mozilla) {
