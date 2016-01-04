@@ -26,7 +26,6 @@ namespace Car4U.Controllers
         public ActionResult Index([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info)
         {
     
-            var begindate = info.BeginDate;
 
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info.MPReturnID);

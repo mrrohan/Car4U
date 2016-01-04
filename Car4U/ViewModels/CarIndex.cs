@@ -6,13 +6,9 @@ using System.Web;
 
 namespace Car4U.ViewModels
 {
-    public class FleetIndex
+    public class CarIndex
     {
-        public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Car> Cars { get; set; }
         public InfoSender Infosender { get; set; }
     }
-
-
-
 }

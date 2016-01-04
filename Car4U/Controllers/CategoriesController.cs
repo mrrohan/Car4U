@@ -35,10 +35,27 @@ namespace Car4U.Controllers
                 viewModel.Cars = viewModel.Categories.FirstOrDefault(c => c.ID == id).Cars;
             }
 
-            ViewBag.MeetingPointID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
 
             return View(viewModel);
+        }
+
+        //Post Index
+        [HttpPost]
+        public ActionResult Index([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, FleetIndex info, int? id )
+        {
+
+            if (id != null)
+            {
+                info.Infosender.CategoryID = id ?? default(int);
+            }
+            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
+            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
+            //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
+
+            return RedirectToAction("Teste", "Home", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm") });
         }
 
         // GET: Categories/Details/5
