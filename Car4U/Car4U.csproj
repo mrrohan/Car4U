@@ -426,6 +426,7 @@
     <Content Include="Views\Home\Index - Copy %282%29_osvaldo_ok.cshtml" />
     <Content Include="Views\Categories\PrivateIndex.cshtml" />
     <Content Include="Views\Home\Teste.cshtml" />
+    <Content Include="Views\Role\AllUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

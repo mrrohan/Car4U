@@ -28,7 +28,14 @@ namespace Car4U.Controllers
         }
 
         ApplicationDbContext context = new ApplicationDbContext();
+        //
 
+        // GET: /Roles/
+        public ActionResult AllUsers()
+        {
+            var allUsers = context.Users.ToList();
+            return View(allUsers);
+        }
 
         //
         // GET: /Roles/
