@@ -203,6 +203,7 @@
     <Compile Include="Models\Gear.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ExtraItem.cs" />
+    <Compile Include="Models\InfoSender.cs" />
     <Compile Include="Models\MeetingPoint.cs" />
     <Compile Include="Models\MomentDelivery.cs" />
     <Compile Include="Models\MomentReturn.cs" />
@@ -423,6 +424,7 @@
     <Content Include="Views\Cars\PublicIndex.cshtml" />
     <Content Include="Views\Home\Index - Copy %282%29_osvaldo_ok.cshtml" />
     <Content Include="Views\Categories\PrivateIndex.cshtml" />
+    <Content Include="Views\Home\Teste.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
