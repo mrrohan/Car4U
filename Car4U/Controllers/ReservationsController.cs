@@ -68,9 +68,9 @@ namespace Car4U.Controllers
 
                 int s = selectedExtraModels.Count();
 
-                for (int count=0; count<s;count++)
+                for (int count = 0; count < s; count++)
                 {
-                    extid =Convert.ToInt32(selectedExtraModels[count]);
+                    extid = Convert.ToInt32(selectedExtraModels[count]);
                     extritem = db.ExtraItems.First(e => e.ExtraModelID == extid);
                     reservation.ExtraItems.Add(extritem);
                 }
@@ -84,13 +84,35 @@ namespace Car4U.Controllers
                 foreach (ExtraItem i in reservation.ExtraItems)
                 {
                     int modelid = i.ExtraModelID;
-                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID==modelid);
+                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
                     reservation.FinalPrice += extrmodel.Price;
                 }
                 var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
                 int ndaysres = span.Days;
-                              
-                reservation.FinalPrice += cat.Price*ndaysres;
+
+                //Promotion                
+                int bestpromobydays = 0;
+                try { 
+                    foreach (var p in db.Promotions)
+                    {
+                        if (ndaysres >= p.Days && p.Days >= bestpromobydays)
+                        {
+                            bestpromobydays = p.Days;                   
+                            reservation.Promotion = p;
+                        }
+                    }
+                }
+                catch { }
+
+                if (!(reservation.Promotion == null))
+                {
+                    reservation.FinalPrice += ((cat.Price * (reservation.Promotion.Percentage*0.01)) * ndaysres);
+                    
+                }
+                else {
+                    reservation.FinalPrice += cat.Price * ndaysres;
+                }
+                
                 reservation.ReservationDate = DateTime.Now;
                                
                 db.Reservations.Add(reservation);
