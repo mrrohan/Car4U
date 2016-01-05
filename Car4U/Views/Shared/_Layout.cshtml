@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
-<html>
 <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car4U - @ViewBag.Title</title>
     <link rel="icon" type="image/ico" href="~/Content/Car4U_ico.fw.ico" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
     @*<script src="js/bootstrap.min.js"></script>*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -27,17 +26,24 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="~/Content/css/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Content/css/jquery-ui.min.css">
 
     <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>*@
     <script type="text/javascript" src="~/Scripts/common.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
 
     <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
     <script type="text/javascript" src="~/Scripts/main.js"></script>
+
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+    window.cookieconsent_options = {"message":"Este Website utiliza cookies de modo a obter a melhor experiência possível!","dismiss":"Ok!","learnMore":"Mais informação","link":null,"theme":"dark-top"};
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+    <!-- End Cookie Consent plugin -->
 
 </head>
 
@@ -83,7 +89,6 @@
     </div>
 
     <!-- Estava criar conflito com os Scripts carregados-->
-
     @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)*@

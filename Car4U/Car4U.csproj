@@ -218,6 +218,23 @@
     <Compile Include="ViewModels\FleetIndex.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\animated-overlay.gif" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\jquery-ui.min.css" />
+    <Content Include="Content\css\ajax\libs\jqueryui\1.10.3\jquery-ui.min.js" />
     <Content Include="Content\css\AntonioGonçalves.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -225,6 +242,7 @@
     <Content Include="Content\css\DiogoCosta.css" />
     <Content Include="Content\css\DiogoRamalho.css" />
     <Content Include="Content\css\frota_icons.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
     <Content Include="Content\css\jquery-ui.min.css" />
     <Content Include="Content\css\LuisRicardo.css" />
     <Content Include="Content\css\Maia.css" />

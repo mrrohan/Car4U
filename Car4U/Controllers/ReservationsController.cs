@@ -71,7 +71,10 @@ namespace Car4U.Controllers
                 for (int count = 0; count < s; count++)
                 {
                     extid = Convert.ToInt32(selectedExtraModels[count]);
-                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid);
+                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse==false);
+                    extritem.InUse = true;
+                    //db.Entry(extritem).State = EntityState.Modified;
+                    //db.SaveChanges();
                     reservation.ExtraItems.Add(extritem);
                 }
 

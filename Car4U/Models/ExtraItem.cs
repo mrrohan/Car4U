@@ -8,8 +8,8 @@ namespace Car4U.Models
     public class ExtraItem
     {
         public int ID { get; set; }
-
-
+        public bool InUse  { get; set; }
+        
         public int ExtraModelID { get; set; }
 
 
