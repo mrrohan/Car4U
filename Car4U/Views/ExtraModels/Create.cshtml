@@ -1,22 +1,17 @@
 ﻿@model Car4U.Models.ExtraModel
 
-
 @{
     ViewBag.Title = "Create";
 }
 
+<h2>New Extra Model</h2>
 
-
-<h2>Create</h2>
-
-
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>ExtraModel</h4>
+        <h4>Extra Model</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -26,7 +21,6 @@
                 @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -34,7 +28,6 @@
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Stock, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -42,7 +35,6 @@
                 @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ExtraModelTypeID, "ExtraModelTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -50,19 +42,18 @@
                 @Html.ValidationMessageFor(model => model.ExtraModelTypeID, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="+ Adicionar" class="btn btn-default" />
+                <div class="button">
+                    <button id="bookingFormSubmit" class="submit" type="submit" style="float:left;">Adicionar</button>
+                    <button id="bookingFormSubmit" class="submit" style="float:left" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
+
+
+                </div>
             </div>
         </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
+    </div>}
 
 @*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
