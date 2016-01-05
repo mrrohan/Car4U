@@ -6,11 +6,15 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="button">            
+            <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Create", "ExtraModels")'">Adicionar</button>
+        </div>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
