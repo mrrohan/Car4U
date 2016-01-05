@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h2>Delete</h2>
@@ -27,6 +28,14 @@
             @Html.DisplayFor(model => model.Observation)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservationID)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
@@ -34,7 +43,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Voltar", "Index", "Reservations")
         </div>
     }
 </div>

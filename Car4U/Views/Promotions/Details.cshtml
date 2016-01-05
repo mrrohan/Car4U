@@ -1,4 +1,7 @@
 ﻿@model Car4U.Models.Promotion
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 
 @{
     ViewBag.Title = "Details";
@@ -37,6 +40,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

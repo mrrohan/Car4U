@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h2>Details</h2>
@@ -26,9 +27,18 @@
             @Html.DisplayFor(model => model.Observation)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservationID)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Apagar", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar", "Index", "Reservations")
 </p>

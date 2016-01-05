@@ -1,0 +1,56 @@
+﻿@model Car4U.Models.InfoSender
+
+@{
+    ViewBag.Title = "Teste";
+}
+
+<h2>Teste</h2>
+
+<div>
+    <h4>CarStatus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategoryID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MPDeliveryID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MPDeliveryID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MPReturnID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MPReturnID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BeginDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginHour)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BeginHour)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndHour)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndHour)
+        </dd>
+    </dl>
+</div>

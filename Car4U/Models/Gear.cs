@@ -5,12 +5,12 @@ using System.Web;
 
 namespace Car4U.Models
 {
-    public class Promotion_Reservation
+    public class Gear
     {
         public int ID { get; set; }
+        public string Description { get; set; }
 
+        public virtual ICollection<Car> cars { get; set; }
 
-        public virtual Reservation Reservation { get; set; }
-        public virtual Promotion Promotion { get; set; }
     }
 }

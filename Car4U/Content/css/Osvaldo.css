@@ -1,8 +1,18 @@
 ﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+.reserveIndex {
+    margin-top: 20px;
+    position: relative;
+    z-index: 50;
+    float: left;
+}
+
+.car4U-text {
+}
+
 .principle {
     max-width: 500px;
-    max-height: 500px;
+    max-height: 250px;
 }
 
 .navbar-collapse {
@@ -25,7 +35,6 @@
 }
 
 .movingCar {
-    margin-left: 600px;
 }
 
 .object {
@@ -71,8 +80,25 @@
         display: none;
     }
 
-    .principle {
+    .car4U-text {
+        display: none;
+    }
+
+    /*.principle {
         max-height: 300px;
+    }*/
+    }
+
+@media (max-width: 767px) {
+    /*.inline-div {
+       display: inline;
+   }*/
+    .input-size-xs {
+        float: left;
+}
+
+    .input-size-xxs {
+        float: right;
     }
 }
 
@@ -88,6 +114,7 @@
   position: center;
   left: calc(50% - 4em);
   top: calc(50% - 4em);
+
 }
 
 @keyframes five {
@@ -214,14 +241,23 @@ button:active {
     color: #f9bf1d;
 }
 /*end Button active 3d*/
-
-/*Image effect Index*/
-@media (max-width:1280px){
-    .card-container{
-        display:none;
+.footer-button {
+    /*border: 0;
+    background: #f9bf1d;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 none;
+    color: black;
+    cursor: pointer;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 20px 20px;
+    transition: all .1s linear;
+    float: right;
+    margin-top: 15px;*/
     }
-      
- }
+/*Image effect Index*/
+/*@media (max-width:1280px) {
 .card-container {
         display: none;
     }*/
@@ -229,18 +265,17 @@ button:active {
   cursor: pointer;
     height: 40px;
   perspective: 600px;
-  position:center;
-  width: 550px;
-  float:right;
-  margin-top:150px;
+    position: center;
+    width: 60px;
+    float: right;
+    margin-right: 40px;
   }
-.frontimgNav {
 
+.frontimgNav {
 }
 
 .card-container img {
         width: 80px;
-        
         /*margin-right: 35px;*/
  }
 
@@ -251,8 +286,8 @@ button:active {
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
   width: 100%;
-    float:left;
-    margin-right:70px;
+    float: left;
+    margin-right: 70px;
 }
 
 .card:hover {
@@ -266,22 +301,30 @@ button:active {
   position: absolute;
   overflow: hidden;
         width: 50px;
-        margin-right:70px;
+        margin-right: 70px;
+    }
+
+        .card .side img {
+            height: 40px;
+            width: 80px;
+            margin-top: 5px;
+            margin-right: 70px;
 }
+
 .card .back {
   background: none;
   color: none;
         /*line-height: 10px;*/
   text-align: center;
   transform: rotateY(180deg);
-  margin-top:100px;
-  margin-left:50px;
+        margin-right: 70px;
+        width: 80px;
 }
 
     .card .back img {
-        width:70px;
-        height:40px;
-        margin-top:2px;
+            width: 70px;
+            height: 40px;
+            margin-top: 2px;
     }
 /*end Image effect Index*/
 
@@ -341,10 +384,11 @@ button:active {
        clear: both;
        float: none;
        margin: 20px auto;
-       width:300px;
-       height:700px;
-       padding-left:10px;
-       padding-right:10px;
+        width: 300px;
+        height: 700px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 475px;
       }
 }
 
@@ -447,6 +491,8 @@ textarea {
     max-width: 280px;
 }
 
+
+
 .footer-distributed {
 	background-color: #F8F8F8; 
 	border: 1px solid;
@@ -510,7 +556,11 @@ textarea {
 	margin-top: 40px;
 }
 
-.footer-distributed .footer-icons a{
+        .footer-distributed .footer-icons a:hover {
+            background-color: #3a5795;
+        }
+
+        .footer-distributed .footer-icons a {
 	display: inline-block;
 	width: 35px;
 	height: 35px;
@@ -556,9 +606,8 @@ textarea {
 	font: inherit;
 	font-size: 14px;
 	font-weight: normal;
-	color:  #d1d2d2;
-
-	width: 400px;
+            color: #d1d2d2;
+            width: 250px;
 	padding: 15px;
 }
 
@@ -588,17 +637,14 @@ textarea {
 
     .footer-distributed form button {
 	border-radius: 3px;
-	background-color:  #33383b;
-	color: #ffffff;
+        background: #f9bf1d;
+        color: black;
 	border: 0;
         padding: 7px 20px;
 	font-weight: bold;
 	float: right;
-        text-align:center;
-        height:30px;
-        
-       
-       
+        text-align: center;
+        height: 30px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */

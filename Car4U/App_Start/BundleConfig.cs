@@ -30,7 +30,8 @@ namespace Car4U
                       "~/Content/css/RicardoOliveira.css",
                       "~/Content/css/AntonioGonçalves.css",
                       "~/Content/css/DiogoCosta.css",
-                      "~/Content/css/LuisRicardo.css"));
+                      "~/Content/css/LuisRicardo.css",
+                      "~/Content/css/simple-sidebar.css"));
 
         }
     }

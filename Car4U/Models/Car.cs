@@ -20,6 +20,7 @@ namespace Car4U.Models
         public string HorsePower { get; set; }
 
 
+        public int GearID { get; set; }
         public int CategoryID { get; set; }
         public int FuelTypeID { get; set; }
         public int CarModelID { get; set; }
@@ -32,5 +33,6 @@ namespace Car4U.Models
         public virtual Category category { set; get; }
         public virtual ICollection<ApplicationUser> users { get; set; }
         public virtual ICollection<FilePath> FilePaths { get; set; }
+        public virtual Gear Gear { get; set; }
     }
 }

@@ -28,17 +28,27 @@ namespace Car4U.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MomentReturn momentReturn = db.MomentReturns.Find(id);
+            MomentReturn momentReturn = db.MomentReturns.SingleOrDefault(u => u.ReservationID == id);
             if (momentReturn == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Create/" + id);
             }
             return View(momentReturn);
         }
 
         // GET: MomentReturns/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            MomentReturn momentReturn = db.MomentReturns.SingleOrDefault(u => u.ReservationID == id);
+            if (momentReturn != null)
+            {
+                return RedirectToAction("Details/" + id);
+            }
             return View();
         }
 
@@ -47,13 +57,19 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Date,Observation")] MomentReturn momentReturn)
+        public ActionResult Create([Bind(Include = "ID,Date,Observation,ReservationID")] MomentReturn momentReturn, int? id)
         {
             if (ModelState.IsValid)
             {
-                db.MomentReturns.Add(momentReturn);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    if (id != null)
+                    {
+                        momentReturn.ReservationID = id ?? default(int);
+                    }
+
+                    momentReturn.Date = db.Reservations.Find(momentReturn.ID).ReturnDate;
+                    db.MomentReturns.Add(momentReturn);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Reservations");
             }
 
             return View(momentReturn);
@@ -79,7 +95,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Date,Observation")] MomentReturn momentReturn)
+        public ActionResult Edit([Bind(Include = "ID,Date,Observation,ReservationID")] MomentReturn momentReturn)
         {
             if (ModelState.IsValid)
             {

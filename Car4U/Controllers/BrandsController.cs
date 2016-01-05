@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Car4U.DAL;
 using Car4U.Models;
+using Car4U.ViewModels;
 
 namespace Car4U.Controllers
 {
@@ -19,6 +20,21 @@ namespace Car4U.Controllers
         public ActionResult Index()
         {
             return View(db.Brands.ToList());
+        }
+
+        // GET: Categories
+        public ActionResult IndexModel(int? id)
+        {
+            var viewModel = new BrandsIndex();
+            viewModel.Brands = db.Brands.OrderBy(i => i.Description);
+
+            if (id != null)
+            {
+                ViewBag.ID = id.Value;
+                viewModel.CarModels = viewModel.Brands.FirstOrDefault(c => c.ID == id).carModel;
+            }
+
+            return View(viewModel);
         }
 
         // GET: Brands/Details/5

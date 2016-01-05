@@ -10,6 +10,7 @@ using Car4U.DAL;
 using Car4U.Models;
 using Microsoft.AspNet.Identity;
 using System.IO;
+using Car4U.ViewModels;
 
 namespace Car4U.Controllers
 {
@@ -20,8 +21,38 @@ namespace Car4U.Controllers
         // GET: Cars
         public ActionResult Index()
         {
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType);
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear);
             return View(cars.ToList());
+        }
+
+        // GET: Cars
+        public ActionResult PublicIndex()
+        {
+            var viewModel = new CarIndex();
+            viewModel.Cars = db.Cars.OrderBy(i => i.carModel.brand.Description).ToList();
+
+            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
+            ViewBag.catid = 0;
+           
+           return View(viewModel);
+        }
+
+        //Post Index
+        [HttpPost]
+        public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info)
+        {
+
+            //if (ViewBag.catid != 0)
+            //{
+            //    info.Infosender.CategoryID = ViewBag.catid;
+            //}
+            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
+            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
+            //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
+
+            return RedirectToAction("Teste", "Home", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm") });
         }
 
         // GET: Cars/Details/5
@@ -42,6 +73,7 @@ namespace Car4U.Controllers
         // GET: Cars/Create
         public ActionResult Create()
         {
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description");
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description");
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description");
@@ -53,7 +85,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +107,7 @@ namespace Car4U.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
@@ -93,6 +126,7 @@ namespace Car4U.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
@@ -104,17 +138,65 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,CategoryID,FuelTypeID,CarModelID")] Car car)
-        {
+        public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car)
+        { 
             if (ModelState.IsValid)
             {
                 db.Entry(car).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.GearID = new SelectList(db.Gears, "ID", "Description", car.GearID);
             ViewBag.CarModelID = new SelectList(db.CarModels, "ID", "Description", car.CarModelID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", car.CategoryID);
             ViewBag.FuelTypeID = new SelectList(db.FuelTypes, "ID", "Description", car.FuelTypeID);
+            return View(car);
+        }
+
+        // GET: Cars/EditPhoto/5
+        public ActionResult EditPhoto(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Car car = db.Cars.Find(id);
+            if (car == null)
+            {
+                return HttpNotFound();
+            }
+            return View(car);
+        }
+
+        // POST: Cars/EditPhoto/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPhoto(HttpPostedFileBase upload, int? id)
+        {
+            Car car = db.Cars.Find(id);
+            if (ModelState.IsValid)
+            {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    if (car.FilePaths.Any(f => f.FileType == FileType.Photo))
+                    {
+                        db.FilePaths.Remove(car.FilePaths.First(f => f.FileType == FileType.Photo));
+                    }
+                    var photo = new FilePath
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Photo
+                    };
+                    car.FilePaths = new List<FilePath>();
+                    car.FilePaths.Add(photo);
+                    upload.SaveAs(Path.Combine(Server.MapPath("~/images"), photo.FileName));
+                }
+                db.Entry(car).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Details/" + id);
+            }
             return View(car);
         }
 
@@ -171,7 +253,75 @@ namespace Car4U.Controllers
             }
             
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details/"+carModel);
+        }
+
+        // GET: Cars that are leaving
+        //public ActionResult LeavingCars()
+        //{
+        //    var DateAndTime = DateTime.Now;
+        //    var today = DateAndTime.Date;
+        //    var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
+        //    return View(cars.ToList());
+        //}
+
+        // GET: Leaving Cars Index
+        public ActionResult LeavingCarsIndex(int? id)
+        {
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+            var cars1 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
+            var cars2 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
+
+            var viewModel = new CarStatusIndex();
+
+            viewModel.Cars1 = cars1.ToList();
+            viewModel.Cars2 = cars2.ToList();
+
+            if (id != null)
+            {
+                ViewBag.ID = id;
+            }
+           
+
+            return View(viewModel);
+        }
+
+        //
+        //GET : CarStatus.Outside = true
+        public ActionResult Outside(int? id)
+        {
+            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+
+            carstatustoupdate.Outside = true;
+
+            db.Entry(carstatustoupdate).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("LeavingCarsIndex");
+        }
+
+        //
+        //GET : CarStatus.Outside = false
+        public ActionResult Inside(int? id)
+        {
+            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+
+            carstatustoupdate.Outside = false;
+
+            db.Entry(carstatustoupdate).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("LeavingCarsIndex");
+        }
+
+        // GET: Cars that are entering
+        public ActionResult EnteringCars()
+        {
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.FinishDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
+            return View(cars.ToList());
         }
 
         protected override void Dispose(bool disposing)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Data.Entity.Infrastructure;
 
 namespace Car4U.Models
 {
@@ -18,6 +19,9 @@ namespace Car4U.Models
         public string Email { get; set; }
         public string License { get; set; }
         public string BI { get; set; }
+        public double FinalPrice { get; set; }
+        public bool Check { get; set; }//false unchecked by employee, no car associated to reservation.
+
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -36,16 +40,16 @@ namespace Car4U.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryDate { get; set; }
 
-        public double FinalPrice { get; set; }
+        
+        
 
         //Dropboxs
         public int CountryID { get; set; }
         public int CategoryID { get; set; }
         public int MPDeliveryID { get; set; }
         public int MPReturnID { get; set; }
-        public int ExtraItemsID { get; set; }
-        public int MomentDeliveryID { get; set; }
-        public int MomentReturnID { get; set; }
+        public int ExtraItemsID { get; set; }      
+        public int carID { get; set; } //nao está ligado ao modelo car, é so para inserir o ID do carro.
 
 
 
@@ -57,6 +61,6 @@ namespace Car4U.Models
         public virtual MomentDelivery MomentDelivery { get; set; }
         public virtual MomentReturn MomentReturn { get; set; }
         public virtual Category Category { get; set; }
-        public virtual ICollection<Promotion_Reservation> Promotion_Reservations { get; set; }
+        public virtual Promotion Promotion { get; set; }
     }
 }

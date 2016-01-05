@@ -1,0 +1,358 @@
+﻿@model Car4U.ViewModels.CarIndex
+
+@{
+    ViewBag.Title = "PublicIndex";
+}
+
+<h2>PublicIndex</h2>
+
+<div>
+
+    @if (Model != null)
+    {
+        <div class="container">
+            <div class="page-header">
+                <h2>Frota </h2>
+            </div>
+            @foreach (var item in Model.Cars)
+            {
+                <div class="frota">
+                    <div class="col-md-4">
+                        @*verificar metodo para procurar foto pelo nome do carro com _ *@
+                        @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                        {
+                            <div>
+                                <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                            </div>
+                        }
+
+                        <br>
+                        <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                        <p class="comment"><b></b></p>
+                        <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
+                        <div>
+                            <ul class="features">
+                                <li class="seats" title="Nº de pessoas">4</li>
+                                <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
+                                <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
+                                <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
+                                <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
+                                @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
+                                <li class="plate" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
+                        </div>
+                        <div>
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
+                        </div>
+                        <div class="button">
+                          
+                            <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+  <!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="Reserva" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Reservar</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" style="display: none;" id="alertMessage"></div>
+
+                <form class="fleet-booking-form" id="bookingForm" method="post" >
+                    <input type="hidden" id="fleetId" name="fleet_id">
+                    <div class="frota">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="picking_location_id" class="control-label">Local de levantamento</label>
+                                    <a required>
+                                        @Html.DropDownList("MPDeliveryID", null, "Por favor escolha...", htmlAttributes: new { @id = "picking_location_id", @name = "picking_location_id", @class = "form-control", required = "required" })
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="picking_equals_delivery">
+                                        <input type="checkbox" id="picking_equals_delivery" name="picking_equals_delivery" checked> Local de levantamento igual ao de devolução
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="delivery_location_row" style="display: none">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="delivery_location_id" class="control-label">Local de devolução</label>
+                                    <a required>
+                                        @Html.DropDownList("MPReturnID", null, "Por favor escolha...", htmlAttributes: new { @id = "delivery_location_id", @name = "delivery_location_id", @class = "form-control", required = "required" })
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="age">Idade do condutor</label>
+                                    <select id="age" class="form-control" name="age" required>
+                                        <option value="">Por favor escolha...</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21-75" selected>21-75</option>
+                                        <option value="76">76</option>
+                                        <option value="77">77</option>
+                                        <option value="78">78</option>
+                                        <option value="79">79</option>
+                                        <option value="80">80</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="display: none;">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
+                                    <a required>
+                                        @Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control", required = "required" })
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="picking_date" class="control-label">Data de levantamento</label>
+                                    <a required>
+                                        @Html.EditorFor(model => model.Infosender.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
+                                    </a>
+
+
+
+                                    <script src="~/Scripts/jquery.min.js"></script>
+                                    <script src="~/Scripts/jquery-ui.min.js"></script>
+                                    <script src="~/Scripts/bootstrap.min.js"></script>
+                                    <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
+                                    <script>
+                                        $("#picking_date").datepicker({
+                                            //changeMonth: true,
+                                            //changeYear: true
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="picking_hour" class="control-label">Hora</label>
+                                    <a required>
+                                        @Html.EditorFor(model => model.Infosender.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour", required = "required" } })
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="delivery_date" class="control-label">Data de devolução</label>
+                                    <a disabled required>
+                                        @Html.EditorFor(model => model.Infosender.EndDate, new { htmlAttributes = new { @id = "delivery_date", @name = "delivery_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="delivery_hour" class="control-label">Hora</label>
+                                    <a required disabled>
+                                        @Html.EditorFor(model => model.Infosender.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour", required = "required" } })
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-error">
+                            <div class="col-md-12 form-error-message">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div class="button">
+                                    <button id="bookingFormSubmit" class="submit" type="submit" style="float:right;">Pesquisar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<hr>
+
+
+@*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/common.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    <script type="text/javascript" src="~/Scripts/slideshow.js"></script>*@
+
+<script type="text/javascript">
+    if (jQuery.browser.mozilla) {
+        $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
+    }
+</script>
+
+
+<!-- ANALYTICS -->
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38988857-23']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+
+
+
+<script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#picking_equals_delivery').click(function () {
+            if ($(this).is(':checked')) {
+                $('#delivery_location_row').hide();
+            } else {
+                $('#delivery_location_row').show();
+            }
+        });
+
+        $('#picking_location_id').change(function () {
+            if ($('#picking_equals_delivery').is(':checked')) {
+                $('#delivery_location_id').val($('#picking_location_id').val());
+            }
+        });
+
+        $('#picking_date').change(function () {
+            $(this).parent().removeClass('has-error');
+        });
+
+        $('#bookingForm').submit(function () {
+            if ($('#picking_date').val() == '' || $('#delivery_date').val() == '') return false;
+
+            var pDate = new Date($('#picking_date').datepicker('getDate').getTime());
+            pDate.setHours($('#picking_hour :selected').data().hours);
+            pDate.setMinutes($('#picking_hour :selected').data().minutes);
+
+            var dDate = new Date($('#delivery_date').datepicker('getDate').getTime());
+            dDate.setHours($('#delivery_hour :selected').data().hours);
+            dDate.setMinutes($('#delivery_hour :selected').data().minutes);
+
+            if (pDate.getTime() >= dDate.getTime()) {
+                $('.form-error').show().find('.form-error-message').html('Por favor selecione uma data de devolução superior à data de levantamento');
+                return false;
+            }
+
+            return true;
+        });
+
+        $('#bookingForm').validate({
+            highlight: function (element) {
+                $(element).closest('.form-group').addClass('has-error');
+            },
+            unhighlight: function (element) {
+                $(element).closest('.form-group').removeClass('has-error');
+            },
+            errorElement: 'span',
+            errorClass: 'help-block',
+            errorPlacement: function (error, element) {
+                $('.form-error').show().find('.form-error-message').html('Por favor preencha todos os campos obrigatórios');
+                return true;
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var maxBookingDays = 30;
+
+        $('#picking_date').datepicker({
+            dateFormat: 'dd-mm-yy',
+            minDate: 0,
+            onSelect: function () {
+                var fleetId = $('#fleetId').val();
+                var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
+                var endDate = new Date($('button[data-fleet="' + fleetId + '"]').data().endDate);
+                var minDate = $('#picking_date').datepicker('getDate');
+
+                if (minDate.getTime() >= startDate.getTime() && minDate.getTime() <= endDate.getTime()) {
+                    $('#alertMessage').html('Não disponível para reserva desde ' + $.datepicker.formatDate('dd-mm-yy', startDate) + ' até ' + $.datepicker.formatDate('dd-mm-yy', endDate) + '.').show();
+                    $('#delivery_date').val('').attr('disabled', 'disabled');
+                    $('#bookingFormSubmit').attr('disabled', 'disabled');
+                } else {
+                    $('#alertMessage').hide();
+                    $('#delivery_date').datepicker('option', 'minDate', $('#picking_date').datepicker('getDate'));
+                    $('#delivery_date').datepicker('option', 'maxDate', new Date($('#picking_date').datepicker('getDate').getTime() + 1000 * 60 * 60 * 24 * 30));
+                    $('#delivery_date').val('').removeAttr('disabled');
+                    $('#delivery_hour').removeAttr('disabled');
+                    $('#bookingFormSubmit').removeAttr('disabled');
+                }
+                $(this).parent().removeClass('has-error');
+            }
+        });
+
+        $('#delivery_date').datepicker({
+            dateFormat: 'dd-mm-yy',
+            onSelect: function () {
+                $(this).parent().removeClass('has-error');
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('button[data-target="#formModal"]').click(function () {
+            $('#fleetId').val($(this).data().fleet);
+        });
+
+        $('#bookingForm').submit(function () {
+            var fleetId = $('#fleetId').val();
+            console.log($('button[data-fleet="' + fleetId + '"]'));
+            var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
+            console.log(startDate);
+        });
+    });
+</script>
