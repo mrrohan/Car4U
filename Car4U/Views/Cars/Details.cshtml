@@ -120,7 +120,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Follow Car", "FollowCar", new { carModel = Model.ID }) |
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Follow Car", "FollowCar", new { carModel = Model.ID })
+}
+    | @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Voltar", "Index")
 </p>

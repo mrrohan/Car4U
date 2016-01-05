@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label for="picking_location_id" class="control-label">Local de levantamento</label>
                                     <a required>
-                                        @Html.DropDownList("MPDeliveryID", null, "Por favor escolha...", htmlAttributes: new { @id = "picking_location_id", @name = "picking_location_id", @class = "form-control" })
+                                        @Html.DropDownList("MPDeliveryID", null, "Por favor escolha...", htmlAttributes: new { @id = "picking_location_id", @name = "picking_location_id", @class = "form-control", required = "required" })
                                     </a>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                 <div class="form-group">
                                     <label for="delivery_location_id" class="control-label">Local de devolução</label>
                                     <a required>
-                                        @Html.DropDownList("MPReturnID", null, "Por favor escolha...", htmlAttributes: new { @id = "delivery_location_id", @name = "delivery_location_id", @class = "form-control" })
+                                        @Html.DropDownList("MPReturnID", null, "Por favor escolha...", htmlAttributes: new { @id = "delivery_location_id", @name = "delivery_location_id", @class = "form-control", required = "required" })
                                     </a>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                                 <div class="form-group">
                                     <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
                                     <a required>
-                                        @Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control" })
+                                        @Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control", required = "required" })
                                     </a>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                                 <div class="form-group">
                                     <label for="picking_date" class="control-label">Data de levantamento</label>
                                     <a required>
-                                        @Html.EditorFor(model => model.Infosender.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
+                                        @Html.EditorFor(model => model.Infosender.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
                                     </a>
 
 
@@ -160,7 +160,7 @@
                                 <div class="form-group">
                                     <label for="picking_hour" class="control-label">Hora</label>
                                     <a required>
-                                        @Html.EditorFor(model => model.Infosender.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour" } })
+                                        @Html.EditorFor(model => model.Infosender.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour", required = "required" } })
                                     </a>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                 <div class="form-group">
                                     <label for="delivery_date" class="control-label">Data de devolução</label>
                                     <a disabled required>
-                                        @Html.EditorFor(model => model.Infosender.EndDate, new { htmlAttributes = new { @id = "delivery_date", @name = "delivery_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
+                                        @Html.EditorFor(model => model.Infosender.EndDate, new { htmlAttributes = new { @id = "delivery_date", @name = "delivery_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
                                     </a>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                 <div class="form-group">
                                     <label for="delivery_hour" class="control-label">Hora</label>
                                     <a required disabled>
-                                        @Html.EditorFor(model => model.Infosender.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour" } })
+                                        @Html.EditorFor(model => model.Infosender.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour", required = "required" } })
                                     </a>
                                 </div>
                             </div>

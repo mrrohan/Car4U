@@ -24,8 +24,6 @@
 
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
 
-    <link rel="stylesheet" href="~/Content/css/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">
-
 </head>
 
 <body>
@@ -139,8 +137,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="picking_date" class="control-label">Data de levantamento</label>
-                                        <a required>
-                                            @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
+                                        <a>
+                                            @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
                                         </a>
                                     </div>
                                 </div>
@@ -158,8 +156,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="delivery_date" class="control-label">Data de devolução</label>
-                                        <a disabled required>
-                                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @id = "delivery_date", @name = "delivery_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
+                                        <a>
+                                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @id = "delivery_date", @name = "delivery_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
                                         </a>
                                     </div>
                                 </div>

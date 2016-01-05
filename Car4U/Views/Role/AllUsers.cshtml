@@ -1,0 +1,38 @@
+﻿@using Car4U.Models
+@using System.Data.Entity
+@model  IEnumerable<Car4U.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "AllUsers";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<h2>AllUsers</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roles)
+        </th>
+  
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+    }
+</table>
