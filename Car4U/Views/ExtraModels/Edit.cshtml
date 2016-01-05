@@ -4,19 +4,18 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>ExtraModel</h4>
+        <h4>Editar Extra Model</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
-
         <div class="form-group">
             @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -24,7 +23,6 @@
                 @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -32,7 +30,6 @@
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Stock, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -40,7 +37,6 @@
                 @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ExtraModelTypeID, "ExtraModelTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -48,18 +44,16 @@
                 @Html.ValidationMessageFor(model => model.ExtraModelTypeID, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <div class="button">
+                    <button id="butaoOffice" class="submit" type="submit" value="Save">Guardar</button>
+                    <button id="butaoOffice" class="submit" style="float:left" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
+                </div>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
