@@ -48,13 +48,13 @@ namespace Car4U.Controllers
 
         //
         //Post: Create Employee
-        //
-        // POST: /Account/Register
+    
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult RegisterEmployee(RegisterEmployeeViewModel model)
         {
+            ViewBag.Country = new SelectList(context.Countries, "ID", "Name");
                 if (ModelState.IsValid)
             {
            
@@ -99,44 +99,44 @@ namespace Car4U.Controllers
 
         //
         //GET: delete user
-        [Authorize]
-        public ActionResult DeleteUser(string id)
-        {
-            ViewBag.Message = "Your contact page.";
-            string userid = id;
-            var currentuser = context.Users.SingleOrDefault(u => u.Id == userid);
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+        //[Authorize]
+        //public ActionResult DeleteUser(string id)
+        //{
+        //    ViewBag.Message = "Your contact page.";
+        //    string userid = id;
+        //    var currentuser = context.Users.SingleOrDefault(u => u.Id == userid);
+        //    var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            var logins = currentuser.Logins;
+        //    var logins = currentuser.Logins;
 
-            foreach (var login in logins.ToList())
-            {
-                UserManager.RemoveLogin(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
-            }
+        //    foreach (var login in logins.ToList())
+        //    {
+        //        UserManager.RemoveLogin(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+        //    }
 
-            var rolesForUser = UserManager.GetRoles(userid);
+        //    var rolesForUser = UserManager.GetRoles(userid);
 
-            if (rolesForUser.Count() > 0)
-            {
-                foreach (var item in rolesForUser.ToList())
-                {
-                    // item should be the name of the role
-                    var result = UserManager.RemoveFromRole(currentuser.Id, item);
-                }
-            }
+        //    if (rolesForUser.Count() > 0)
+        //    {
+        //        foreach (var item in rolesForUser.ToList())
+        //        {
+        //            // item should be the name of the role
+        //            var result = UserManager.RemoveFromRole(currentuser.Id, item);
+        //        }
+        //    }
 
-            //Codigo que se segue é para apagar coisas associadas ao user
-            //var ComentsForUser = currentuser.Comments;
+        //    //Codigo que se segue é para apagar coisas associadas ao user
+        //    //var ComentsForUser = currentuser.Comments;
 
-            //foreach (var item in ComentsForUser.ToList())
-            //{
-            //    db.Comments.Remove(item);
-            //}
+        //    //foreach (var item in ComentsForUser.ToList())
+        //    //{
+        //    //    db.Comments.Remove(item);
+        //    //}
 
-            UserManager.Delete(currentuser);
+        //    UserManager.Delete(currentuser);
 
-            return RedirectToAction("AllUsers");
-        }
+        //    return RedirectToAction("AllUsers");
+        //}
 
         //
         //delete role from user

@@ -33,8 +33,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUser?id=@item.Id" class="delLink" style="color:red;">Delete</a></span> |
-                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span> |
+                @*<span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUser?id=@item.Id" class="delLink" style="color:red;">Delete</a></span> |*@
+                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span>
             </td>
            
         </tr>
