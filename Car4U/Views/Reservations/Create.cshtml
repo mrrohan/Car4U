@@ -1,4 +1,6 @@
-﻿<html>
+﻿@model Car4U.Models.Reservation
+
+<html>
 
 <body>
     <div class="language no-print">
@@ -42,8 +44,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5><b>ENTREGA</b></h5>
-                            @ViewBag.mpreliveryid<br>
-                            @ViewBag.begindate @ViewBag.beginhour
+                            @Html.DisplayFor(model => model.MPDelivery.Place)<br>
+                            @Html.DisplayFor(model => model.DeliveryDate) @Html.DisplayFor(model => model.DeliveryHour)
                         </div>
                     </div>
 
@@ -52,10 +54,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5><b>RECOLHA</b></h5>
-                            @ViewBag.mpreturnid<br>
-                            @ViewBag.enddate @ViewBag.endhour
+                            @Html.DisplayFor(model => model.MPReturn.Place)<br>
+                            @Html.DisplayFor(model => model.ReturnDate) @Html.DisplayFor(model => model.ReturnHour)
 
-                            @ViewBag.categotyid
+                            @Html.DisplayFor(model => model.Category.CategoryName)
                         </div>
                     </div>
 

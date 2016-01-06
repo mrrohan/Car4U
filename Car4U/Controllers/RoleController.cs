@@ -30,12 +30,135 @@ namespace Car4U.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
         //
 
-        // GET: /Roles/
+        // GET: /Employees/
         public ActionResult AllUsers()
         {
-            var allUsers = context.Users.ToList();
+            var allUsers = context.Users.Where(l => l.Roles.Select(c => c.RoleId).Contains("2")).ToList();
             return View(allUsers);
         }
+
+        //
+        // GET: Create Employee
+        [AllowAnonymous]
+        public ActionResult RegisterEmployee()
+        {
+            ViewBag.Country = new SelectList(context.Countries, "ID", "Name");
+            return View();
+        }
+
+        //
+        //Post: Create Employee
+        //
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult RegisterEmployee(RegisterEmployeeViewModel model)
+        {
+                if (ModelState.IsValid)
+            {
+           
+                //var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    Address = model.Address,
+                    BI = model.BI,
+                    License = model.License,
+                    CountryID = model.Country,
+                    PostalCode = model.PostalCode
+                };
+                ViewBag.Country = new SelectList(context.Countries, "ID", "Name", user.CountryID);
+                IdentityResult result = UserManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+                    var roleStore = new RoleStore<IdentityRole>(context);
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+                    if (!roleManager.RoleExists("Employee"))
+                    {
+                        roleManager.Create(new IdentityRole { Id = "2", Name = "Employee" });
+                    }
+
+              
+                    var roleresult = UserManager.AddToRole(user.Id, "Employee");
+
+                    return RedirectToAction("AllUsers", "Role");
+                }
+                else
+                {
+                    AddErrors(result);
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        //GET: delete user
+        [Authorize]
+        public ActionResult DeleteUser(string id)
+        {
+            ViewBag.Message = "Your contact page.";
+            string userid = id;
+            var currentuser = context.Users.SingleOrDefault(u => u.Id == userid);
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            var logins = currentuser.Logins;
+
+            foreach (var login in logins.ToList())
+            {
+                UserManager.RemoveLogin(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+            }
+
+            var rolesForUser = UserManager.GetRoles(userid);
+
+            if (rolesForUser.Count() > 0)
+            {
+                foreach (var item in rolesForUser.ToList())
+                {
+                    // item should be the name of the role
+                    var result = UserManager.RemoveFromRole(currentuser.Id, item);
+                }
+            }
+
+            //Codigo que se segue é para apagar coisas associadas ao user
+            //var ComentsForUser = currentuser.Comments;
+
+            //foreach (var item in ComentsForUser.ToList())
+            //{
+            //    db.Comments.Remove(item);
+            //}
+
+            UserManager.Delete(currentuser);
+
+            return RedirectToAction("AllUsers");
+        }
+
+        //
+        //delete role from user
+         [Authorize]
+        public ActionResult DeleteUserRole(string id)
+        {
+            string userid = id;
+            var currentuser = context.Users.SingleOrDefault(u => u.Id == userid);
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            if (UserManager.IsInRole(currentuser.Id, "Employee"))
+            {
+                UserManager.RemoveFromRole(currentuser.Id, "Employee");
+                ViewBag.ResultMessage = "Role removed from this user successfully !";
+            }
+            else
+            {
+                ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+            }
+            return RedirectToAction("AllUsers");
+        }
+
 
         //
         // GET: /Roles/
@@ -146,8 +269,11 @@ namespace Car4U.Controllers
             if (!string.IsNullOrWhiteSpace(UserName))
             {
                 ApplicationUser user = context.Users.FirstOrDefault(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase));
-
-                ViewBag.RolesForThisUser = UserManager.GetRoles(user.Id);
+                if (user != null)
+                {
+                    ViewBag.RolesForThisUser = UserManager.GetRoles(user.Id);
+                }
+               
 
                 // prepopulat roles for the view dropdown
                 var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
@@ -166,20 +292,33 @@ namespace Car4U.Controllers
 
             ApplicationUser user = context.Users.FirstOrDefault(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase));
 
-            if (UserManager.IsInRole(user.Id, RoleName))
+            if (user != null)
             {
-                UserManager.RemoveFromRole(user.Id, RoleName);
-                ViewBag.ResultMessage = "Role removed from this user successfully !";
+                if (UserManager.IsInRole(user.Id, RoleName))
+                {
+                    UserManager.RemoveFromRole(user.Id, RoleName);
+                    ViewBag.ResultMessage = "Role removed from this user successfully !";
+                }
+                else
+                {
+                    ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+                }
             }
-            else
-            {
-                ViewBag.ResultMessage = "This user doesn't belong to selected role.";
-            }
+
+            
             // prepopulat roles for the view dropdown
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
 
             return View("ManageUserRoles");
+        }
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
         }
     }
 }

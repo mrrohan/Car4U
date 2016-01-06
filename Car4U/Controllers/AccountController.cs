@@ -111,7 +111,11 @@ namespace Car4U.Controllers
                 {
                     var roleStore = new RoleStore<IdentityRole>(db);
                     var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    await roleManager.CreateAsync(new IdentityRole { Name = "Normal" });
+
+                    if (!roleManager.RoleExists("Normal"))
+                    {
+                        roleManager.Create(new IdentityRole("Normal"));
+                    }
 
                     // var currentUser = UserManager.FindByName(user.UserName);
                     var roleresult = UserManager.AddToRole(user.Id, "Normal");

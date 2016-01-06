@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Extra Model</h4>
+        <h4>Criar Extra Model</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -45,10 +45,8 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="button">
-                    <button id="bookingFormSubmit" class="submit" type="submit" style="float:left;">Adicionar</button>
-                    <button id="bookingFormSubmit" class="submit" style="float:left" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
-
-
+                    <button id="butaoOffice" class="submit" type="submit">Adicionar</button>
+                    <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
                 </div>
             </div>
         </div>
