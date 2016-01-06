@@ -131,7 +131,8 @@
                     <div class="col-lg-12">
                         <div class="container body-content">
                             <div class="buttonbackoffice">
-                                <a href="#menu-toggle" class="btn btn-default submit" id="menu-toggle">Esconder Menu</a>
+                                <a href="#menu-toggle" class="btn btn-default submit bigBtn" id="menu-toggle">                                 
+                                </a>
                             </div>
                             @RenderBody()
                         </div>
@@ -160,7 +161,7 @@
         //}
 
         function toggleB(lnk_obj) {
-            lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? 'Esconder Menu' : 'Mostra Menu';
+            lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? '' : '';
         }
 
     </script>

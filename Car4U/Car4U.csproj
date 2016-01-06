@@ -284,6 +284,8 @@
     <Content Include="images\Car4ULogo.png" />
     <Content Include="images\Car4Utext.fw.png" />
     <Content Include="images\Car4U_ico.fw.ico" />
+    <Content Include="images\chevron-left.png" />
+    <Content Include="images\chevron-right.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

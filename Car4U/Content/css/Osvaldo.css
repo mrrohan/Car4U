@@ -1,5 +1,13 @@
 ﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+
+.bigBtn{
+    width:4px;
+    height:460px;
+}
+
+
+
 .reserveIndex {
     margin-top: 20px;
     position: relative;
