@@ -38,9 +38,17 @@ namespace Car4U.Controllers
         }       
 
         // GET: Reservations/Create
-        public ActionResult Create()
-        {   
-                    
+        public ActionResult Create(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        {
+            ViewBag.mpreliveryid = mpreliveryid;
+            ViewBag.mpreturnid = mpreturnid;
+            ViewBag.categotyid = categotyid;
+            ViewBag.begindate = begindate;
+            ViewBag.beginhour = beginhour;
+            ViewBag.enddate = enddate;
+            ViewBag.endhour = endhour;
+
+
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
@@ -57,10 +65,44 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
             if (ModelState.IsValid)
             {
+                //if (mpreliveryid != null)
+                //{
+                //    info.MPDeliveryID = mpreliveryid ?? default(int);
+                //}
+                //if (mpreturnid != null)
+                //{
+                //    info.MPReturnID = mpreturnid ?? default(int);
+                //}
+                //if (categotyid != null)
+                //{
+                //    info.CategoryID = categotyid ?? default(int);
+                //}
+
+                //if (begindate != null)
+                //{
+                //    info.BeginDate = begindate ?? default(DateTime);
+                //}
+
+
+                //if (beginhour != null)
+                //{
+                //    info.BeginHour = beginhour ?? default(DateTime);
+                //}
+
+                //if (enddate != null)
+                //{
+                //    info.EndDate = enddate ?? default(DateTime);
+                //}
+
+                //if (endhour != null)
+                //{
+                //    info.EndHour = endhour ?? default(DateTime);
+                //}
+
                 //get model ID from slectedcheckbox and search for the 1st available item of that model and add it to the reservation. 
                 int extid;
                 ExtraItem extritem = new ExtraItem();

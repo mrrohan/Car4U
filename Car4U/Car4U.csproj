@@ -380,7 +380,6 @@
     <Content Include="Views\Reservations\Delete.cshtml" />
     <Content Include="Views\Reservations\Details.cshtml" />
     <Content Include="Views\Reservations\Edit.cshtml" />
-    <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\CarStatus\Create.cshtml" />
     <Content Include="Views\CarStatus\Delete.cshtml" />
     <Content Include="Views\CarStatus\Details.cshtml" />
@@ -445,6 +444,8 @@
     <Content Include="Views\Categories\PrivateIndex.cshtml" />
     <Content Include="Views\Home\Teste.cshtml" />
     <Content Include="Views\Role\AllUsers.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Reservations\Create - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
