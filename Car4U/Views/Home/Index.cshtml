@@ -24,8 +24,6 @@
 
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
 
-    <link rel="stylesheet" href="~/Content/css/ajax/libs/jqueryui/1.10.1/themes/smoothness/jquery-ui.min.css">
-
 </head>
 
 <body>
@@ -68,9 +66,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <!-- Search -->
-@using (Html.BeginForm("Index", "Home", null, FormMethod.Post, new { @class = "form_hp", role = "form" }))
-{
-                    @*<form class="form_hp" id="bookingForm" role="form" method="post">*@
+                    @using (Html.BeginForm("Index", "Home", null, FormMethod.Post, new { @class = "form_hp", role = "form" }))
+                    {
+                        @*<form class="form_hp" id="bookingForm" role="form" method="post">*@
                         <legend>Efectuar Reserva</legend>
                         <div class="frota">
                             <div class="row">
@@ -79,7 +77,7 @@
                                     <div class="form-group">
                                         <label for="picking_location_id" class="control-label">Local de levantamento</label>
                                         @*<div  required="">@Html.DropDownList("DeliveryPointID", null, "Por favor escolha...", htmlAttributes: new { @id = "picking_location_id", @name = "picking_location_id", @class = "form-control" })</div>*@
-                                        <div>@Html.DropDownList("MPDeliveryID", null, "Por favor escolha...", htmlAttributes: new { @id = "picking_location_id", @name = "picking_location_id", @class = "form-control", required="required" })</div>
+                                        <div>@Html.DropDownList("MPDeliveryID", null, "Por favor escolha...", htmlAttributes: new { @id = "picking_location_id", @name = "picking_location_id", @class = "form-control", required = "required" })</div>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +128,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <div>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control", required = "required" })</div>
+                                        <div>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control" })</div>
                                     </div>
                                 </div>
                             </div>
@@ -147,8 +145,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="picking_hour" class="control-label">Hora</label>
-                                        <a>
-                                            @Html.EditorFor(model => model.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour", required = "required" } })
+                                        <a required>
+                                            @Html.EditorFor(model => model.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour" } })
                                         </a>
                                     </div>
                                 </div>
@@ -166,8 +164,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="delivery_hour" class="control-label">Hora</label>
-                                        <a>
-                                           @Html.EditorFor(model => model.EndHour, new { htmlAttributes = new { @id="delivery_hour", @class="form-control", @name="delivery_hour", required = "required" } })
+                                        <a required disabled>
+                                            @Html.EditorFor(model => model.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour" } })
                                         </a>
                                     </div>
                                 </div>
@@ -189,8 +187,8 @@
                             </div>
                         </div>
                         <!-- FIM FROTAAAA -->
-                    @*</form>*@
-}
+                        @*</form>*@
+                    }
                     <!-- End Search -->
                 </div>
                 <div class="col-md-2"></div>
@@ -220,7 +218,7 @@
 
     <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>*@
     <script type="text/javascript" src="~/Scripts/common.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
 

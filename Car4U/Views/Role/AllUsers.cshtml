@@ -9,7 +9,9 @@
 
 
 <h2>AllUsers</h2>
-
+<p>
+    @Html.ActionLink("+ Adicionar", "RegisterEmployee")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -17,9 +19,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Roles)
         </th>
   
         <th></th>
@@ -33,6 +32,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
+            <td>
+                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUser?id=@item.Id" class="delLink" style="color:red;">Delete</a></span> |
+                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span> |
+            </td>
+           
         </tr>
     }
 </table>

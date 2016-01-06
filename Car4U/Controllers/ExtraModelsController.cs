@@ -53,8 +53,17 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.ExtraModels.Add(extraModel);
                 db.SaveChanges();
+                for (int c = 1; c <= extraModel.Stock; c++)
+                {
+                    ExtraItem extritem = new ExtraItem();
+                    extritem.ExtraModel = extraModel;
+                    extritem.InUse = false;
+                    db.ExtraItems.Add(extritem);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 

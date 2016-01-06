@@ -38,8 +38,39 @@ namespace Car4U.Controllers
         }       
 
         // GET: Reservations/Create
-        public ActionResult Create()
-        {   
+        public ActionResult Create(InfoSender info, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        {
+            if (mpreliveryid != null)
+            {
+                info.MPDeliveryID = mpreliveryid ?? default(int);
+            }
+            if (mpreturnid != null)
+            {
+                info.MPReturnID = mpreturnid ?? default(int);
+            }
+            if (categotyid != null)
+            {
+                info.CategoryID = categotyid ?? default(int);
+            }
+
+            if (begindate != null)
+            {
+                info.BeginDate = begindate ?? default(DateTime);
+            }
+            if (beginhour != null)
+            {
+                info.BeginHour = beginhour ?? default(DateTime);
+            }
+
+            if (enddate != null)
+            {
+                info.EndDate = enddate ?? default(DateTime);
+            }
+
+            if (endhour != null)
+            {
+                info.EndHour = endhour ?? default(DateTime);
+            }
                     
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
@@ -49,7 +80,7 @@ namespace Car4U.Controllers
             ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation");
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
-            return View();
+            return View(info);
         }
 
         // POST: Reservations/Create
@@ -57,10 +88,42 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
             if (ModelState.IsValid)
             {
+                if (mpreliveryid != null)
+                {
+                    reservation.MPDeliveryID = mpreliveryid ?? default(int);
+                }
+                if (mpreturnid != null)
+                {
+                    reservation.MPReturnID = mpreturnid ?? default(int);
+                }
+                if (categotyid != null)
+                {
+                    reservation.CategoryID = categotyid ?? default(int);
+                }
+
+                if (begindate != null)
+                {
+                    reservation.DeliveryDate = begindate ?? default(DateTime);
+                }
+                if (beginhour != null)
+                {
+                    reservation.DeliveryHour = beginhour ?? default(DateTime);
+                }
+
+                if (enddate != null)
+                {
+                    reservation.ReturnDate = enddate ?? default(DateTime);
+                }
+
+                if (endhour != null)
+                {
+                    reservation.ReturnHour = endhour ?? default(DateTime);
+                }
+
                 //get model ID from slectedcheckbox and search for the 1st available item of that model and add it to the reservation. 
                 int extid;
                 ExtraItem extritem = new ExtraItem();
@@ -71,7 +134,10 @@ namespace Car4U.Controllers
                 for (int count = 0; count < s; count++)
                 {
                     extid = Convert.ToInt32(selectedExtraModels[count]);
-                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid);
+                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse==false);
+                    extritem.InUse = true;
+                    //db.Entry(extritem).State = EntityState.Modified;
+                    //db.SaveChanges();
                     reservation.ExtraItems.Add(extritem);
                 }
 

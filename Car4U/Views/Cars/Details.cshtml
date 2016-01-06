@@ -5,125 +5,110 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="page-header">
+    <h2 class="titles">Detalhes</h2>
+</div>
 
-<div>
-    <h4>Car</h4>
-    <hr />
-    <dl class="dl-horizontal">
 
+    <div class="row">
+    <div class="col-lg-7 moldura3 positiontop">
         @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
         {
-            <dt>
-                Photo
-            </dt>
-            <dd>
-                <img width="300" height="200" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
-            </dd>
+
+            <img width="470" height="300" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+
         }
-        <dd>
-            <!-- Load Facebook SDK for JavaScript -->
-            <div id="fb-root"></div>
-            <script>
-                (function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.5&appId=1541189936202435";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
 
-            <!-- Your share button code -->
-            <div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
-        </dd>
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.carModel.Description)
-        </dt>
+        <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.5&appId=1541189936202435";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
 
-        <dd>
-            @Html.DisplayFor(model => model.carModel.Description)
-        </dd>
+        <!-- Your share button code -->
+        <div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.category.CategoryName)
-        </dt>
+        <div class="col-lg-5 positiontop">
+            <table class="table table-bordered positiontop positionright">
+                <tbody>
+                    <tr>
+                        <th> Modelo Veículo</th>
+                        <th> @Html.DisplayFor(model => model.carModel.Description)</th>
 
-        <dd>
-            @Html.DisplayFor(model => model.category.CategoryName)
-        </dd>
+                    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gear.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gear.Description)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fuelType.Description)
-        </dt>
+                    <tr>
+                        <th>Categoria do Veiculo</th>
+                        <th>  @Html.DisplayFor(model => model.category.CategoryName)</th>
+                    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.fuelType.Description)
-        </dd>
+                    <tr>
+                        <th>Caixa</th>
+                        <th>@Html.DisplayFor(model => model.Gear.Description)</th>
+                    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LicensePlate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LicensePlate)
-        </dd>
+                    <tr>
+                        <th>Tipo Combustivel</th>
+                        <th>@Html.DisplayFor(model => model.fuelType.Description)</th>
+                    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </dt>
+                    <tr>
+                        <th>Matricula</th>
+                        <th>@Html.DisplayFor(model => model.LicensePlate)</th>
+                    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.RegisterDate)
-        </dd>
+                    <tr>
+                        <th>Data Registo</th>
+                        <th>@Html.DisplayFor(model => model.RegisterDate)</th>
+                    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NDoors)
-        </dt>
+                    <tr>
+                        <th>Nº Portas</th>
+                        <th>@Html.DisplayFor(model => model.NDoors)</th>
+                    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.NDoors)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NLuggage)
-        </dt>
+                    <tr>
+                        <th>Capacidade Mala</th>
+                        <th> @Html.DisplayFor(model => model.NLuggage)</th>
+                    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.NLuggage)
-        </dd>
+                    <tr>
+                        <th>Cilindrada (cc)</th>
+                        <th>@Html.DisplayFor(model => model.Engine)</th>
+                    </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Engine)
-        </dt>
+                    <tr>
+                        <th>Potência (cv)</th>
+                        <th>@Html.DisplayFor(model => model.HorsePower)</th>
+                    </tr>
+                </tbody>
+            </table>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, new { @class = "btn btn-default btn-position" })
 
-        <dd>
-            @Html.DisplayFor(model => model.Engine)
-        </dd>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HorsePower)
-        </dt>
+        </div>
+<div class="row col-lg-12">
+    <p>
+        @if (Request.IsAuthenticated)
+        {
+            @Html.ActionLink("Follow Car", "FollowCar", new { carModel = Model.ID })
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.HorsePower)
-        </dd>
+        @Html.ActionLink("Voltar", "Index", "Cars", new { @class = "lista btn-position" })
+    </p>
 
-    </dl>
 </div>
-<p>
-@if (Request.IsAuthenticated)
-{
-    @Html.ActionLink("Follow Car", "FollowCar", new { carModel = Model.ID })
-}
-    | @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+
+
+

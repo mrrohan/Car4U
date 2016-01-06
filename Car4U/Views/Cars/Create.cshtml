@@ -7,15 +7,18 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div class="page-header">
+    <h2 class="titles">Adicionar Veículo</h2>
+</div>
 
 @using (Html.BeginForm("Create", "Cars", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Car</h4>
-        <hr />
+
+
+    <div class="col-lg-5 form-horizontal">
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.LicensePlate, "Matricula", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -28,7 +31,7 @@
             @Html.LabelFor(model => model.RegisterDate, "Data Registo", htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RegisterDate, new { htmlAttributes = new { @id="picking_date", @name="picking_date", @type="text" ,@class="form-control", @placeholder="dd-mm-aaaa" , @autocomplete="off" } })
+                @Html.EditorFor(model => model.RegisterDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
                 @*<input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>*@
 
                 <script src="~/Scripts/jquery.min.js"></script>
@@ -42,14 +45,14 @@
                     });
                 </script>
                 @Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })
-               
-                 @*<div class="form-group">
+
+                @*<div class="form-group">
                     @Html.LabelFor(model => model.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
                     </div>*@
-                </div>
+            </div>
 
         </div>
         <div class="form-group">
@@ -116,6 +119,18 @@
                 @Html.ValidationMessageFor(model => model.CarModelID, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="+ Adicionar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-7 moldura3 positionright">
+
+        <img id="img" src="" height="300" width="470">
 
         <div class="form-group">
             @Html.Label("Fotografia", new { @class = "control-label col-md-2" })
@@ -124,14 +139,28 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="+ Adicionar" class="btn btn-default" />
-            </div>
-        </div>
+
+
     </div>
 }
 
-<div>
-    @Html.ActionLink("Voltar", "Index")
+<div class="positiontop btn-position-right">
+    @Html.ActionLink("Voltar à Lista", "Index", "Cars", new { @class = "lista" })
 </div>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#Photo").change(function () {
+        readURL(this);
+    });
+</script>
