@@ -156,7 +156,7 @@ namespace Car4U.Controllers
             {
                 ViewBag.ResultMessage = "This user doesn't belong to selected role.";
             }
-            return View("AllUsers");
+            return RedirectToAction("AllUsers");
         }
 
 
@@ -269,8 +269,11 @@ namespace Car4U.Controllers
             if (!string.IsNullOrWhiteSpace(UserName))
             {
                 ApplicationUser user = context.Users.FirstOrDefault(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase));
-
-                ViewBag.RolesForThisUser = UserManager.GetRoles(user.Id);
+                if (user != null)
+                {
+                    ViewBag.RolesForThisUser = UserManager.GetRoles(user.Id);
+                }
+               
 
                 // prepopulat roles for the view dropdown
                 var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
@@ -289,15 +292,20 @@ namespace Car4U.Controllers
 
             ApplicationUser user = context.Users.FirstOrDefault(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase));
 
-            if (UserManager.IsInRole(user.Id, RoleName))
+            if (user != null)
             {
-                UserManager.RemoveFromRole(user.Id, RoleName);
-                ViewBag.ResultMessage = "Role removed from this user successfully !";
+                if (UserManager.IsInRole(user.Id, RoleName))
+                {
+                    UserManager.RemoveFromRole(user.Id, RoleName);
+                    ViewBag.ResultMessage = "Role removed from this user successfully !";
+                }
+                else
+                {
+                    ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+                }
             }
-            else
-            {
-                ViewBag.ResultMessage = "This user doesn't belong to selected role.";
-            }
+
+            
             // prepopulat roles for the view dropdown
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
