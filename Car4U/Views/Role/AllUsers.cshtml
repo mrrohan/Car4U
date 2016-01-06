@@ -7,11 +7,9 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-
-<h2>AllUsers</h2>
-<p>
-    @Html.ActionLink("+ Adicionar", "RegisterEmployee")
-</p>
+<br />
+<h2>Utilizadores</h2>
+<br />
 <table class="table">
     <tr>
         <th>
@@ -40,3 +38,10 @@
         </tr>
     }
 </table>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="button">
+            <button id="butaoOffice" class="submit" type="button" style="float:right" onclick="location.href='@Url.Action("RegisterEmployee", "Role")'">Adicionar Conta</button>
+        </div>
+    </div>
+</div>
