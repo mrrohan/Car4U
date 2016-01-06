@@ -6,15 +6,14 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Promotion</h4>
+        <br />
+        <h4>Criar Promoção</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -40,18 +39,17 @@
                 @Html.ValidationMessageFor(model => model.Days, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="+ Adicionar" class="btn btn-default" />
+                <div class="button">
+                    <button id="butaoOffice" class="submit" type="submit">Adicionar</button>
+                    <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Index", "Promotions")'">Voltar</button>
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

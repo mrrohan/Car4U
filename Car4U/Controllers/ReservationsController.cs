@@ -38,40 +38,41 @@ namespace Car4U.Controllers
         }       
 
         // GET: Reservations/Create
-        public ActionResult Create(InfoSender info, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        public ActionResult Create(Reservation reservation, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
+            
             if (mpreliveryid != null)
             {
-                info.MPDeliveryID = mpreliveryid ?? default(int);
+                reservation.MPDelivery = db.MeetingPoints.Find(mpreliveryid);
             }
             if (mpreturnid != null)
             {
-                info.MPReturnID = mpreturnid ?? default(int);
+                reservation.MPReturn = db.MeetingPoints.Find(mpreturnid);
             }
             if (categotyid != null)
             {
-                info.CategoryID = categotyid ?? default(int);
+                reservation.Category = db.Categories.Find(categotyid);
             }
 
             if (begindate != null)
             {
-                info.BeginDate = begindate ?? default(DateTime);
+                reservation.DeliveryDate = begindate ?? default(DateTime);
             }
             if (beginhour != null)
             {
-                info.BeginHour = beginhour ?? default(DateTime);
+                reservation.DeliveryHour = beginhour ?? default(DateTime);
             }
 
             if (enddate != null)
             {
-                info.EndDate = enddate ?? default(DateTime);
+                reservation.ReturnDate = enddate ?? default(DateTime);
             }
 
             if (endhour != null)
             {
-                info.EndHour = endhour ?? default(DateTime);
+                reservation.ReturnHour = endhour ?? default(DateTime);
             }
-                    
+
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
@@ -80,7 +81,7 @@ namespace Car4U.Controllers
             ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation");
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
-            return View(info);
+            return View(reservation);
         }
 
         // POST: Reservations/Create
