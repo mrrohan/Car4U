@@ -120,6 +120,50 @@ namespace Car4U.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class RegisterEmployeeViewModel
+    {
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "PostalCode")]
+        public string PostalCode { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "License")]
+        public string License { get; set; }
+
+        [Required]
+        [Display(Name = "BI")]
+        public string BI { get; set; }
+
+        [Required]
+        [Display(Name = "Country")]
+        public int Country { get; set; }
+
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+    }
+
     public class ResetPasswordViewModel
     {
         [Required]
