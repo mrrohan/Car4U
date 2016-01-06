@@ -32,16 +32,23 @@
             @Html.DisplayFor(model => model.Stock)
         </dd>
     </dl>
+    
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <div class="button">
-                <button id="butaoOffice" class="submit" type="submit" value="Save">Apagar</button>
+           
+            <div class="button">    
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions">                        
+                        <button id="butaoOffice" class="submit" type="submit" value="Delete">Apagar</button>
+                    </div>
+                }                
                 <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
             </div>
         </div>
     </div>
-    @*@using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()*@
+   
 
-    }
+    
 </div>
