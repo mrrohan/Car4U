@@ -30,10 +30,10 @@ namespace Car4U.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
         //
 
-        // GET: /Roles/
+        // GET: /Employees/
         public ActionResult AllUsers()
         {
-            var allUsers = context.Users.ToList();
+            var allUsers = context.Users.Where(l => l.Roles.Select(c => c.RoleId).Contains("2")).ToList();
             return View(allUsers);
         }
 
