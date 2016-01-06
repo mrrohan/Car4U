@@ -89,7 +89,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
             if (ModelState.IsValid)
             {
@@ -206,10 +206,11 @@ namespace Car4U.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
-            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
-            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
+
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+           // var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
+            ViewBag.CarID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate) > 0).Where(l => l.CarStatus.Count(c => c.BeginDate > today) <= 0), "ID", "LicensePlate");
             return View(reservation);
         }
 
@@ -218,18 +219,24 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,DeliveryDate,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID,ExtraItemsID,MomentDeliveryID,MomentReturnID")] Reservation reservation)
+        public ActionResult Edit(Reservation reservation, int? id)
         {
+            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
             if (ModelState.IsValid)
             {
+                reservation = db.Reservations.Find(id);
+
+                reservation.Check = true;
                 db.Entry(reservation).State = EntityState.Modified;
                 db.SaveChanges();
+
+                ViewBag.CarID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.carID);
+
                 return RedirectToAction("Index");
+                
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
-            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
-            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
+           
+            
             return View(reservation);
         }
 
