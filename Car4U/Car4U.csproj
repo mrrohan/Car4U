@@ -376,11 +376,9 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Reservations\Create.cshtml" />
     <Content Include="Views\Reservations\Delete.cshtml" />
     <Content Include="Views\Reservations\Details.cshtml" />
     <Content Include="Views\Reservations\Edit.cshtml" />
-    <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\CarStatus\Create.cshtml" />
     <Content Include="Views\CarStatus\Delete.cshtml" />
     <Content Include="Views\CarStatus\Details.cshtml" />
@@ -423,7 +421,7 @@
     <Content Include="Views\Gears\Details.cshtml" />
     <Content Include="Views\Gears\Edit.cshtml" />
     <Content Include="Views\Gears\Index.cshtml" />
-    <Content Include="Views\Cars\EnteringCars.cshtml" />
+    <Content Include="Views\Cars\EnteringCars- Copy.cshtml" />
     <Content Include="Views\Brands\IndexModel.cshtml" />
     <Content Include="Views\Cars\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
@@ -445,7 +443,11 @@
     <Content Include="Views\Categories\PrivateIndex.cshtml" />
     <Content Include="Views\Home\Teste.cshtml" />
     <Content Include="Views\Role\AllUsers.cshtml" />
-    <Content Include="Views\Role\RegisterEmployee.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Reservations\Create - Copy.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\CreateTeste.cshtml" />
+    <Content Include="Views\Cars\EnteringCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

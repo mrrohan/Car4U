@@ -37,7 +37,7 @@ namespace Car4U.Models
         public DateTime ReturnDate { get; set; }
 
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{HH:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime ReturnHour { get; set; }
 
         [DataType(DataType.Date)]
@@ -45,7 +45,7 @@ namespace Car4U.Models
         public DateTime DeliveryDate { get; set; }
 
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{HH:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryHour { get; set; }
 
         
