@@ -38,10 +38,12 @@ namespace Car4U.Controllers
             if (selectedCats != null)
             {
                 ViewBag.catid = selectedCats.ToList();
+                ViewBag.show = 0;
             }
             else
             {
-                ViewBag.catid = new int[0];
+                ViewBag.catid = new int[1];
+                ViewBag.show = 1;
             }
            
              

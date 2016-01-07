@@ -36,7 +36,7 @@
                 foreach (var item in Model.Cars)
                 {
 
-                    if (i == 0 || item.CategoryID == i)
+                    if (ViewBag.show == 1 || item.CategoryID == i)
                     {
                         <div class="frota">
                             <div class="col-md-4">
