@@ -110,28 +110,29 @@ namespace Car4U.Controllers
                         {
                             extitem = db.ExtraItems.First(e => e.ExtraModelID == extraModel.ID && e.InUse == false);
                             db.ExtraItems.Remove(extitem);
-                            db.SaveChanges();
+                           
                             deletecount--;
 
                         }
                     }
                     if (modelIndb.Stock < extraModel.Stock)
                     {
-                        int createcount = extraModel.Stock - modelIndb.Stock;
-                        var extitem = new ExtraItem();
+                        int createcount = extraModel.Stock - modelIndb.Stock;                        
                         while (createcount > 0)
                         {
-                            extitem.ExtraModel = extraModel;
+                            var extitem = new ExtraItem();
+                            extitem.ExtraModelID = modelIndb.ID;
                             extitem.InUse = false;
-                            db.ExtraItems.Add(extitem);
-                            db.SaveChanges();
+                            db.ExtraItems.Add(extitem);                            
                             createcount--;
                         }
 
                     }
                 }
-                db.Entry(extraModel).State = EntityState.Modified;                
-                db.SaveChanges();
+                modelIndb.Stock = extraModel.Stock;
+                db.Entry(modelIndb).State = EntityState.Modified;                
+                db.SaveChanges();             
+                
                 return RedirectToAction("Index");
             }
             
