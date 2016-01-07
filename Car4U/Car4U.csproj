@@ -235,6 +235,7 @@
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\jquery-ui.min.css" />
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.3\jquery-ui.min.js" />
+    <Content Include="Content\css\prettify.css" />
     <Content Include="Content\css\AntonioGonçalves.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -253,6 +254,8 @@
     <Content Include="Content\css\RicardoOliveira.css" />
     <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\Wizard\bootstrap.min.css" />
+    <Content Include="Content\css\Wizard\prettify.css" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_A_Automatico.jpg" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_A_CDI.jpg" />
     <Content Include="Content\Fleet_Images\Mercedes_Classe_B_Automático.jpg" />
@@ -349,6 +352,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-latest.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.form.js" />
@@ -361,8 +365,14 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\messages_pt.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js" />
+    <Content Include="Scripts\prettify.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Wizard\bootstrap.min.js" />
+    <Content Include="Scripts\Wizard\jquery-latest.js" />
+    <Content Include="Scripts\Wizard\jquery.bootstrap.wizard.js" />
+    <Content Include="Scripts\Wizard\prettify.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -502,6 +512,7 @@
     <Content Include="Views\Home\Teste.cshtml" />
     <Content Include="Views\Role\AllUsers.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Reservations\Create - Copy orig.cshtml" />
     <Content Include="Views\Reservations\Create - Copy.cshtml" />
     <Content Include="Views\Reservations\Create.cshtml" />
     <Content Include="Views\Reservations\CreateTeste.cshtml" />
