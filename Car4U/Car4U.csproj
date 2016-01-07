@@ -297,6 +297,8 @@
     <Content Include="images\Car4ULogo.png" />
     <Content Include="images\Car4Utext.fw.png" />
     <Content Include="images\Car4U_ico.fw.ico" />
+    <Content Include="images\chevron-left.png" />
+    <Content Include="images\chevron-right.png" />
     <Content Include="images\Citroen_C1.jpg" />
     <Content Include="images\Citroen_C3.jpg" />
     <Content Include="images\Citroen_C4.jpg" />
