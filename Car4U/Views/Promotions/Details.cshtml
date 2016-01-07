@@ -7,10 +7,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Promotion</h4>
+    <h4> Detalhes Promoções</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -38,8 +37,14 @@
         </dd>
 
     </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="button">
+                <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Edit", "Promotions", new { id = Model.ID })'">Editar</button>
+                <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Delete", "Promotions", new { id = Model.ID })'">Eliminar</button>
+                <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Index", "Promotions")'">Voltar</button>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+

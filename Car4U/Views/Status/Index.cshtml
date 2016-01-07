@@ -7,12 +7,16 @@
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<h4 style="color:black">Estado</h4>
+<br />
 
-<h2>Index</h2>
+<div class="form-group">
+    <div class="button">
+        <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Create", "Status")'">Adicionar</button>
+    </div>
+</div>
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
 <table class="table">
     <tr>
         <th>

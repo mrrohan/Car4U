@@ -7,11 +7,16 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
+<br />
+<h2>Utilizadores</h2>
+<br />
 
-<h2>AllUsers</h2>
-<p>
-    @Html.ActionLink("+ Adicionar", "RegisterEmployee")
-</p>
+<div class="form-group">
+    <div class="button">
+        <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("RegisterEmployee", "Role")'">Adicionar Conta</button>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -33,8 +38,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUser?id=@item.Id" class="delLink" style="color:red;">Delete</a></span> |
-                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span> |
+                @*<span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUser?id=@item.Id" class="delLink" style="color:red;">Delete</a></span> |*@
+                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span>
             </td>
            
         </tr>
