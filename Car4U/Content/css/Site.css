@@ -1414,7 +1414,7 @@ ul.features li.disabled .unit {
    Buttons
 ================================================== */
 
-.button .submit {
+/*.button .submit {
     background: none repeat scroll 0 0 #F9BF1D;
     border-radius: 8px;
     color: black;
@@ -1430,7 +1430,7 @@ ul.features li.disabled .unit {
     vertical-align: middle;
     width: auto;
     border: 0;
-}
+}*/
 
 .button .comment {
     margin-top: 16px;
