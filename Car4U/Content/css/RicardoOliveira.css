@@ -1516,6 +1516,12 @@ ul.features {
     cursor: pointer;
     display: inline-block;
     text-align: match-parent;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+    vertical-align: middle;
+    width: auto;
+    border: 0;
+    float:left;
+
 }
 
 .button .comment {
