@@ -48,40 +48,44 @@
     </tr>
     @foreach (var item in Model.Cars1)
     {
-        string selectedRow = "";
-        <tr class="@selectedRow">
-            <td>
-                @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
-            </td>
-            <th>
-                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
-            </th>
-            <td>
-                @Html.DisplayFor(modelItem => item.carModel.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LicensePlate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisterDate)
-            </td>
-            @*<td>
-                <span class="pull-right">
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID })
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </span>
-            </td>*@
-        </tr>
+        if (item.CarStatus.FirstOrDefault().BeginDate < ViewBag.today)
+        {
+            string selectedRow = "";
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.carModel.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicensePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterDate)
+                </td>
+                @*<td>
+                        <span class="pull-right">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                            @Html.ActionLink("Details", "Details", new { id = item.ID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </span>
+                    </td>*@
+            </tr>
+        }
+
     }
 </table>
 <div>
