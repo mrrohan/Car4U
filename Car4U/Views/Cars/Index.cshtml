@@ -13,40 +13,57 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.carModel.Description)
+            Marca
+            @*@Html.DisplayNameFor(model => model.carModel.brand.Description)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.category.CategoryName)
+            Modelo
+            @*@Html.DisplayNameFor(model => model.carModel.Description)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fuelType.Description)
+            Categoria
+            @*@Html.DisplayNameFor(model => model.category.CategoryName)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LicensePlate)
+            Combustível
+            @*@Html.DisplayNameFor(model => model.fuelType.Description)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RegisterDate)
+            Matrícula
+            @*@Html.DisplayNameFor(model => model.LicensePlate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NDoors)
+            Data Registo
+            @*@Html.DisplayNameFor(model => model.RegisterDate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NLuggage)
+            Nº Portas
+            @*@Html.DisplayNameFor(model => model.NDoors)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Engine)
+            Nº Bagagem
+            @*@Html.DisplayNameFor(model => model.NLuggage)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorsePower)
+            Motor
+            @*@Html.DisplayNameFor(model => model.Engine )*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gear.Description)
+            Cavalos
+            @*@Html.DisplayNameFor(model => model.HorsePower)*@
+        </th>
+        <th>
+            Caixa
+            @*@Html.DisplayNameFor(model => model.Gear.Description)*@
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.carModel.brand.Description)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.carModel.Description)
         </td>
