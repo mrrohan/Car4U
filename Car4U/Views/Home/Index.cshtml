@@ -21,7 +21,6 @@
         <link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
-
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
 
 </head>
@@ -128,7 +127,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                        <div>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control" })</div>
+                                        <div>@Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control", required = "required" })</div>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +145,7 @@
                                     <div class="form-group">
                                         <label for="picking_hour" class="control-label">Hora</label>
                                         <a required>
-                                            @Html.EditorFor(model => model.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour" } })
+                                            @Html.EditorFor(model => model.BeginHour, new { htmlAttributes = new { @id = "picking_hour", @class = "form-control", @name = "picking_hour", @autocomplete = "off", required = "required" } })
                                         </a>
                                     </div>
                                 </div>
@@ -165,7 +164,7 @@
                                     <div class="form-group">
                                         <label for="delivery_hour" class="control-label">Hora</label>
                                         <a required disabled>
-                                            @Html.EditorFor(model => model.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour" } })
+                                            @Html.EditorFor(model => model.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour", @autocomplete = "off", required = "required" } })
                                         </a>
                                     </div>
                                 </div>

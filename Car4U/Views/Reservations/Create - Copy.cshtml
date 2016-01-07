@@ -1,0 +1,364 @@
+﻿@model Car4U.Models.Reservation
+
+<html>
+
+<body>
+    <div class="language no-print">
+
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Reserva</h1>
+        </div>
+
+        <div class="booking_steps">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group btn-group-justified">
+                        <a class="btn btn-default first" role="button" disabled><b>1. </b>Periodo de aluguer</a>
+                        <a class="btn btn-default active" role="button"><b>2. </b>Tipo de viatura</a>
+                        <a class="btn btn-default " role="button" disabled><b>3. </b>Opcionais</a>
+                        <a class="btn btn-default " role="button" disabled><b>4. </b>Dados pessoais</a>
+                        <a class="btn btn-default " role="button" disabled><b>5. </b>Concluído</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <legend>
+            Escolha o tipo de viatura
+        </legend>
+
+        <div class="row">
+            <div class="col-md-3">
+
+
+                <div class="sidebar-booking">
+                    <h3>Reserva actual</h3>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5><b>ENTREGA</b></h5>
+                            @Html.DisplayFor(model => model.MPDelivery.Place)<br>
+                            @Html.DisplayFor(model => model.DeliveryDate) @Html.DisplayFor(model => model.DeliveryHour)
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5><b>RECOLHA</b></h5>
+                            @Html.DisplayFor(model => model.MPReturn.Place)<br>
+                            @Html.DisplayFor(model => model.ReturnDate) @Html.DisplayFor(model => model.ReturnHour)
+
+                            @Html.DisplayFor(model => model.Category.CategoryName)
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5><b>VIATURA E CONDUTOR</b></h5>
+                            Condutor com 23-75 anos
+                        </div>
+                    </div>
+
+
+
+
+                    <br>
+                </div>
+
+                <br>
+
+
+            </div>
+
+            <div class="col-md-9">
+
+                <form role="role" method="post" action="/pt/reserva/2/">
+
+                    1 -->
+
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Peugeot 108 ou similar</h3>
+                                            <h6>Similares: Similares</h6><br>
+                                            <h6>Grupo: A</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1000 euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/11812c734ae4970104eacb94944a7340.jpg">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">4</li>
+                                                    <li class="doors" title="Nº de portas">3</li>
+                                                    <li class="baggage" title="Bagagem">1</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Gasolina</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-32" class="ffeatures"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>16.40 € por dia</h2>
+                                <br>
+                                <h5><b>410.00</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="32">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Toyota Yaris ou similar</h3>
+                                            <h6>Similares: Similares</h6><br>
+                                            <h6>Grupo: B</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1000 Euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/75b45cba9e7a73fcbe784c7c9d414c05.png">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <center>
+                                                        <button type="button" class="vehicle-details-btn" onclick="$('#feature-38').fadeToggle();">mais detalhes</button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">5</li>
+                                                    <li class="doors" title="Nº de portas">5</li>
+                                                    <li class="baggage" title="Bagagem">2</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Gasolina</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-38" class="ffeatures">
+                                                    <li>Bluetooth</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>16.50 € por dia</h2>
+                                <br>
+                                <h5><b>412.50</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="38">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Opel Corsa  ou similar</h3>
+                                            <h6>Similares: Peugeot 208 </h6><br>
+                                            <h6>Grupo: C</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1000 euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/6cb08c15125e35db4ac878f765e59a09.jpg">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <center>
+                                                        <button type="button" class="vehicle-details-btn" onclick="$('#feature-18').fadeToggle();">mais detalhes</button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">5</li>
+                                                    <li class="doors" title="Nº de portas">5</li>
+                                                    <li class="baggage" title="Bagagem">2</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Gasolina</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-18" class="ffeatures">
+                                                    <li>Bluetooth</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>17.00 € por dia</h2>
+                                <br>
+                                <h5><b>425.00</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="18">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Peugeot 208 Hdi ou similar</h3>
+                                            <h6>Similares: Ford Fiesta Tdi</h6><br>
+                                            <h6>Grupo: CD</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1.350 euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/fd3a1b604bc82f9eb847a388c9c0cd00.jpg">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">5</li>
+                                                    <li class="doors" title="Nº de portas">5</li>
+                                                    <li class="baggage" title="Bagagem">2</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Diesel</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-25" class="ffeatures"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>19.50 € por dia</h2>
+                                <br>
+                                <h5><b>487.50</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="25">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    @*<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/js/messages_pt.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.form.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/slideshow.js"></script>
+        <script type="text/javascript">
+            if (jQuery.browser.mozilla) {
+                $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
+            }
+        </script>*@
+
+    <!-- ANALYTICS -->
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-38988857-23']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+        $('form').ajaxForm({
+            success: function (response) {
+                location.href = response.follow;
+            },
+            dataType: 'json'
+        });
+    </script>
+
+
+</body>
+</html>

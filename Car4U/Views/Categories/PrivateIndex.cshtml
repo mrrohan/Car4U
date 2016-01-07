@@ -4,10 +4,14 @@
     ViewBag.Title = "PrivateIndex";
 }
 
-<h2>PrivateIndex</h2>
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<h2>Categorias</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("+ Adicionar", "Create")
 </p>
 <table class="table">
     <tr>

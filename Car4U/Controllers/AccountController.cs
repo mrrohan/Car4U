@@ -92,9 +92,9 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            
             if (ModelState.IsValid)
             {
-                //var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
                 var user = new ApplicationUser
                 {  
                     UserName = model.Email,
@@ -107,6 +107,7 @@ namespace Car4U.Controllers
                     PostalCode = model.PostalCode
                 };
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                ViewBag.Country = new SelectList(db.Countries, "ID", "Name", user.CountryID);
                 if (result.Succeeded)
                 {
                     var roleStore = new RoleStore<IdentityRole>(db);
@@ -117,7 +118,6 @@ namespace Car4U.Controllers
                         roleManager.Create(new IdentityRole("Normal"));
                     }
 
-                    // var currentUser = UserManager.FindByName(user.UserName);
                     var roleresult = UserManager.AddToRole(user.Id, "Normal");
 
 
@@ -129,7 +129,7 @@ namespace Car4U.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    ViewBag.Country = new SelectList(db.Countries, "ID", "Name", user.CountryID);
+                   
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -139,6 +139,7 @@ namespace Car4U.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
             return View(model);
         }
 
@@ -422,6 +423,7 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Manage");

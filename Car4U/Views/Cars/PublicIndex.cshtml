@@ -4,7 +4,25 @@
     ViewBag.Title = "PublicIndex";
 }
 
-<h2>PublicIndex</h2>
+<h2></h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="get">
+                <ul class="nav fleet-nav pull-left">
+                    @foreach (var item in ViewBag.categories)
+                    {
+                        <li> <input type="checkbox" name="selectedCats" value="@item.ID" />@item.CategoryName</li>
+                    }
+                </ul>
+                <div class="button">
+                    <button id="bookingFormSubmit" class="submit" type="submit">Pesquisar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div>
 
@@ -14,46 +32,56 @@
             <div class="page-header">
                 <h2>Frota </h2>
             </div>
-            @foreach (var item in Model.Cars)
-            {
-                <div class="frota">
-                    <div class="col-md-4">
-                        @*verificar metodo para procurar foto pelo nome do carro com _ *@
-                        @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
-                        {
-                            <div>
-                                <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
-                            </div>
-                        }
 
-                        <br>
-                        <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
-                        <p class="comment"><b></b></p>
-                        <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
-                        <div>
-                            <ul class="features">
-                                <li class="seats" title="Nº de pessoas">4</li>
-                                <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
-                                <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
-                                <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
-                                <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
-                                @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
-                                <li class="plate" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
-                            </ul>
+            @foreach (var i in ViewBag.catid)
+            {
+                foreach (var item in Model.Cars)
+                {
+
+                    if (ViewBag.show == 1 || item.CategoryID == i)
+                    {
+                        <div class="frota">
+                            <div class="col-md-4">
+                                @*verificar metodo para procurar foto pelo nome do carro com _ *@
+                                @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                                {
+                                    <div>
+                                        <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                                    </div>
+                                }
+
+                                <br>
+                                <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                                <p class="comment"><b></b></p>
+                                <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
+                                <div>
+                                    <ul class="features">
+                                        <li class="seats" title="Nº de pessoas">4</li>
+                                        <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
+                                        <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
+                                        <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
+                                        <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
+                                        @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
+                                        <li class="plate" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
+                                </div>
+                                <div>
+                                    @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
+                                </div>
+                                <div class="button">
+
+                                    <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
-                        </div>
-                        <div>
-                            @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
-                        </div>
-                        <div class="button">
-                          
-                            <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>
-                        </div>
-                    </div>
-                </div>
+                    }
+
+                }
             }
+           
         </div>
     }
 </div>
@@ -109,30 +137,21 @@
                                     <label class="control-label" for="age">Idade do condutor</label>
                                     <select id="age" class="form-control" name="age" required>
                                         <option value="">Por favor escolha...</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21-75" selected>21-75</option>
-                                        <option value="76">76</option>
-                                        <option value="77">77</option>
-                                        <option value="78">78</option>
-                                        <option value="79">79</option>
-                                        <option value="80">80</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option >20</option>
+                                        <option selected>21-75</option>
+                                        <option >76</option>
+                                        <option>77</option>
+                                        <option >78</option>
+                                        <option >79</option>
+                                        <option>80</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row" style="display: none;">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="fleet_category_id" class="control-label">Categoria da viatura</label>
-                                    <a required>
-                                        @Html.DropDownList("CategoryID", null, "Por favor escolha...", htmlAttributes: new { @id = "fleet_category_id", @name = "fleet_category_id", @class = "form-control", required = "required" })
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                      
 
                         <div class="row">
                             <div class="col-md-6">

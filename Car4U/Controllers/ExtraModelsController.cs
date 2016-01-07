@@ -95,11 +95,47 @@ namespace Car4U.Controllers
         public ActionResult Edit([Bind(Include = "ID,Model,Price,Stock,ExtraModelTypeID")] ExtraModel extraModel)
         {
             if (ModelState.IsValid)
-            {
-                db.Entry(extraModel).State = EntityState.Modified;
-                db.SaveChanges();
+            {              
+
+                var modelIndb = new ExtraModel();
+                modelIndb = db.ExtraModels.First(e => e.ID == extraModel.ID);
+
+                if (modelIndb.Stock != extraModel.Stock)
+                {
+                    if (modelIndb.Stock > extraModel.Stock)
+                    {
+                        int deletecount = modelIndb.Stock - extraModel.Stock;
+                        var extitem = new ExtraItem();
+                        while (deletecount > 0)
+                        {
+                            extitem = db.ExtraItems.First(e => e.ExtraModelID == extraModel.ID && e.InUse == false);
+                            db.ExtraItems.Remove(extitem);
+                           
+                            deletecount--;
+
+                        }
+                    }
+                    if (modelIndb.Stock < extraModel.Stock)
+                    {
+                        int createcount = extraModel.Stock - modelIndb.Stock;                        
+                        while (createcount > 0)
+                        {
+                            var extitem = new ExtraItem();
+                            extitem.ExtraModelID = modelIndb.ID;
+                            extitem.InUse = false;
+                            db.ExtraItems.Add(extitem);                            
+                            createcount--;
+                        }
+
+                    }
+                }
+                modelIndb.Stock = extraModel.Stock;
+                db.Entry(modelIndb).State = EntityState.Modified;                
+                db.SaveChanges();             
+                
                 return RedirectToAction("Index");
             }
+            
             ViewBag.ExtraModelTypeID = new SelectList(db.ExtraModelTypes, "ID", "Description", extraModel.ExtraModelTypeID);
             return View(extraModel);
         }

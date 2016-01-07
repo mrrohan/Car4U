@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Status</h4>
+    <h4>Deatlhes do Estado</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,8 +18,14 @@
         </dd>
 
     </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="buttonbackoffice">
+                <button class="submit" type="button" onclick="location.href='@Url.Action("Edit", "Status", new { id = Model.ID })'">Editar</button>
+                <button class="submit" type="button" onclick="location.href='@Url.Action("Delete", "Status", new { id = Model.ID })'">Eliminar</button>
+                <button class="submit" type="button" onclick="location.href='@Url.Action("Index", "Status")'">Voltar</button>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+

@@ -3,12 +3,13 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+
 
 @using (Html.BeginForm("RegisterEmployee", "Role", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
+<br />
+    <h4>Criar nova conta</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -69,12 +70,20 @@
         </div>
     </div>
 
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="button">
+            <button id="butaoOffice" class="submit" type="submit" value="Save">Guardar</button>
+            <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action(" AllUsers", "Role" )'">Voltar</button>
+        </div>
+    </div>
+</div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
-    </div>
+    </div>*@
 }
 
 @*@section Scripts {

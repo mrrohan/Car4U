@@ -7,19 +7,17 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Promotion</h4>
+        <h4>Editar Promoção</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
-
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -27,7 +25,6 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Percentage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -35,7 +32,6 @@
                 @Html.ValidationMessageFor(model => model.Percentage, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Days, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -43,18 +39,20 @@
                 @Html.ValidationMessageFor(model => model.Days, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <div class="buttonbackoffice">
+                    <button class="submit" type="submit" value="Save">Guardar</button>
+                    <button class="submit" type="button" onclick="location.href='@Url.Action("Index", "Promotions")'">Voltar</button>
+                </div>
             </div>
         </div>
     </div>
+
+
 }
 
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
+
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
