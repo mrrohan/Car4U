@@ -80,7 +80,10 @@
                     <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">Modelo Veículo</a>
                 </li>
                 <li>
-                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">Veículo</a>
+                    <a id="Gears" href="~/Gears/Index" class="sidebar-brand">Tipo de Caixa</a>
+                </li>
+                <li>
+                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">Estado Veículo</a>
                 </li>
                 <li>
                     <a id="Categories" href="~/Categories/PrivateIndex" class="sidebar-brand">Categorias</a>
@@ -107,10 +110,10 @@
                     <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservas</a>
                 </li>
                 <li>
-                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Premissões</a>
+                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
                 </li>
                 <li>
-                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Estado do veículo</a>
+                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Adicionar Estado</a>
                 </li>
                 <li>
                     <a id="Role" href="~/Cars/LeavingCarsIndex" class="sidebar-brand">Saida de Veículos</a>
@@ -155,7 +158,7 @@
         });
 
 
-                function toggleB(lnk_obj){
+        function toggleB(lnk_obj) {
             lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
         }
 
