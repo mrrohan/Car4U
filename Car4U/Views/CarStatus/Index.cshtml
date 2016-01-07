@@ -6,7 +6,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Estado dos Carros</h2>
 
 <p>
     @Html.ActionLink("+ Adicionar", "Create")
@@ -14,31 +14,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Car.LicensePlate)
+            Matrícula
+            @*@Html.DisplayNameFor(model => model.Car.LicensePlate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status.Description)
+            Estado
+            @*@Html.DisplayNameFor(model => model.Status.Description)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Observation)
+            Observações
+            @*@Html.DisplayNameFor(model => model.Observation)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeliveryPlace)
+            Local de Entrega
+            @*@Html.DisplayNameFor(model => model.DeliveryPlace)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReturnPlace)
+            Local de Recolha
+            @*@Html.DisplayNameFor(model => model.ReturnPlace)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BeginDate)
+            Data Início
+            @*@Html.DisplayNameFor(model => model.BeginDate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BeginHour)
+            Hora Início
+            @*@Html.DisplayNameFor(model => model.BeginHour)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FinishDate)
+            Data Fim
+            @*@Html.DisplayNameFor(model => model.FinishDate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FinishHour)
+            Hora Fim
+            @*@Html.DisplayNameFor(model => model.FinishHour)*@
         </th>
         <th></th>
     </tr>
