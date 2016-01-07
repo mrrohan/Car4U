@@ -194,6 +194,159 @@ namespace Car4U.Controllers
             return View(reservation);
         }
 
+
+        // GET: Reservations/Create
+        public ActionResult CreateTeste(Reservation reservation, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        {
+
+            if (mpreliveryid != null)
+            {
+                reservation.MPDelivery = db.MeetingPoints.Find(mpreliveryid);
+            }
+            if (mpreturnid != null)
+            {
+                reservation.MPReturn = db.MeetingPoints.Find(mpreturnid);
+            }
+            if (categotyid != null)
+            {
+                reservation.Category = db.Categories.Find(categotyid);
+            }
+
+            if (begindate != null)
+            {
+                reservation.DeliveryDate = begindate ?? default(DateTime);
+            }
+            if (beginhour != null)
+            {
+                reservation.DeliveryHour = beginhour ?? default(DateTime);
+            }
+
+            if (enddate != null)
+            {
+                reservation.ReturnDate = enddate ?? default(DateTime);
+            }
+
+            if (endhour != null)
+            {
+                reservation.ReturnHour = endhour ?? default(DateTime);
+            }
+
+            ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
+            ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
+         
+            return View(reservation);
+        }
+
+        // POST: Reservations/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateTeste([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        {
+            if (ModelState.IsValid)
+            {
+                if (mpreliveryid != null)
+                {
+                    reservation.MPDeliveryID = mpreliveryid ?? default(int);
+                }
+                if (mpreturnid != null)
+                {
+                    reservation.MPReturnID = mpreturnid ?? default(int);
+                }
+                if (categotyid != null)
+                {
+                    reservation.CategoryID = categotyid ?? default(int);
+                }
+
+                if (begindate != null)
+                {
+                    reservation.DeliveryDate = begindate ?? default(DateTime);
+                }
+                if (beginhour != null)
+                {
+                    reservation.DeliveryHour = beginhour ?? default(DateTime);
+                }
+
+                if (enddate != null)
+                {
+                    reservation.ReturnDate = enddate ?? default(DateTime);
+                }
+
+                if (endhour != null)
+                {
+                    reservation.ReturnHour = endhour ?? default(DateTime);
+                }
+
+                //get model ID from slectedcheckbox and search for the 1st available item of that model and add it to the reservation. 
+                int extid;
+                ExtraItem extritem = new ExtraItem();
+                reservation.ExtraItems = new List<ExtraItem>();
+
+                int s = selectedExtraModels.Count();
+
+                for (int count = 0; count < s; count++)
+                {
+                    extid = Convert.ToInt32(selectedExtraModels[count]);
+                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
+                    extritem.InUse = true;
+                    //db.Entry(extritem).State = EntityState.Modified;
+                    //db.SaveChanges();
+                    reservation.ExtraItems.Add(extritem);
+                }
+
+
+                //get price and add to FinalPrice from category of car
+                int catid = reservation.CategoryID;
+                Category cat = db.Categories.First(c => c.ID == catid);
+
+                //add price of ExtraItems to FinalPrice
+                foreach (ExtraItem i in reservation.ExtraItems)
+                {
+                    int modelid = i.ExtraModelID;
+                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
+                    reservation.FinalPrice += extrmodel.Price;
+                }
+                var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
+                int ndaysres = span.Days;
+
+                //Promotion                
+                int bestpromobydays = 0;
+                try
+                {
+                    foreach (var p in db.Promotions)
+                    {
+                        if (ndaysres >= p.Days && p.Days >= bestpromobydays)
+                        {
+                            bestpromobydays = p.Days;
+                            reservation.Promotion = p;
+                        }
+                    }
+                }
+                catch { }
+
+                if (!(reservation.Promotion == null))
+                {
+                    reservation.FinalPrice += ((cat.Price * (reservation.Promotion.Percentage * 0.01)) * ndaysres);
+
+                }
+                else
+                {
+                    reservation.FinalPrice += cat.Price * ndaysres;
+                }
+
+                reservation.ReservationDate = DateTime.Now;
+
+                db.Reservations.Add(reservation);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
+            return View(reservation);
+        }
+
         // GET: Reservations/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -209,8 +362,8 @@ namespace Car4U.Controllers
 
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-           // var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
-            ViewBag.CarID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate) > 0).Where(l => l.CarStatus.Count(c => c.BeginDate > today) <= 0), "ID", "LicensePlate");
+            // 
+            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0), "ID", "LicensePlate", reservation.carID);
             return View(reservation);
         }
 
@@ -221,16 +374,19 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Reservation reservation, int? id)
         {
-            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0), "ID", "LicensePlate");
             if (ModelState.IsValid)
             {
+               
                 reservation = db.Reservations.Find(id);
-
+                ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0), "ID", "LicensePlate", reservation.carID);
                 reservation.Check = true;
                 db.Entry(reservation).State = EntityState.Modified;
                 db.SaveChanges();
 
-                ViewBag.CarID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.carID);
+              
 
                 return RedirectToAction("Index");
                 

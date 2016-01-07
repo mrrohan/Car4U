@@ -61,15 +61,35 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                    if (id != null)
-                    {
-                        momentReturn.ReservationID = id ?? default(int);
-                    }
+                var carid = db.Reservations.Find(id);
+                var statsid = db.Status.SingleOrDefault(l => l.Description.Equals("Disponivel"));
+                var place = "Home";
+                if (id != null)
+                {
+                    momentReturn.ReservationID = id ?? default(int);
+                }
 
-                    momentReturn.Date = db.Reservations.Find(momentReturn.ID).ReturnDate;
-                    db.MomentReturns.Add(momentReturn);
-                    db.SaveChanges();
-                    return RedirectToAction("Index", "Reservations");
+                momentReturn.Date = db.Reservations.Find(momentReturn.ID).ReturnDate;
+                db.MomentReturns.Add(momentReturn);
+
+                // CarStatus = disponivel
+                var available = new CarStatus();
+
+                available.CarID = carid.carID;
+                available.StatusID = statsid.ID;
+                available.Outside = false;
+                available.BeginDate = DateTime.Now;
+                available.BeginHour = DateTime.Now;
+                available.FinishDate = DateTime.Now;
+                available.FinishHour = DateTime.Now;
+                available.Observation = "Returned";
+                available.DeliveryPlace = place;
+                available.ReturnPlace = place;
+
+                db.CarStatus.Add(available);
+                //
+                db.SaveChanges();
+                return RedirectToAction("Index", "Reservations");
             }
 
             return View(momentReturn);

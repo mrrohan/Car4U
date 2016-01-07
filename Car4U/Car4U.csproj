@@ -421,7 +421,7 @@
     <Content Include="Views\Gears\Details.cshtml" />
     <Content Include="Views\Gears\Edit.cshtml" />
     <Content Include="Views\Gears\Index.cshtml" />
-    <Content Include="Views\Cars\EnteringCars.cshtml" />
+    <Content Include="Views\Cars\EnteringCars- Copy.cshtml" />
     <Content Include="Views\Brands\IndexModel.cshtml" />
     <Content Include="Views\Cars\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
@@ -446,6 +446,8 @@
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Reservations\Create - Copy.cshtml" />
     <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\CreateTeste.cshtml" />
+    <Content Include="Views\Cars\EnteringCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
