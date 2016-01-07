@@ -26,16 +26,24 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars
-        public ActionResult PublicIndex()
+        public ActionResult PublicIndex(int? selectedCats)
         {
             var viewModel = new CarIndex();
             viewModel.Cars = db.Cars.OrderBy(i => i.carModel.brand.Description).ToList();
 
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
-            ViewBag.catid = 0;
-           
+            ViewBag.categories = db.Categories.ToList();
+            if (selectedCats != null)
+            {
+                ViewBag.catid = selectedCats;
+            }
+            else
+            {
+                ViewBag.catid = 0;
+            }
+            
+
            return View(viewModel);
         }
 
