@@ -1,191 +1,364 @@
 ﻿@model Car4U.Models.Reservation
 
-@{
-    ViewBag.Title = "Create";
-}
+<html>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <h4> New Reservation</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+<body>
+    <div class="language no-print">
+
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Reserva</h1>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.License, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.License, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.License, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BI, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BI, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BI, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-       <div class="form-group">
-            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.ReservationDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReservationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReservationDate, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-        <div class="form-group">
-            @Html.LabelFor(model => model.DeliveryDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DeliveryDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DeliveryDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.FinalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FinalPrice, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FinalPrice, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CountryID, "CountryID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("CountryID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
+        <div class="booking_steps">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group btn-group-justified">
+                        <a class="btn btn-default first" role="button" disabled><b>1. </b>Periodo de aluguer</a>
+                        <a class="btn btn-default active" role="button"><b>2. </b>Tipo de viatura</a>
+                        <a class="btn btn-default " role="button" disabled><b>3. </b>Opcionais</a>
+                        <a class="btn btn-default " role="button" disabled><b>4. </b>Dados pessoais</a>
+                        <a class="btn btn-default " role="button" disabled><b>5. </b>Concluído</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+        <br>
+
+        <legend>
+            Escolha o tipo de viatura
+        </legend>
+
+        <div class="row">
+            <div class="col-md-3">
+
+
+                <div class="sidebar-booking">
+                    <h3>Reserva actual</h3>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5><b>ENTREGA</b></h5>
+                            @Html.DisplayFor(model => model.MPDelivery.Place)<br>
+                            @Html.DisplayFor(model => model.DeliveryDate) @Html.DisplayFor(model => model.DeliveryHour)
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5><b>RECOLHA</b></h5>
+                            @Html.DisplayFor(model => model.MPReturn.Place)<br>
+                            @Html.DisplayFor(model => model.ReturnDate) @Html.DisplayFor(model => model.ReturnHour)
+
+                            @Html.DisplayFor(model => model.Category.CategoryName)
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5><b>VIATURA E CONDUTOR</b></h5>
+                            Condutor com 23-75 anos
+                        </div>
+                    </div>
+
+
+
+
+                    <br>
                 </div>
+
+                <br>
+
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.MPDeliveryID, "MPDeliveryID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("MPDeliveryID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.MPDeliveryID, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            <div class="col-md-9">
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.MPReturnID, "MPReturnID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("MPReturnID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.MPReturnID, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                <form role="role" method="post" action="/pt/reserva/2/">
 
-           @* <div class="form-group">
-                @Html.LabelFor(model => model.ExtraItemsID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ExtraItemsID",null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ExtraItemsID, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+                    1 -->
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <table>
-                    <tr>
-                        @{
-                            int cnt = 0;
-                            List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
-                            extmodels = ViewBag.ExtraModels;
 
-                            foreach (var m in extmodels)
-                            {
-                                if (cnt++ % 3 == 0)
-                                {
-                                    @:</tr><tr>
-                                }
-                                @:<td>
-                                    <input type="checkbox"
-                                           name="selectedExtraModels"
-                                           value="@m.ID" />                                          
-                                    @m.ID @:  @m.Model
-                                    @:</td>
-                             }
-                             @:</tr>
-                         }
-                    </table>
-                </div>
-            </div> 
-         
-            
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Peugeot 108 ou similar</h3>
+                                            <h6>Similares: Similares</h6><br>
+                                            <h6>Grupo: A</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1000 euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/11812c734ae4970104eacb94944a7340.jpg">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">4</li>
+                                                    <li class="doors" title="Nº de portas">3</li>
+                                                    <li class="baggage" title="Bagagem">1</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Gasolina</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
 
-          
-        
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-32" class="ffeatures"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>16.40 € por dia</h2>
+                                <br>
+                                <h5><b>410.00</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="32">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Toyota Yaris ou similar</h3>
+                                            <h6>Similares: Similares</h6><br>
+                                            <h6>Grupo: B</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1000 Euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/75b45cba9e7a73fcbe784c7c9d414c05.png">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <center>
+                                                        <button type="button" class="vehicle-details-btn" onclick="$('#feature-38').fadeToggle();">mais detalhes</button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">5</li>
+                                                    <li class="doors" title="Nº de portas">5</li>
+                                                    <li class="baggage" title="Bagagem">2</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Gasolina</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-38" class="ffeatures">
+                                                    <li>Bluetooth</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>16.50 € por dia</h2>
+                                <br>
+                                <h5><b>412.50</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="38">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Opel Corsa  ou similar</h3>
+                                            <h6>Similares: Peugeot 208 </h6><br>
+                                            <h6>Grupo: C</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1000 euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/6cb08c15125e35db4ac878f765e59a09.jpg">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <center>
+                                                        <button type="button" class="vehicle-details-btn" onclick="$('#feature-18').fadeToggle();">mais detalhes</button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">5</li>
+                                                    <li class="doors" title="Nº de portas">5</li>
+                                                    <li class="baggage" title="Bagagem">2</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Gasolina</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-18" class="ffeatures">
+                                                    <li>Bluetooth</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>17.00 € por dia</h2>
+                                <br>
+                                <h5><b>425.00</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="18">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row reserva">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>Peugeot 208 Hdi ou similar</h3>
+                                            <h6>Similares: Ford Fiesta Tdi</h6><br>
+                                            <h6>Grupo: CD</h6><br>
+                                            <h6><b>Categoria:</b> Económico</h6><br>
+                                            <h6>Franquia de 1.350 euros</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="/data/fd3a1b604bc82f9eb847a388c9c0cd00.jpg">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <ul class="features">
+                                                    <li class="seats" title="Nº de pessoas">5</li>
+                                                    <li class="doors" title="Nº de portas">5</li>
+                                                    <li class="baggage" title="Bagagem">2</li>
+                                                    <li class="manual" title="Caixa de velocidades">Manual</li>
+                                                    <li class="fuel" title="Tipo de combustível">Diesel</li>
+                                                    <li class="aircon">Ar condicionado</li>
+                                                </ul>
+
+                                                <div style="clear: both;"></div>
+
+                                                <ul id="feature-25" class="ffeatures"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <center>
+                                <h2>19.50 € por dia</h2>
+                                <br>
+                                <h5><b>487.50</b> € por <b>25</b> dias</h5>
+                                <div class="button">
+                                    <button type="submit" class="submit" name="fleet_id" value="25">RESERVE JÁ</button>
+                                    <p class="comment">Serviço Aeroporto "Meet & Greet"</p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+    <hr>
+
+    @*<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/js/messages_pt.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.form.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/slideshow.js"></script>
+        <script type="text/javascript">
+            if (jQuery.browser.mozilla) {
+                $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
+            }
+        </script>*@
+
+    <!-- ANALYTICS -->
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-38988857-23']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+        $('form').ajaxForm({
+            success: function (response) {
+                location.href = response.follow;
+            },
+            dataType: 'json'
+        });
+    </script>
+
+
+</body>
+</html>
