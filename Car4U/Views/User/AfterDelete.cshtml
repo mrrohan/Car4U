@@ -2,9 +2,15 @@
     ViewBag.Title = "AfterDelete";
 }
 
-<h1>
-   Log Off to conclude the account deletion @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-        <a href="javascript:document.getElementById('logoutForm').submit()">Log Off</a>
-    }
-</h1>
+
+<h3 class="row form-group">Tem a certeza que quer eliminar a conta</h3>
+
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+{
+    <div style="float: left">
+        <a href="javascript:document.getElementById('logoutForm').submit()">Sim</a>
+        <a>|</a>
+        <a href="~/Views/User/Details">Não</a>
+    </div>
+}
+
