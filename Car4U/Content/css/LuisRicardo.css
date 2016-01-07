@@ -1,54 +1,4 @@
-﻿.button .default {
-    
-    background: #ffd800;
-    border-radius: 8px;
-    color:#000000;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Arial,sans-serif;
-    font-size: 10px;
-   font-weight: bold;
-    margin-top: 5px;
-    padding: 4px 15px;
-    text-align: center;
-    transition: background 0.1s linear 0s, color 0.1s linear 0s;
-    vertical-align: middle;
-    width: auto;
-    border: 2px solid #000000;
-}
-
-.lista {
-    
-    background:#f7b706;
-    border-radius: 8px;
-    color:#000000;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Arial,sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 18px;
-    padding: 8px 33px;
-    text-align: center;
-    transition: background 0.1s linear 0s, color 0.1s linear 0s;
-    vertical-align: middle;
-    width: auto;
-    float:right;
-   
-   
-}
-.default:hover {
-        color: #ffd800;
-        background-color:#000000;
-        border-color: #000000;
-        
-        
-        
-    }
-    .lista:hover {
-        color: #ffd800;
-        background-color: #000000;
-    }
+﻿
 
 .btn-position-right {
     float: right;
@@ -56,62 +6,105 @@
 /*------------------------------------------------------------------------*/
 
 
-.moldura3 { 
-    float:left;
-   padding:8px 8px 20px 8px; 
-   border-radius: 8px;
-   border: 2px solid #ffd800; 
-   width:490px; 
-   
-} 
-
-.moldura2{
-   float:left;
-   background-color:#ffd800;
-   padding:8px 8px 20px 8px; 
-   border-radius: 8px;
-   border: 2px solid #ffd800; 
-   width:350px; 
+.moldura3 {
+    float: left;
+    padding: 8px 8px 20px 8px;
+    border-radius: 20px;
+    border: 2px solid #ffd800;
+    width: 490px;
 }
+
+.moldura2 {
+    float: left;
+    background-color: #ffd800;
+    padding: 8px 8px 20px 8px;
+    border-radius: 8px;
+    border: 2px solid #ffd800;
+    width: 350px;
+}
+
     .moldura2 .submoldura2 {
-          padding:8px 8px 20px 8px;
-          font-family: Arial,sans-serif;
-          font-weight: bold;
-          color:#000000;
+        padding: 8px 8px 20px 8px;
+        font-family: Arial,sans-serif;
+        font-weight: bold;
+        color: #000000;
     }
 
 
-.moldura1 { 
-    float:left;
-    
-   border-radius: 8px;
-   border: 2px solid #000000; 
-   width:454px; 
-   
-} 
+.moldura1 {
+    float: left;
+    border-radius: 8px;
+    border: 2px solid #000000;
+    width: 454px;
+}
 
 .titles {
-    color:#000000;
+    color: #000000;
     font-family: Arial,sans-serif;
     font-weight: bold;
-    
 }
 
 .positiontop {
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .positionright {
     margin-left: 100px;
+}
+
+
+
+.btn-position {
+    float: right;
+    margin-right: 165px;
+}
+
+
+
+.tabledetails .table-background-second{
+
+     
+     color: black;
+     border:1px solid #f7b706;
+     border-top-right-radius:20px;
+     border-bottom-right-radius:20px;
+     
+     font-family: Arial,sans-serif;
     
 }
 
-.th{
-     padding:0px 0px 0px 0px;
-   }
 
-.btn-position {
-    float:right;
-    margin-right:165px;
 
+
+
+.tableheader th {
+    background-color:#f7b706;
+    
+    color:black;
+    }
+
+
+.tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
+    border:2px solid white!important;
+    font-family: Arial,sans-serif;
+}
+
+.tableheader tbody tr:nth-child(odd) {
+   background-color: rgba(255, 216, 0, 0.39);
+}
+
+.tableheader tr td:last-child div {
+    visibility  : hidden;
+}
+
+.tableheader tr:hover td:last-child div {
+    visibility: visible;
+}
+
+a {
+    color: #f7b706;
+}
+
+a:hover {
+    color: #ffd800;
 }
