@@ -283,19 +283,24 @@ namespace Car4U.Controllers
                 int extid;
                 ExtraItem extritem = new ExtraItem();
                 reservation.ExtraItems = new List<ExtraItem>();
-
-                int s = selectedExtraModels.Count();
-
-                for (int count = 0; count < s; count++)
+                if (selectedExtraModels != null)
                 {
-                    extid = Convert.ToInt32(selectedExtraModels[count]);
-                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
-                    extritem.InUse = true;
-                    //db.Entry(extritem).State = EntityState.Modified;
-                    //db.SaveChanges();
-                    reservation.ExtraItems.Add(extritem);
-                }
+                    int s = selectedExtraModels.Count();
 
+                    for (int count = 0; count < s; count++)
+                    {
+                        extid = Convert.ToInt32(selectedExtraModels[count]);
+                        extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
+                        extritem.InUse = true;
+                        //db.Entry(extritem).State = EntityState.Modified;
+                        //db.SaveChanges();
+                        reservation.ExtraItems.Add(extritem);
+                    }
+                }
+                else
+                {
+                    reservation.ExtraItemsID=1;
+                }
 
                 //get price and add to FinalPrice from category of car
                 int catid = reservation.CategoryID;
