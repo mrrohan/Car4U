@@ -26,11 +26,12 @@ namespace Car4U
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css",
-                      "~/Content/css/Osvaldo.css",
-                      "~/Content/css/RicardoOliveira.css",
+                      "~/Content/css/responsive.css",
+                      "~/Content/css/LuisRicardo.css",
                       "~/Content/css/AntonioGonçalves.css",
                       "~/Content/css/DiogoCosta.css",
-                      "~/Content/css/LuisRicardo.css",
+                      "~/Content/css/Osvaldo.css",
+                      "~/Content/css/RicardoOliveira.css",
                       "~/Content/css/simple-sidebar.css"));
 
         }
