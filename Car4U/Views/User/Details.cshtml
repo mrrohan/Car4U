@@ -6,20 +6,19 @@
 {
 
     {
-
-        ViewBag.Title = "Detalhes";
+        <div class="page-header">
+            <h2>Prefil</h2>
+        </div>
     }
 
 
-    <h2>@ViewBag.Title</h2>
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
 
     @Html.AntiForgeryToken()
 
-    <h4>Details</h4>
-    <hr />
     <div class="container jumbotron">
         <div class="row">
-            <div class="col-md-6 col-lg-6">
+            <div class="col-md-12 col-lg-12">
                 <ul class="all-blogs">
                     <li>
                         @Html.LabelFor(model => model.Email)
@@ -27,22 +26,22 @@
                         @Html.DisplayFor(model => model.Email)
                     </li>
                     <li>
-                        @Html.LabelFor(model => model.Name)
+                        @Html.LabelFor(model => model.Name, "Nome")
                         :
                         @Html.DisplayFor(model => model.Name)
                     </li>
                     <li>
-                        @Html.LabelFor(model => model.PostalCode)
+                        @Html.LabelFor(model => model.PostalCode, "Código Postal")
                         :
                         @Html.DisplayFor(model => model.PostalCode)
                     </li>
                     <li>
-                        @Html.LabelFor(model => model.Address)
+                        @Html.LabelFor(model => model.Address, "Morada")
                         :
                         @Html.DisplayFor(model => model.Address)
                     </li>
                     <li>
-                        @Html.LabelFor(model => model.License)
+                        @Html.LabelFor(model => model.License, "Carta de Condução")
                         :
                         @Html.DisplayFor(model => model.License)
                     </li>
@@ -52,23 +51,37 @@
                         @Html.DisplayFor(model => model.BI)
                     </li>
                     <li>
-                        @Html.LabelFor(model => model.Country)
+                        @Html.LabelFor(model => model.Country, "País")
                         :
                         @Html.DisplayFor(model => model.Country.Name)
                     </li>
                 </ul>
-                <a id="Change Password" href="/Account/Manage" class="btn btn-success login">Change Password</a>
-                <a id="Edit" href="/User/Edit" class="btn btn-primary login">Edit Account</a>
-                <a id="FollowedCars" href="/User/FollowedCars" class="btn btn-primary login">Followed Cars</a>
-                <a id="Delete" href="/User/Delete" class="btn btn-danger login">Delete Account</a>
+            </div>
+                <div class="row">
+
+                    <div class="buttonbackoffice">
+                        <button  class="submit" type="button" onclick="location.href='@Url.Action("FollowedCars", "User")'">Carros seguidos</button>
+                    </div>
+                    <div class="buttonbackoffice">
+                        <button class="submit" type="button" onclick="location.href='@Url.Action("Manage", "Account")'">Alterar password</button>
+                    </div>
+
+                    <div class="buttonbackoffice">
+                        <button  class="submit" type="button" onclick="location.href='@Url.Action("Edit", "User")'">Alterar dados</button>
+                    </div>
+
+                    <div class="buttonbackoffice">
+                        <button class="submit" type="button" onclick="location.href='@Url.Action("Delete", "User")'">Eliminar conta</button>
+                    </div>
+               
             </div>
         </div>
     </div>
 
 
     @*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
 }
 else
 {

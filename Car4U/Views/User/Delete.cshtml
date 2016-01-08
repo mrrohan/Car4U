@@ -11,15 +11,17 @@
     }
 
 
-    <h2>@ViewBag.Title</h2>
+    <div class="page-header">
+        <h2>@ViewBag.Title</h2>
 
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
+    </div>
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
 
-    <h4>Delete User</h4>
     <hr />
     <div class="container jumbotron">
         <div class="row">
-            <div class="col-md-6 col-lg-6">
+            <div class="col-md-12 col-lg-12">
                 <ul class="all-blogs">
                     <li>
                         @Html.LabelFor(model => model.Email)
@@ -61,10 +63,11 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-                <div class="form-actions no-color">
-                    <span onclick="return confirm('Are you sure to delete?')"><input type="submit" value="Delete" class="btn btn-danger" /></span>
-                    <hr />
-                    <a id="Voltar para os detalhes" href="/User/Details" class="btn btn-primary login">Cancel</a>
+                <div class="row">
+                    <div class="buttonbackoffice">
+                        <span onclick="return confirm('Tem a certeza que quer eliminar a conta?')"><input type="submit" value="Delete" class="submit" /></span>
+                        <a id="Voltar para os detalhes" href="/User/Details" class="submit">Cancel</a>
+                    </div>
                 </div>
             }
         </div>
@@ -72,8 +75,8 @@
 
 
     @*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
 
 }
 else
