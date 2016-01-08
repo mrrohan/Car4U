@@ -5,39 +5,38 @@
 }
 /*------------------------------------------------------------------------*/
 
-
-.moldura3 {
+.muldura {
     float: left;
     padding: 8px 8px 20px 8px;
+
+}
+.muldura .moldura3 {  
     border-radius: 20px;
     border: 2px solid #ffd800;
     width: 490px;
 }
 
-.moldura2 {
-    float: left;
-    background-color: #ffd800;
-    padding: 8px 8px 20px 8px;
+.moldura2 {  
     border-radius: 8px;
     border: 2px solid #ffd800;
     width: 350px;
 }
 
     .moldura2 .submoldura2 {
-        padding: 8px 8px 20px 8px;
         font-family: Arial,sans-serif;
         font-weight: bold;
         color: #000000;
     }
 
 
-.moldura1 {
-    float: left;
+.moldura1 {   
     border-radius: 8px;
     border: 2px solid #000000;
     width: 454px;
 }
+                /*Finish Muldura*/
 
+                
 .titles {
     color: #000000;
     font-family: Arial,sans-serif;
@@ -52,30 +51,19 @@
     margin-left: 100px;
 }
 
-
-
 .btn-position {
     float: right;
     margin-right: 165px;
 }
 
-
-
-.tabledetails .table-background-second{
-
-     
+.tabledetails .table-background-second{     
      color: black;
      border:1px solid #f7b706;
      border-top-right-radius:20px;
      border-bottom-right-radius:20px;
      
-     font-family: Arial,sans-serif;
-    
+     font-family: Arial,sans-serif;   
 }
-
-
-
-
 
 .tableheader th {
     background-color:#f7b706;
@@ -104,5 +92,3 @@
 .tableheader tr:hover td:last-child div {
     visibility: visible;
 }
-
-
