@@ -68,6 +68,8 @@ namespace Car4U.Controllers
                 {
                     momentReturn.ReservationID = id ?? default(int);
                 }
+                var today = DateTime.Now;
+                today.ToString("HH:mm");
                 momentReturn.Date = db.Reservations.Find(momentReturn.ID).ReturnDate;
                 db.MomentReturns.Add(momentReturn);
 
@@ -78,9 +80,9 @@ namespace Car4U.Controllers
                 available.StatusID = statsid.ID;
                 available.Outside = false;
                 available.BeginDate = DateTime.Now;
-                available.BeginHour = DateTime.Now;
+                available.BeginHour = today;
                 available.FinishDate = DateTime.Now;
-                available.FinishHour = DateTime.Now;
+                available.FinishHour = today;
                 available.Observation = momentReturn.Observation;
                 available.DeliveryPlace = place;
                 available.ReturnPlace = place;
@@ -120,7 +122,7 @@ namespace Car4U.Controllers
             {
                 db.Entry(momentReturn).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Reservations");
             }
             return View(momentReturn);
         }
@@ -148,7 +150,7 @@ namespace Car4U.Controllers
             MomentReturn momentReturn = db.MomentReturns.Find(id);
             db.MomentReturns.Remove(momentReturn);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Reservations");
         }
 
         protected override void Dispose(bool disposing)

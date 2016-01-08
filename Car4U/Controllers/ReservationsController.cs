@@ -89,7 +89,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
             if (ModelState.IsValid)
             {
@@ -243,7 +243,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateTeste([Bind(Include = "ID,Name,Address,PostalCode,Telephone,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        public ActionResult CreateTeste([Bind(Include = "ID,Name,Address,PostalCode,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
             if (ModelState.IsValid)
             {
@@ -391,7 +391,7 @@ namespace Car4U.Controllers
                 var carstat = db.CarStatus.Where(l => l.CarID == reservationmaster.carID && l.Status.Description.Equals("Reservado" )&& l.BeginDate == reservationmaster.DeliveryDate && l.FinishDate == reservationmaster.ReturnDate).ToList();
                 foreach (var m in carstat)
                 {
-                    if (m != null && m.Status.Description.Equals("Disponivel"))
+                    if (m != null)
                     {
                         db.CarStatus.Remove(m);
                     }
