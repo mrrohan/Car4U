@@ -363,7 +363,7 @@ namespace Car4U.Controllers
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
             // 
-            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0), "ID", "LicensePlate", reservation.carID);
+            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0).Where(l=>l.CategoryID==reservation.CategoryID), "ID", "LicensePlate", reservation.carID);
             return View(reservation);
         }
 
