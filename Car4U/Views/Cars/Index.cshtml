@@ -84,10 +84,10 @@
             </td>
             <td>
                 <div class="buttonbackoffice">
-                    @Html.ActionLink("Editar Fotografia", "EditPhoto", new { id = item.ID }, new {@class="" }) |
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "" }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.ID }, new { @class = "" }) |
-                    @Html.ActionLink("Apagar", "Delete", new { id = item.ID }, new { @class = "" })
+                @Html.ActionLink("Editar Fotografia", "EditPhoto", new { id = item.ID }, new {@class="icon-Photo-Edit" }) |
+                @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) | 
+                @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+                @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
                 </div>
             </td>
         </tr>
