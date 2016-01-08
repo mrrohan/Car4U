@@ -53,4 +53,8 @@ text-overflow: clip;
 
 .icon-Details:before { content: '\1f50e'; } /* Detalhes */
 
+.icon-Arrow-Down:before { content: '\25bc'; } /* Seta para baixo */
+
+.icon-Arrow-Up:before { content: '\25b2'; } /* Seta para cima */
+
 
