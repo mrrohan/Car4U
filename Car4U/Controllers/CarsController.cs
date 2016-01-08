@@ -284,21 +284,15 @@ namespace Car4U.Controllers
         {
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            var cars1 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
-            var cars2 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
-
-            var viewModel = new CarStatusIndex();
-
-            viewModel.Cars1 = cars1.ToList();
-            viewModel.Cars2 = cars2.ToList();
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0);
 
             if (id != null)
             {
                 ViewBag.ID = id;
             }
-           
 
-            return View(viewModel);
+
+            return View(cars.ToList());
         }
 
         //
@@ -334,19 +328,13 @@ namespace Car4U.Controllers
         {
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            var cars1 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
-            var cars2 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
-
-            var viewModel = new CarStatusIndex();
-
-            viewModel.Cars1 = cars1.ToList();
-            viewModel.Cars2 = cars2.ToList();
-
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.FinishDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0);
+           
             if (id != null)
             {
                 ViewBag.ID = id;
             }
-            return View(viewModel);
+            return View(cars.ToList());
         }
 
         //

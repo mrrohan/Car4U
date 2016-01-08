@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Car4U.Models.Car>
+@using Car4U.Models;
 
 @{
     ViewBag.Title = "Index";
@@ -14,6 +15,10 @@
 </div>
 <table class="table tableheader">
     <tr>
+        <th>
+
+        </th>
+        
         <th>
             Modelo
         </th>
@@ -53,6 +58,16 @@
     {
         <tr>
             <td>
+                <div class="control-image">
+                    @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                    {
+
+                        <img width="100" height="50" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+
+                    }
+                </div>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.carModel.Description)
             </td>
             <td>
@@ -84,10 +99,10 @@
             </td>
             <td>
                 <div class="buttonbackoffice">
-                    @Html.ActionLink("Editar Fotografia", "EditPhoto", new { id = item.ID }, new {@class="" }) |
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "" }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.ID }, new { @class = "" }) |
-                    @Html.ActionLink("Apagar", "Delete", new { id = item.ID }, new { @class = "" })
+                @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new {@class="icon-Photo-Edit submit", @title="Editar Foto" }) 
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })  
+                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title="Detalhes" }) 
+                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title="Apagar" })
                 </div>
             </td>
         </tr>

@@ -1495,24 +1495,33 @@ ul.features {
     border: 0;
 }
 
-.buttonbackoffice .submit {
+.buttonbackoffice .submit,
+.btn-primary {
     background: none repeat scroll 0 0 #F9BF1D;
+    color: black !important;
     border-radius: 8px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
+    border: 0;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+}
+
+.buttonbackoffice .submit {
+    float:left;
     font-family: Arial,sans-serif;
     font-size: 12px;
     font-weight: bold;
+    padding: 4px 7px;
     margin-top: 5px;
     margin-right:10px;
     margin-bottom:10px;
-    padding: 2px 5px;
+    cursor: pointer;
+    display: inline-block;
     text-align: match-parent;
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
     vertical-align: middle;
     width: auto;
     border: 0;
+    float:left;
+
 }
 
 .button .comment {
@@ -1521,15 +1530,9 @@ ul.features {
     font-size: 12px;
 }
 
+.btn-primary:hover,
+.buttonbackoffice .submit:hover,
 .button .submit:hover {
-    background: none repeat scroll 0 0 #F9BF1D;
-    color: #FFFFFF;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-}
-
-.buttonbackoffice .submit:hover {
     background: none repeat scroll 0 0 #F9BF1D;
     color: #FFFFFF;
     text-decoration: none;
