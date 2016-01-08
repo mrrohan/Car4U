@@ -49,32 +49,37 @@
         if (item.CarStatus.FirstOrDefault().Outside == false)
         {
             string selectedRow = "";
+            if (item.ID == ViewBag.ID)
+            {
+                selectedRow = "tablesuccess";
+            }
+            
             <tr class="@selectedRow">
-                <td>
-                    @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
-                </td>
-                <th>
-                    @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
-                </th>
-                <td>
-                    @Html.DisplayFor(modelItem => item.carModel.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.category.CategoryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LicensePlate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegisterDate)
-                </td>
-            </tr>
+        <td>
+            @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.carModel.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LicensePlate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegisterDate)
+        </td>
+</tr>
         }
 
     }

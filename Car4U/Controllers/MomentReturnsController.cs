@@ -63,12 +63,11 @@ namespace Car4U.Controllers
             {
                 var carid = db.Reservations.Find(id);
                 var statsid = db.Status.SingleOrDefault(l => l.Description.Equals("Disponivel"));
-                var place = "Home";
+                var place = "Casa";
                 if (id != null)
                 {
                     momentReturn.ReservationID = id ?? default(int);
                 }
-
                 momentReturn.Date = db.Reservations.Find(momentReturn.ID).ReturnDate;
                 db.MomentReturns.Add(momentReturn);
 
@@ -82,7 +81,7 @@ namespace Car4U.Controllers
                 available.BeginHour = DateTime.Now;
                 available.FinishDate = DateTime.Now;
                 available.FinishHour = DateTime.Now;
-                available.Observation = "Returned";
+                available.Observation = momentReturn.Observation;
                 available.DeliveryPlace = place;
                 available.ReturnPlace = place;
 
