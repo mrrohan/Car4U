@@ -186,15 +186,23 @@ namespace Car4U.Migrations
             var mtypes = new List<ExtraModelType>
             {
                 new ExtraModelType {ID = 1, Description = "GPS" },
-                new ExtraModelType {ID = 2, Description = "Car Seat for Baby" }
+                new ExtraModelType {ID = 2, Description = "Car Seat for Baby" },
+                new ExtraModelType {ID = 3, Description = "Via Verde" }
             };
             mtypes.ForEach(s => context.ExtraModelTypes.AddOrUpdate(p=>p.Description,s));
             context.SaveChanges();
 
             var mod = new List<ExtraModel>
             {
-                new ExtraModel {ID = 1, ExtraModelTypeID = 1, Model = "GPS OP", Price = 50, Stock=5 },
-                new ExtraModel {ID = 2, ExtraModelTypeID = 2, Model="Safe Seat", Price = 20, Stock=3 }
+                new ExtraModel {ID = 1, ExtraModelTypeID = 1, Model = "GPS TPSI 1", Price = 50, Stock=5 },
+                new ExtraModel {ID = 2, ExtraModelTypeID = 2, Model = "Safe Seat 1", Price = 20, Stock=3 },
+                new ExtraModel {ID = 3, ExtraModelTypeID = 1, Model = "GPS TPSI 2", Price = 40, Stock=8 },
+                new ExtraModel {ID = 4, ExtraModelTypeID = 1, Model = "GPS TPSI 3", Price = 35, Stock=3 },
+                new ExtraModel {ID = 5, ExtraModelTypeID = 1, Model = "GPS TPSI 4", Price = 10, Stock=7 },
+                new ExtraModel {ID = 6, ExtraModelTypeID = 2, Model = "Safe Seat 2", Price = 20, Stock=3 },
+                new ExtraModel {ID = 7, ExtraModelTypeID = 2, Model = "Safe Seat 3", Price = 20, Stock=3 },
+                new ExtraModel {ID = 8, ExtraModelTypeID = 3, Model = "Via Verde", Price = 10, Stock=8 },
+               
             };
             mod.ForEach(s => context.ExtraModels.AddOrUpdate(p=> p.ExtraModelTypeID ,s));
             context.SaveChanges();
@@ -340,6 +348,17 @@ namespace Car4U.Migrations
                 new FilePath { CarID = 41, FileName = "Seat_LeonSW.jpg", FilePathId = 2, FileType = FileType.Photo},
             };
             filepath.ForEach(s => context.FilePaths.AddOrUpdate(p => p.FileName, s));
+            context.SaveChanges();
+
+            var status = new List<Status>
+            {
+                new Status { ID = 1, Description = "Venda" },
+                new Status { ID = 2, Description = "Oficina" },
+                new Status { ID = 3, Description = "Disponivel" },
+                new Status { ID = 4, Description = "Lavagem" },
+                new Status { ID = 5, Description = "Reservado" },
+            };
+            status.ForEach(s => context.Status.AddOrUpdate(p => p.Description, s));
             context.SaveChanges();
         }
     }
