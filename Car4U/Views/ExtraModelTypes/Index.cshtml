@@ -12,7 +12,7 @@
 
 <div class="form-group">
     <div class="buttonbackoffice">
-        <button class="submit" type="button" onclick="location.href='@Url.Action("Create", "ExtraModelTypes")'">Adicionar</button>
+        <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "ExtraModelTypes")'"> Adicionar </button>
     </div>
 </div>
 
@@ -31,9 +31,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
+            @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+            @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+            @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
         </td>
     </tr>
 }    

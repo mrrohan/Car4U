@@ -26,9 +26,9 @@
             @Html.DisplayFor(modelItem => item.ExtraModel.Model)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
+            @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+            @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+            @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
         </td>
     </tr>
 }
