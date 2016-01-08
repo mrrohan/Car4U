@@ -32,7 +32,8 @@ text-overflow: clip;
 }*/
 
 [class^="ico-"]:before {
-  content: " ";
+  
+     content: " ";
   width:10px; height:10px;
   display:inline-block;
   vertical-align:middle;
@@ -85,9 +86,8 @@ padding:12px;
     font-size:2em;
     vertical-align:middle;
 }
+.tr.teste tr:target{
 
-.tablesuccess tr {
-    background-color:#f7b706;
 }
 
 

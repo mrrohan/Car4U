@@ -46,8 +46,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Frota", "PublicIndex", "Cars")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Quem Somos", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
 
 
                     @if (User.IsInRole("Admin"))
@@ -98,28 +98,29 @@
                     <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">Tipo de Extras</a>
                 </li>
                 <li>
-                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">Tipos Combustivél</a>
+                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">Tipos Combustívell</a>
                 </li>
                 <li>
                     <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">Local de encontro</a>
                 </li>
                 <li>
-                    <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promoções</a>
-                </li>
-                <li>
                     <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservas</a>
-                </li>
-                <li>
-                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
-                </li>
-                <li>
-                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Adicionar Estado</a>
                 </li>
                 <li>
                     <a id="Role" href="~/Cars/LeavingCarsIndex" class="sidebar-brand">Saida de Veículos</a>
                 </li>
                 <li>
                     <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entrada de Veículos</a>
+                </li>
+                <li>
+                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Adicionar Estado</a>
+                    <hr width="40%">
+                </li>
+                <li>
+                    <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promoções</a>
+                </li>
+                <li>
+                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
                 </li>
                 <li>
                     <a id="Role" href="~/Role/AllUsers" class="sidebar-brand">Todos Empregados</a>

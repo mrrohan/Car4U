@@ -3,7 +3,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit Role</h2>
+<h2>Editar Cargo</h2>
 
 @Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
 <hr />
@@ -18,6 +18,9 @@
     <p>
         @Html.TextBoxFor(model => model.Name)
     </p>
-    <input type="submit" value="Save" />
+    <div class="buttonbackoffice">
+        @*<input class="icon-Save submit " type="submit" value="Save" />*@
+        <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+    </div>
 }
 

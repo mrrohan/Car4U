@@ -4,11 +4,11 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Manage User Roles</h2>
+<h2>Controlar Cargos de Utilizadores</h2>
 @Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
 <hr />
 
-<h2>Role Add to User</h2>
+<h2>Adicionar Cargo a Utilizador</h2>
 
 @using (Html.BeginForm("RoleAddToUser", "Role"))
 {
@@ -16,22 +16,29 @@
     @Html.ValidationSummary(true)
 
     <p>
-        Username : @Html.TextBox("UserName")
-        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+        Nome Utilizador : @Html.TextBox("UserName")
+        Cargo: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
 
-    </p>
-
-    <input type="submit" value="Save" />
+    </p>    @*<input type="submit" value="Save" />*@
+    
+    <div class="buttonbackoffice">        
+        <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+    </div>
+   
 }
 <hr />
-<h3>Get Roles for a User</h3>
+<h3>Cargos de Utilizador</h3>
 @using (Html.BeginForm("GetRoles", "Role"))
 {
     @Html.AntiForgeryToken()
-    <p>
-        Username : @Html.TextBox("UserName")
-        <input type="submit" value="Get Roles for this User" />
-    </p>
+          
+        <p>Nome Utilizador : @Html.TextBox("UserName") </p>
+                <div class="buttonbackoffice">                    
+                    <button class="submit icon-search" type="submit"> Saber Cargos </button>                    
+                </div>
+        @*<input type="submit" value="Get Roles for this User" />*@
+        
+    
 }
 
 @if (ViewBag.RolesForThisUser != null)
@@ -56,10 +63,18 @@
     @Html.ValidationSummary(true)
 
     <p>
-        Username : @Html.TextBox("UserName")
-        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+        Nome Utilizador : @Html.TextBox("UserName")
+        Cargo: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
 
     </p>
-
-    <input type="submit" value="Delete this user from Role" />
+    <div class="buttonbackoffice">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions">
+                <button class="submit  icon-Delete" type="submit" value="Delete"> Tirar Cargo deste Utilizador </button>
+            </div>
+        }        
+    </div>
+    @*<input type="submit" value="Delete this user from Role" />*@
 }
