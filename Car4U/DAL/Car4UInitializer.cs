@@ -334,6 +334,17 @@ namespace Car4U.DAL
           };
             filepath.ForEach(s => context.FilePaths.Add(s));
             context.SaveChanges();
+
+            var status = new List<Status>
+            {
+                new Status { ID = 1, Description = "Venda" },
+                new Status { ID = 2, Description = "Oficina" },
+                new Status { ID = 3, Description = "Disponivel" },
+                new Status { ID = 4, Description = "Lavagem" },
+                new Status { ID = 5, Description = "Reservado" },
+            };
+            status.ForEach(s => context.Status.Add(s));
+            context.SaveChanges();
         }
     }
 }
