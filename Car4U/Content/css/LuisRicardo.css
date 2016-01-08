@@ -93,18 +93,16 @@
    background-color: rgba(255, 216, 0, 0.39);
 }
 
-.tableheader tr td:last-child div {
+ .tableheader tr th:first-child {
     visibility  : hidden;
+}
+.tableheader tr td:last-child div {
+     visibility  : hidden;
+     width:130px;
 }
 
 .tableheader tr:hover td:last-child div {
     visibility: visible;
 }
 
-a {
-    color: #f7b706;
-}
 
-a:hover {
-    color: #ffd800;
-}
