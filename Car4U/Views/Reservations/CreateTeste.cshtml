@@ -43,14 +43,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
@@ -76,10 +68,8 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="picking_date" class="control-label">Data de levantamento</label>
-               
+                <label for="picking_date" class="control-label">Data de Nascimento</label>
                     @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
-                
             </div>
         </div>
 

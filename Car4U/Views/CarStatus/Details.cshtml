@@ -59,7 +59,7 @@
             @Html.DisplayNameFor(model => model.BeginHour)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.BeginHour)
+            @Html.DisplayFor(model => model.BeginHour.TimeOfDay)
         </dd>
 
         <dt>
@@ -73,7 +73,7 @@
             @Html.DisplayNameFor(model => model.FinishHour)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.FinishHour)
+            @Html.DisplayFor(model => model.FinishHour.TimeOfDay)
         </dd>
 
     </dl>

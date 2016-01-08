@@ -5,7 +5,7 @@
 }
 
 <div>
-    <h4>Detalhes Extra Model</h4>
+    <h4>Detalhes de Modelo Extra</h4>
     <hr />
     <dl class="dl-horizontal" style="font-size:15px">
         <dt>
@@ -42,13 +42,11 @@
 
     </dl>
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <div class="buttonbackoffice">
-                <button  class="submit" type="button" onclick="location.href='@Url.Action("Edit", "ExtraModels", new { id = Model.ID })'">Editar</button>
-                <button  class="submit" type="button" onclick="location.href='@Url.Action("Delete", "ExtraModels", new { id = Model.ID })'">Eliminar</button>
-                <button  class="submit" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
+            <div class="buttonbackoffice pull-left">
+                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "ExtraModels", new { id = Model.ID })'"> Editar </button>
+                <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "ExtraModels", new { id = Model.ID })'"> Eliminar </button>
+                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">  Voltar </button>
             </div>
-        </div>
     </div>
 </div>
 

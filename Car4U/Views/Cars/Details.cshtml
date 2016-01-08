@@ -31,81 +31,83 @@
             }(document, 'script', 'facebook-jssdk'));</script>
 
         <!-- Your share button code -->
-        <div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
+        
     </div>
 
         <div class="col-lg-5 positiontop">
-            <table class="table table-bordered positiontop positionright">
+            <table class="table tabledetails positionright">
                 <tbody>
+
                     <tr>
-                        <th> Modelo Veículo</th>
-                        <th> @Html.DisplayFor(model => model.carModel.Description)</th>
+                        <th class="table-background"> Modelo Veículo</th>
+                        <td class="table-background-second"> @Html.DisplayFor(model => model.carModel.Description)</td>
 
                     </tr>
 
-
-
                     <tr>
-                        <th>Categoria do Veiculo</th>
-                        <th>  @Html.DisplayFor(model => model.category.CategoryName)</th>
+                        <th class="table-background">Categoria do Veiculo</th>
+                        <td class="table-background-second">  @Html.DisplayFor(model => model.category.CategoryName)</td>
                     </tr>
 
                     <tr>
-                        <th>Caixa</th>
-                        <th>@Html.DisplayFor(model => model.Gear.Description)</th>
-                    </tr>
-
-
-                    <tr>
-                        <th>Tipo Combustivel</th>
-                        <th>@Html.DisplayFor(model => model.fuelType.Description)</th>
-                    </tr>
-
-                    <tr>
-                        <th>Matricula</th>
-                        <th>@Html.DisplayFor(model => model.LicensePlate)</th>
-                    </tr>
-
-                    <tr>
-                        <th>Data Registo</th>
-                        <th>@Html.DisplayFor(model => model.RegisterDate)</th>
-                    </tr>
-
-                    <tr>
-                        <th>Nº Portas</th>
-                        <th>@Html.DisplayFor(model => model.NDoors)</th>
+                        <th class="table-background">Caixa</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.Gear.Description)</td>
                     </tr>
 
 
                     <tr>
-                        <th>Capacidade Mala</th>
-                        <th> @Html.DisplayFor(model => model.NLuggage)</th>
+                        <th class="table-background">Tipo Combustivel</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.fuelType.Description)</td>
                     </tr>
 
                     <tr>
-                        <th>Cilindrada (cc)</th>
-                        <th>@Html.DisplayFor(model => model.Engine)</th>
+                        <th class="table-background">Matricula</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.LicensePlate)</td>
                     </tr>
 
                     <tr>
-                        <th>Potência (cv)</th>
-                        <th>@Html.DisplayFor(model => model.HorsePower)</th>
+                        <th class="table-background">Data Registo</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.RegisterDate)</td>
+                    </tr>
+
+                    <tr>
+                        <th class="table-background">Nº Portas</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.NDoors)</td>
+                    </tr>
+
+
+                    <tr>
+                        <th class="table-background">Capacidade Mala</th>
+                        <td class="table-background-second"> @Html.DisplayFor(model => model.NLuggage)</td>
+                    </tr>
+
+                    <tr>
+                        <th class="table-background">Cilindrada (cc)</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.Engine)</td>
+                    </tr>
+
+                    <tr>
+                        <th class="table-background">Potência (cv)</th>
+                        <td class="table-background-second">@Html.DisplayFor(model => model.HorsePower)</td>
                     </tr>
                 </tbody>
             </table>
-            @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, new { @class = "btn btn-default btn-position" })
-
+            
         </div>
 
         </div>
-<div class="row col-lg-12">
+<div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
+<div class="row col-lg-4 button btn-position-right">
     <p>
+       
+        
         @if (Request.IsAuthenticated)
         {
-            @Html.ActionLink("Follow Car", "FollowCar", new { carModel = Model.ID })
+            @Html.ActionLink("Seguir carro", "FollowCar", new { carModel = Model.ID }, new { @class = "submit" })
         }
-
-        @Html.ActionLink("Voltar", "Index", "Cars", new { @class = "lista btn-position" })
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, new { @class = "submit" })
+        @Html.ActionLink("Voltar", "Index", "Cars", new { @class = "submit " })
+        
     </p>
 
 </div>

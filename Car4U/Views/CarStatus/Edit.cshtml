@@ -1,13 +1,11 @@
 ﻿@model Car4U.Models.CarStatus
-@{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
-}
+
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h2>Edit</h2>
-
 
 @using (Html.BeginForm())
 {
@@ -26,6 +24,7 @@
                 @Html.ValidationMessageFor(model => model.Observation, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.DeliveryPlace, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -33,6 +32,7 @@
                 @Html.ValidationMessageFor(model => model.DeliveryPlace, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.ReturnPlace, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -40,6 +40,17 @@
                 @Html.ValidationMessageFor(model => model.ReturnPlace, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Outside, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Outside)
+                    @Html.ValidationMessageFor(model => model.Outside, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -48,12 +59,12 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.BeginHour, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BeginHour, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BeginHour, "", new { @class = "text-danger" })
-            </div>
+        @Html.LabelFor(model => model.BeginHour, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BeginHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BeginHour, "", new { @class = "text-danger" })
         </div>
+    </div>
         <div class="form-group">
             @Html.LabelFor(model => model.FinishDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -64,10 +75,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FinishHour, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FinishHour, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FinishHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FinishHour, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.CarID, "CarID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -75,6 +87,7 @@
                 @Html.ValidationMessageFor(model => model.CarID, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.StatusID, "StatusID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -92,9 +105,5 @@
 }
 
 <div>
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>
-
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@

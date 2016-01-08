@@ -15,39 +15,39 @@
     <tr>
         <th>
             Matrícula
-            @*@Html.DisplayNameFor(model => model.Car.LicensePlate)*@
+     
         </th>
         <th>
             Estado
-            @*@Html.DisplayNameFor(model => model.Status.Description)*@
+     
         </th>
         <th>
             Observações
-            @*@Html.DisplayNameFor(model => model.Observation)*@
+   
         </th>
         <th>
             Local de Entrega
-            @*@Html.DisplayNameFor(model => model.DeliveryPlace)*@
+       
         </th>
         <th>
             Local de Recolha
-            @*@Html.DisplayNameFor(model => model.ReturnPlace)*@
+     
         </th>
         <th>
             Data Início
-            @*@Html.DisplayNameFor(model => model.BeginDate)*@
+      
         </th>
         <th>
             Hora Início
-            @*@Html.DisplayNameFor(model => model.BeginHour)*@
+    
         </th>
         <th>
             Data Fim
-            @*@Html.DisplayNameFor(model => model.FinishDate)*@
+
         </th>
         <th>
             Hora Fim
-            @*@Html.DisplayNameFor(model => model.FinishHour)*@
+         
         </th>
         <th></th>
     </tr>
@@ -82,9 +82,9 @@
             @Html.DisplayFor(modelItem => item.FinishHour.TimeOfDay)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
+            @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+            @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+            @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
         </td>
     </tr>
 }
