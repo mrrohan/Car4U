@@ -28,17 +28,16 @@
         if (item.CarStatus.FirstOrDefault().Outside == true)
         {
             string selectedRow = "";
-            if (item.ID == ViewBag.ID)
+            if (item.CarStatus.FirstOrDefault().ID == ViewBag.ID)
             {
                 selectedRow = "success";
             }
             <tr class="@selectedRow">
 
                 <td>
-                    @Html.ActionLink("Select", "EnteringCars", new { id = item.ID })
-                </td>
-                <td>
-                    @item.ID == @ViewBag.ID
+                    @Html.ActionLink("Select", "EnteringCars", new { id = item.CarStatus.FirstOrDefault().ID })                  
+                </td>               
+                <td>                   
                     @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
                 </td>
                 <td>
@@ -94,15 +93,16 @@
                 if (item.CarStatus.FirstOrDefault().Outside == false)
                 {
                     string selectedRow = "";
-                    if (item.ID == ViewBag.ID)
+                    if (item.CarStatus.FirstOrDefault().ID == ViewBag.ID)
                     {
                         selectedRow = "success";
                     }
-                    <tr class="@selectedRow">
-
-                        <td>
-                            @Html.ActionLink("Select", "EnteringCars", new { id = item.ID })
-                        </td>
+                    <tr class="@selectedRow">                        
+                            <td >
+                                
+                                    @Html.ActionLink("Select", "EnteringCars", new { id = item.CarStatus.FirstOrDefault().ID })                                    
+                               
+                            </td>                        
                         <td>
                             @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
                         </td>

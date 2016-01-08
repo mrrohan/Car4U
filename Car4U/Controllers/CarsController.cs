@@ -341,7 +341,7 @@ namespace Car4U.Controllers
         //GET : CarStatus.Outside = true
         public ActionResult Outside2(int? id)
         {
-            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+            var carstatustoupdate = db.CarStatus.Find(id);
 
             carstatustoupdate.Outside = true;
 
