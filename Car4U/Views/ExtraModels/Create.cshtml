@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Criar Extra Model</h4>
+        <h4>Criar Modelo Extra</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -43,8 +43,8 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="buttonbackoffice">
-                    <button  class="submit" type="submit">Adicionar</button>
-                    <button  class="submit" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'">Voltar</button>
+                    <button class="submit  icon-Add" type="submit"> Adicionar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'"> Voltar </button>
                 </div>
             </div>
         </div>

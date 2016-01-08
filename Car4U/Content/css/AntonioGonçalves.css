@@ -30,3 +30,25 @@ text-overflow: clip;
     margin-right:10px;
     margin-bottom:10px;
 }*/
+
+[class^="ico-"]:before {
+  content: " ";
+  width:10px; height:10px;
+  display:inline-block;
+  vertical-align:middle;
+  font-family: icomoon;
+}
+
+.icon-search:before { content: '🔍'; } /*Search*/
+
+.icon-edit:before { content: '\270e'; } /* Edit */ 
+
+.icon-back:before { content: '\25c4'; } /* Voltar */
+
+.icon-Add:before { content: '\2795'; } /* Adicionar */
+
+.icon-Delete:before { content: '\2716'; } /* Eliminar */
+
+.icon-Save:before { content: '\2714'; } /* Guardar */
+
+
