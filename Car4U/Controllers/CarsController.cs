@@ -26,16 +26,30 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars
-        public ActionResult PublicIndex()
+        public ActionResult PublicIndex(int[] selectedCats)
         {
             var viewModel = new CarIndex();
             viewModel.Cars = db.Cars.OrderBy(i => i.carModel.brand.Description).ToList();
 
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
-            ViewBag.catid = 0;
+            ViewBag.categories = db.Categories.ToList();
+
+            if (selectedCats != null)
+            {
+                ViewBag.catid = selectedCats.ToList();
+                ViewBag.show = 0;
+            }
+            else
+            {
+                ViewBag.catid = new int[1];
+                ViewBag.show = 1;
+            }
            
+             
+            
+            
+
            return View(viewModel);
         }
 
@@ -270,21 +284,15 @@ namespace Car4U.Controllers
         {
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            var cars1 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
-            var cars2 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
-
-            var viewModel = new CarStatusIndex();
-
-            viewModel.Cars1 = cars1.ToList();
-            viewModel.Cars2 = cars2.ToList();
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0);
 
             if (id != null)
             {
                 ViewBag.ID = id;
             }
-           
 
-            return View(viewModel);
+
+            return View(cars.ToList());
         }
 
         //
@@ -320,19 +328,13 @@ namespace Car4U.Controllers
         {
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            var cars1 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(true));
-            var cars2 = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.BeginDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
-
-            var viewModel = new CarStatusIndex();
-
-            viewModel.Cars1 = cars1.ToList();
-            viewModel.Cars2 = cars2.ToList();
-
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.FinishDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0);
+           
             if (id != null)
             {
                 ViewBag.ID = id;
             }
-            return View(viewModel);
+            return View(cars.ToList());
         }
 
         //

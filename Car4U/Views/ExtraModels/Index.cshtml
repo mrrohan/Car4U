@@ -7,11 +7,11 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
     }
 <br />
-<h4 style="color:black">Extra models</h4>
+<h4 style="color:black">Extras</h4>
 <br />
 <div class="form-group">    
     <div class="buttonbackoffice">
-        <button class="submit" type="button" onclick="location.href='@Url.Action("Create", "ExtraModels")'">Adicionar</button>
+        <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "ExtraModels")'"> Adicionar </button>
     </div>    
 </div>
    
@@ -19,16 +19,20 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ExtraModelType.Description)
+                Extra
+                @*@Html.DisplayNameFor(model => model.ExtraModelType.Description)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Model)
+                Tipo de Extra
+                @*@Html.DisplayNameFor(model => model.Model)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                Preço
+                @*@Html.DisplayNameFor(model => model.Price)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Stock)
+                Quantidade
+                @*@Html.DisplayNameFor(model => model.Stock)*@
             </th>
             <th></th>
         </tr>
@@ -48,9 +52,9 @@
                     @Html.DisplayFor(modelItem => item.Stock)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Apagar", "Delete", new { id = item.ID })
+                    @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+                    @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+                    @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
                 </td>
             </tr>
         }

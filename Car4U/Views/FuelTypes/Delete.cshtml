@@ -22,15 +22,15 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
 
-            <div class="button">
+            <div class="buttonbackoffice">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
                     <div class="form-actions">
-                        <button id="butaoOffice" class="submit" type="submit" value="Delete">Apagar</button>
+                        <button class="submit icon-Delete" type="submit" value="Delete">Apagar</button>
                     </div>
                 }
-                <button id="butaoOffice" class="submit" type="button" onclick="location.href='@Url.Action("Index", "FuelTypes")'">Voltar</button>
+                <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "FuelTypes")'"> Voltar </button>
             </div>
         </div>
     </div>

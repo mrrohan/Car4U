@@ -6,7 +6,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Estado dos Carros</h2>
 
 <p>
     @Html.ActionLink("+ Adicionar", "Create")
@@ -14,31 +14,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Car.LicensePlate)
+            Matrícula
+     
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status.Description)
+            Estado
+     
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Observation)
+            Observações
+   
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeliveryPlace)
+            Local de Entrega
+       
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReturnPlace)
+            Local de Recolha
+     
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BeginDate)
+            Data Início
+      
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BeginHour)
+            Hora Início
+    
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FinishDate)
+            Data Fim
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FinishHour)
+            Hora Fim
+         
         </th>
         <th></th>
     </tr>
@@ -73,9 +82,9 @@
             @Html.DisplayFor(modelItem => item.FinishHour.TimeOfDay)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
+            @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+            @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+            @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
         </td>
     </tr>
 }

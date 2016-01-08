@@ -6,84 +6,91 @@
 }
 
 <h2>Index</h2>
+<div class="form-group">
+    <div class="button">
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
-<table class="table">
+        @Html.ActionLink("+ Adicionar", "Create", "Cars", new { @class = "submit" })
+    </div>
+</div>
+<table class="table tableheader">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.carModel.Description)
+            Modelo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.category.CategoryName)
+            Categoria
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fuelType.Description)
+            Tipo Combustível
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LicensePlate)
+            Matrícula
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RegisterDate)
+            Data Registo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NDoors)
+            nº Portas
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NLuggage)
+            Capacidade Mala
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Engine)
+            Cilindrada (cc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorsePower)
+            Potência (cv)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gear.Description)
+            Caixa
         </th>
-        <th></th>
+        <th>
+            Acções
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.carModel.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.category.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fuelType.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LicensePlate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegisterDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NDoors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NLuggage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Engine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorsePower)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gear.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Editar Fotografia", "EditPhoto", new { id = item.ID }) |
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.carModel.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fuelType.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicensePlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NDoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NLuggage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorsePower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gear.Description)
+            </td>
+            <td>
+                <div class="buttonbackoffice">
+                @Html.ActionLink("Editar Fotografia", "EditPhoto", new { id = item.ID }, new {@class="icon-Photo-Edit" }) |
+                @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) | 
+                @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+                @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
+                </div>
+            </td>
+        </tr>
+    }
 
 </table>

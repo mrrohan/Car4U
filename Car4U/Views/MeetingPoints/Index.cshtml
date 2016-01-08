@@ -7,7 +7,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Pontos de Encontro</h2>
 
 <p>
     @Html.ActionLink("+ Adicionar", "Create")
@@ -15,7 +15,8 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Place)
+            Ponto de Encontro
+            @*@Html.DisplayNameFor(model => model.Place)*@
         </th>
         <th></th>
     </tr>
@@ -27,9 +28,9 @@
                 @Html.DisplayFor(modelItem => item.Place)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+                @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+                @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
             </td>
         </tr>
     }

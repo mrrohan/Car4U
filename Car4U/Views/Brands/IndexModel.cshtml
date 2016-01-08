@@ -6,16 +6,17 @@
     ViewBag.Title = "IndexModel";
 }
 
-<h2>IndexModel</h2>
 
-<section class="destaque-title">
-    <h2>
-       Marcas
-        <span class="pull-right">
-            @Html.ActionLink("Create", "Create")
-        </span>
-    </h2>
-</section>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Marcas Automóvel</h2>
+
+
+<p>
+    @Html.ActionLink("+ Adicionar", "Create")
+</p>
 
 <table class="table">
     <tr>

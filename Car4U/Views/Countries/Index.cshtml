@@ -8,7 +8,7 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Index</h2>
+<h2>Países</h2>
 
 <p>
     @Html.ActionLink("+ Adicionar", "Create")
@@ -16,7 +16,8 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Países
+            @*@Html.DisplayNameFor(model => model.Name)*@
         </th>
         <th></th>
     </tr>
@@ -27,9 +28,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
+            @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+            @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+            @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
         </td>
     </tr>
 }

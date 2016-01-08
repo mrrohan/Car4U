@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
+    <link rel="icon" type="image/ico" href="~/images/Car4U_ico.fw.ico" />
 
 
     @Styles.Render("~/Content/css")
@@ -44,8 +45,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Categorias", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("Frota", "Index", "Cars")</li>
+                    <li>@Html.ActionLink("Frota", "PublicIndex", "Cars")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
@@ -71,52 +71,55 @@
                     <div id="Title" class="sidebar-brand">Car4U - Backoffice</div>
                 </li>
                 <li>
-                    <a id="Brands" href="~/Brands/IndexModel" class="sidebar-brand">Brands</a>
+                    <a id="Brands" href="~/Brands/IndexModel" class="sidebar-brand">Marcas</a>
                 </li>
                 <li>
-                    <a id="Cars" href="~/Cars/Index" class="sidebar-brand">Cars</a>
+                    <a id="Cars" href="~/Cars/Index" class="sidebar-brand">Adicionar Veículo</a>
                 </li>
                 <li>
-                    <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">CarModels</a>
+                    <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">Modelo Veículo</a>
                 </li>
                 <li>
-                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">CarStatus</a>
+                    <a id="Gears" href="~/Gears/Index" class="sidebar-brand">Tipo de Caixa</a>
                 </li>
                 <li>
-                    <a id="Categories" href="~/Categories/PrivateIndex" class="sidebar-brand">Categories</a>
+                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">Estado Veículo</a>
                 </li>
                 <li>
-                    <a id="Countries" href="~/Countries/Index" class="sidebar-brand">Countries</a>
+                    <a id="Categories" href="~/Categories/PrivateIndex" class="sidebar-brand">Categorias</a>
                 </li>
                 <li>
-                    <a id="ExtraModels" href="~/ExtraModels/Index" class="sidebar-brand">ExtraModels</a>
+                    <a id="Countries" href="~/Countries/Index" class="sidebar-brand">Países</a>
                 </li>
                 <li>
-                    <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">ExtraModelTypes</a>
+                    <a id="ExtraModels" href="~/ExtraModels/Index" class="sidebar-brand">Extras</a>
                 </li>
                 <li>
-                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">FuelTypes</a>
+                    <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">Tipo de Extras</a>
                 </li>
                 <li>
-                    <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">MeetingPoints</a>
+                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">Tipos Combustivél</a>
                 </li>
                 <li>
-                    <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promotions</a>
+                    <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">Local de encontro</a>
                 </li>
                 <li>
-                    <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservations</a>
+                    <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promoções</a>
                 </li>
                 <li>
-                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Role Manager</a>
+                    <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservas</a>
                 </li>
                 <li>
-                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Status</a>
+                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
                 </li>
                 <li>
-                    <a id="Role" href="~/Cars/LeavingCarsIndex" class="sidebar-brand">Leaving Cars</a>
+                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Adicionar Estado</a>
                 </li>
                 <li>
-                    <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entering Cars</a>
+                    <a id="Role" href="~/Cars/LeavingCarsIndex" class="sidebar-brand">Saida de Veículos</a>
+                </li>
+                <li>
+                    <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entrada de Veículos</a>
                 </li>
                 <li>
                     <a id="Role" href="~/Role/AllUsers" class="sidebar-brand">Todos Empregados</a>
@@ -131,7 +134,7 @@
                     <div class="col-lg-12">
                         <div class="container body-content">
                             <div class="buttonbackoffice">
-                                <a href="#menu-toggle" class="btn btn-default submit" id="menu-toggle">Esconder Menu</a>
+                                <a href="#menu-toggle" class="btn btn-default submit" id="menu-toggle"><i class="fa fa-arrow-left fa-1x"></i></a>
                             </div>
                             @RenderBody()
                         </div>
@@ -155,13 +158,13 @@
         });
 
 
-        //        function toggleB(lnk_obj){
-        //    lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
-        //}
-
         function toggleB(lnk_obj) {
-            lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? 'Esconder Menu' : 'Mostra Menu';
+            lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
         }
+
+        //function toggleB(lnk_obj) {
+        //    lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? 'Esconder Menu' : 'Mostra Menu';
+        //}
 
     </script>
 </body>

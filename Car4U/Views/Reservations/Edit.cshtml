@@ -42,9 +42,10 @@
     </div>
     <div>
         @Html.DisplayNameFor(model => model.ExtraItems) :
+
         @foreach (var item in Model.ExtraItems)
         {
-            @Html.DisplayFor(model => model.ExtraItems)
+            @Html.DisplayFor(Item => item.ExtraModel.Model)
         }
     </div>
 

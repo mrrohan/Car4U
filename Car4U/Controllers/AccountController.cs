@@ -92,10 +92,9 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
+            
             if (ModelState.IsValid)
             {
-                //var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
                 var user = new ApplicationUser
                 {  
                     UserName = model.Email,
@@ -119,7 +118,6 @@ namespace Car4U.Controllers
                         roleManager.Create(new IdentityRole("Normal"));
                     }
 
-                    // var currentUser = UserManager.FindByName(user.UserName);
                     var roleresult = UserManager.AddToRole(user.Id, "Normal");
 
 
@@ -141,6 +139,7 @@ namespace Car4U.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
             return View(model);
         }
 
@@ -424,7 +423,7 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
-            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
+           
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Manage");
@@ -477,7 +476,7 @@ namespace Car4U.Controllers
                 }
                 AddErrors(result);
             }
-
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name" ,model.Country);
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }
