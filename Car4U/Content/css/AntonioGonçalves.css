@@ -85,9 +85,8 @@ padding:12px;
     font-size:2em;
     vertical-align:middle;
 }
+.tr.teste tr:target{
 
-.tablesuccess tr {
-    background-color:#f7b706;
 }
 
 
