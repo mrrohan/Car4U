@@ -1,143 +1,52 @@
-﻿@model Car4U.ViewModels.CarStatusIndex
-@using Microsoft.AspNet.Identity;
-@using Car4U.DAL;
+﻿@model IEnumerable<Car4U.Models.Car>
 
-@{
-    ViewBag.Title = "IndexModel";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
-}
-
-<h2>Carros Para Entrar Hoje</h2>
-<p>.</p>
-<section class="destaque-title">
-    <h2>
-        Carros Por Entrar
-    </h2>
-</section>
-<table class="table">
-    <tr>
-        <th></th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.CarStatus.FirstOrDefault().Status.Description)*@
-            Estado
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.CarStatus.FirstOrDefault().BeginHour)*@
-            Hora
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.CarStatus.FirstOrDefault().DeliveryPlace)*@
-            Lugar de Entrega
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.carModel.Description)*@
-            Modelo
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.category.CategoryName)*@
-            Categoria
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.LicensePlate)*@
-            Matricula
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Cars2.RegisterDate)*@
-            Ano do Carro
-        </th>
-    </tr>
-    @foreach (var item in Model.Cars1)
-    {
-        string selectedRow = "";
-        <tr class="@selectedRow">
-            <td>
-                @Html.ActionLink("Select", "EnteringCars", new { id = item.CarStatus.FirstOrDefault().ID })
-            </td>
-            <th>
-                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
-            </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
-            </th>
-            <td>
-                @Html.DisplayFor(modelItem => item.carModel.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LicensePlate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisterDate)
-            </td>
-            @*<td>
-                    <span class="pull-right">
-                        @Html.ActionLink("Editar", "Edit", new { id = item.ID })
-                        @Html.ActionLink("Details", "Details", new { id = item.ID })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                    </span>
-                </td>*@
-        </tr>
+    @{
+        ViewBag.Title = "IndexModel";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
     }
-</table>
-<div>
-    <p>
-        .
-    </p>
 
-</div>
-<div>
-    @if (Model.Cars2 != null)
-    {
-        <section class="destaque-subtitle">
-            <h2>
-                Carros Que Já Entraram
-                @if (ViewBag.ID != null)
-                {
-                    <span class="pull-right">
-                        <a id="edit-details" href="~/Cars/Outside2/@ViewBag.ID">^</a>
-                        <a id="edit-details" href="~/Cars/Inside2/@ViewBag.ID">v</a>
-                    </span>
-                }
-            </h2>
-        </section>
-        <table class="table">
-            <tr>
-                <th></th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.CarStatus.FirstOrDefault().Status.Description)*@
-                    Estado
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.CarStatus.FirstOrDefault().BeginHour)*@
-                    Hora
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.CarStatus.FirstOrDefault().DeliveryPlace)*@
-                    Lugar de Entrega
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.carModel.Description)*@
-                    Modelo
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.category.CategoryName)*@
-                    Categoria
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.LicensePlate)*@
-                    Matricula
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Cars2.RegisterDate)*@
-                    Ano do Carro
-                </th>
-            </tr>
-            @foreach (var item in Model.Cars2)
+    <h2>Carros Para Entrar Hoje</h2>
+    <p>.</p>
+    <section class="destaque-title">
+        <h2>
+            Carros Por Entrar
+        </h2>
+    </section>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>
+
+                Estado
+            </th>
+            <th>
+
+                Hora
+            </th>
+            <th>
+
+                Lugar de Entrega
+            </th>
+            <th>
+
+                Modelo
+            </th>
+            <th>
+
+                Categoria
+            </th>
+            <th>
+
+                Matricula
+            </th>
+            <th>
+
+                Ano do Carro
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (item.CarStatus.FirstOrDefault().Outside == true)
             {
                 string selectedRow = "";
                 <tr class="@selectedRow">
@@ -166,15 +75,97 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.RegisterDate)
                     </td>
-                    @*<td>
-                            <span class="pull-right">
-                                <a id="edit-details" href="~/CarModels/Details/@item.ID">Details</a>
-                                <a id="edit-details" href="~/CarModels/Edit/@item.ID">Edit</a>
-                                <a id="edit-details" href="~/CarModels/Delete/@item.ID">Delete</a>
-                            </span>
-                        </td>*@
                 </tr>
             }
-        </table>
-    }
-</div>
+        }
+    </table>
+    <div>
+        <p>
+            .
+        </p>
+
+    </div>
+    <div>
+        @if (Model != null)
+        {
+            <section class="destaque-subtitle">
+                <h2>
+                    Carros Que Já Entraram
+                    @if (ViewBag.ID != null)
+                    {
+                        <span class="pull-right">
+                            <a id="edit-details" href="~/Cars/Outside2/@ViewBag.ID">^</a>
+                            <a id="edit-details" href="~/Cars/Inside2/@ViewBag.ID">v</a>
+                        </span>
+                    }
+                </h2>
+            </section>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>
+                
+                        Estado
+                    </th>
+                    <th>
+           
+                        Hora
+                    </th>
+                    <th>
+                
+                        Lugar de Entrega
+                    </th>
+                    <th>
+         
+                        Modelo
+                    </th>
+                    <th>
+   
+                        Categoria
+                    </th>
+                    <th>
+           
+                        Matricula
+                    </th>
+                    <th>
+          
+                        Ano do Carro
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    if (item.CarStatus.FirstOrDefault().Outside == false)
+                    {
+                        string selectedRow = "";
+                        <tr class="@selectedRow">
+
+                            <td>
+                                @Html.ActionLink("Select", "EnteringCars", new { id = item.CarStatus.FirstOrDefault().ID })
+                            </td>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().BeginHour.TimeOfDay)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().DeliveryPlace)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.carModel.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.category.CategoryName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LicensePlate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegisterDate)
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        }
+    </div>

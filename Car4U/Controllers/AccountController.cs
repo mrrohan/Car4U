@@ -423,7 +423,7 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
-            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
+           
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Manage");
@@ -476,7 +476,7 @@ namespace Car4U.Controllers
                 }
                 AddErrors(result);
             }
-
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name" ,model.Country);
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }

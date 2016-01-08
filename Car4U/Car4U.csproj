@@ -450,7 +450,6 @@
     <Content Include="Views\CarStatus\Create.cshtml" />
     <Content Include="Views\CarStatus\Delete.cshtml" />
     <Content Include="Views\CarStatus\Details.cshtml" />
-    <Content Include="Views\CarStatus\Edit.cshtml" />
     <Content Include="Views\CarStatus\Index.cshtml" />
     <Content Include="Views\ExtraItems\Create.cshtml" />
     <Content Include="Views\ExtraItems\Delete.cshtml" />
@@ -517,6 +516,7 @@
     <Content Include="Views\Reservations\Create.cshtml" />
     <Content Include="Views\Reservations\CreateTeste.cshtml" />
     <Content Include="Views\Cars\EnteringCars.cshtml" />
+    <Content Include="Views\CarStatus\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
