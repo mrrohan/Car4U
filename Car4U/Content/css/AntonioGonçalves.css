@@ -41,14 +41,16 @@ text-overflow: clip;
 
 .icon-search:before { content: '🔍'; } /*Search*/
 
-.icon-edit:before { content: '\270e'; } /* Edit */ 
+.icon-edit:before { content: '\270e'; } /* Edit 270e */ 
 
-.icon-back:before { content: '\25c4'; } /* Voltar */
+.icon-back:before { content: '\2936'; } /* Voltar */
 
 .icon-Add:before { content: '\2795'; } /* Adicionar */
 
 .icon-Delete:before { content: '\2716'; } /* Eliminar */
 
-.icon-Save:before { content: '\2714'; } /* Guardar */
+.icon-Save:before { content: '\1f5ab'; } /* Guardar */
+
+.icon-Details:before { content: '\1f50e'; } /* Detalhes */
 
 
