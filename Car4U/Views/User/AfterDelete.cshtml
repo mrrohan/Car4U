@@ -1,16 +1,17 @@
 ﻿@{
     ViewBag.Title = "AfterDelete";
 }
+<div class="page-header">
+    <h2>Eliminar Conta</h2>
+</div>
 
+<h3 class="row form-group">Conta eliminada com sucesso. </h3>
 
-<h3 class="row form-group">Tem a certeza que quer eliminar a conta</h3>
-
-@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
 {
-    <div style="float: left">
-        <a href="javascript:document.getElementById('logoutForm').submit()">Sim</a>
-        <a>|</a>
-        <a href="~/Views/User/Details">Não</a>
+    <div style="text-align:center;">
+        <div id="butaoOffice" class="button" style="float: none;">
+        <a class="submit" href="javascript:document.getElementById('logoutForm').submit()">Continuar</a>      
+            </div>
     </div>
 }
-
