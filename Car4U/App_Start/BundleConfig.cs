@@ -31,6 +31,7 @@ namespace Car4U
                       "~/Content/css/AntonioGonçalves.css",
                       "~/Content/css/DiogoCosta.css",
                       "~/Content/css/Osvaldo.css",
+                      "~/Content/css/CssFinal.css",
                       "~/Content/css/RicardoOliveira.css",
                       "~/Content/css/simple-sidebar.css"));
 

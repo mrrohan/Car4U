@@ -45,7 +45,10 @@ namespace Car4U.Controllers
                 ViewBag.catid = new int[1];
                 ViewBag.show = 1;
             }
-            ViewBag.cats2 = 0;
+
+
+            
+
            return View(viewModel);
         }
 
@@ -54,10 +57,10 @@ namespace Car4U.Controllers
         public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info)
         {
 
-            if (ViewBag.catid != 0)
-            {
-                info.Infosender.CategoryID = ViewBag.cats2;
-            }
+            //if (ViewBag.catid != 0)
+            //{
+            //    info.Infosender.CategoryID = ViewBag.catid;
+            //}
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
             //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
@@ -66,12 +69,18 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? view)
         {
-            if (id == null)
+            if (id == null || view == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            if (view != null)
+            {
+                ViewBag.View = view;
+            }
+            
             Car car = db.Cars.Find(id);
             if (car == null)
             {
@@ -337,7 +346,7 @@ namespace Car4U.Controllers
         //GET : CarStatus.Outside = true
         public ActionResult Outside2(int? id)
         {
-            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+            var carstatustoupdate = db.CarStatus.Find(id);
 
             carstatustoupdate.Outside = true;
 

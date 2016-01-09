@@ -1,31 +1,23 @@
-﻿@model Car4U.ViewModels.BrandsIndex
-@using Microsoft.AspNet.Identity;
-@using Car4U.DAL;
-
+﻿@model IEnumerable<Car4U.Models.CarModel>
 @{
     ViewBag.Title = "IndexModel";
 }
 
-
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
 <h2>Marcas Automóvel</h2>
-
 
 <p>
     @Html.ActionLink("+ Adicionar", "Create")
 </p>
-
 <table class="table">
     <tr>
         <th></th>
         <th>Nome</th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model.Brands)
+    @foreach (var item in ViewBag.Brands)
     {
         string selectedRow = "";
         if (item.ID == ViewBag.ID)
@@ -37,7 +29,7 @@
                 @Html.ActionLink("Select", "IndexModel", new { id = item.ID })
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @item.Description
             </td>
             <td>
                 <span class="pull-right">
@@ -48,37 +40,31 @@
             </td>
         </tr>
     }
-
 </table>
-
 <div>
-
-    @if (Model.CarModels != null)
+    @if (Model != null)
     {
         <section class="destaque-subtitle">
             <h2>
-                Modelos
+                Modelos de @ViewBag.Brand
                 <span class="pull-right">
                     <a id="edit-details" href="~/CarModels/Create/@ViewBag.ID">Create</a>
                     @*@Html.ActionLink("Create", "Create", "CarModels", new { id = ViewBag.ID })*@
                 </span>
             </h2>
         </section>
-   
+
         <table class="table">
             <tr>
                 <th></th>
                 <th>Nome</th>
                 <th></th>
             </tr>
-
-            @foreach (var item in Model.CarModels)
+            @foreach (var item in Model)
             {
                 string selectedRow = "";
                 <tr class="@selectedRow">
-                    <td>
-
-                    </td>
+                    <td></td>
                     <td>
                         @item.Description
                     </td>
@@ -91,8 +77,6 @@
                     </td>
                 </tr>
             }
-
         </table>
     }
-
 </div>

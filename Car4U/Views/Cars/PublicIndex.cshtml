@@ -39,15 +39,6 @@
 
                         if (ViewBag.show == 1 || item.CategoryID == i)
                         {
-                            <div class="frota">
-                                <div class="col-md-4">
-                                    @*verificar metodo para procurar foto pelo nome do carro com _ *@
-                                    @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
-                                    {
-                                        <div>
-                                            <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
-                                        </div>
-                                    }
 
                                     <br>
                                     <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
@@ -71,7 +62,8 @@
                                         @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
                                     </div>
                                     <div class="button">
-                                        <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já</button>
+
+                                        <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>
                                     </div>
                                 </div>
                             </div>
@@ -95,6 +87,7 @@
                     <div class="alert alert-danger" style="display: none;" id="alertMessage"></div>
 
                     <form class="fleet-booking-form" id="bookingForm" method="post">
+                                                @Html.Hidden("Infosender.CategoryID", @item.CategoryID)
                         <input type="hidden" id="fleetId" name="fleet_id">
                         <div class="frota">
                             <div class="row">
@@ -133,7 +126,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="age">Idade do condutor</label>
-                                        <select id="age" class="form-control" name="age" required>
+                                                                <select id="Infosender.Age" class="form-control" name="Infosender.Age" required>
                                             <option value="">Por favor escolha...</option>
                                             <option>18</option>
                                             <option>19</option>
@@ -156,6 +149,7 @@
                                     <div class="form-group">
                                         <label for="picking_date" class="control-label">Data de levantamento</label>
                                         <a required>
+                                                                   
                                             @Html.EditorFor(model => model.Infosender.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
                                         </a>
 
@@ -211,6 +205,55 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+
+                            <div class="frota">
+                                <div class="col-md-4">
+                                    @*verificar metodo para procurar foto pelo nome do carro com _ *@
+                                    @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                                    {
+                                        <div>
+                                            <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                                        </div>
+                                    }
+
+                                    <br>
+                                    <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                                    <p class="comment"><b></b></p>
+                                    <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
+                                    <div>
+                                        <ul class="features">
+                                            @*<li class="seats" title="Nº de pessoas">4</li>*@
+                                            <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
+                                            <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
+                                            <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
+                                            <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
+                                            @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
+                                            <li class="seats" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
+                                          
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
+                                    </div>
+                                    <div>
+                                        @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
+                                    </div>
+                                    <div class="button">
+
+                                        <button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                }
+
+            </div>
+        }
+    </div>
+    
 
 
     <hr>

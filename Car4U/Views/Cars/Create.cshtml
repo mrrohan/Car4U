@@ -119,31 +119,31 @@
                 @Html.ValidationMessageFor(model => model.CarModelID, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            <div class=" button col-md-offset-2 col-md-10">
-                <input type="submit" value="+ Adicionar" class="submit" />
-            </div>
-        </div>
+       
     </div>
 
 
+   
+        <div class="col-lg-7 moldura3 positionright">
 
-    <div class="col-lg-7 moldura3 positionright">
+            <img id="img" src="" height="300" width="470">
 
-        <img id="img" src="" height="300" width="470">
-
-        <div class="form-group">
-            @Html.Label("Fotografia", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" id="Photo" name="upload" />
+            <div class="form-group">
+                @Html.Label("Fotografia", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" id="Photo" name="upload" />
+                </div>
             </div>
         </div>
 
 
-
-    </div>
+    
 }
-
+<div class="form-group">
+    <div class=" button col-md-offset-2 col-md-10">
+        <input type="submit" value="+ Adicionar" class="submit" />
+    </div>
+</div>
 <div class="button btn-position-right positiontop">
     @Html.ActionLink("Voltar à Lista", "Index", "Cars", new { @class = "submit" })
 </div>
