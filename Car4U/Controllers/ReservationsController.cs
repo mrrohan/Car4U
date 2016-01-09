@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Car4U.DAL;
 using Car4U.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Car4U.Controllers
 {
@@ -231,9 +233,34 @@ namespace Car4U.Controllers
                 reservation.ReturnHour = endhour ?? default(DateTime);
             }
 
+            string userid = User.Identity.GetUserId();
+            var currentuser = db.Users.SingleOrDefault(u => u.Id == userid);
+
+            if (currentuser != null)
+            {
+                if (currentuser.Address != null && currentuser.BI != null && currentuser.CountryID == 0 && currentuser.Email != null && currentuser.License != null && currentuser.Name != null && currentuser.PostalCode != null)
+                {
+                    reservation.Address = currentuser.Address;
+                    reservation.BI = currentuser.BI;
+                    reservation.CountryID = currentuser.CountryID;
+                    reservation.Email = currentuser.Email;
+                    reservation.License = currentuser.License;
+                    reservation.Name = currentuser.Name;
+                    reservation.PostalCode = currentuser.PostalCode;
+                    
+                }
+               
+
+            }
+
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
+            if (reservation.CountryID == 0)
+            {
+                ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
+            }
+          
          
             return View(reservation);
         }

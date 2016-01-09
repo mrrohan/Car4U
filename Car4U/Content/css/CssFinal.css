@@ -375,37 +375,17 @@ button {
 }
 /*------------------------------------------------------------------------*/
 
-.moldura {
+
+.moldura3 {  
+    border-radius: 20px;
+    border: 2px solid #ffd800;
+    width: 490px;
     float: left;
     padding: 8px 8px 20px 8px;
 
 }
-.moldura3.moldura
- {  
-    border-radius: 20px;
-    border: 2px solid #ffd800;
-    width: 490px;
-}
 
-.moldura2.moldura
- {  
-    border-radius: 8px;
-    border: 2px solid #ffd800;
-    width: 350px;
-}
 
-    .moldura2 .submoldura2 {
-        font-family: Arial,sans-serif;
-        font-weight: bold;
-        color: #000000;
-    }
-
-.moldura1.moldura
- {   
-    border-radius: 8px;
-    border: 2px solid #000000;
-    width: 454px;
-}
                 /*Finish Muldura*/
 
                 
@@ -443,6 +423,7 @@ button {
     color:black;
     }
 
+
 .tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
     border:2px solid white!important;
     font-family: Arial,sans-serif;
@@ -455,13 +436,15 @@ button {
  .tableheader tr th:first-child {
     visibility  : hidden;
 }
- .tableheader .tableheader1 tr th:first-child {
+ .tableheader,
+ .tableheader1 tr th:first-child {
      visibility:visible; 
  }
 .tableheader tr td:last-child div {
      visibility  : hidden;
      width:150px;
 }
+
 .tableheader tr:hover td:last-child div {
     visibility: visible;
 }
