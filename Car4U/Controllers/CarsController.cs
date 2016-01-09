@@ -54,38 +54,59 @@ namespace Car4U.Controllers
 
         //Post Index
         [HttpPost]
-        public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info)
+        public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info, int? carid)
         {
 
-            //if (ViewBag.catid != 0)
-            //{
-            //    info.Infosender.CategoryID = ViewBag.catid;
-            //}
+            if (carid == null)
+            {
+                return View();
+            }
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
             //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
 
-            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm") });
+            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm"), carid=carid });
         }
 
-
+        //GET: SearchView
         public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
 
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l => l.CategoryID == categotyid);
-            return View(cars.ToList());
+            if (mpreliveryid != null)
+            {
+                ViewBag.mpdelivery = mpreliveryid ?? default(int);
+            }
+            if (mpreturnid != null)
+            {
+                ViewBag.mpreturn = mpreturnid ?? default(int);
+            }
+            if (begindate != null)
+            {
+                ViewBag.begidate = begindate ?? default(DateTime);
+            }
+            if (categotyid != null)
+            {
+                ViewBag.category = categotyid ?? default(int);
+            }
+            if (beginhour != null)
+            {
+                ViewBag.begihour = beginhour ?? default(DateTime);
+            }
+            if (enddate != null)
+            {
+                ViewBag.enddate = enddate ?? default(DateTime);
         }
-
-        //Post Index
-        [HttpPost]
-        public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+            if (endhour != null)
         {
+                ViewBag.endhour = endhour ?? default(DateTime);
+            }
 
 
-            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = mpreliveryid, mpreturnid = mpreturnid, categotyid = categotyid, begindate = begindate, beginhour = beginhour, enddate = enddate, endhour = endhour });
+            var Cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l=>l.CategoryID== categotyid).ToList();
+            return View(Cars);
         }
 
-        GET: Cars/Details/5
+        //GET: Cars/Details/5
         public ActionResult Details(int? id, int? view)
         {
             if (id == null || view == null)
