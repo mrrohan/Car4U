@@ -66,13 +66,6 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="picking_date" class="control-label">Data de Nascimento</label>
-                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
-            </div>
-        </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.CountryID, "CountryID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

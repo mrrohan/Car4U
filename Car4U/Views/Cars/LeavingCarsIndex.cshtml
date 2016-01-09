@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Carros Para Sair Hoje</h2>
-<p>.</p>
+<h2>Saida de Carros</h2>
 <section class="destaque-title">
     <h2>
         Carros Por-Sair
@@ -28,14 +27,16 @@
         if (item.CarStatus.FirstOrDefault().Outside == false)
         {
             string selectedRow = "";
-            if (item.ID == ViewBag.ID)
+            if (item.CarStatus.FirstOrDefault().ID == ViewBag.ID)
             {
                 selectedRow = "success";
             }
             
             <tr class="@selectedRow">
                 <td>
-                    @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.ID })
+                    
+                     @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
+                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
@@ -63,11 +64,6 @@
 
     }
 </table>
-
-<div>
-    <p>.</p>
-</div>
-
 <div>
     <section class="destaque-subtitle">
         <h2>Carros Que Já Sairam
@@ -104,14 +100,15 @@
             if (item.CarStatus.FirstOrDefault().Outside == true)
             {
                 string selectedRow = "";
-                if (item.ID == ViewBag.ID)
+                if (item.CarStatus.FirstOrDefault().ID == ViewBag.ID)
                 {
                     selectedRow = "success";
                 }
                 <tr class="@selectedRow">
 
                     <td>
-                        @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.ID })
+    @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
