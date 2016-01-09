@@ -368,7 +368,7 @@ button {
 
                                                     /*Fim CSS Osvaldo*/
 
-                                                    /*CSS Luis Ricardo*/
+                                                                                /*CSS Luis Ricardo*/
 
 .btn-position-right {
     float: right;
@@ -454,12 +454,9 @@ button {
  .tableheader tr th:first-child {
     visibility  : hidden;
 }
- .tableheader .tableheader1 tr th:first-child {
-     visibility:visible; 
- }
 .tableheader tr td:last-child div {
      visibility  : hidden;
-     width:150px;
+     width:130px;
 }
 
 .tableheader tr:hover td:last-child div {

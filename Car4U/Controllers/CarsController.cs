@@ -70,12 +70,18 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? view)
         {
-            if (id == null)
+            if (id == null || view == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            if (view != null)
+            {
+                ViewBag.View = view;
+            }
+            
             Car car = db.Cars.Find(id);
             if (car == null)
             {
