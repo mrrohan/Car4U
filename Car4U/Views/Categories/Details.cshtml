@@ -4,11 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes da Categoria</h2>
 
 <div>
-    <h4>Category</h4>
-    <hr />
+    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CategoryName)
@@ -36,7 +35,10 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+<div class="form-group">
+    <div class="buttonbackoffice pull-left">
+        <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Categories", new { id = Model.ID })'"> Editar </button>
+        <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Categories", new { id = Model.ID })'"> Eliminar </button>
+        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Categories")'">  Voltar </button>
+    </div>
+</div>
