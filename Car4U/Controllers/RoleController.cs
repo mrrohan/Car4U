@@ -267,7 +267,14 @@ namespace Car4U.Controllers
         {
 
             ApplicationUser user = context.Users.FirstOrDefault(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase));
-            if (user != null) UserManager.AddToRole(user.Id, RoleName);
+            if (user != null) 
+            {
+                if (RoleName != null)
+                {
+                    UserManager.AddToRole(user.Id, RoleName);
+                }
+                
+            }
 
             ViewBag.ResultMessage = "Role created successfully !";
 
