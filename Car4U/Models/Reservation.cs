@@ -22,10 +22,6 @@ namespace Car4U.Models
         public bool Check { get; set; }//false unchecked by employee, no car associated to reservation.
 
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateOfBirth { get; set; }
-
         //reserva
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
