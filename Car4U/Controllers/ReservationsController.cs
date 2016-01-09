@@ -11,6 +11,7 @@ using Car4U.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net.Mail;
+using System.Threading;
 
 namespace Car4U.Controllers
 {
@@ -19,6 +20,8 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
         static int MULTI = 123456789;
+        private static Thread worker;
+        public delegate void Worker();
         // GET: Reservations
         public ActionResult Index()
         {
@@ -383,9 +386,37 @@ namespace Car4U.Controllers
                 {
 
                 }
+                ///////////////////////////////////v mail sender
+                try
+                {
+                    string to = reservation.Email;
+                    string from = "car4upt@portugalmail.pt";
+                    string subject = "Reserva na Car4U";
+                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + reservation.FinalPrice + " e a caução:";
 
-              
+                    var client = new SmtpClient("smtp.portugalmail.pt", 25)
+                    {
+                        Credentials = new NetworkCredential("car4upt@portugalmail.pt", "123456"),
+                        EnableSsl = false
+                    };
 
+                    try
+                    {
+                        client.Send(from, to, subject, body);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Exception caught in Sending Email(): {0}",
+                                    ex.ToString());
+                    }
+                }
+                catch
+                {
+
+                }
+
+                /////
                 return RedirectToAction("Index", "Home");
             }
 
@@ -518,29 +549,6 @@ namespace Car4U.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        public static void CreateTestMessage1(string server, int port, Reservation reservation)
-        {
-
-            string to = reservation.Email;
-            string from = "car4u@gmail.com";
-            string subject = "Reserva na Car4U";
-            string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + reservation.FinalPrice + "e a caução:";
-            MailMessage message = new MailMessage(from, to, subject, body);
-            SmtpClient client = new SmtpClient(server, port);
-            // Credentials are necessary if the server requires the client 
-            // to authenticate before it will send e-mail on the client's behalf.
-            client.Credentials = CredentialCache.DefaultNetworkCredentials;
-
-            try
-            {
-                client.Send(message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception caught in CreateTestMessage1(): {0}",
-                            ex.ToString());
-            }
         }
     }
 }
