@@ -1,0 +1,790 @@
+﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+
+
+#navbarWidth {
+    max-width: 1366px;
+}
+
+#paddingFooterL {
+    padding-left: 130px;
+    padding-top: 30px;
+    display: inline;
+}
+
+    #paddingFooterL img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+#paddingFooterR {
+    padding-left: 70px;
+}
+
+#footerCarLogos img {
+    max-width: 50px;
+    max-height: 50px;
+    margin: 3px;
+}
+
+#footerCarLogos {
+    padding-right: 50px;
+    padding-top: 30px;
+}
+
+@media(max-width:420px) {
+
+   .article.principle .five .move-right {
+       height:50px;
+   }
+
+    #paddingFooterL {
+        padding-left: 100px;
+        display: inline-block;
+    }
+
+    #paddingFooterR {
+        padding-left:60px;
+    }
+
+    #footerCarLogos {
+        padding-left: 70px;
+        
+    }
+}
+
+.reserveIndex {
+    margin-top: 20px;
+    position: relative;
+    z-index: 50;
+    float: left;
+}
+
+.car4U-text {
+}
+
+.principle {
+    max-width: 500px;
+    max-height: 250px;
+}
+
+.navbar-collapse {
+    padding-top: 5px;
+}
+
+#index-junbotron {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    max-height: 500px;
+    border: solid;
+    border-color: #e6e6e6;
+}
+
+
+.indexLogo {
+}
+
+.movingCar {
+}
+
+.object {
+    position: absolute;
+}
+
+.van {
+    top: 45%;
+    left: 44%;
+}
+
+#axis:hover .move-right {
+    transform: translate(550px,0);
+    -webkit-transform: translate(550px,0); /** Chrome & Safari **/
+    -o-transform: translate(550px,0); /** Opera **/
+    -moz-transform: translate(550px,0); /** Firefox **/
+}
+
+    #axis:hover .move-right :after {
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
+
+.object {
+    position: absolute;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+}
+
+/*Car logo*/
+
+@media(max-width:960px) {
+    .five .shape-container {
+        display: none;
+    }
+
+    .indexLogo {
+        display: none;
+    }
+
+    .car4U-text {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .input-size-xs {
+        float: left;
+    }
+
+    .input-size-xxs {
+        float: right;
+    }
+}
+
+.five .shape {
+    animation: five 4s infinite;
+    position: absolute;
+    left: auto;
+    top: auto;
+}
+
+.five .shape-container {
+    animation: five-container 4s infinite ease-in-out;
+    position: center;
+    left: calc(50% - 4em);
+    top: calc(50% - 4em);
+}
+
+@keyframes five {
+    0%, 15% {
+        opacity: 0;
+        transform: translateX(-12em);
+    }
+
+    15%, 25% {
+        transform: translateX(-12em);
+        opacity: 1;
+    }
+
+    85%, 90% {
+        transform: translateX(12em);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(12em);
+        opacity: 0;
+    }
+}
+
+@keyframes five-container {
+    0%, 35% {
+        transform: none;
+    }
+
+    50%, 60% {
+        transform: skewX(20deg);
+    }
+
+    90%, 100% {
+        transform: none;
+    }
+}
+
+/* General styling */
+
+.principle {
+    width: 100%;
+    height: 100vh;
+    position: center;
+}
+
+.shape {
+    position: absolute;
+    top: calc(50% - 2em);
+    left: calc(50% - 2em);
+}
+/*end Car Logo*/
+
+.home-box {
+    margin-top: 20px;
+    float: left;
+}
+
+.input-size-xs {
+    width: 150px;
+}
+
+.input-size-xxs {
+    width: 100px;
+}
+
+/*Index moving img*/
+.object {
+    position: absolute;
+}
+
+.van {
+    top: 45%;
+    left: 44%;
+}
+
+#axis:hover .move-right {
+    transform: translate(550px,0);
+    -webkit-transform: translate(550px,0); /** Chrome & Safari **/
+    -o-transform: translate(550px,0); /** Opera **/
+    -moz-transform: translate(550px,0); /** Firefox **/
+}
+
+    #axis:hover .move-right :after {
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
+
+.object {
+    position: absolute;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+}
+/**/
+/*Button active 3d*/
+button {
+    border: 0;
+    background: #f9bf1d;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 none;
+    color: black;
+    cursor: pointer;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 12px 20px;
+    transition: all .1s linear;
+    float: right;
+    margin-top: 15px;
+}
+
+    button:active {
+        box-shadow: 0 2px 0 black;
+        transform: translateY(3px);
+    }
+
+    button:hover {
+        background-color: burlywood;
+        color: #f9bf1d;
+    }
+/*end Button active 3d*/
+
+.card-container {
+    cursor: pointer;
+    height: 40px;
+    perspective: 600px;
+    position: center;
+    width: 60px;
+    float: right;
+    margin-right: 40px;
+}
+
+.frontimgNav {
+}
+
+.card-container img {
+    width: 80px;
+    /*margin-right: 35px;*/
+}
+
+
+.card {
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    width: 100%;
+    float: left;
+    margin-right: 70px;
+}
+
+    .card:hover {
+        transform: rotateY(180deg);
+    }
+
+    .card .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        height: 40px;
+        position: absolute;
+        overflow: hidden;
+        width: 50px;
+        margin-right: 70px;
+    }
+
+        .card .side img {
+            height: 40px;
+            width: 80px;
+            margin-top: 5px;
+            margin-right: 70px;
+        }
+
+    .card .back {
+        background: none;
+        color: none;
+        /*line-height: 10px;*/
+        text-align: center;
+        transform: rotateY(180deg);
+        margin-right: 70px;
+        width: 80px;
+    }
+
+        .card .back img {
+            width: 70px;
+            height: 40px;
+            margin-top: 2px;
+        }
+/*end Image effect Index*/
+
+/*Background index slider*/
+.right.carousel-control, .left.carousel-control {
+    display: none;
+}
+
+.carousel {
+    z-index: -99;
+}
+    /* keeps this behind all content */
+    .carousel .item {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: opacity 1s;
+        -moz-transition: opacity 1s;
+        -o-transition: opacity 1s;
+        transition: opacity 1s;
+    }
+
+    .carousel .one {
+        background: url(car3.jpg);
+        background-size: cover;
+    }
+
+    .carousel .two {
+        background: url(car2.jpg);
+        background-size: cover;
+    }
+
+    .carousel .three {
+        background: url(car1.png);
+        background-size: cover;
+    }
+
+    .carousel .active.left {
+        left: 0;
+        opacity: 0;
+        z-index: 2;
+    }
+/* end Background index slider*/
+
+/* Junbotron index*/
+.home-box {
+    margin-top: 20px;
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+@media(max-width: 1280px) {
+
+    .home-box {
+        display: block;
+        clear: both;
+        float: none;
+        margin: 20px auto;
+        width: 300px;
+        height: 700px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 475px;
+    }
+}
+
+@media(max-width:360px) {
+
+    container {
+        padding: 0;
+    }
+
+    col-sm-12 {
+        padding: 0;
+    }
+}
+
+/* end Junbotron index*/
+
+.input-size-xs {
+    width: 150px;
+}
+
+.input-size-xxs {
+    width: 100px;
+}
+
+
+.subButton {
+    float: right;
+    margin-top: 10px;
+    background-color: #f9bf1d;
+    color: black;
+}
+
+/*Select disable text*/
+.placeholder {
+    color: grey;
+}
+
+select option:first-child {
+    color: grey;
+    display: none;
+}
+
+select option {
+    color: #555;
+}
+/*Select disable text*/
+
+/*Index Box label*/
+
+.label-box {
+    color: black;
+    font-weight: unset;
+    width: 140px;
+    font-size: small;
+    margin: 2px;
+}
+
+    .label-box:after {
+        content: ":";
+    }
+/**/
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/*Set padding to keep content from hitting the edges*/
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
+}
+
+    .navbar-brand img {
+        height: 50px;
+    }
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.footer-distributed {
+    background-color: #F8F8F8;
+    border: 1px solid;
+    border-color: #E7E7E7;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    max-width: 1366px;
+    height: 50px;
+    font: bold 16px sans-serif;
+    text-align: left;
+    padding: 10px 0px 10px;
+    margin-top: 80px;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+}
+
+    /* Footer left */
+
+    .footer-distributed .footer-left {
+        float: left;
+    }
+
+    /* The company logo */
+
+    .footer-distributed h3 {
+        color: #ffffff;
+        font: normal 36px 'Cookie', cursive;
+        margin: 0 0 10px;
+    }
+
+        .footer-distributed h3 span {
+            color: #5383d3;
+        }
+
+    /* Footer links */
+
+    .footer-distributed .footer-links {
+        color: #ffffff;
+        margin: 0 0 10px;
+        padding: 0;
+    }
+
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+
+    .footer-distributed .footer-company-name {
+        color: #8f9296;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Footer social icons */
+
+    .footer-distributed .footer-icons {
+        margin-top: 40px;
+    }
+
+        .footer-distributed .footer-icons a:hover {
+            background-color: #3a5795;
+        }
+
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+
+    /* Footer Right */
+
+    .footer-distributed .footer-right {
+        float: right;
+    }
+
+        .footer-distributed .footer-right p {
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px 20px 0 0;
+            color: #ffffff;
+        }
+
+    /* The contact form */
+
+    .footer-distributed form {
+        display: inline-block;
+    }
+
+        .footer-distributed form input,
+        .footer-distributed form textarea {
+            display: block;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #1f2022;
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            border: none;
+            resize: none;
+            font: inherit;
+            font-size: 14px;
+            font-weight: normal;
+            color: #d1d2d2;
+            width: 250px;
+            padding: 15px;
+        }
+
+    .footer-distributed ::-webkit-input-placeholder {
+        color: #5c666b;
+    }
+
+    .footer-distributed ::-moz-placeholder {
+        color: #5c666b;
+        opacity: 1;
+    }
+
+    .footer-distributed :-ms-input-placeholder {
+        color: #5c666b;
+    }
+
+
+    .footer-distributed form input {
+        height: 46px;
+        margin-bottom: 15px;
+    }
+
+    .footer-distributed form textarea {
+        height: 100px;
+        margin-bottom: 5px;
+    }
+
+    .footer-distributed form button {
+        border-radius: 3px;
+        background: #f9bf1d;
+        color: black;
+        border: 0;
+        padding: 7px 20px;
+        font-weight: bold;
+        float: right;
+        text-align: center;
+        height: 30px;
+    }
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1000px) {
+
+    .footer-distributed {
+        font: bold 14px sans-serif;
+    }
+
+        .footer-distributed .footer-company-name {
+            font-size: 12px;
+        }
+
+        .footer-distributed form input,
+        .footer-distributed form textarea {
+            width: 250px;
+        }
+
+        .footer-distributed form button {
+            padding: unset;
+        }
+}
+
+@media (max-width: 800px) {
+
+    .footer-distributed {
+        padding: unset;
+    }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-right {
+            float: none;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .footer-distributed .footer-left {
+            margin-bottom: 40px;
+        }
+
+        .footer-distributed form {
+            margin-top: 30px;
+        }
+
+        .footer-distributed form {
+            display: block;
+        }
+
+            .footer-distributed form button {
+                float: none;
+            }
+}
+
+.col-md-5 {
+    margin-left: 350px;
+}
+
+.chatname {
+    text-align: center;
+}
+
+.fb-profile img.fb-image-lg {
+    z-index: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.fb-image-profile {
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%;
+}
+
+@media (max-width:768px) {
+    .fb-profile-text > h1 {
+        font-weight: 700;
+        font-size: 16px;
+        margin-left: 100px;
+    }
+
+    .fb-image-profile {
+        margin: -45px 10px 0px 25px;
+        z-index: 9;
+        width: 20%;
+    }
+
+    .titlee {
+        margin-left: 50px;
+    }
+}
+
+.about {
+    padding-left: 40px;
+}
+
+@media (max-width:400px) {
+    .home-box {
+        margin-left: 5px;
+    }
+}
+
+.imgBackoffice {
+}
+
+@media (max-width: 829px) {
+    #img1 {
+        display: none;
+    }
+
+    #img2 {
+        display: block;
+    }
+}
+
+@media (min-width: 830px) {
+
+    #img1 {
+        display: block;
+    }
+
+    #img2 {
+        display: none;
+    }
+}
