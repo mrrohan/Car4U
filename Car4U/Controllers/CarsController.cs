@@ -72,7 +72,7 @@ namespace Car4U.Controllers
         public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
 
-            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l=>l.CategoryID== categotyid);
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l => l.CategoryID == categotyid);
             return View(cars.ToList());
         }
 
@@ -85,7 +85,7 @@ namespace Car4U.Controllers
             return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = mpreliveryid, mpreturnid = mpreturnid, categotyid = categotyid, begindate = begindate, beginhour = beginhour, enddate = enddate, endhour = endhour });
         }
 
-        // GET: Cars/Details/5
+        GET: Cars/Details/5
         public ActionResult Details(int? id, int? view)
         {
             if (id == null || view == null)
