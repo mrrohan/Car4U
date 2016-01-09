@@ -20,6 +20,9 @@ namespace Car4U.Controllers
     [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
+        static string EMPLOYEE = "Employee";
+        static string NORMAL = "Normal";
+
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -33,8 +36,17 @@ namespace Car4U.Controllers
         // GET: /Employees/
         public ActionResult AllUsers()
         {
-            //var roleid = context.Roles.SingleOrDefault(u)
-            var allUsers = context.Users.Where(l => l.Roles.Select(c => c.RoleId).Contains("2")).ToList();
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            var roleid = context.Roles.SingleOrDefault(u => u.Name.Equals(EMPLOYEE));
+
+            if(roleid==null){
+                roleManager.Create(new IdentityRole { Name = EMPLOYEE });
+                roleid = context.Roles.SingleOrDefault(u => u.Name.Equals(EMPLOYEE));
+            }
+
+            var allUsers = context.Users.Where(l => l.Roles.Select(c => c.RoleId).Contains(roleid.Id)).ToList();
             return View(allUsers);
         }
 
@@ -55,7 +67,6 @@ namespace Car4U.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RegisterEmployee(RegisterEmployeeViewModel model)
         {
-            ViewBag.Country = new SelectList(context.Countries, "ID", "Name");
                 if (ModelState.IsValid)
             {
            
@@ -71,20 +82,25 @@ namespace Car4U.Controllers
                     CountryID = model.Country,
                     PostalCode = model.PostalCode
                 };
-                ViewBag.Country = new SelectList(context.Countries, "ID", "Name", user.CountryID);
+                
                 IdentityResult result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
                     var roleStore = new RoleStore<IdentityRole>(context);
                     var roleManager = new RoleManager<IdentityRole>(roleStore);
 
-                    if (!roleManager.RoleExists("Employee"))
+                    if (!roleManager.RoleExists(EMPLOYEE))
                     {
-                        roleManager.Create(new IdentityRole { Id = "2", Name = "Employee" });
+                        roleManager.Create(new IdentityRole { Name = EMPLOYEE });
+                    }
+                    if (!roleManager.RoleExists(NORMAL))
+                    {
+                        roleManager.Create(new IdentityRole { Name = NORMAL });
                     }
 
-              
-                    var roleresult = UserManager.AddToRole(user.Id, "Employee");
+                    var roleresult1 = UserManager.AddToRole(user.Id, NORMAL);
+                    var roleresult2 = UserManager.AddToRole(user.Id, EMPLOYEE);
+
 
                     return RedirectToAction("AllUsers", "Role");
                 }
@@ -95,6 +111,7 @@ namespace Car4U.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.Country = new SelectList(context.Countries, "ID", "Name", model.Country);
             return View(model);
         }
 
