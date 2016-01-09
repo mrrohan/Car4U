@@ -423,6 +423,9 @@ button {
     color:black;
     }
 
+.table tr td:last-child {
+    width:150px!important;
+}
 
 .tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
     border:2px solid white!important;
@@ -440,7 +443,7 @@ button {
 
 .tableheader tr td:last-child div {
      visibility  : hidden;
-     width:150px;
+    
 }
 
 .tableheader tr:hover td:last-child div {
