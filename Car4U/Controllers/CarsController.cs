@@ -57,10 +57,10 @@ namespace Car4U.Controllers
         public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info, int? carid)
         {
 
-            if (carid == null)
-            {
-                return View();
-            }
+            //if (carid == null)
+            //{
+            //    return View();
+            //}
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
             //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
@@ -91,20 +91,25 @@ namespace Car4U.Controllers
             if (begindate != null)
             {
                 viewModel.Infosender.BeginDate = begindate ?? default(DateTime);
+                viewModel.Infosender.BeginDate.ToString("yyyy-MM-dd");
             }
             if (beginhour != null)
             {
                 viewModel.Infosender.BeginHour = beginhour ?? default(DateTime);
+                viewModel.Infosender.BeginDate.ToString("HH:mm");
             }
             if (enddate != null)
             {
                 viewModel.Infosender.EndDate = enddate ?? default(DateTime);
+                viewModel.Infosender.EndDate.ToString("yyyy-MM-dd");
             }
             if (endhour != null)
             {
                 viewModel.Infosender.EndHour = endhour ?? default(DateTime);
+                viewModel.Infosender.BeginDate.ToString("HH:mm");
             }
 
+           
            
           
             return View(viewModel);
