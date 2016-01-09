@@ -322,15 +322,19 @@ namespace Car4U.Controllers
 
             if (user != null)
             {
-                if (UserManager.IsInRole(user.Id, RoleName))
+                if (RoleName != null)
                 {
-                    UserManager.RemoveFromRole(user.Id, RoleName);
-                    ViewBag.ResultMessage = "Role removed from this user successfully !";
+                    if (UserManager.IsInRole(user.Id, RoleName))
+                    {
+                        UserManager.RemoveFromRole(user.Id, RoleName);
+                        ViewBag.ResultMessage = "Role removed from this user successfully !";
+                    }
+                    else
+                    {
+                        ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+                    }
                 }
-                else
-                {
-                    ViewBag.ResultMessage = "This user doesn't belong to selected role.";
-                }
+              
             }
 
             
