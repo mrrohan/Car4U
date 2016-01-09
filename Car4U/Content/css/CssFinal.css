@@ -438,12 +438,13 @@ button {
 
  .tableheader1 {
     visibility  : hidden;
+    width:50px;
 }
  
 
 .tableheader tr td:last-child div {
      visibility  : hidden;
-    
+    width:150px;
 }
 
 .tableheader tr:hover td:last-child div {

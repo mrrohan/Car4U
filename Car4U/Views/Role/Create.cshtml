@@ -6,10 +6,10 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <div>
-    <div style="margin:5px">
+    <div class="buttonbackoffice" style="margin:5px">
     <h2>Adicionar Cargo</h2>
     
-    @Html.ActionLink("List Roles", "Index", new {@class="icon-Details1"}) | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+    @Html.ActionLink("List Roles", "Index","Role", new {@class="icon-Details1 submit"}) | @Html.ActionLink("Manage User Role", "ManageUserRoles")
     </div>
     
     <div>

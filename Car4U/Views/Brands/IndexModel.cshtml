@@ -32,8 +32,10 @@
             selectedRow = "success";
         }
         <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"'>
-            <td>
-                @Html.ActionLink("Select", "IndexModel", new { id = item.ID })
+            <td class="">
+                <div class="buttonbackoffice">
+                @Html.ActionLink(" ", "IndexModel","Brands", new { id = item.ID }, new { @class = "icon-Select submit", @title="Select" })
+            </div>
             </td>
             <td>
                      @item.Description
