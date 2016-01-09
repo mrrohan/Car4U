@@ -7,7 +7,7 @@
     <link rel="icon" type="image/ico" href="~/images/Car4U_ico.fw.ico" />
     @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
     @*<script src="js/bootstrap.min.js"></script>*@
-    
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -51,8 +51,8 @@
 
 
 <body>
-    
-    <div class="navbar navbar-default navbar-fixed-top">
+
+    <div id="navbarWidth" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -97,24 +97,50 @@
     <!--Footer beggining-->
 
     <footer id="footer" class="footer-distributed">
-        <div class="container">
-            <div class="footer-left">
-                <img src="~/images/Car4ULogo.png" class="footer-img">
-
-                @*<p class="footer-links">
-                        @Html.ActionLink("Fleet", "", "")
-                        -
-                        @Html.ActionLink("About", "About", "Home")
-                        -
-                        @Html.ActionLink("Contact", "Contact", "Home")
-                    </p>*@
-                <div class="footer-icons">
-                    <p>&copy;@DateTime.Now.Year</p>
-                    <a href="https://www.facebook.com/Car4U-1317607318265322/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
-                </div>
+        <div class="row">
+            <div id="paddingFooterL" class="col-md-4 col-sm-4 col-xs-12">
+                <figure>
+                    <img src="~/images/Car4Ucar.fw.png">
+                    <figcaption>
+                          
+                        <span>&copy;@DateTime.Now.Year</span> 
+                        <span class="footer-icons">
+                            <a href="https://www.facebook.com/Car4U-1317607318265322/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </span>                   
+                                                             
+                    </figcaption>
+                </figure>  
+                          
             </div>
-            <div class="footer-right">
-                <p>Contact Us</p>
+            <div id="footerCarLogos" class="col-md-4 col-sm-4 col-xs-12">
+                <h4><b>Os nossos parceiros</b></h4>
+                <br>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="~/images/car logos/car_logo_PNG1636.png" />
+                            <img src="~/images/car logos/car_logo_PNG1637.png" />
+                            <img src="~/images/car logos/car_logo_PNG1638.png" />
+                            <img src="~/images/car logos/car_logo_PNG1640.png" />
+                            <img src="~/images/car logos/car_logo_PNG1641.png" />
+                            <img src="~/images/car logos/car_logo_PNG1667.png" />
+                            @*<img src="~/images/car logos/car_logo_PNG1646.png" />*@
+                        </td>
+                    <tr>
+                        <td>
+                            <img src="~/images/car logos/car_logo_PNG1661.png" />
+                            <img src="~/images/car logos/car_logo_PNG1644.png" />
+                            @*<img src="~/images/car logos/car_logo_PNG1647.png" />*@
+                            <img src="~/images/car logos/car_logo_PNG1660.png" />
+                            <img src="~/images/car logos/car_logo_PNG1649.png" />
+                            <img src="~/images/car logos/car_logo_PNG1659.png" />
+                            <img src="~/images/car logos/car_logo_PNG1655.png" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="paddingFooterR" class="col-md-4 col-sm-4 col-xs-12">
+                <h4><b>Contate-nos</b></h4>
                 <form action="MAILTO:example@car4u.com" method="post" enctype="text/plain">
                     <input type="text" name="email" placeholder="Email" />
                     <textarea name="message" placeholder="Message"></textarea>
