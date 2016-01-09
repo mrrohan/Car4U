@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Car4U.Models.Car>
+﻿@model Car4U.ViewModels.CarIndex
 
 @{
     ViewBag.Title = "SearchView";
@@ -13,9 +13,7 @@
                 <div class="page-header">
                     <h2>Frota </h2>
                 </div>
-
-               
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Cars)
                     {
                             <div class="frota">
                                 <div class="col-md-4">
@@ -50,7 +48,7 @@
                                         @Html.ActionLink("Detalhes", "Details", new { id = item.ID, view = 2 })
                                     </div>
                                     <div class="button">
-                                        <a id="edit-details" href="~/Reservations/CreateTeste?mpreliveryid=@ViewBag.mpdelivery&mpreturnid=@ViewBag.mpreturn&categotyid=@ViewBag.category & begindate=@ViewBag.begindate&beginhour=@ViewBag.beginhour&enddate=@ViewBag.enddate&endhour=@ViewBag.endhour&carid=@ViewBag.carid">Reservar</a>
+                                        <a id="edit-details" href="~/Reservations/CreateTeste?mpreliveryid=@Model.Infosender.MPDeliveryID&mpreturnid=@Model.Infosender.MPReturnID&categotyid=@Model.Infosender.CategoryID&begindate=@Model.Infosender.BeginDate.ToString("yyyy-MM-dd")&beginhour=@Model.Infosender.BeginHour.ToString("HH:mm")&enddate=@Model.Infosender.EndDate.ToString("yyyy-MM-dd")&endhour=@Model.Infosender.EndHour.ToString("HH:mm")&carid=@item.ID">Reservar</a>
                                         @*@Html.ActionLink("Reservar", "CreateTeste","Reservations", new { , , , , , , ,  })*@
                                         @*<button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>*@
                                     </div>

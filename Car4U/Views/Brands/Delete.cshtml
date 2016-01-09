@@ -7,29 +7,37 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
+<h2>Tem a certeza que pretende apagar esta Marca?</h2>
 <div>
-    <h4>Brand</h4>
-    <hr />
+
+
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            <h4> @Html.DisplayNameFor(model => model.Description) : </h4>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            <h4> @Html.DisplayFor(model => model.Description) </h4>
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="buttonbackoffice">
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
+            @using (Html.BeginForm())
+            {
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions">
+                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                </div>
+            }
+            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'"> Voltar </button> 
         </div>
-    }
+
+    </div>
 </div>

@@ -72,7 +72,7 @@ namespace Car4U.Controllers
             {
                 db.Brands.Add(brand);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexModel");
             }
 
             return View(brand);
@@ -104,7 +104,7 @@ namespace Car4U.Controllers
             {
                 db.Entry(brand).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexModel");
             }
             return View(brand);
         }
@@ -132,7 +132,7 @@ namespace Car4U.Controllers
             Brand brand = db.Brands.Find(id);
             db.Brands.Remove(brand);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexModel");
         }
 
         protected override void Dispose(bool disposing)

@@ -57,10 +57,10 @@ namespace Car4U.Controllers
         public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info, int? carid)
         {
 
-            if (carid == null)
-            {
-                return View();
-            }
+            //if (carid == null)
+            //{
+            //    return View();
+            //}
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
             //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
@@ -72,38 +72,47 @@ namespace Car4U.Controllers
         public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
 
+            var viewModel = new CarIndex();
+            viewModel.Cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l=>l.CategoryID== categotyid).ToList();
+            viewModel.Infosender = new InfoSender();
+
             if (mpreliveryid != null)
             {
-                ViewBag.mpdelivery = mpreliveryid ?? default(int);
+                viewModel.Infosender.MPDeliveryID = mpreliveryid ?? default(int);
             }
             if (mpreturnid != null)
             {
-                ViewBag.mpreturn = mpreturnid ?? default(int);
-            }
-            if (begindate != null)
-            {
-                ViewBag.begidate = begindate ?? default(DateTime);
+                viewModel.Infosender.MPReturnID = mpreturnid ?? default(int);
             }
             if (categotyid != null)
             {
-                ViewBag.category = categotyid ?? default(int);
+                viewModel.Infosender.CategoryID = categotyid ?? default(int);
+            }
+            if (begindate != null)
+            {
+                viewModel.Infosender.BeginDate = begindate ?? default(DateTime);
+                viewModel.Infosender.BeginDate.ToString("yyyy-MM-dd");
             }
             if (beginhour != null)
             {
-                ViewBag.begihour = beginhour ?? default(DateTime);
+                viewModel.Infosender.BeginHour = beginhour ?? default(DateTime);
+                viewModel.Infosender.BeginDate.ToString("HH:mm");
             }
             if (enddate != null)
             {
-                ViewBag.enddate = enddate ?? default(DateTime);
-        }
+                viewModel.Infosender.EndDate = enddate ?? default(DateTime);
+                viewModel.Infosender.EndDate.ToString("yyyy-MM-dd");
+            }
             if (endhour != null)
-        {
-                ViewBag.endhour = endhour ?? default(DateTime);
+            {
+                viewModel.Infosender.EndHour = endhour ?? default(DateTime);
+                viewModel.Infosender.BeginDate.ToString("HH:mm");
             }
 
-
-            var Cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l=>l.CategoryID== categotyid).ToList();
-            return View(Cars);
+           
+           
+          
+            return View(viewModel);
         }
 
         //GET: Cars/Details/5

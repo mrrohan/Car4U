@@ -7,23 +7,26 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes da Marca</h2>
 
 <div>
-    <h4>Brand</h4>
-    <hr />
+    
+ 
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            <h4> @Html.DisplayNameFor(model => model.Description) : </h4> 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <h4>  @Html.DisplayFor(model => model.Description) </h4> 
+</dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+<div class="form-group">
+    <div class="buttonbackoffice pull-left">
+        <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Brands", new { id = Model.ID })'"> Editar </button>
+        <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Brands", new { id = Model.ID })'"> Eliminar </button>
+        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'">  Voltar </button>
+    </div>
+</div>

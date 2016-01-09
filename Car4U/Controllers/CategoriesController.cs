@@ -90,7 +90,7 @@ namespace Car4U.Controllers
             {
                 db.Categories.Add(category);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PrivateIndex");
             }
 
             return View(category);
@@ -122,7 +122,7 @@ namespace Car4U.Controllers
             {
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PrivateIndex");
             }
             return View(category);
         }
@@ -150,7 +150,7 @@ namespace Car4U.Controllers
             Category category = db.Categories.Find(id);
             db.Categories.Remove(category);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("PrivateIndex");
         }
 
         protected override void Dispose(bool disposing)
