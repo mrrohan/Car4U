@@ -5,20 +5,26 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Create Role</h2>
-@Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <div>
-        Role name
+<div>
+    <div style="margin:5px">
+    <h2>Adicionar Cargo</h2>
+    
+    @Html.ActionLink("List Roles", "Index", new {@class="icon-Details1"}) | @Html.ActionLink("Manage User Role", "ManageUserRoles")
     </div>
-    <p>
-        @Html.TextBox("RoleName")
-    </p>
-    <input type="submit" value="Save" />
-}
+    
+    <div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
+        <h4>Nome do Cargo</h4>
+        <p>
+            @Html.TextBox("RoleName")
+        </p>
+        <div class=" buttonbackoffice">
+            <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+        </div>
+    }
+        </div>
+</div>

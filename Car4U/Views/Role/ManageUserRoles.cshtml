@@ -4,77 +4,97 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Controlar Cargos de Utilizadores</h2>
-@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
-<hr />
 
-<h2>Adicionar Cargo a Utilizador</h2>
+<div>
 
-@using (Html.BeginForm("RoleAddToUser", "Role"))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    <h2>Controlar Cargos de Utilizadores</h2>
 
-    <p>
-        Nome Utilizador : @Html.TextBox("UserName")
-        Cargo: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
 
-    </p>    @*<input type="submit" value="Save" />*@
-    
-    <div class="buttonbackoffice">        
-        <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+    <div class="buttonbackoffice" style="padding-bottom:50px">
+        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Role")'"> Adicionar Tipos de Cargo </button>
     </div>
-   
-}
-<hr />
-<h3>Cargos de Utilizador</h3>
-@using (Html.BeginForm("GetRoles", "Role"))
-{
-    @Html.AntiForgeryToken()
-          
-        <p>Nome Utilizador : @Html.TextBox("UserName") </p>
-                <div class="buttonbackoffice">                    
-                    <button class="submit icon-search" type="submit"> Saber Cargos </button>                    
-                </div>
-        @*<input type="submit" value="Get Roles for this User" />*@
-        
-    
-}
 
-@if (ViewBag.RolesForThisUser != null)
-{
-    <div>
-        <h3>Roles for this user </h3>
-        <ol>
-            @foreach (string s in ViewBag.RolesForThisUser)
-            {
-                <li>@s</li>
-            }
-        </ol>
-    </div>
-}
 
-<hr />
-<h3>Delete A User from a Role</h3>
+    <div style="padding-bottom:30px">
+        <h3>Adicionar Cargo a Utilizador</h3>
 
-@using (Html.BeginForm("DeleteRoleForUser", "Role"))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <p>
-        Nome Utilizador : @Html.TextBox("UserName")
-        Cargo: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
-
-    </p>
-    <div class="buttonbackoffice">
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("RoleAddToUser", "Role"))
         {
             @Html.AntiForgeryToken()
-            <div class="form-actions">
-                <button class="submit  icon-Delete" type="submit" value="Delete"> Tirar Cargo deste Utilizador </button>
+            @Html.ValidationSummary(true)
+
+            <p>
+                Nome Utilizador : @Html.TextBox("UserName")
+                Cargo: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+            </p>
+
+            <div class="buttonbackoffice">
+                <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
             </div>
-        }        
+
+        }
     </div>
-    @*<input type="submit" value="Delete this user from Role" />*@
-}
+
+
+    <div style="padding-bottom:10px">
+
+        <div style="padding-bottom:20px">
+            <h3>Cargos de Utilizador</h3>
+            @using (Html.BeginForm("GetRoles", "Role"))
+            {
+                @Html.AntiForgeryToken()
+
+                <p>Nome Utilizador : @Html.TextBox("UserName") </p>
+                <div class="buttonbackoffice">
+                    <button class="submit icon-search" type="submit"> Saber Cargos </button>
+                </div>
+                @*<input type="submit" value="Get Roles for this User" />*@
+
+
+            }
+        </div>
+
+
+        <div style="padding-bottom:10px">
+            @if (ViewBag.RolesForThisUser != null)
+            {
+                <div>
+                    <h3>Cargos deste Utilizador </h3>
+                    <ol style="float:left">
+                        @foreach (string s in ViewBag.RolesForThisUser)
+                        {
+                            <li>@s</li>
+                        }
+                    </ol>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div style="padding-bottom:50px">
+        <h3>Tirar Cargo do Utilizador</h3>
+
+        @using (Html.BeginForm("DeleteRoleForUser", "Role"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <p>
+                Nome Utilizador : @Html.TextBox("UserName")
+                Cargo: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+            </p>
+
+            <div class="buttonbackoffice">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions">
+                        <button class="submit  icon-Delete" type="submit" value="Delete"> Tirar Cargo deste Utilizador </button>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
