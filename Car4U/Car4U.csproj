@@ -508,6 +508,7 @@
     <Content Include="Views\Cars\EnteringCars.cshtml" />
     <Content Include="Views\CarStatus\Edit.cshtml" />
     <Content Include="Views\Cars\PublicIndex - Copy.cshtml" />
+    <Content Include="Views\Cars\SearchView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
