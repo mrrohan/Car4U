@@ -269,7 +269,7 @@ namespace Car4U.Controllers
             ApplicationUser user = context.Users.FirstOrDefault(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase));
             if (user != null) 
             {
-                if (RoleName != null)
+                if (!RoleName.Equals(""))
                 {
                     UserManager.AddToRole(user.Id, RoleName);
                 }
@@ -322,7 +322,7 @@ namespace Car4U.Controllers
 
             if (user != null)
             {
-                if (RoleName != null)
+                if (!RoleName.Equals(""))
                 {
                     if (UserManager.IsInRole(user.Id, RoleName))
                     {
