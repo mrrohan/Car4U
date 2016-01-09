@@ -1,7 +1,4 @@
-﻿@model Car4U.ViewModels.BrandsIndex
-@using Microsoft.AspNet.Identity;
-@using Car4U.DAL;
-
+﻿@model IEnumerable<Car4U.Models.CarModel>
 @{
     ViewBag.Title = "IndexModel";
 }
@@ -11,20 +8,16 @@
 }
 <h2>Marcas Automóvel</h2>
 
-<div class="form-group">
-    <div class="button">
-        @Html.ActionLink("Adicionar", "Create","Brands", new { @class = "icon-Add submit" })
-    </div>
-</div>
-
-<table class="table tableheader">
+<p>
+    @Html.ActionLink("+ Adicionar", "Create")
+</p>
+<table class="table">
     <tr>
-        <th class="tableheader1"></th>
+        <th></th>
         <th>Nome</th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model.Brands)
+    @foreach (var item in ViewBag.Brands)
     {
         string selectedRow = "";
         if (item.ID == ViewBag.ID)
@@ -32,28 +25,24 @@
             selectedRow = "success";
         }
         <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"'>
-            <td class="">
-                <div class="buttonbackoffice">
-                @Html.ActionLink(" ", "IndexModel","Brands", new { id = item.ID }, new { @class = "icon-Select submit", @title="Select" })
-            </div>
+            <td>
+                @Html.ActionLink("Select", "IndexModel", new { id = item.ID })
             </td>
             <td>
-                     @item.Description
+                @item.Description
             </td>
             <td>
-                <div class="buttonbackoffice">
-
-                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                    @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                    </div>
+                <span class="pull-right">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </span>
             </td>
         </tr>
     }
 </table>
 <div>
-
-    @if (Model.CarModels != null)
+    @if (Model != null)
     {
         <section class="destaque-subtitle">
             <h2>
@@ -64,15 +53,14 @@
                 </span>
             </h2>
         </section>
-   
+
         <table class="table">
             <tr>
                 <th></th>
                 <th>Nome</th>
                 <th></th>
             </tr>
-
-            @foreach (var item in Model.CarModels)
+            @foreach (var item in Model)
             {
                 string selectedRow = "";
                 <tr class="@selectedRow">
