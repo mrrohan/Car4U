@@ -15,43 +15,19 @@
 </div>
 <table class="table tableheader">
     <tr>
-        <th>
-
-        </th>
+        <th>      </th>
         
-        <th>
-            Modelo
-        </th>
-        <th>
-            Categoria
-        </th>
-        <th>
-            Tipo Combustível
-        </th>
-        <th>
-            Matrícula
-        </th>
-        <th>
-            Data Registo
-        </th>
-        <th>
-            nº Portas
-        </th>
-        <th>
-            Capacidade Mala
-        </th>
-        <th>
-            Cilindrada (cc)
-        </th>
-        <th>
-            Potência (cv)
-        </th>
-        <th>
-            Caixa
-        </th>
-        <th>
-            Acções
-        </th>
+        <th> Modelo </th>
+        <th>Categoria</th>
+        <th>Tipo Combustível</th>
+        <th> Matrícula </th>
+        <th> Data Registo </th>
+        <th> nº Portas </th>
+        <th>  Capacidade Mala </th>
+        <th>  Cilindrada (cc)  </th>
+        <th>  Potência (cv)</th>
+        <th>  Caixa </th>
+        <th> Acções </th>
     </tr>
 
     @foreach (var item in Model)
@@ -99,10 +75,10 @@
             </td>
             <td>
                 <div class="buttonbackoffice">
-                @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new {@class="icon-Photo-Edit submit", @title="Editar Foto" }) 
-                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })  
-                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title="Detalhes" }) 
-                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title="Apagar" })
+                    @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                    @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
                 </div>
             </td>
         </tr>
