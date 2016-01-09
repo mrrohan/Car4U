@@ -1392,6 +1392,7 @@ ul.features {
     font-size: 16px;
     font-weight: bold;
     margin-top: 18px;
+    margin-bottom:25px;
     padding: 8px 33px;
     text-align: center;
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
