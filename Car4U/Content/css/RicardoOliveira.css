@@ -1,4 +1,4 @@
-﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+﻿/*CSS Ricardo Oliveira*/
 
 /*Index moving img*/
 .object {
@@ -722,85 +722,7 @@ nav#menu {
                 color: #323A45;
             }
 
-/* ==================================================
-   Mobile Navigation
-================================================== */
 
-#mobile-nav {
-    display: none;
-}
-
-.menu-nav {
-    background: url(../img/menu-mobile.png) 0 0 no-repeat;
-    width: 16px;
-    height: 16px;
-    display: block;
-    margin: 22px 0 0 0;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: -webkit-transform 250ms ease-out 0s;
-    -moz-transition: -moz-transform 250ms ease-out 0s;
-    -o-transition: -o-transform 250ms ease-out 0s;
-    transition: transform 250ms ease-out 0s;
-}
-
-    .menu-nav.open {
-        background-position: 0 -16px;
-        -webkit-transform: rotate(-180deg);
-        -moz-transform: rotate(-180deg);
-        -ms-transform: rotate(-180deg);
-        -o-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-        -webkit-transition: -webkit-transform 250ms ease-out 0s;
-        -moz-transition: -moz-transform 250ms ease-out 0s;
-        -o-transition: -o-transform 250ms ease-out 0s;
-        transition: transform 250ms ease-out 0s;
-    }
-
-#navigation-mobile {
-    display: none;
-    text-align: center;
-    width: 100%;
-    background: #26292E;
-    border-bottom: 1px solid #2F3238;
-    position: relative;
-    float: left;
-    z-index: 9999;
-}
-
-    #navigation-mobile li {
-        list-style: none;
-        border-top: 1px solid #2F3238;
-    }
-
-        #navigation-mobile li a {
-            color: #FFFFFF;
-            display: block;
-            font-size: 16px;
-            padding: 20px 0;
-            text-transform: uppercase;
-        }
-
-#menu-nav-mobile ul.sub-menu {
-    background: transparent;
-    margin: 0;
-    position: relative;
-    top: auto;
-    width: auto;
-}
-
-    #menu-nav-mobile ul.sub-menu li {
-        border-top: 1px solid #313335;
-        height: auto;
-        margin-top: 0;
-    }
-
-#menu-nav-mobile .sub-menu li a {
-    padding-left: 0px;
-}
 
 .form_hp {
     background: url("//media.iolnegocios.pt/media1201/14f6c04a05b633181d8e0a7329589e69/") repeat;
@@ -949,11 +871,6 @@ footer {
     margin-left: 0;
 }
 
-.recent_posts .col-md-4 {
-    float: left;
-    margin-left: 0;
-}
-
 #footer .post {
     margin-bottom: 70px;
     width: 93%;
@@ -976,6 +893,11 @@ footer {
         display: block;
         font-size: 14px;
     }
+
+    .recent_posts .col-md-4 {
+    float: left;
+    margin-left: 0;
+}
 
 .post ul, ol {
     list-style: none outside none;
@@ -1113,18 +1035,16 @@ footer {
 
 .page-header2 {
     border-bottom: 1px solid #F9BF1D;
-    margin: 30px 0 20px;
-    font-family: Arial, sans-serif;
+  
 }
 
 .page-header h1 {
     font-weight: bold;
-    font-family: Arial, sans-serif;
+    
 }
 
 .page-header2 h1 {
-    font-weight: bold;
-    font-family: Arial, sans-serif;
+    font-weight: bold;   
     font-size: 24px;
 }
 
@@ -1489,6 +1409,13 @@ ul.features {
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
 }
 
+
+.button .comment {
+    margin-top: 16px;
+    color: red;
+    font-size: 12px;
+}
+
 .buttonbackoffice .submit {
     float:left;
     font-family: Arial,sans-serif;
@@ -1507,12 +1434,6 @@ ul.features {
     border: 0;
     float:left;
 
-}
-
-.button .comment {
-    margin-top: 16px;
-    color: red;
-    font-size: 12px;
 }
 
 .btn-primary:hover,
@@ -1935,3 +1856,6 @@ ul.features {
 
     height: 500px;
 }
+
+
+                                                        /*Fim CSS Ricardo Oliveira*/
