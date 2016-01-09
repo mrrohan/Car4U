@@ -1,6 +1,7 @@
 ﻿@model Car4U.ViewModels.BrandsIndex
 @using Microsoft.AspNet.Identity;
 @using Car4U.DAL;
+
 @{
     ViewBag.Title = "IndexModel";
 }
@@ -22,6 +23,7 @@
         <th>Nome</th>
         <th></th>
     </tr>
+
     @foreach (var item in Model.Brands)
     {
         string selectedRow = "";
@@ -34,7 +36,7 @@
                 @Html.ActionLink("Select", "IndexModel", new { id = item.ID })
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                     @item.Description
             </td>
             <td>
                 <div class="buttonbackoffice">
@@ -43,29 +45,31 @@
                     @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
                     @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
                     </div>
-</td>
+            </td>
         </tr>
     }
 </table>
 <div>
+
     @if (Model.CarModels != null)
     {
         <section class="destaque-subtitle">
             <h2>
-                Modelos
+                Modelos de @ViewBag.Brand
                 <span class="pull-right">
                     <a id="edit-details" href="~/CarModels/Create/@ViewBag.ID">Create</a>
                     @*@Html.ActionLink("Create", "Create", "CarModels", new { id = ViewBag.ID })*@
                 </span>
             </h2>
         </section>
-
+   
         <table class="table">
             <tr>
                 <th></th>
                 <th>Nome</th>
                 <th></th>
             </tr>
+
             @foreach (var item in Model.CarModels)
             {
                 string selectedRow = "";

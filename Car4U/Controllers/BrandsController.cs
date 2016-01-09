@@ -25,16 +25,19 @@ namespace Car4U.Controllers
         // GET: Categories
         public ActionResult IndexModel(int? id)
         {
-            var viewModel = new BrandsIndex();
-            viewModel.Brands = db.Brands.OrderBy(i => i.Description);
-
+            ViewBag.Brands = db.Brands.ToList();
             if (id != null)
             {
                 ViewBag.ID = id.Value;
-                viewModel.CarModels = viewModel.Brands.FirstOrDefault(c => c.ID == id).carModel;
-            }
+                var carmodels= db.CarModels.Where(l=>l.BrandID == id);
+                ViewBag.Brand = db.Brands.FirstOrDefault(u => u.ID == id).Description;
 
-            return View(viewModel);
+                 return View(carmodels.ToList());
+            }
+            else{
+                return View();
+            }
+           
         }
 
         // GET: Brands/Details/5

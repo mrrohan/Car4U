@@ -82,9 +82,12 @@
             <td>
                 <a id="edit-details" href="~/MomentDeliveries/Details/@item.ID">Begin Moment</a> |
                 <a id="edit-details" href="~/MomentReturns/Details/@item.ID">End Moment</a> |
-            
-                @Html.ActionLink("Confirmar", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+
+            @if(item.ReturnDate > DateTime.Now ){
+                @Html.ActionLink("Confirmar", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) 
+            }
+               
+               |@Html.ActionLink("Detalhes", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
                 @Html.ActionLink("Apagar", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })           
                
             </td>

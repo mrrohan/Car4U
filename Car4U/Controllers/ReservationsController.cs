@@ -91,7 +91,7 @@ namespace Car4U.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Email,License,BI,DateOfBirth,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Email,License,BI,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
             if (ModelState.IsValid)
             {
@@ -238,7 +238,7 @@ namespace Car4U.Controllers
 
             if (currentuser != null)
             {
-                if (currentuser.Address != null && currentuser.BI != null && currentuser.CountryID == 0 && currentuser.Email != null && currentuser.License != null && currentuser.Name != null && currentuser.PostalCode != null)
+                if (currentuser.Address != null && currentuser.BI != null && currentuser.CountryID != 0 && currentuser.Email != null && currentuser.License != null && currentuser.Name != null && currentuser.PostalCode != null)
                 {
                     reservation.Address = currentuser.Address;
                     reservation.BI = currentuser.BI;
@@ -256,7 +256,7 @@ namespace Car4U.Controllers
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
-            if (reservation.CountryID == 0)
+            if (reservation.CountryID != 0)
             {
                 ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
             }
@@ -384,21 +384,23 @@ namespace Car4U.Controllers
         {
             if (id == null)
             {
-               
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Reservation reservation = db.Reservations.Find(id);
+
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+
             if (reservation == null)
             {
                 return HttpNotFound();
             }
 
-            var DateAndTime = DateTime.Now;
-            var today = DateAndTime.Date;
-            // .Where(l => l.CategoryID == reservation.CategoryID)
-            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0), "ID", "LicensePlate", reservation.carID);
+            
+            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CategoryID == reservation.CategoryID).Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c=>c.CarID == null) <=0), "ID", "LicensePlate", reservation.carID);
             if (ViewBag.carID == null)
             {
-                ViewBag.carID = new SelectList(db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) >0 )), "ID", "LicensePlate", reservation.carID);
+                ViewBag.carID = new SelectList(db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.CarID == null) <= 0), "ID", "LicensePlate", reservation.carID);
             }
             return View(reservation);
         }
