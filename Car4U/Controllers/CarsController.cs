@@ -65,6 +65,23 @@ namespace Car4U.Controllers
             return RedirectToAction("Teste", "Home", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm") });
         }
 
+
+        public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        {
+
+            var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear).Where(l=>l.CategoryID== categotyid);
+            return View(cars.ToList());
+        }
+
+        //Post Index
+        [HttpPost]
+        public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        {
+
+
+            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = mpreliveryid, mpreturnid = mpreturnid, categotyid = categotyid, begindate = begindate, beginhour = beginhour, enddate = enddate, endhour = endhour });
+        }
+
         // GET: Cars/Details/5
         public ActionResult Details(int? id, int? view)
         {
