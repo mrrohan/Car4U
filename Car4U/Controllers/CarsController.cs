@@ -121,7 +121,7 @@ namespace Car4U.Controllers
             return View(viewModel);
         }
 
-        // GET: Cars/Details/5
+        //GET: Cars/Details/5
         public ActionResult Details(int? id, int? view)
         {
             if (id == null || view == null)

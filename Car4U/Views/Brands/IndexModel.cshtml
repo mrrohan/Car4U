@@ -6,16 +6,16 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Marcas Automóvel</h2>
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
+<h2>Marcas de Automóvel</h2>
+
+<p class="buttonbackoffice" style="margin-bottom:70px">
+    @Html.ActionLink(" Adicionar Marcas ", "Create", "Brands", new {@class="icon-Add submit" })
 </p>
-<table class="table">
+<table class="table tableheader" style="width:200px">    
     <tr>
-        <th></th>
-        <th>Nome</th>
-        <th></th>
+        <th style="width:150px">Marca</th>
+        <th style="width:100px">Acções</th>
     </tr>
     @foreach (var item in ViewBag.Brands)
     {
@@ -24,59 +24,56 @@
         {
             selectedRow = "success";
         }
-        <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"'>
-            <td>
-                @Html.ActionLink("Select", "IndexModel", new { id = item.ID })
-            </td>
-            <td>
+        <tr style="width:200px; padding:1px" class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"'>
+            <td style="padding:3px">
                 @item.Description
             </td>
-            <td>
-                <span class="pull-right">
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID })
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </span>
+            <td style="padding:3px">
+                <div style="width:70px">
+                    @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Select" })
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                    @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                  
+                </div>
             </td>
         </tr>
     }
 </table>
-<div>
+
+<div style="margin-top:50px">
     @if (Model != null)
     {
         <section class="destaque-subtitle">
-            <h2>
-                Modelos de @ViewBag.Brand
-                <span class="pull-right">
-                    <a id="edit-details" href="~/CarModels/Create/@ViewBag.ID">Create</a>
-                    @*@Html.ActionLink("Create", "Create", "CarModels", new { id = ViewBag.ID })*@
-                </span>
-            </h2>
+
+            <h2>Modelos de @ViewBag.Brand </h2>
+                <div class="buttonbackoffice" style="margin-bottom:50px">
+                    @Html.ActionLink(" Adicionar novo Modelo ", "Create", "Brands", new { id = ViewBag.ID }, new { @class = "icon-Add submit"})                   
+                </div>              
+            
         </section>
 
-        <table class="table">
-            <tr>
-                <th></th>
-                <th>Nome</th>
-                <th></th>
+    <table class="table tableheader" style="width:200px">
+        <tr>
+            <th style="width:100px">Modelos</th>
+            <th style="width:100px">Acções</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            string selectedRow = "";
+            <tr style="width:200px; padding:1px" class="@selectedRow">
+                <td style="padding:3px">
+                    @item.Description
+                </td>
+                <td style="padding:3px">
+                    <div style="width:70px">
+                        @Html.ActionLink(" ", "Edit", "Brands", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                        @Html.ActionLink(" ", "Details", "Brands", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                        @Html.ActionLink(" ", "Delete", "Brands", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                  </div>
+                </td>
             </tr>
-            @foreach (var item in Model)
-            {
-                string selectedRow = "";
-                <tr class="@selectedRow">
-                    <td></td>
-                    <td>
-                        @item.Description
-                    </td>
-                    <td>
-                        <span class="pull-right">
-                            <a id="edit-details" href="~/CarModels/Details/@item.ID">Details</a>
-                            <a id="edit-details" href="~/CarModels/Edit/@item.ID">Edit</a>
-                            <a id="edit-details" href="~/CarModels/Delete/@item.ID">Delete</a>
-                        </span>
-                    </td>
-                </tr>
-            }
-        </table>
+        }
+    </table>
     }
 </div>

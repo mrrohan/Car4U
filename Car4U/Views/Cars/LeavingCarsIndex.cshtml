@@ -11,7 +11,7 @@
         Carros Por-Sair
     </h2>
 </section>
-<table class="table">
+<table class="table tableheader">
     <tr>
         <th></th>
         <th>Estado</th>
@@ -31,12 +31,12 @@
             {
                 selectedRow = "success";
             }
-            
+
             <tr class="@selectedRow">
                 <td>
-                    
-                     @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
-                    
+
+                    @Html.ActionLink(" Select ", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID }, new { @class = "icon-Select" })
+
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CarStatus.FirstOrDefault().Status.Description)
@@ -77,7 +77,7 @@
         </h2>
     </section>
 
-    <table class="table">
+    <table class="table tableheader">
         <tr>
             <th></th>
             <th>Estado
@@ -107,7 +107,7 @@
                 <tr class="@selectedRow">
 
                     <td>
-    @Html.ActionLink("Select", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID })
+    @Html.ActionLink(" Select ", "LeavingCarsIndex", new { id = item.CarStatus.FirstOrDefault().ID }, new { @class = "icon-Select" })
 
                     </td>
                     <td>
