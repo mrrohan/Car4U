@@ -433,13 +433,11 @@ button {
    background-color: rgba(255, 216, 0, 0.39);
 }
 
- .tableheader tr th:first-child {
+ .tableheader1 {
     visibility  : hidden;
 }
- .tableheader,
- .tableheader1 tr th:first-child {
-     visibility:visible; 
- }
+ 
+
 .tableheader tr td:last-child div {
      visibility  : hidden;
      width:150px;
