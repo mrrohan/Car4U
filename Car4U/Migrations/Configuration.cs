@@ -29,6 +29,14 @@ namespace Car4U.Migrations
             {
                 roleManager.Create(new IdentityRole("Admin"));
             }
+            if (!roleManager.RoleExists("Employee"))
+            {
+                roleManager.Create(new IdentityRole("Employee"));
+            }
+            if (!roleManager.RoleExists("Normal"))
+            {
+                roleManager.Create(new IdentityRole("Normal"));
+            }
 
             var carsbrand = new List<Brand>
             {
@@ -368,9 +376,8 @@ namespace Car4U.Migrations
             {
                 new Status { ID = 1, Description = "Venda" },
                 new Status { ID = 2, Description = "Oficina" },
-                new Status { ID = 3, Description = "Disponivel" },
-                new Status { ID = 4, Description = "Lavagem" },
-                new Status { ID = 5, Description = "Reservado" },
+                new Status { ID = 3, Description = "Lavagem" },
+                new Status { ID = 4, Description = "Reservado" },
             };
             status.ForEach(s => context.Status.AddOrUpdate(p => p.Description, s));
             context.SaveChanges();

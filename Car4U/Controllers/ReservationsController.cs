@@ -384,17 +384,19 @@ namespace Car4U.Controllers
         {
             if (id == null)
             {
-               
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Reservation reservation = db.Reservations.Find(id);
+
+            var DateAndTime = DateTime.Now;
+            var today = DateAndTime.Date;
+
             if (reservation == null)
             {
                 return HttpNotFound();
             }
 
-            var DateAndTime = DateTime.Now;
-            var today = DateAndTime.Date;
-            // 
+            
             ViewBag.carID = new SelectList(db.Cars.Where(l => l.CategoryID == reservation.CategoryID).Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c=>c.CarID == null) <=0), "ID", "LicensePlate", reservation.carID);
             if (ViewBag.carID == null)
             {

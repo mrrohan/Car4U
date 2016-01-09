@@ -290,6 +290,10 @@ namespace Car4U.Controllers
                 if (user != null)
                 {
                     ViewBag.RolesForThisUser = UserManager.GetRoles(user.Id);
+                    if (ViewBag.RolesForThisUser ==null) 
+                    {
+                        ViewBag.RolesForThisUser = "Não existe nenhuma role para este utilizador";
+                    }
                 }
                
 
@@ -304,7 +308,6 @@ namespace Car4U.Controllers
         //
         //delete role from user
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteRoleForUser(string UserName, string RoleName)
         {
 
