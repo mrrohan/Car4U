@@ -454,9 +454,12 @@ button {
  .tableheader tr th:first-child {
     visibility  : hidden;
 }
+ .tableheader .tableheader1 tr th:first-child {
+     visibility:visible; 
+ }
 .tableheader tr td:last-child div {
      visibility  : hidden;
-     width:130px;
+     width:150px;
 }
 
 .tableheader tr:hover td:last-child div {
