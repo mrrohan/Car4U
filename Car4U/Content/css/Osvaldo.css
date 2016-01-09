@@ -234,26 +234,7 @@ button {
         color: #f9bf1d;
     }
 /*end Button active 3d*/
-.footer-button {
-    /*border: 0;
-    background: #f9bf1d;
-    border-radius: 4px;
-    box-shadow: 0 5px 0 none;
-    color: black;
-    cursor: pointer;
-    font: inherit;
-    margin: 0;
-    outline: 0;
-    padding: 20px 20px;
-    transition: all .1s linear;
-    float: right;
-    margin-top: 15px;*/
-}
-/*Image effect Index*/
-/*@media (max-width:1280px) {
-.card-container {
-        display: none;
-    }*/
+
 .card-container {
     cursor: pointer;
     height: 40px;
@@ -739,6 +720,33 @@ textarea {
         margin-left: 5px;
     }
 }
+
+.imgBackoffice{
+    
+}
+
+@media (max-width: 829px){
+   #img1 {
+       display:none;
+   }
+       
+   #img2{
+       display:block;
+   }
+}
+
+@media (min-width: 830px){
+
+    #img1 {
+        display:block;
+    }
+
+    #img2 {
+        display: none;
+    }
+
+}
+
 
 /*
 @font-face {
