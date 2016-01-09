@@ -45,9 +45,8 @@ namespace Car4U.Controllers
                 ViewBag.catid = new int[1];
                 ViewBag.show = 1;
             }
-           
-             
-            
+
+
             
 
            return View(viewModel);
@@ -58,10 +57,7 @@ namespace Car4U.Controllers
         public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info)
         {
 
-            //if (ViewBag.catid != 0)
-            //{
-            //    info.Infosender.CategoryID = ViewBag.catid;
-            //}
+       
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
             //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);

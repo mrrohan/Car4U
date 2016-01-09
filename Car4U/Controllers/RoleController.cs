@@ -33,6 +33,7 @@ namespace Car4U.Controllers
         // GET: /Employees/
         public ActionResult AllUsers()
         {
+            //var roleid = context.Roles.SingleOrDefault(u)
             var allUsers = context.Users.Where(l => l.Roles.Select(c => c.RoleId).Contains("2")).ToList();
             return View(allUsers);
         }
