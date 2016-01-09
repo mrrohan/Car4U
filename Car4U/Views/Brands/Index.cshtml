@@ -14,29 +14,35 @@
 
 <h2>Marcas</h2>
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Marcas
-            @*@Html.DisplayNameFor(model => model.Description)*@
-        </th>
-        <th></th>
-    </tr>
+<div class="form-group">
+    <div class="button">
+        @Html.ActionLink("Adicionar", "Create", new { @class = "icon-Add submit" })
+        </div>
+    </div>
+        <table class="table tableheader">
+            <tr>
+                <th>
+                    Marcas
+                    @*@Html.DisplayNameFor(model => model.Description)*@
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <div class="buttonbackoffice">
 
-</table>
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new {@class="icon-edit submit", @title = "Editar" }) 
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" }) 
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>

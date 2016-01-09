@@ -423,6 +423,9 @@ button {
     color:black;
     }
 
+.table tr td:last-child {
+    width:150px!important;
+}
 
 .tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
     border:2px solid white!important;
@@ -435,12 +438,13 @@ button {
 
  .tableheader1 {
     visibility  : hidden;
+    width:50px;
 }
  
 
 .tableheader tr td:last-child div {
      visibility  : hidden;
-     width:150px;
+    width:150px;
 }
 
 .tableheader tr:hover td:last-child div {
@@ -549,6 +553,8 @@ border-radius: 4px;
 .icon-Select:before { content: '\1f449'; } /* Select */ 
 
 .icon-Details1:before { content: '\1f4d6'; } /* Select */ 
+
+.icon-Users:before { content: '\1f465'; } /* Cargos Utilizadores */
 
                                         /*Fim CSS António Gonçalves*/
                                             

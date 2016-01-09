@@ -342,7 +342,7 @@ button {
     @font-face {
         font-family: Arial;
         src: url('../fonts/OpenSans-Regular-webfont.svg') format('svg');
-}
+    }
 }
 */
 
@@ -387,7 +387,7 @@ button {
 }
                 /*Finish Muldura*/
 
-
+                
 .titles {
     color: #000000;
     font-family: Arial,sans-serif;
@@ -396,29 +396,29 @@ button {
 
 .positiontop {
     margin-top: 20px;
-    }
+}
 
 .positionright {
     margin-left: 100px;
-    }
+}
 
 .btn-position {
     float: right;
     margin-right: 165px;
-        }
+}
 
 .tabledetails .table-background-second{     
      color: black;
      border:1px solid #f7b706;
      border-top-right-radius:20px;
      border-bottom-right-radius:20px;
-
+     
      font-family: Arial,sans-serif;   
-    }
+}
 
 .tableheader th {
     background-color:#f7b706;
-
+    
     color:black;
     }
 
@@ -426,23 +426,23 @@ button {
 .tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
     border:2px solid white!important;
     font-family: Arial,sans-serif;
-    }
+}
 
 .tableheader tbody tr:nth-child(odd) {
    background-color: rgba(255, 216, 0, 0.39);
-        }
+}
 
  .tableheader tr th:first-child {
     visibility  : hidden;
-        }
+}
 .tableheader tr td:last-child div {
      visibility  : hidden;
      width:130px;
-    }
+}
 
 .tableheader tr:hover td:last-child div {
     visibility: visible;
-        }
+}
 
                                     /*Fim CSS Luis Ricardo*/
 
@@ -450,24 +450,24 @@ button {
 
 .center-btn {
     text-align: center;
-    }
+}
 
 .titles {
     color: #000000;
     font-family: Arial,sans-serif;
     font-weight: bold;
-    }
+}
 
 /*Log in with Facebook button*/
 
 .btn-social.btn-lg {
-        text-align: center;
-    }
+text-align: center;
+}
 .btn-facebook {
 color: #fff;
 background-color: #3b5998;
 border-color: rgba(0,0,0,0.2);
-    }
+}
 .btn-social {
 position: relative;
 padding-left: 44px;
@@ -475,17 +475,17 @@ text-align: left;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
-        }
+}
 .btn-block {
 display: block;
 width: 100%;
-        }
+}
 .btn-lg, .btn-group-lg > .btn {
 padding: 10px 16px;
 font-size: 18px;
 line-height: 1.3333333;
 border-radius: 6px;
-        }
+}
 .btn {
 display: inline-block;
 padding: 6px 12px;
@@ -515,13 +515,13 @@ border-radius: 4px;
                                                                     /*CSS António Gonçalves*/
 
 [class^="ico-"]:before {
-
+  
      content: " ";
   width:10px; height:10px;
   display:inline-block;
   vertical-align:middle;
   font-family: icomoon;
-        }
+}
 
 .icon-search:before { content: '🔍'; } /*Search*/
 
@@ -558,6 +558,6 @@ border-radius: 4px;
     font-weight: normal;
     font-style: normal;
 }
+                                            
 
-
-
+                                                                                        

@@ -1,28 +1,22 @@
 ﻿@model IEnumerable<Car4U.Models.CarModel>
-
 @{
     ViewBag.Title = "IndexModel";
 }
 
-
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
 <h2>Marcas Automóvel</h2>
-
 
 <p>
     @Html.ActionLink("+ Adicionar", "Create")
 </p>
-
 <table class="table">
     <tr>
         <th></th>
         <th>Nome</th>
         <th></th>
     </tr>
-
     @foreach (var item in ViewBag.Brands)
     {
         string selectedRow = "";
@@ -35,7 +29,7 @@
                 @Html.ActionLink("Select", "IndexModel", new { id = item.ID })
             </td>
             <td>
-                     @item.Description
+                @item.Description
             </td>
             <td>
                 <span class="pull-right">
@@ -46,11 +40,8 @@
             </td>
         </tr>
     }
-
 </table>
-
 <div>
-
     @if (Model != null)
     {
         <section class="destaque-subtitle">
@@ -62,21 +53,18 @@
                 </span>
             </h2>
         </section>
-   
+
         <table class="table">
             <tr>
                 <th></th>
                 <th>Nome</th>
                 <th></th>
             </tr>
-
             @foreach (var item in Model)
             {
                 string selectedRow = "";
                 <tr class="@selectedRow">
-                    <td>
-
-                    </td>
+                    <td></td>
                     <td>
                         @item.Description
                     </td>
@@ -89,8 +77,6 @@
                     </td>
                 </tr>
             }
-
         </table>
     }
-
 </div>
