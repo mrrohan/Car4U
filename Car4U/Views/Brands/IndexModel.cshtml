@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Marcas Automóvel</h2>
+<h2>Marcas de Automóvel</h2>
 
 <p class="buttonbackoffice" style="margin-bottom:70px">
     @Html.ActionLink(" Adicionar Marcas ", "Create", "Brands", new {@class="icon-Add submit" })
@@ -48,7 +48,7 @@
 
             <h2>Modelos de @ViewBag.Brand </h2>
                 <div class="buttonbackoffice" style="margin-bottom:50px">
-                    @Html.ActionLink(" Adicionar novo Modelo ", "Create", "CarModels", new { id = ViewBag.ID }, new { @class = "icon-Add submit"})                   
+                    @Html.ActionLink(" Adicionar novo Modelo ", "Create", "Brands", new { id = ViewBag.ID }, new { @class = "icon-Add submit"})                   
                 </div>              
             
         </section>
@@ -67,9 +67,9 @@
                 </td>
                 <td style="padding:3px">
                     <div style="width:70px">
-                        @Html.ActionLink(" ", "Edit","CarModels", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                        @Html.ActionLink(" ", "Details", "CarModels", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                        @Html.ActionLink(" ", "Delete", "CarModels", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        @Html.ActionLink(" ", "Edit", "Brands", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                        @Html.ActionLink(" ", "Details", "Brands", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                        @Html.ActionLink(" ", "Delete", "Brands", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
                   </div>
                 </td>
             </tr>
