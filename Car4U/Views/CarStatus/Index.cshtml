@@ -6,7 +6,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Estado dos Carros</h2>
+<h2>Estado dos Veiculos</h2>
 
 <div class="buttonbackoffice">
     <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarStatus")'"> Adicionar </button>
@@ -45,7 +45,7 @@
             Hora Fim
          
         </th>
-        <th></th>
+        <th>Acções</th>
     </tr>
 
 @foreach (var item in Model) {
