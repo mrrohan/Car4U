@@ -14,7 +14,7 @@ namespace Car4U.Controllers
     public class ReservationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        static String RESERVADO = "Reservado";
         // GET: Reservations
         public ActionResult Index()
         {
@@ -283,19 +283,24 @@ namespace Car4U.Controllers
                 int extid;
                 ExtraItem extritem = new ExtraItem();
                 reservation.ExtraItems = new List<ExtraItem>();
-
-                int s = selectedExtraModels.Count();
-
-                for (int count = 0; count < s; count++)
+                if (selectedExtraModels != null)
                 {
-                    extid = Convert.ToInt32(selectedExtraModels[count]);
-                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
-                    extritem.InUse = true;
-                    //db.Entry(extritem).State = EntityState.Modified;
-                    //db.SaveChanges();
-                    reservation.ExtraItems.Add(extritem);
-                }
+                    int s = selectedExtraModels.Count();
 
+                    for (int count = 0; count < s; count++)
+                    {
+                        extid = Convert.ToInt32(selectedExtraModels[count]);
+                        extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
+                        extritem.InUse = true;
+                        //db.Entry(extritem).State = EntityState.Modified;
+                        //db.SaveChanges();
+                        reservation.ExtraItems.Add(extritem);
+                    }
+                }
+                else
+                {
+                    reservation.ExtraItemsID=1;
+                }
 
                 //get price and add to FinalPrice from category of car
                 int catid = reservation.CategoryID;
@@ -362,11 +367,11 @@ namespace Car4U.Controllers
 
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
-            // 
-            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0).Where(l=>l.CategoryID==reservation.CategoryID), "ID", "LicensePlate", reservation.carID);
+            // .Where(l => l.CategoryID == reservation.CategoryID)
+            ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0), "ID", "LicensePlate", reservation.carID);
             if (ViewBag.carID == null)
             {
-                ViewBag.carID = new SelectList(db.Cars.Where(l => l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate && c.FinishDate > today) > 0 || l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) > 0), "ID", "LicensePlate", reservation.carID);
+                ViewBag.carID = new SelectList(db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) >0 )), "ID", "LicensePlate", reservation.carID);
             }
             return View(reservation);
         }
@@ -383,7 +388,7 @@ namespace Car4U.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var statsid = db.Status.SingleOrDefault(l => l.Description.Equals("Reservado"));
+            var statsid = db.Status.SingleOrDefault(l => l.Description.Equals(RESERVADO));
             Reservation reservationmaster = db.Reservations.Find(id);
             if (reservation == null)
             {
@@ -392,7 +397,7 @@ namespace Car4U.Controllers
            
             if (ModelState.IsValid)
             {
-                var carstat = db.CarStatus.Where(l => l.CarID == reservationmaster.carID && l.Status.Description.Equals("Reservado" )&& l.BeginDate == reservationmaster.DeliveryDate && l.FinishDate == reservationmaster.ReturnDate).ToList();
+                var carstat = db.CarStatus.Where(l => l.CarID == reservationmaster.carID && l.Status.Description.Equals(RESERVADO) && l.BeginDate == reservationmaster.DeliveryDate && l.FinishDate == reservationmaster.ReturnDate).ToList();
                 foreach (var m in carstat)
                 {
                     if (m != null)
@@ -401,21 +406,13 @@ namespace Car4U.Controllers
                     }
                 }
 
-                var carstats = db.CarStatus.Where(l => l.CarID == reservation.carID && l.Status.Description.Equals("Disponivel")).ToList();
-
-                foreach (var m in carstats)
-                {
-                    if (m != null && m.Status.Description.Equals("Disponivel"))
-                    {
-                        db.CarStatus.Remove(m);
-                    }
-                }
+               
 
 
                 reservationmaster.carID = reservation.carID;
                 reservationmaster.Check = true;
 
-                // CarStatus = disponivel
+                // CarStatus = Reservado
                 var rented = new CarStatus();
 
                 rented.CarID = reservation.carID;
@@ -425,7 +422,7 @@ namespace Car4U.Controllers
                 rented.BeginHour = reservationmaster.DeliveryHour;
                 rented.FinishDate = reservationmaster.ReturnDate;
                 rented.FinishHour = reservationmaster.ReturnHour;
-                rented.Observation = "Alugado";
+                rented.Observation = RESERVADO;
                 rented.DeliveryPlace = reservationmaster.MPDelivery.Place;
                 rented.ReturnPlace = reservationmaster.MPReturn.Place;
 

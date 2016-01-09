@@ -54,16 +54,7 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                var carstats = db.CarStatus.Where(l => l.CarID == carStatus.CarID && l.Status.Description.Equals("Disponivel")).ToList();
 
-               foreach (var m in carstats)
-               {
-                   if (m != null && m.Status.Description.Equals("Disponivel"))
-                   {
-                       db.CarStatus.Remove(m);
-                   }
-               }
-            
                 carStatus.Outside = false;
                 db.CarStatus.Add(carStatus);
                 db.SaveChanges();
