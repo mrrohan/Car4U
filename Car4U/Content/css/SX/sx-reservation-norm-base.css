@@ -1,0 +1,2986 @@
+/* --------------------------------------------------
+//
+// reservation base styles
+// author:      jw
+// created:     28.09.2010
+//
+// ----------------------------------------------- */
+    /* -----------------------------------------------
+    blanko/partner template defaults
+    ----------------------------------------------- */
+    html {
+        height: 100.1%;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    p {
+        padding: 0 0 10px 0;
+    }
+
+    .blanko-wrapper {
+        height: 100.1%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    #mainContent h1,
+    .blanko-wrapper h1 {
+        clear: both;
+        margin: 0 0 30px 0;
+        padding: 10px 0 7px 0;
+    }
+
+    #mainContent h2,
+    .blanko-wrapper h2 {
+        font-size: 14px;
+        padding: 0 0 20px 0;
+    }
+
+    .blanko-wrapper h3,
+    .blanko-wrapper h4,
+    .blanko-wrapper h5,
+    .blanko-wrapper h6 {
+        font-size: 11px;
+        padding: 0 0 10px 0;
+    }
+
+    .blanko-wrapper a {
+        text-decoration: none;
+    }
+
+    .blanko-wrapper ul,
+    .blanko-wrapper li {
+        list-style: none;
+    }
+
+    .blanko-wrapper img {
+        border: none;
+    }
+
+    .blanko-wrapper table {
+        border-collapse: collapse;
+        margin: 0 0 20px 0;
+    }
+
+    .blanko-wrapper th {
+        text-align: left;
+        vertical-align: top;
+        border-collapse: collapse;
+    }
+
+    .blanko-wrapper td {
+        vertical-align: top;
+        border-collapse: collapse;
+    }
+
+    #blanko,
+    #sx-gc-main {
+        text-align: left;
+        margin: 0 auto 0 auto;
+        padding: 5px;
+    }
+
+    /* -----------------------------------------------
+    reservation
+    ----------------------------------------------- */
+    /* inner width 896 */
+    #sx-reservation-head {
+        padding: 10px 45px 10px 45px;
+        margin: 0 0 10px 0;
+        min-height: 1px;
+    }
+
+    /* inner width 896 */
+    #sx-quickpick-main,
+    #sx-reservation-main {
+        padding: 20px 45px 20px 45px;
+        margin: 0 0 10px 0;
+        min-height: 220px;
+        z-index: 1;
+        position: relative;
+    }
+
+    #sx-reservation-start {
+        padding: 10px 25px 10px 25px;
+    }
+
+    * html #sx-reservation-head {
+        height: 1px;
+    }
+
+    * html #sx-quickpick-main,
+    * html #sx-reservation-main {
+        height: 220px;
+    }
+
+    /* -----------------------------------------------
+    global classes
+    ----------------------------------------------- */
+    .sx-gc-leftfloater {
+        float: left;
+    }
+
+    .sx-gc-rightfloater {
+        float: right;
+    }
+
+    .sx-gc-centered {
+        text-align: center;
+    }
+
+    .sx-gc-active {
+        cursor: pointer;
+        cursor: hand;
+        text-decoration: underline;
+    }
+
+    .sx-gc-active:hover {
+        text-decoration: underline;
+    }
+
+    .sx-gc-info {
+        margin: 0;
+        padding: 1px 22px 1px 0 !important;
+        cursor: pointer;
+        cursor: hand;
+        display: inline-block;
+        font-size: 11px;
+        line-height: normal;
+    }
+
+    .sx-gc-info:hover {
+        text-decoration: underline;
+    }
+
+    .sx-gc-back {
+        margin: 0;
+        padding: 1px 0 1px 22px !important;
+        background: transparent url(icon/bg/bg-back.png) no-repeat left top;
+        cursor: pointer;
+        cursor: hand;
+        display: inline-block;
+        color: #000;
+        font-size: 11px;
+        line-height: normal;
+        font-weight: bold;
+    }
+
+    .sx-gc-back:hover {
+        text-decoration: underline;
+    }
+
+    .sx-gc-help {
+        margin: 0;
+        padding: 4px 0 4px 26px !important;
+        cursor: pointer;
+        cursor: hand;
+        display: inline-block;
+        font-size: 11px;
+        line-height: normal;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    .sx-gc-error {
+        clear: both;
+        margin: 0 0 20px 0;
+        padding: 10px 10px 4px;
+    }
+
+    .sx-gc-error p {
+        font-weight: bold;
+        margin: 0;
+        padding: 0 0 6px;
+    }
+
+    .sx-gc-message {
+        padding: 10px;
+        margin:0 0 10px 0;
+    }
+
+    .sx-gc-message p {
+        padding: 0 0 6px 0;
+    }
+
+    .sx-gc-clear {
+        clear: both;
+    }
+
+    .sx-gc-headroom {
+        padding-top: 10px;
+    }
+
+    .sx-gc-follow {
+        margin-bottom: 0;
+    }
+
+    .sx-gc-info-box-wrapper {
+        padding: 0 0 5px 0;
+        min-height: 1px;
+    }
+
+    .sx-gc-info-box-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    * html .sx-gc-info-box-wrapper {
+        height: 1px;
+    }
+
+    .sx-gc-info-box {
+        display: inline-block;
+        position: relative;
+        z-index: 1900;
+        padding: 1px 0 0 0; /* fix little ie layout problem with buttons in here */
+    }
+
+    form .sx-gc-info-box p,
+    .sx-gc-info-box p {
+        padding: 0 0 10px 0;
+    }
+
+    .sx-gc-entry .sx-gc-info-box {
+        display: inline;
+    }
+
+    .sx-gc-info-box-hover,
+    .sx-gc-info-box:hover {
+        z-index: 2000;
+    }
+
+    .sx-res-offerconfig-info p.sx-gc-button-verysmall-next,
+    .sx-gc-info-box p.sx-gc-button-verysmall-info,
+    .sx-gc-def p.sx-gc-button-verysmall-info      {
+        font-weight: bold;
+        margin: 0 0 10px 0;
+        display: inline-block;
+    }
+
+    .sx-gc-info-box div {
+        display: none;
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px 5px;
+        -moz-box-shadow: 2px 2px 3px #333;
+        -webkit-box-shadow: 2px 2px 3px #333;
+        -khtml-box-shadow: 2px 2px 3px #333;
+        box-shadow: 2px 2px 3px #333;
+        padding: 10px;
+        width: 280px;
+        position: absolute;
+        top: 16px;
+        left: 50px;
+        margin: 0;
+    }
+
+    .sx-gc-entry .sx-gc-info-box-hover div,
+    .sx-gc-entry .sx-gc-info-box:hover div {
+        left: 30px;
+    }
+
+    .sx-gc-info-box-hover div,
+    .sx-gc-info-box:hover div {
+        display: block;
+    }
+
+    .sx-gc-info-box li {
+        list-style: disc;
+        margin: 0 0 0 8px;
+    }
+
+    .sx-gc-info-box ul {
+        list-style: disc;
+        margin: 0 0 10px 8px;
+    }
+
+    .sx-gc-note {
+        padding: 10px 0 10px 0;
+    }
+
+    .sx-gc-footroom {
+        padding-bottom: 20px;
+    }
+
+    ul.sx-gc-def,
+    ul.sx-gc-def li {
+        list-style: disc;
+        margin: 0 0 0 12px;
+    }
+
+    a.sx-gc-def {
+        text-decoration: underline;
+    }
+
+    .sx-gc-debug,
+    .sx-res-config-plus-minus span.sx-gc-debug {
+        height: auto;
+        width: auto;
+        margin: 0;
+        padding: 0 1px 0 1px;
+        background-image: none;
+        display: none;
+        zoom: 1;
+    }
+
+    .sx-gc-inline {
+        float: none;
+        display: inline-block;
+        margin: auto;
+    }
+
+    .sx-gc-clearfix {
+        overflow: visible !important;
+        min-height: 1px;
+    }
+
+    * html .sx-gc-clearfix {
+        height: 1px;
+    }
+
+    .sx-gc-clearfix:after {
+        content: ".";
+        clear: both;
+        display: block;
+        visibility: hidden;
+        height: 0;
+    }
+
+    input.sx-gc-half,
+    select.sx-gc-half {
+        width: 49%;
+    }
+
+    /* -----------------------------------------------
+    addentry classes
+    ----------------------------------------------- */
+    .sx-gc-rem,
+    .sx-gc-add {
+        height: 14px;
+        width: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    /* -----------------------------------------------
+    booking head
+    ----------------------------------------------- */
+    #sx-reservation-head form:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .sx-res-booking-data-modify {
+        clear: both;
+        padding: 10px 0 10px 0;
+        overflow: hidden;
+    }
+
+    .sx-res-booking-data-modify .sx-gc-button-verysmall-next {
+        font-weight: bold;
+        color: #ffffff !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    * html #sx-reservation-head {
+        height: 1px;
+    }
+
+    .sx-res-bookingform div.sx-gc-leftfloater {
+        width: 70%;
+        padding: 0 0 10px 0;
+    }
+
+    #sx-js-res-tell-a-friend .sx-gc-error,
+    .sx-res-bookingform .sx-gc-error {
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-bookingform label.sx-gc-leftfloater {
+        width: 12%;
+        padding: 3px 0 5px 0;
+    }
+
+    .sx-res-bookingform div.sx-res-datetime-wrapper {
+        float: left;
+        width: 38%;
+    }
+
+    .sx-res-bookingform div.sx-res-datetime-wrapper span {
+        vertical-align: middle;
+    }
+
+    .sx-res-bookingform .sx-gc-date {
+        width: 42%;
+        vertical-align: middle;
+    }
+
+    .sx-res-bookingform .sx-gc-time {
+        width:35%;
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+
+    #sx-res-bookingform .sx-res-booking-row .sx-res-openhours-info-wrapper {
+        position: relative;
+        z-index: 20000;
+        width: 1px;
+        height: 1px;
+        display: inline;
+    }
+
+    #sx-res-bookingform .sx-res-booking-row .sx-res-openhours-info {
+        position: absolute;
+        top: 55px;
+        left: -220px;
+        width: 200px;
+        padding: 6px;
+        z-index: 20000;
+    }
+
+    #sx-res-bookingform .sx-res-openhours-info p,
+    #sx-res-bookingform .sx-res-openhours-info .sx-res-phone-info,
+    #sx-res-bookingform .sx-res-openhours-info .sx-res-fax-info {
+        display: none;
+    }
+
+    #sx-res-bookingform .sx-res-openhours-info td {
+        vertical-align: top;
+        padding: 0 5px 1px 0;
+    }
+
+    .sx-res-bookingform .sx-gc-txt {
+        width: 96%;
+    }
+
+    .sx-gc-txtarea {
+        margin-left: 100px;
+        /* width: 400px;*/
+    }
+
+    .sx-res-booking-row {
+        clear: both;
+        min-height: 1px;
+        margin: 0 0 5px 0;
+    }
+
+    * html .sx-res-booking-row {
+        height: 1px;
+    }
+
+    .sx-res-booking-row:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    /* -----------------------------------------------
+    ddlist
+    ----------------------------------------------- */
+    #sx-reservation-head div.sx-res-ddlist-wrapper {
+        float: left;
+        width: 44%;
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li em {
+        font-style: normal;
+        text-decoration: underline;
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper .sx-ddlist-suggest {
+        width: 600px;
+        height: 400px;
+        margin: -1px 0 0 0;
+    }
+
+    #sx-reservation-head .sx-ddlist-suggest ul.sx-res-suggestlist {
+        width: 45%;
+        height: 100%;
+        float: left;
+    }
+
+    #sx-reservation-head .sx-ddlist-suggest .sx-res-info-wrapper {
+        width: 54%;
+        height: 100%;
+        float: right;
+        position: relative;
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway {
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        padding-left: 20px;
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport {
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        padding-left: 20px;
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li h5 span {
+        font-weight: normal;
+        display: block;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        padding: 5px 0 5px 40px;
+        height: 39px;
+    }
+
+    /* -----------------------------------------------
+    suggest infos
+    ----------------------------------------------- */
+    #sx-reservation-head  .sx-res-info-wrapper {
+        position: relative;
+    }
+
+    #sx-reservation-head  .sx-res-info-content {
+        padding: 10px;
+    }
+
+    #sx-reservation-head  .sx-res-info-wrapper table {
+        width: 100%;
+        margin: 0 0 6px 0;
+    }
+
+    #sx-reservation-head  .sx-res-info-wrapper td {
+        vertical-align: top;
+        padding: 0 5px 1px 0;
+    }
+
+    #sx-reservation-head  .sx-res-phone-cost-note {
+        font-size: 10px;
+    }
+
+    #sx-reservation-head  .sx-res-station-hint,
+    #sx-reservation-head  .sx-res-phone-cost-note {
+        font-size: 10px;
+        padding: 0;
+    }
+
+    /* -----------------------------------------------
+    booking datepicker
+    ----------------------------------------------- */
+    #ui-datepicker-div {
+        z-index: 10001 !important; /* since datepicker 1.8.10 adds z-index:1 */
+        display: none; /* since datepicker 1.8.1 */
+    }
+
+    .ui-datepicker {
+        width: 21em;
+    }
+
+    .ui-datepicker table {
+        font-size: 1.1em;
+    }
+
+    .ui-datepicker .ui-datepicker-title select {
+        font-size: 0.90em;
+        margin: 1px 0 0 0;
+        padding: 1px;
+    }
+
+    .ui-datepicker .ui-datepicker-title select {
+        font-size: 0.90em;
+        margin: 1px 0 0 0;
+        padding: 1px;
+    }
+
+    .ui-datepicker-current-period-start a,
+    .ui-datepicker-current-period-start .ui-state-default {
+        font-weight: bold;
+    }
+
+    .ui-datepicker-current-period-end a,
+    .ui-datepicker-current-period-end .ui-state-default {
+        font-weight: bold;
+    }
+
+    .ui-datepicker-current-period a,
+    .ui-datepicker-current-period .ui-state-default {
+        font-weight: normal;
+    }
+
+    /* -----------------------------------------------
+    offerselect
+    ----------------------------------------------- */
+    h1.sx-res-offerselect-heading {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    h1.sx-res-offerselect-heading .sx-gc-rightfloater {
+        font-size: 11px;
+        font-weight: normal;
+        padding: 0 0 0 40px;
+        margin-top: -10px;
+    }
+
+    h1.sx-res-offerselect-heading span span {
+        font-weight: normal;
+    }
+
+    .sx-res-currentoffer-data {
+        padding: 6px 10px 6px 10px;
+        margin: 0 0 20px 0;
+        display: none;
+    }
+
+    #sx-res-surprise {
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        right: 5px;
+        top: 26px;
+        z-index: 1000;
+    }
+
+    #sx-res-surprise span {
+        display: none;
+    }
+
+    /* offerlist filter */
+    .sx-res-offerfilter-wrapper {
+        width: 100%;
+        padding: 5px 0 5px 0;
+        margin: 0 0 20px 0;
+    }
+
+    .sx-res-offerfilter-wrapper form:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .sx-res-offerfilter-wrapper h3 {
+        float: left;
+        padding: 3px 20px 3px 10px;
+        width: 15%;
+    }
+
+    .sx-res-selected-filter {
+        clear: both;
+        padding: 6px 10px 0 10px;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-selected-filter h4 {
+        float: left;
+        padding: 0 20px 0 0;
+        width: 15%;
+    }
+
+    .sx-res-selected-filter p {
+        display: inline;
+        padding: 0 0 0 10px;
+    }
+
+    .sx-res-offerselect-lkw-link {
+        margin: 6px 0 0 0;
+        padding: 10px 3px 10px 3px;
+    }
+
+    #sx-res-catlist {
+        float: left;
+        margin: 0 0 0 10px;
+    }
+
+    #sx-res-catlist p {
+        padding: 3px 20px 3px 10px;
+        min-width: 240px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    * html #sx-res-catlist p {
+        width: 240px;
+    }
+
+    #sx-res-catlist div {
+        position: relative;
+        width: 0;
+        height: 0;
+        overflow: visible;
+        z-index: 300;
+    }
+
+    #sx-res-catlist div ul {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 250px;
+        z-index: 300;
+        padding: 10px;
+        display: none;
+    }
+
+    /* layout select */
+    .sx-res-layout-wrapper {
+        float: right;
+        overflow: hidden;
+        zoom: 1;
+        padding: 3px 10px 0 10px;
+    }
+
+    .sx-res-layout-wrapper h5 {
+        float: left;
+        margin: 0 10px 0 0;
+        font-weight: normal;
+        padding: 1px 0 1px 0;
+    }
+
+    .sx-res-layout-wrapper ul {
+        float: left;
+    }
+
+    .sx-res-layout-wrapper li {
+        float: left;
+        margin: 0 0 0 6px;
+        height: 14px;
+        width: 22px;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .sx-res-layout-wrapper li span {
+        display: none;
+    }
+
+    .sx-res-hint-wrapper {
+        clear: both;
+        padding: 10px 0 0 0;
+    }
+
+    .sx-res-hint {
+        padding: 10px;
+        margin: 10px 0 10px 0;
+    }
+
+    .sx-res-waitlist h3 {
+        padding: 10px 0 10px 0;
+    }
+
+    .sx-res-waitlist ul {
+        margin: 0 0 10px 0;
+    }
+
+    /* alternative station */
+    #sx-js-res-funcar-altcit li,
+    #sx-js-res-lkw-altcit li,
+    #sx-js-res-altcit div li,
+    #sx-js-altcit-wrapper li {
+        clear: both;
+        padding: 6px 0 6px 0;
+        cursor: pointer;
+        cursor: hand;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    #sx-js-res-funcar-altcit li a,
+    #sx-js-res-lkw-altcit li a,
+    #sx-js-res-altcit div li a,
+    #sx-js-altcit-wrapper li a {
+        text-decoration: none;
+    }
+
+    #sx-js-res-funcar-altcit li strong,
+    #sx-js-res-lkw-altcit li strong,
+    #sx-js-res-altcit div li strong,
+    #sx-js-altcit-wrapper li strong {
+        float: left;
+        width: 38%;
+        text-decoration: underline;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-js-res-funcar-altcit li span,
+    #sx-js-res-lkw-altcit li span,
+    #sx-js-res-altcit div li span,
+    #sx-js-altcit-wrapper li span {
+        float: right;
+        width: 61%;
+    }
+
+    /* hide offerlist while modifying booking data */
+    #sx-res-offerlist-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+        z-index: 3101; /* must fit with ddlis's initial value */
+        display: none;
+    }
+
+    .sx-js-reset-button {
+        padding: 0;
+        position: relative;
+    }
+
+    /* -----------------------------------------------
+    oifferselect ichat banner bottom
+    ----------------------------------------------- */
+    #sx-res-ichat-banner {
+        width: 350px;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        z-index: 20000;
+        margin: 0 0 0 140px;
+
+        background: #c8c8c8;
+        background: -moz-linear-gradient(top, #646464 30%, #aaaaaa 90%);
+        background: -khtml-gradient(linear,left top,left bottom,color-stop(0.3, #646464),color-stop(0.9, #aaaaaa));
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0.3, #646464),color-stop(0.9, #aaaaaa));
+        background: -o-linear-gradient(top, #646464 30%, #aaaaaa 90%);
+        background: linear-gradient(top, #646464 30%, #aaaaaa 90%);
+    }
+
+    #sx-res-ichat-banner .sx-res-ichat-banner-heading {
+        font-size: 12px;
+        overflow:hidden;
+        padding: 3px 0 0 30px;
+        margin: 0 0 10px 0;
+        background: transparent url(icon/icon-help-round-f60.png) no-repeat left top;
+        min-height: 24px;
+        color: #ffffff;
+    }
+
+    #sx-res-ichat-banner .sx-res-ichat-banner-content {
+        clear:both;
+        background: #ffffff;
+        padding: 10px;
+        text-align: center;
+
+        -webkit-box-shadow: inset 2px 2px 4px  rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: inset 2px 2px 4px  rgba(0, 0, 0, 0.6);
+        box-shadow: inset 2px 2px 4px  rgba(0, 0, 0, 0.6);
+    }
+
+    #sx-res-ichat-banner .sx-res-ichat-banner-butt-close span,
+    #sx-res-ichat-banner .sx-res-ichat-explain {
+        font-weight: normal;
+        font-size: 11px;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-ichat-banner .sx-res-ichat-banner-closed {
+        margin: 0;
+    }
+
+    #sx-res-ichat-banner .sx-res-ichat-explain {
+        display: block;
+        padding: 10px 0 0 0;
+    }
+
+    #sx-res-ichat-banner .sx-res-ichat-banner-button {
+        padding: 0 20px 0 45px;
+        margin: 0 0 15px 0 ;
+        border: 1px solid #ffffff;
+        background: #d1d1d1 url(icon/icon-arrow-rect-orange.png) no-repeat left top;
+        height: 30px;
+        line-height: 230%;
+        font-size: 13px;
+
+        -moz-box-shadow: 2px 2px 3px #333;
+        -webkit-box-shadow: 2px 2px 3px #333;
+        -khtml-box-shadow: 2px 2px 3px #333;
+        box-shadow: 0px 0px 2px #333;
+        display: inline-block;
+
+        cursor: pointer;
+        cursor: hand;
+    }
+
+
+    * + html #sx-res-ichat-banner .sx-res-ichat-banner-button {
+        display: inline;
+        border: 1px solid #333333;
+    }
+
+    /* -----------------------------------------------
+    offerconfig
+    ATTENTION
+    some offerconfig classes are also used in
+    customerdetails since redesign 2/2014, when
+    details were displayed in customerdetails too!!!
+    ----------------------------------------------- */
+    h1 span.sx-res-offerconfig-subhd {
+        font-weight: normal;
+    }
+
+    .sx-res-offerconfig-wrapper {
+        width: 100%;
+    }
+
+    .sx-res-offerconfig-wrapper h3 {
+        color: #73787e;
+    }
+
+    .sx-res-offerconfig-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    /* left */
+    .sx-res-loginform {
+        background: #fffbe7;
+    }
+
+    .sx-res-offerconfig-info {
+        float: left;
+        width: 34%;
+        min-height: 350px;
+    }
+
+    .sx-res-offerconfig-info h3 {
+        color: #73787E;
+    }
+
+    .sx-res-example-data li {
+        color: #73787e;
+        padding: 3px 0 5px 30px;
+        background: transparent url(icon/sx-sprite-cardetail-icons.png) no-repeat 0 0;
+    }
+
+    .sx-res-example-data li span {
+        display: block;
+    }
+
+    /* offerconfig and customerdetails */
+    .sx-res-example-data li.sx-res-oc-equipment-doors2 {
+        background-position: -193px -51px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-equipment-doors {
+        background-position: -217px -28px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-equipment-ac {
+        background-position: -169px -74px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-equipment-transmission-m {
+        background-position: -145px -98px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-equipment-transmission-a {
+        background-position: -121px -122px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-equipment-nav-incl {
+        background-position: -73px -171px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-equipment-taillift {
+        background-position: -243px -268px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-space-cbm {
+        background-position: -170px -342px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-space-load {
+        background-position: -146px -366px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-space-total {
+        background-position: -122px -387px;
+    }
+
+
+
+
+    .sx-res-offerconfig-info p.sx-gc-offerlist-type {
+        padding: 2px 0 10px 22px
+    }
+
+
+    .sx-res-offerconfig-wrapper .sx-res-example-data .sx-gc-button-verysmall-info {
+        padding: 0 0 0 20px;
+    }
+
+
+
+
+    .sx-res-example-data li.sx-res-oc-equipment-nav-avail {
+        background-position: -97px -147px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-space-seats {
+        background-position: -48px -196px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-space-suitcase {
+        background-position: 0 -245px;
+    }
+
+    .sx-res-example-data li.sx-res-oc-space-bag {
+        background-position: -24px -222px;
+    }
+
+    .sx-res-example-data .sx-gc-info-box {
+        margin: 20px 0 0 0;
+    }
+
+    .sx-res-lkw-details {
+        clear: both;
+        padding: 20px 0 10px 0;
+    }
+
+    /* right */
+    .sx-res-offerconfig-data {
+        float: right;
+        width: 64%;
+    }
+
+    .sx-res-offerconfig-data h3 {
+        font-size: 20px;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    .sx-res-offerconfig-data h3 .sx-gc-button-verysmall-info {
+        vertical-align: middle;
+    }
+
+    #sx-js-res-offerconfig-more {
+        padding-bottom: 10px;
+    }
+
+    .sx-res-config-list {
+        padding: 10px 0 10px 0;
+    }
+
+    .sx-res-config-list li {
+        margin: 0 0 5px 0;
+        padding: 0 0 5px 0;
+    }
+
+    .sx-res-config-list li ul {
+        margin: 3px 0 3px 0;
+    }
+
+    .sx-res-config-list li li {
+        margin: 0 0 3px 0;
+        padding: 0;
+        border: none;
+    }
+
+    .sx-res-config-list li > div {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .sx-res-config-list .sx-gc-info-box .sx-gc-button-verysmall-info {
+        font-weight: bold;
+    }
+
+    .sx-res-config-list .sx-gc-info-box .sx-gc-button-verysmall-info + div{
+        font-weight: normal;
+    }
+
+    * + html .sx-res-config-list li div {
+        display: inline;
+    }
+
+    * html .sx-res-config-list li div {
+        display: inline;
+    }
+
+    .sx-res-config-list li div.sx-res-config-flex,
+    .sx-res-config-list li div.sx-res-config-prpd {
+        display: block;
+    }
+
+    .sx-res-config-list li div.sx-res-config-flex div,
+    .sx-res-config-list li div.sx-res-config-prpd div {
+        display: inline-block;
+    }
+
+    * + html .sx-res-config-list li div.sx-res-config-flex div,
+    * + html .sx-res-config-list li div.sx-res-config-prpd div {
+        display: inline-block;
+    }
+
+    * html .sx-res-config-list li div.sx-res-config-flex div,
+    * html .sx-res-config-list li div.sx-res-config-prpd div {
+        display: inline-block;
+    }
+
+    .sx-res-config-list li li.sx-res-config-extra-incl {
+        padding: 1px 0 5px 25px;
+        margin: 0;
+        background: transparent url(icon/sx-sprite-cardetail-icons.png) no-repeat -244px -5px;
+    }
+
+    .sx-res-config-list li li.sx-res-config-extra-incl-inactive {
+        padding: 1px 0 5px 25px;
+        margin: 0;
+        background: transparent url(icon/sx-sprite-cardetail-icons.png) no-repeat -100px -415px;
+    }
+
+    .sx-res-config-entry {
+        width: 56%;
+        padding: 0 1% 0 0;
+        vertical-align: middle;
+    }
+
+    .sx-res-config-entry .sx-res-charge-included {
+        margin: 0 3px 0 0;
+        width: 16px;
+        height: 16px;
+        display: block;
+        float: left;
+        background: transparent url(icon/sx-sprite-cardetail-icons.png) no-repeat -244px -5px;
+    }
+
+    .sx-res-config-entry input {
+        margin: 0 3px 0 0;
+    }
+
+    .sx-res-config-unit {
+        width: 20%;
+        padding: 0 1% 0 0;
+        vertical-align: middle;
+    }
+    .sx-res-config-cost {
+        width: 20%;
+        text-align: right;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+     .sx-res-config-list li div.sx-gc-message {
+        margin: -6px -10px 5px -10px;
+        padding: 11px 10px;
+        width: 100%;
+        border-style: solid none;
+     }
+
+    .sx-gc-message .sx-res-config-entry {
+        font-weight: bold;
+    }
+
+    .sx-res-config-entry-info {
+        padding: 10px 0 0 22px;
+    }
+
+
+
+    .sx-res-config-list .sx-gc-selected label {
+        font-weight: bold;
+    }
+
+    .sx-gc-selected .sx-res-config-entry-info {
+        display: block;
+    }
+
+    .sx-res-config-list li li .sx-gc-rd {
+        margin-left: 6%;
+    }
+
+    * html .sx-res-config-list li li .sx-gc-rd {
+        margin-left: 12px;
+    }
+
+    .sx-res-offerconfig-price {
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-offerconfig-price p {
+        font: bold 18px Arial,Geneva,Verdana,Helvetica,sans-serif;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-offerconfig-price p.sx-res-offerconfig-price-euro strong {
+        font-size: 12px;
+    }
+
+    .sx-res-offerconfig-price p.sx-res-offerconfig-price-euro {
+        font: normal 11px Verdana,Arial,Geneva,Helvetica,sans-serif;
+    }
+
+    .sx-res-offerconfig-price p.sx-gc-netto span,
+    .sx-res-offerconfig-price p.sx-gc-mwst span {
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    .sx-res-offerconfig-price p.sx-gc-netto .sx-gc-val,
+    .sx-res-offerconfig-price p.sx-gc-mwst .sx-gc-val,
+    .sx-res-offerconfig-price p.sx-gc-price-total  .sx-gc-val {
+        text-align: right;
+    }
+
+    .sx-res-offerconfig-price span span {
+        font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
+        display: block;
+        font-size: 11px;
+        font-weight: normal;
+        color: #777;
+        padding: 3px 0 0 0;
+    }
+
+    /* hide waiting.gif under span until hiding span */
+    .sx-res-offerconfig-price span.sx-gc-rightfloater {
+        background: #fff;
+        padding-left: 20px;
+    }
+
+    /* counter extras */
+    .sx-res-config-plus-minus span {
+        width: 50px;
+        height: 15px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+        cursor: pointer;
+        cursor: hand;
+        margin: 0 10px 0 0;
+    }
+    .sx-res-config-plus-minus select {
+        width: 42px;
+    }
+    .sx-res-config-plus-minus select option {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+    .sx-res-config-list label {
+        width: 90.4%;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+
+    .sx-res-config-list li li label {
+        width: 84%;
+    }
+
+    .sx-res-config-plus-minus label {
+        width: 70%;
+    }
+
+    li li.sx-res-depending-charges input {
+        margin-left: 12%;
+    }
+
+    * html li li.sx-res-depending-charges input {
+        margin-left: 25px;
+    }
+
+    .sx-res-config-list li li.sx-res-depending-charges label {
+        width: 78%;
+    }
+
+    .sx-res-depending-charges input {
+        margin-left: 6%;
+    }
+
+    .sx-res-config-list .sx-res-depending-charges label {
+        width: 84.4%;
+    }
+
+    .sx-res-offerconfig-price .sx-res-offerconfig-euro-info {
+        display: block;
+    }
+
+    #sx-credit-card-hint {
+        clear: both;
+    }
+
+    /* -----------------------------------------------
+    incremental_sale
+    ----------------------------------------------- */
+    #sx-res-secure-packages-wrapper table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    #sx-res-secure-packages-wrapper td {
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 2px solid #ffffff;
+        border-bottom: none;
+        border-top: none;
+        background-image: url(icon/bg/bg-white.gif) repeat-x left bottom;
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        padding: 6px;
+    }
+
+    * html #sx-res-secure-packages-wrapper table  {
+        border-collapse: collapse;
+    }
+
+    * html #sx-res-secure-packages-wrapper td  {
+        border-collapse: collapse;
+        position: relative;
+        z-index: 100;
+    }
+
+    * + html #sx-res-secure-packages-wrapper table  {
+        border-collapse: collapse;
+    }
+
+    * + html #sx-res-secure-packages-wrapper td  {
+        border-collapse: collapse;
+        position: relative;
+        z-index: 100;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-label {
+        font-weight: bold;
+        width: 50%;
+    }
+
+    #sx-res-secure-packages-wrapper td span {
+        display: block;
+        font-weight: normal;
+        font-size: 11px;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-item-1 td {
+        border-top: 2px solid #ffffff;
+        background: #ffffff;
+        font-weight: bold;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-item-6 td {
+        border-bottom: 2px solid #ffffff;
+        background: #ffffff;
+        font-weight: bold;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-val img {
+        width: 23px;
+        height: 23px;
+        margin: auto;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-val {
+        text-align: center;
+        cursor: pointer;
+        cursor: hand;
+
+    }
+
+    @media all and (min-width:810px) {
+        #sx-res-secure-packages-wrapper .sx-res-is-val {
+            min-width: 83px;
+        }
+
+    }
+
+    * html #sx-res-secure-packages-wrapper .sx-res-is-hovered,
+    * html #sx-res-secure-packages-wrapper .sx-res-is-selected {
+        z-index: 200;
+    }
+
+    * + html #sx-res-secure-packages-wrapper .sx-res-is-hovered,
+    * + html #sx-res-secure-packages-wrapper .sx-res-is-selected {
+        z-index: 200;
+    }
+
+    #sx-res-secure-packages-wrapper select {
+        font-weight: bold;
+    }
+
+    /* div overlay to keep disabled select clickable */
+    #sx-res-secure-packages-wrapper .sx-res-is-nrw-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-nrw-wrapper div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: transparent url(../../../common/img/leer.gif) repeat 0 0;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-selected .sx-res-is-nrw-wrapper div {
+        display: none;
+    }
+    /* -----------------------------------------------
+    upselllist
+    ----------------------------------------------- */
+    .sx-res-upsell-wrapper {
+        padding-top: 20px;
+        clear: both;
+    }
+
+    .sx-res-upselllist li {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-upselllist .sx-res-upsell-offerexample {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+        height: 71px;
+        margin: 0 20px 0 10px;
+    }
+
+    .sx-res-upselllist .sx-res-upsell-offername {
+        display: inline-block;
+        vertical-align: middle;
+        width: 35%;
+    }
+
+    .sx-res-upselllist .sx-res-upsell-offerprice {
+        display: inline-block;
+        vertical-align: middle;
+        width: 26%;
+    }
+
+    .sx-res-upselllist .sx-res-upsell-button {
+        display: inline-block;
+        vertical-align: middle;
+        width: 22%;
+    }
+
+    * + html .sx-res-upselllist .sx-res-upsell-offername,
+    * + html .sx-res-upselllist .sx-res-upsell-offerprice,
+    * + html .sx-res-upselllist .sx-res-upsell-button {
+        display: inline;
+    }
+
+    * html .sx-res-upselllist .sx-res-upsell-offername,
+    * html .sx-res-upselllist .sx-res-upsell-offerprice,
+    * html .sx-res-upselllist .sx-res-upsell-button {
+        display: inline;
+    }
+
+    .sx-res-upselllist h5 {
+        padding: 5px 0 0 0;
+        font-weight: normal;
+    }
+
+    .sx-res-upselllist h4,
+    .sx-res-upselllist p {
+        padding: 0 0 3px 0;
+    }
+
+    .sx-res-offerconfig-wrapper p.sx-gc-button-verysmall-next {
+        display: inline-block;
+    }
+
+    /* -----------------------------------------------
+    customerdetails
+    ----------------------------------------------- */
+
+    .sx-res-customerdetails-wrapper {
+        width: 100%;
+    }
+
+    .sx-res-customerdetails-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .sx-res-customerdetails-wrapper .sx-res-example-data .sx-gc-button-verysmall-info {
+        padding: 0 0 0 20px;
+    }
+
+    .sx-res-example-data-equipment a {
+        color: #73787e;
+        text-decoration: underline;
+    }
+
+    /* right */
+    .sx-res-customerdetails-form {
+        float: right;
+        width: 64%;
+    }
+
+    .sx-res-booking-info-wrapper {
+        float: left;
+        width: 100%;
+        zoom: 1;
+        padding: 10px 0 10px 0;
+        margin: 0 0 20px 0;
+    }
+
+    .sx-res-total-price .sx-gc-price {
+        overflow: hidden;
+    }
+
+    .sx-res-booking-info-wrapper div.sx-gc-leftfloater  {
+        width: 32%;
+        margin: 0 2% 20px 0;
+    }
+
+    .sx-res-booking-info-wrapper div.sx-gc-rightfloater {
+        width: 32%;
+        margin: 0 0 0 -2%;
+    }
+
+    .sx-res-booking-info-wrapper h4 a {
+        font-weight: normal;
+    }
+
+    .sx-res-booking-info-wrapper ul,
+    .sx-res-booking-info-wrapper li {
+        list-style: disc;
+        margin: 0 0 0 8px;
+    }
+
+    .sx-res-footer-wrapper p {
+        padding-bottom: 10px;
+        font-size: 10px;
+    }
+
+    .sx-res-footer-wrapper p a {
+        font-weight: bold;
+    }
+
+    .sx-res-footer-wrapper p a:hover {
+        text-decoration: underline;
+    }
+
+    .sx-res-daten-wrapper p {
+        padding-bottom: 10px;
+        font-size: 10px;
+    }
+
+    .sx-res-daten-wrapper p a {
+        font-weight: bold;
+    }
+
+    .sx-res-customerdetails-price {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-customerdetails-price p.sx-gc-price {
+        padding: 10px 0 10px 0;
+        text-align: right;
+    }
+
+    .sx-oci-voucher-wrapper p.sx-gc-price {
+        padding: 3px 0 3px 0;
+    }
+
+    .sx-res-customerdetails-price p.sx-gc-netto {
+        padding: 20px 0 0 0;
+    }
+
+    .sx-res-customerdetails-price p.sx-gc-mwst{
+        padding: 3px 0 0 0;
+    }
+
+    .sx-res-customerdetails-price p.sx-gc-price span {
+        font: bold 18px Arial,Geneva,Verdana,Helvetica,sans-serif;
+        padding: 0;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .sx-res-customerdetails-price p.sx-gc-price span small {
+        font: normal 11px Arial,Geneva,Verdana,Helvetica,sans-serif;
+    }
+
+    .sx-oci-voucher-wrapper p.sx-gc-price span {
+        font: normal normal normal 12px Arial,Geneva,Verdana,Helvetica,sans-serif;
+    }
+
+    .sx-res-additional-wrapper  p.sx-gc-price span  {
+        font: normal normal bold 12px Arial,Geneva,Verdana,Helvetica,sans-serif;
+    }
+
+    p.sx-res-customerdetails-price-euro .sx-gc-button-verysmall-info.sx-gc-inline,
+    p.sx-gc-price .sx-gc-button-verysmall-info.sx-gc-inline,
+    p.sx-gc-price .sx-gc-nam {
+        float: left;
+    }
+
+    p.sx-gc-price .sx-gc-val {
+        min-width: 120px;
+        float: right;
+    }
+
+    .sx-res-customerdetails-price p.sx-gc-mwst span,
+    .sx-res-customerdetails-price p.sx-gc-netto span {
+        font: normal 11px Verdana,Arial,Geneva,Helvetica,sans-serif;
+    }
+
+    .sx-res-customerdetails-euro-info {
+        text-align: right;
+        display: block;
+    }
+
+    .sx-res-customerdetails-euro-info div {
+        text-align: left;
+    }
+
+    .sx-res-booking-info-wrapper .sx-gc-info-box div {
+        font: normal 11px Verdana,Arial,Geneva,Helvetica,sans-serif;
+        width: 220px;
+        left: 20px;
+        text-align: left;
+    }
+
+    p.sx-gc-price span.sx-gc-button-verysmall-info,
+    .sx-res-customerdetails-price span.sx-gc-button-verysmall-info {
+        margin: 0;
+        padding: 0 20px 0 0;
+        background-position: 100% -120px;
+    }
+
+    .sx-res-total-price,
+    .sx-res-nett-price {
+        padding: 0;
+        min-height: 1px;
+        clear: both;
+    }
+
+    * html .sx-res-total-price,
+    * html .sx-res-nett-price {
+        height: 1px;
+    }
+
+    .sx-res-total-price:after,
+    .sx-res-nett-price:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .sx-res-flight-content {
+        padding: 0 0 20px 0;
+    }
+
+    #sx-js-res-similar-booking li {
+        padding: 0 0 30px 0;
+    }
+
+    #sx-js-res-similar-booking .sx-gc-active {
+        font-weight: bold;
+    }
+
+    #sx-js-res-similar-booking ul.sx-gc-def ul,
+    #sx-js-res-similar-booking ul.sx-gc-def ul li {
+        margin: 0 0 6px 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .sx-res-cvv2-wrapper {
+        display: inline;
+    }
+
+    /* cvv info */
+    .sx-res-cvv2-wrapper {
+        position: relative;
+    }
+
+    #sx-res-securitycode-info {
+        overflow: hidden;
+        width: 200px;
+        position: absolute;
+        top: 25px;
+        left: 46%;
+        border: 1px solid #a2a2a2;
+        background: #ffffff;
+        padding: 10px;
+    }
+
+    #sx-res-securitycode-info h5 {
+        overflow: hidden;
+    }
+
+    #sx-res-securitycode-info span.sx-gc-leftfloater {
+        text-align: center;
+        width: 49%;
+        float: left;
+    }
+
+    #sx-res-securitycode-info span.sx-gc-rightfloater {
+        text-align: center;
+        width: 49%;
+        float: right;
+    }
+
+    .sx-res-customerdetails-form .sx-gc-button-wrapper {
+        position: relative;
+        overflow: visible;
+        min-height: 1px;
+    }
+
+    .sx-res-customerdetails-form .sx-gc-button-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .sx-res-customerdetails-form .sx-res-prepaid-postpaid {
+        font-size: 14px;
+        font-weight: bold;
+        clear: both;
+        color: green;
+        text-align: right;
+    }
+
+    .sx-res-customerdetails-form .sx-res-postpaid-hint-wrapper {
+        padding: 0 10px 0 0;
+    }
+
+    .sx-res-customerdetails-form .sx-res-prepaid-hint-wrapper {
+        padding: 0 10px 10px 0;
+    }
+
+    .sx-res-customerdetails-form .sx-res-additional-hints {
+        font-size: 14px;
+        font-weight: bold;
+        clear: both;
+        color: green;
+        overflow: hidden;
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-customerdetails-form .sx-res-additional-hints .sx-gc-leftfloater,
+    .sx-res-customerdetails-form .sx-res-additional-hints .sx-gc-rightfloater {
+        width: 49%;
+    }
+
+    .sx-res-customerdetails-form .sx-res-additional-hints .sx-gc-rightfloater {
+        text-align: right;
+    }
+
+    /* -----------------------------------------------
+    customerdetails - login
+    ----------------------------------------------- */
+    .sx-res-login-state {
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-login-state a {
+        text-decoration: underline;
+    }
+
+    .sx-res-login-state .sx-res-login-state-corp {
+        margin-left: 10px;
+    }
+
+    .sx-gc-login-button-wrapper {
+        padding: 10px 50px 10px 10px;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    #sx-res-mnum-list li {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        padding: 6px 0 6px 0;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-mnum-list li .sx-gc-leftfloater {
+        width: 27%;
+        text-decoration: underline;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-mnum-list li .sx-gc-rightfloater {
+        width: 72%;
+    }
+
+    .sx-res-password-or-surname p {
+        cursor: pointer;
+        cursor: hand;
+        font-weight: bold;
+        font-size: 13px;
+        padding: 0 0 6px 20px;
+        text-decoration: underline;
+    }
+
+    .sx-res-customer-content .sx-gc-singleentry-wrapper {
+        padding-left: 40%;
+    }
+
+    /* -----------------------------------------------
+    customerdetails - additional entries
+    ----------------------------------------------- */
+    .sx-res-additional-infos-wrapper {
+        padding: 0 0 0 20px;
+    }
+
+    .sx-res-sync-content {
+        margin: 0 0 10px 20px;
+        padding: 10px;
+        background: #e9e9e9;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content label.sx-gc-leftfloater {
+        width: 30%;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content select.sx-gc-txt {
+        width: 40.3%;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content input.sx-gc-txt {
+        width: 40.2%;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content textarea {
+        width: 49%;
+        margin: 0 1% 0 0;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content .sx-res-voucher-result {
+        float: left;
+        width: 60%;
+        padding: 0.6%;
+        background: #ffffff;
+        border: 1px solid #a2a2a2;
+        min-height: 1px;
+    }
+
+    * html #sx-res-additional-infos-content .sx-res-sync-content .sx-res-voucher-result {
+        height: 1px;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content .sx-res-voucher-result:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    #sx-res-additional-infos-content .sx-res-voucher-result strong {
+        float: left;
+        width: 45%;
+    }
+
+    #sx-res-additional-infos-content .sx-res-voucher-result strong.sx-res-vonr-ok {
+        color: green;
+        background: #ffffff url(icon/icon-ok-notok.png) no-repeat 95% 1px;
+    }
+
+    #sx-res-additional-infos-content .sx-res-voucher-result strong.sx-res-vonr-error {
+        color: red;
+        background: #ffffff url(icon/icon-ok-notok.png) no-repeat 95% -25px;
+        overflow:hidden;
+    }
+
+    #sx-res-additional-infos-content .sx-res-voucher-result span {
+        float: right;
+        width: 55%;
+        margin: 0 0 0 -6px;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content .sx-gc-button-normal-red {
+        clear: none;
+        float: left;
+        margin: 10px 0 10px 31%;
+    }
+
+    #sx-res-additional-infos-content .sx-res-sync-content .sx-gc-rem,
+    #sx-res-additional-infos-content .sx-res-sync-content .sx-gc-add {
+        margin: 0 0 0 31%;
+        padding: 3px 0 6px 30px;
+        clear: both;
+        display: block;
+        width: auto;
+        text-align: left;
+        background-position: 0 50%;
+    }
+
+    .sx-res-voucher-row {
+        min-height: 1px;
+        padding: 0 0 10px 0;
+    }
+
+    * html .sx-res-voucher-row {
+        height: 1px;
+    }
+
+    .sx-res-voucher-row:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    /* airplus */
+    form .sx-res-customer-content p.sx-gc-clearfix {
+        overflow: visible;
+    }
+
+    #sx-js-res-airplus_fields {
+        overflow: visible;
+    }
+
+    .sx-res-ap-info {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+    }
+
+    .sx-res-ap-info span {
+        width: 200px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        padding: 10px;
+        border: 1px solid #a7a7a7;
+        background: #ffffff;
+        display: none;
+    }
+
+    .sx-res-ap-info:hover span {
+        display: block;
+    }
+
+    /* -----------------------------------------------
+    switchoci
+    ----------------------------------------------- */
+    .sx-res-switch-oci-info-wrapper {
+        clear:both;
+        overflow: hidden;
+        zoom: 1;
+        margin: 0;
+        padding: 0 10px 20px;
+    }
+
+    .sx-res-switch-oci-note {
+        font: bold 15px Arial,Verdana,Helvetica,sans-serif;
+    }
+
+    .sx-res-switch-oci-data {
+        font: normal 15px Arial,Verdana,Helvetica,sans-serif;
+    }
+
+    .sx-res-oci-content {
+        padding-left: 20px;
+    }
+
+    .sx-res-switch-oci-eyecatch {
+        font: bold 17px Arial, Helvetica, Verdana, sans-serif;
+    }
+
+    .sx-res-switch-oci-wrapper {
+        padding: 10px 0 0;
+    }
+
+    .sx-res-switch-oci-wrapper-trenner {
+        padding-bottom: 10px;
+    }
+
+    .sx-res-quickpick-wrapper {
+        clear:both;
+        overflow: hidden;
+        zoom: 1;
+        margin: 0 0 20px 0;
+        padding: 10px 10px 20px 10px;
+    }
+
+    .sx-res-quickpick-wrapper div.sx-gc-leftfloater,
+    .sx-res-quickpick-wrapper div.sx-gc-rightfloater {
+        width: 49%;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    #sx-quickpick-main .error {
+        padding: 10px;
+    }
+
+    #sx-quickpick-main .message {
+        padding: 10px;
+        margin: 0 0 10px 0;
+    }
+
+    /* -----------------------------------------------
+    bookingconfirmation
+    ----------------------------------------------- */
+    .sx-res-confirm-info-wrapper {
+        padding: 10px 0 20px 0;
+        min-height: 1px;
+    }
+
+    * html .sx-res-confirm-info-wrapper {
+        height: 1px;
+    }
+
+    .sx-res-confirm-info-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .sx-res-download-options {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-download-options li {
+        float: right;
+        margin: 0 0 6px 20px;
+    }
+
+    .sx-res-print-file {
+        display: inline-block;
+        padding: 4px 0 4px 26px;
+    }
+
+    .sx-res-pdf-file {
+        display: inline-block;
+        padding: 4px 0 4px 26px;
+    }
+
+    .sx-res-passbook-file {
+        background: #fff url(icon/passbook-de.png") no-repeat 0 0;
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+    }
+
+    .sx-res-passbook-file.sx-res-passbook-international {
+        background-image: url(icon/passbook-en.png");
+    }
+
+    .sx-res-passbook-file span {
+        visibility: hidden;
+    }
+
+    .sx-res-confirm-info-wrapper-inner {
+        float: left;
+        width: 68%;
+        padding: 20px 10px 10px 10px;
+        min-height: 176px;
+    }
+
+    * html .sx-res-confirm-info-wrapper-inner {
+        height: 176px;
+    }
+
+    .sx-res-confirm-info-wrapper-inner .sx-gc-leftfloater {
+        width: 49%;
+    }
+
+    .sx-res-confirm-info-wrapper-inner .sx-gc-rightfloater {
+        width: 49%;
+    }
+
+    .sx-res-confirm-info-wrapper h3.sx-gc-rightfloater {
+        width: 210px;
+        margin: 0;
+        padding: 0 0 3px 0;
+    }
+
+    .sx-res-confirm-info-wrapper img.sx-gc-rightfloater {
+        width: 210px;
+        height: 210px;
+    }
+
+    /* in case we have no barcode image */
+    .sx-res-confirm-onrequest {
+        width: auto;
+        height: auto;
+        min-height: auto;
+        float: none;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    * html .sx-res-confirm-onrequest {
+        overflow: visible;
+    }
+
+    * + html .sx-res-confirm-onrequest {
+        overflow: visible;
+    }
+
+    .sx-sms-confirmation-wrapper {
+        margin-top: 20px;
+    }
+
+    .sx-res-confirmation-warning {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding: 10px 10px 0;
+    }
+
+    .sx-res-confirm-result {
+        font: 24px Arial,Geneva,Verdana,Helvetica,sans-serif;
+    }
+
+    .sx-res-confirm-station {
+        font-weight: bold;
+    }
+
+    p.sx-res-confirm-result {
+        display: block;
+        text-align: center;
+        padding: 0 0 15px 0;
+    }
+
+    p.sx-res-confirm-barcode {
+        display: block;
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-confirm-options li {
+        margin: 0 0 6px 0;
+    }
+
+    .sx-res-confirm-options h5 {
+        padding: 15px 0 10px 0;
+    }
+
+    .sx-res-confirm-detail-wrapper {
+        clear:both;
+        overflow: hidden;
+        zoom: 1;
+        margin: 0 0 10px 0;
+        padding: 10px 10px 20px 10px;
+    }
+
+    .sx-res-confirm-detail-wrapper div.sx-gc-leftfloater,
+    .sx-res-confirm-detail-wrapper div.sx-gc-rightfloater {
+        width: 49%;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-confirm-detail-wrapper h3 {
+        padding: 0 0 5px 0;
+        margin:  0 0 15px 0;
+    }
+
+    .sx-res-barcode-note .sx-gc-rightfloater {
+        float: none;
+        margin: 0 0 0 230px;
+    }
+
+    .sx-res-confirm-example {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-confirm-example img {
+        float: left;
+        margin: 0 6px 6px 0;
+    }
+
+    .sx-res-confirm-data th,
+    .sx-res-confirm-data td {
+        padding: 2px 5px 2px 0;
+        font-weight: normal;
+    }
+
+    .sx-res-confirm-cardlist {
+        overflow: hidden;
+        zoom: 1;
+        margin: 0 0 20px 0;
+    }
+
+    .sx-res-confirm-cardlist li {
+        float: left;
+    }
+
+    .sx-res-confirm-detail-wrapper h4 {
+        padding-top: 5px;
+    }
+
+    .sx-res-confirm-detail-wrapper ul {
+        margin-bottom: 10px;
+    }
+
+    .sx-res-barcode-note ul {
+        list-style: none;
+        margin: 0 0 6px 0;
+    }
+
+    .sx-res-barcode-note ul li {
+        list-style: none;
+        margin: 0 0 6px 0;
+        padding: 0 0 0 12px;
+    }
+
+    .sx-res-barcode-note .sx-gc-footnote-1star {
+        font-size: 10px;
+    }
+
+    .sx-res-dl-id-wrapper {
+        text-align: center;
+        padding: 0 0 20px 0;
+    }
+
+    .sx-res-dl-id-wrapper span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .sx-res-dl-id-wrapper .sx-res-dl-wrapper {
+        width: 125px;
+    }
+
+    .sx-res-dl-id-wrapper .sx-res-id-wrapper {
+        width: 200px;
+    }
+
+    .sx-res-dl-id-wrapper .sx-res-dl-id-plus {
+        font-size: 26px;
+        font-weight: bold;
+        margin: 0 10px 0 10px;
+    }
+
+    * html .sx-res-dl-id-wrapper .sx-res-dl-id-plus {
+        line-height: normal;
+    }
+
+    * + html .sx-res-dl-id-wrapper .sx-res-dl-id-plus {
+        line-height: normal;
+    }
+
+    /* -----------------------------------------------
+    tell a friend, wakz, online-help
+    ----------------------------------------------- */
+    #sx-js-res-online-help .sx-gc-customerform label.sx-gc-leftfloater,
+    #sx-js-res-change-wakz .sx-gc-customerform label.sx-gc-leftfloater,
+    #sx-js-res-tell-a-friend .sx-gc-customerform label.sx-gc-leftfloater {
+        width: 42%;
+    }
+
+    #sx-js-res-online-help .sx-gc-customerform .sx-gc-txt,
+    #sx-js-res-change-wakz .sx-gc-customerform .sx-gc-txt,
+    #sx-js-res-tell-a-friend .sx-gc-customerform .sx-gc-txt {
+        width: 50%;
+    }
+
+    #sx-js-res-online-help .sx-gc-customerform textarea,
+    #sx-js-res-tell-a-friend .sx-gc-customerform textarea {
+        width: 50%;
+    }
+
+    #sx-js-res-online-help h4 {
+        padding: 20px 0 6px 0;
+    }
+
+    #sx-js-res-online-help li {
+        font-weight: bold;
+        margin: 5px 0 5px 0;
+    }
+
+    /* -----------------------------------------------
+    topoffer
+    ----------------------------------------------- */
+    .sx-res-topoffer-price {
+        text-align:center;
+        font-weight: bold;
+        font-size: 30px;
+        padding: 0;
+        line-height: 80%;
+    }
+
+    .sx-res-topoffer-org-price, .sx-res-topoffer-dcn-price {
+        text-align:center;
+        font-size: 14px;
+    }
+
+    .sx-res-topoffer-org-price span {
+        padding: 0 3px 0 3px;
+    }
+
+    .sx-res-topoffer-planprice {
+        text-align:center;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-topoffer-available-area {
+        text-align:center;
+    }
+    .sx-res-topoffer-available-area h5 {
+        margin: 0;
+        padding: 0 0 3px 0;
+    }
+    .sx-res-topoffer-available-percent-wrapper{
+        height: 5px;
+        width: 100px;
+        margin: auto;
+        text-align: left;
+    }
+    .sx-res-topoffer-available-percent {
+        height:5px;
+        background-repeat:no-repeat;
+        background-position:left;
+    }
+
+    .sx-res-dpl-low {
+        font-weight:bold;
+    }
+    .sx-res-dpl-med {
+        font-weight:normal;
+    }
+    .sx-res-dpl-high {
+        font-weight:normal;
+    }
+
+    .sx-res-topoffer-item h3 {
+        font-size: 12px;
+        padding: 10px 0 10px 0;
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-topoffer-details-footernote {
+        padding: 0 0 10px 20px;
+    }
+
+
+
+    /*
+    .sx-res-topofferlist .sx-res-topoffer-item {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        padding: 0 0 10px 0;
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-topofferlist div.sx-gc-leftfloater {
+        width: 34%;
+    }
+
+    .sx-res-topofferlist div.sx-gc-rightfloater {
+        width: 64%;
+    }
+
+
+
+    .sx-res-topofferlist ul.sx-gc-def {
+        list-style: none;
+        margin: 0;
+    }
+
+    .sx-res-topofferlist ul.sx-gc-def li {
+        list-style: none;
+        margin: 0 0 6px 0;
+        padding: 0 0 0 12px;
+    }
+
+    .sx-res-topoffer-countries {
+        text-align: center;
+        overflow: hidden;
+        margin: 0 0 20px 0;
+    }
+
+    .sx-res-topoffer-countries li {
+        display: inline;
+        float: none;
+        text-decoration: underline;
+        cursor: pointer;
+        cursor: hand;
+        margin: 0 5px 0 5px;
+    }
+    */
+
+
+    /* -----------------------------------------
+        topofferlist
+    ----------------------------------------- */
+        /* line 20, scss_corp/_buttons.scss */
+        .sx-res-car-offerlist .sx-gc-button-cta {float:none;line-height:normal;-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-border-radius: 0 0 0 0; -moz-border-radius: 0 0 0 0; border-radius: 0 0 0 0; display: block; font-size: 18px; font-weight: bold; text-align: center; border: 2px solid #ffffff; width: 100%; max-width: 354px; color: #ffffff; cursor: pointer; padding: 10px 0 10px 0 !important; margin: auto; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+        /* line 36, scss_corp/_buttons.scss */
+        .sx-res-car-offerlist .sx-gc-button-cta-green { background: #079600; }
+        /* line 40, scss_corp/_buttons.scss */
+        .sx-res-car-offerlist .sx-gc-button-cta-green:hover { background: #44bd00; }
+        /* line 5, scss_res/_iefix.scss */
+        .ie7 .sx-res-car-offerlist .sx-gc-button-cta { white-space: nowrap; }
+        /* line 9, scss_res/_iefix.scss */
+        .ie7 .sx-res-car-offerlist .sx-gc-button-cta-green, .ie8 .sx-res-car-offerlist .sx-gc-button-cta-green, .ie9 .sx-res-car-offerlist .sx-gc-button-cta-green { background: #016D36; }
+
+        /* line 10, scss_res/_common.scss */
+        .sx-res-car-offerlist { padding: 0 0 20px 0;}
+        /* line 14, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-table { clear: both; display: table; width: 100%; }
+        /* line 23, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-row { display: table-row; width: 100%; }
+        /* line 31, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-img { background: transparent url(icon/bg/bg-offerlist-col.png) repeat-x 0 100%; vertical-align: bottom; display: table-cell; width: 40%; text-align: center; }
+        /* line 38, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-img img { max-width: 350px; max-height: 200px; width: 100%; height: auto; }
+        /* line 58, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-data { background: transparent url(icon/bg/bg-offerlist-col.png) repeat-x 0 100%; vertical-align: bottom; display: table-cell; width: 60%; }
+        /* line 23, scss_res/_mixins.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-data:after { content: "."; clear: both; display: block; height: 0; visibility: hidden; }
+        /* line 72, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-col { float: left; width: 50%; }
+        /* line 81, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-col .sx-gc-button-cta { height: 56px; padding: 15px 0 15px 0 !important; border: none; border-left: 2px solid #ffffff; }
+        /* line 93, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice { display: table; width: 95%; color: #ffffff; font-weight: bold; }
+        /* line 109, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice-row { display: table-row; }
+        /* line 116, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice-cell { display: table-cell; height: 56px; vertical-align: middle; line-height: 140%; }
+        /* line 128, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice-cell span, .sx-res-car-offerlist .sx-res-offerlist-offerprice-cell strong { display: inline-block; vertical-align: middle; overflow: hidden; white-space: nowrap; height: auto; margin: 0; padding: 0; }
+        /* line 139, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice-cell span { font-size: 14px; width: 55%; vertical-align: middle; }
+        /* line 151, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice-cell strong { margin: 0 0 0 -4px; width: 45%; font-size: 20px; font-weight: normal; vertical-align: middle; text-align: right; }
+        /* line 165, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerprice-cell strong small { font-size: 14px; }
+
+        /* line 175, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerfeatures ul { overflow: hidden; }
+        /* line 179, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerfeatures li { background: transparent url(icon/icon-hook-green.png) no-repeat 0 6px; float: left; width: 50%; padding: 6px 0 6px 30px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-size: 14px; line-height: normal;}
+        /* line 187, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerfeatures li:nth-child(odd) { clear: both; float: left; }
+        /* line 192, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerfeatures li:nth-child(even) { float: right; }
+        /* line 196, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerfeatures .sx-res-offerlist-included { background-image: url(icon/icon-hook-green.png); }
+        /* line 200, scss_res/_common.scss */
+        .sx-res-car-offerlist .sx-res-offerlist-offerfeatures .sx-res-offerlist-available { background-image: url(icon/icon-hook-grey.png); }
+
+
+         /* ----------------------------------------- topofferlist / fleet details
+        ----------------------------------------- */
+        /* line 13, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-offerprice-cell span { font-size: 12px; }
+        /* line 17, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-discount { opacity: 0.5; filter: alpha(opacity=50); }
+        /* line 19, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-discount small, .sx-res-topofferlist .sx-res-offerlist-discount strong small { font-size: 12px; }
+        /* line 22, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-discount del { font-size: 22px; }
+        /* line 31, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-pricing span { font-size: 12px; font-weight: normal; width: 53%; }
+        /* line 40, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-pricing strong { width: 100%; font-size: 22px}
+        /* line 47, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-pricing span + strong { width: 47%; }
+
+        /* line 55, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-per { text-align: right; font-size: 12px; font-weight: normal; }
+
+
+        /* line 18, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-topoffer-conditions { width: 100%; background: #e9e9e9; border: 1px solid #666666; padding: 1px; margin: 2px -2px -2px -2px; line-height: normal;}
+        /* line 20, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-discount, .sx-res-topofferlist .sx-res-offerlist-discount-pricing { opacity: 0.5; filter: alpha(opacity=50); font-weight: normal; }
+        /* line 26, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-topoffer-conditions .sx-res-topoffer-conditions-head { display: table-cell; width: 40%; padding: 10px; }
+        /* line 27, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-offerlist-per { text-align: right; font-weight: normal; }
+        /* line 32, scss_res/_topoffer.scss */
+        .sx-res-topofferlist .sx-res-topoffer-conditions .sx-res-topoffer-conditions-data { display: table-cell; width: 60%; min-height: 1px; padding: 10px; }
+        /* line 23, scss_res/_mixins.scss */
+        .sx-res-topofferlist .sx-res-topoffer-conditions .sx-res-topoffer-conditions-data:after { content: "."; clear: both; display: block; height: 0; visibility: hidden; }
+        .sx-res-topofferlist .sx-res-topoffer-conditions .sx-res-topoffer-conditions-data li {margin: 6px 0 6px 0; font-size: 14px;}
+
+
+        /* line 45, scss_res/_topoffer.scss */
+        .sx-res-topoffer-header { padding-top: 10px; min-height: 1px; }
+        /* line 49, scss_res/_topoffer.scss */
+        .sx-res-topoffer-header h1 { padding: 0; font-weight: normal; font-size: 28px; display: inline-block; vertical-align: middle; margin: 0 1% 15px 0; border: none; color: #ff6600; }
+        /* line 55, scss_res/_topoffer.scss */
+        .sx-res-topoffer-header form { display: inline-block; vertical-align: middle; margin: 0 0 15px 0; }
+        /* line 61, scss_res/_topoffer.scss */
+        .sx-res-topoffer-header .sx-res-topoffer-select { height: auto;padding: 6px; font-size: 18px; border: 1px dotted #ff6600; display: inline-block; vertical-align: middle; background: #fbf6d8; margin: 0 0 3px 0; }
+        /* line 71, scss_res/_topoffer.scss */
+        .sx-res-topoffer-header .sx-res-topoffer-select option { padding: 0 3px 0 3px; }
+        /* line 23, scss_res/_mixins.scss */
+        .sx-res-topoffer-header:after { content: "."; clear: both; display: block; height: 0; visibility: hidden; }
+
+        /* line 150, scss_res/_offerselect.scss */
+        .sx-res-offerlist-head-wrapper h3 { display: table-cell; padding: 6px 0 3px 20px; color: #ff6600;}
+        /* line 159, scss_res/_offerselect.scss */
+        .sx-res-offerlist-head-wrapper h3 span, .sx-res-offerlist-head-wrapper h3 small { color: #000000; font-size: inherit; }
+
+        .sx-link { background: transparent url(../../../common/img/app/typo3/typo3-corporate/default/buttons/arrow-link.png) no-repeat 0 50%; color: #03326C; font-size: 14px; display: inline-block; padding: 6px 0 6px 20px !important; text-decoration: none; cursor: pointer; vertical-align: middle; }
+        .sx-link:hover { text-decoration: underline; }
+        .sx-link-norm-info { background-image: url(../../../common/img/app/typo3/typo3-corporate/default/buttons/info-norm.png); color: #333333; }
+        .sx-link-strong { font-weight: bold; }
+        .butt-close, .sx-res-topofferlist .sx-res-topoffer-conditions-data span { float: right; border: 1px solid #333333; width: 18px; height: 18px; text-align: center; margin: 0 6px 0 6px; line-height: 120%; cursor: pointer; overflow: hidden; font-weight: normal; font-size: 14px; }
+
+
+        .sx-res-car-offerlist .sx-res-offerlist-item {
+            padding: 2px;
+            margin: 0 0 10px 0;
+            border: 1px solid #c8c8c8;
+        }
+
+        /* line 82, scss_res/_topoffer.scss */
+        .sx-topoffer-toggle-content { display: none; }
+        /* line 86, scss_res/_topoffer.scss */
+        .sx-selected .sx-topoffer-toggle-content { display: block; }
+        /* line 144, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-table { width: auto; }
+        /* line 148, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-row { width: auto; min-height: 1px; background: transparent url(icon/bg/bg-offerlist-col.png) repeat-x 0 100%; position: relative; }
+        /* line 155, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-img { float: left; width: 40%; background: none; }
+        /* line 161, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-data { float: right; width: 60%; margin: 0 0 0 -3px; padding-bottom: 56px; position: static; background: none; }
+        /* line 170, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-col { width: 30%; position: absolute; left: 40%; bottom: 0; padding: 0; margin: 0; }
+        /* line 179, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-offerprice, .ie7 .sx-res-offerlist-offerprice-row, .ie7 .sx-res-offerlist-offerprice-cell { display: inline-block; height: auto; }
+        /* line 186, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-offerprice-cell { line-height: normal; margin-bottom: expression((this.offsetHeight > 40)? 0 : '15px' ); }
+        /* line 191, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-offerprice-cell span, .ie7 .sx-res-offerlist-offerprice-cell strong { width: 49%; }
+        /* line 196, scss_res/_iefix.scss */
+        .ie7 .sx-ie-res-offerlist-cta { left: 70%; bottom: 0; }
+        /* line 201, scss_res/_iefix.scss */
+        .ie7 .sx-gc-button-cta { margin: 0; }
+        /* line 205, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerselect-special .sx-res-offerlist-offerfeatures { overflow: hidden; padding: 30px 0 10px 0; }
+        /* line 210, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-col .sx-gc-button-cta { padding: 12px 0 0 0 !important; height: 44px; width: expression((this.parentNode.offsetWidth -2) + "px"); }
+        /* line 216, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-offerfeatures li { width: 44%; padding: 6px 0 6px 6%; }
+        /* line 221, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-head-wrapper { min-height: 1px; }
+        /* line 223, scss_res/_iefix.scss */
+        .ie7 .sx-res-offerlist-head-wrapper h3 { float: left; }
+        /* line 228, scss_res/_iefix.scss */
+        .ie7 ul.sx-res-equipment { display: block; float: right; }
+        /* line 232, scss_res/_iefix.scss */
+        .ie7 ul.sx-res-equipment li { display: inline; }
+
+
+
+        /* line 85, scss_res/_topoffer.scss */
+        .sx-res-topoffer-banner .sx-res-topoffer-banner-img { text-align: center; }
+        /* line 89, scss_res/_topoffer.scss */
+        .sx-res-topoffer-banner .sx-res-topoffer-banner-img img { max-width: 100%; height: auto; margin: auto; }
+        /* line 95, scss_res/_topoffer.scss */
+        .sx-res-topoffer-banner .sx-res-topoffer-banner-button { padding: 20px 10px 10px 10px; background: #ff6600 url(icon/bg/bg-offerlist-col.png) repeat-x 0 0; text-align:center;}
+        /* line 100, scss_res/_topoffer.scss */
+        .sx-res-topoffer-banner .sx-res-topoffer-banner-button p { text-align: center; color: #ffffff; font-size: 22px; font-weight: lighter; padding: 0 0 15px 0; }
+
+        .sx-res-topoffer-banner .sx-gc-button-wrapper {
+            padding: 0 0 10px 0;
+            text-align: center;
+        }
+    /* -----------------------------------------------
+    topoffer details
+    ----------------------------------------------- */
+    .sx-res-topoffer-detail-info {
+        text-align: center;
+    }
+
+    .sx-res-topoffer-detail-info,
+    .sx-res-topoffer-detail-data {
+        padding: 0 0 20px 0;
+    }
+
+    /* -----------------------------------------------
+    agent rates
+    ----------------------------------------------- */
+    .sx-res-agentrates-form .sx-gc-button-verysmall-next {
+        margin: 0 6% 0 0;
+    }
+
+    .sx-res-agent-ratelist li {
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-agent-ratelist img,
+    .sx-res-agent-ratelist label,
+    .sx-res-agent-ratelist input {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px 0 0;
+    }
+
+    .sx-res-agent-ratelist label span {
+        display: block;
+    }
+
+    /* neu... */
+    .sx-res-agentrate-wrapper {
+        padding-bottom: 5px;
+    }
+
+    .sx-res-agentrate-wrapper label,
+    .sx-res-agentrate-wrapper input {
+        vertical-align: middle;
+    }
+
+    .sx-res-agentrate-wrapper label {
+        display: inline-block;
+    }
+
+    .sx-res-agentrate-wrapper li p {
+        padding: 10px 6px 10px 70px;
+        margin: 0;
+    }
+
+    .sx-res-agentrate-wrapper ul {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-agentrate-wrapper li {
+        width: 49.6%;
+        float: left;
+    }
+
+    .sx-res-agentrate-wrapper .sx-res-agentrate-content {
+        margin: 10px 0 0 0;
+        padding: 20px 0 0 0;
+    }
+
+    .sx-res-agent-lisoselect {
+        float: right;
+        margin: -60px 0 0 0;
+    }
+
+    /* -----------------------------------------------
+    booking with left/right column like
+    topoffer, newsletter etc...
+    ----------------------------------------------- */
+    #sx-reservation-booking-content-wrapper {
+        width: 32%;
+        float: left;
+    }
+
+    #sx-reservation-booking-ibe-wrapper {
+        width: 64%;
+        float: right;
+    }
+
+    .sx-res-topoffer-details-wrapper {
+        min-height: 1px;
+    }
+
+    .sx-res-specialoffer-detail-info {
+        text-align: center;
+    }
+
+    .sx-res-specialoffer-detail-info,
+    .sx-res-specialoffer-detail-data {
+        padding: 0 0 20px 0;
+    }
+
+    .sx-res-specialoffer-detail-data h3 {
+
+        font-size: 12px;
+        padding: 10px 0 10px 0;
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-specialoffer-detail-data ul.sx-gc-def {
+        list-style: none;
+        margin: 0;
+    }
+
+    .sx-res-specialoffer-detail-data ul.sx-gc-def li {
+        list-style: none;
+        margin: 0 0 6px 0;
+        padding: 0 0 0 12px;
+    }
+
+    /* -----------------------------------------------
+    table
+    ----------------------------------------------- */
+    .sx-gc-table-wrapper {
+        margin: 0 0 20px 0;
+    }
+    .sx-gc-table-wrapper table {
+        width: 100%;
+        padding: 0;
+        margin: 0 0 3px 0;
+        border-collapse: collapse;
+    }
+
+    .sx-gc-table-wrapper th {
+        padding: 6px 3px 6px 3px;
+        text-align: left;
+        border-collapse: collapse;
+    }
+
+    .sx-gc-table-wrapper td {
+        padding: 3px 3px 3px 3px;
+        border-collapse: collapse;
+    }
+
+    /* -----------------------------------------------
+    editres
+    ----------------------------------------------- */
+
+    .sx-res-editres-optionlist {
+        margin: 10px 10px 20px 10px;
+    }
+
+    .sx-res-editres-optionlist li.sx-res-editres-optionlist-item {
+        overflow: hidden;
+        border-bottom: 1px dotted #000000;
+        padding: 10px 5px 10px 5px;
+    }
+
+    .sx-res-editres-optionlist .sx-gc-rd {
+        float: left;
+    }
+
+    .sx-res-editres-optionlist .sx-res-editres-data {
+        margin: 0 0 0 30px;
+    }
+
+    .sx-res-editres-optionlist .sx-res-editres-content {
+        overflow: hidden;
+        padding: 10px 0 10px 0;
+        display: 0;
+    }
+
+    .sx-res-editres-optionlist h5 {
+        font-size: 11px;
+    }
+
+    form .sx-res-editres-optionlist p {
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-editres-optionlist .sx-res-editres-content-oci div.sx-gc-leftfloater,
+    .sx-res-editres-optionlist .sx-res-editres-content-oci div.sx-gc-rightfloater {
+        width: 49%;
+    }
+
+    .sx-res-editres-optionlist .sx-res-editres-content-rebook div.sx-gc-leftfloater,
+    .sx-res-editres-optionlist .sx-res-editres-content-rebook div.sx-gc-rightfloater {
+        width: 32%;
+    }
+
+    .sx-res-editres-optionlist .sx-res-editres-content-rebook div.sx-gc-leftfloater {
+        margin-right: 2%;
+    }
+
+    .sx-res-editres-optionlist .sx-res-editres-content-rebook div.sx-gc-rightfloater {
+        margin-left: -2%;
+    }
+
+    .sx-res-editres-optionlist .sx-gc-button-wrapper {
+        padding: 20px 10px 0 10px;
+        overflow: visible;
+        min-height: 1px;
+    }
+
+    .sx-res-editres-optionlist .sx-gc-button-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .sx-gc-message-green {
+        border: 1px solid #038e3b;
+        padding: 6px 10px 0 10px;
+        margin: 5px 0 15px 0;
+        background: #f5fec5;
+    }
+
+    .sx-gc-message-green p {
+        color: #038e3b;
+        padding: 0 0 6px 0;
+        font-weight: bold;
+    }
+
+    /* -----------------------------------------------
+    divers
+    ----------------------------------------------- */
+    h1.sx-res-secure-wrapper {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    h1.sx-res-secure-wrapper .sx-gc-rightfloater img {
+        margin: -10px 0 0 0;
+    }
+
+    div.sx-res-secure-wrapper {
+        position: absolute;
+        left: 5px;
+        top: 0;
+    }
+
+    #sx-reservation-customer-reg div.sx-res-secure-wrapper {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    div.sx-res-secure-wrapper h5 {
+        margin: 0;
+        padding: 0 0 3px 0;
+        font-weight: normal;
+        font-size: 10px;
+    }
+
+    div.sx-res-secure-wrapper img {
+        vertical-align: top;
+    }
+
+    .sx-res-offerlist-mmr .sx-res-offerlist-offerprice strong {
+        font-size: 12px !important;
+    }
+
+    .sx-res-mmr {
+        font-size: 10px !important;
+        font-weight: normal !important;
+        color: #0001AC !important;
+    }
+
+    form.sx-res-box-form input.sx-gc-txt {
+        width: 60%;
+    }
+
+    form.sx-res-box-form select.sx-gc-txt {
+        width: 60.8%;
+    }
+
+/* -----------------------------------------------
+social media login
+----------------------------------------------- */
+/* TODO: Code befindet sich in sx-social-login.css und sollte zentral genutzt werden (kann hier dann gel?scht werden) */
+#sx-social-media-popup {
+    /* display: none;*/
+}
+.sx-social-media-login {
+    position: relative;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+    border-top: 1px solid #fff;
+}
+.sx-social-media-login h4{
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -35px;
+    padding: 0 20px;
+    background: #4b4b4b;
+}
+.sx-social-media-login ul li {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: top;
+}
+.sx-social-media-icon {
+    display: block;
+    width: 44px;
+    height: 39px;
+    cursor: pointer;
+    /* todo: replace with icon sprite or icon font */
+    background: url(../../../common/img/base/rac/homepage/social-login/sprite-social-login.png);
+    background-repeat: no-repeat;
+}
+.sx-social-media-icon.sx-social-media-icon-facebook {
+    background-position: -62px -418px;
+}
+.sx-social-media-icon.sx-social-media-icon-facebook.active,.sx-social-media-icon.sx-social-media-icon-facebook:hover {
+    background-position: -422px -58px;
+}
+
+.sx-social-media-icon.sx-social-media-icon-google {
+    background-position: -2px -478px;
+}
+.sx-social-media-icon.sx-social-media-icon-google.active, .sx-social-media-icon.sx-social-media-icon-google:hover {
+    background-position: -362px -118px;
+}
+
+.sx-social-media-icon.sx-social-media-icon-amazon {
+    background-position: -122px -358px;
+}
+.sx-social-media-icon.sx-social-media-icon-amazon.active, .sx-social-media-icon.sx-social-media-icon-amazon:hover {
+    background-position: -482px 2px;
+}
+
+/* customer details */
+#sx-js-res-login-form  {
+    position: relative;
+    min-height: 40px;
+}
+#sx-js-res-login-form h4 {
+    margin-top: 8px;
+}
+#sx-js-res-login-form .sx-social-media-login {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    margin-top: 0;
+    padding-top: 0;
+}
+#sx-js-res-login-form .sx-social-media-login h4 {
+    background: transparent;
+    margin-left: 0;
+    padding: 0;
+    top: 4px;
+    text-transform: uppercase;
+    left: -50px;
+}
+#sx-js-res-login-form .sx-social-media-login p {
+    display:none;
+}
+#sx-js-res-login-form .sx-social-media-login {
+    border-top: 0;
+}
+#sx-js-res-dpl-login-content .sx-login-ident {
+    margin-top: 10px;
+}

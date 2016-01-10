@@ -1,0 +1,349 @@
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        border-bottom: 1px solid #FF8A00;
+        clear: both;
+        color: #000000;
+        font: bold 24px Arial, Helvetica, Verdana, sans-serif;
+        margin: 0 0 30px 0;
+        padding:10px 0 7px 0;
+    }
+
+    h3, h4, h5, h6 {
+        font-size: 12px;
+        padding: 0 0 10px 0;
+    }
+
+    p {
+        padding: 0 0 10px 0;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    ul, li {
+        list-style: none;
+    }
+
+    img,
+    fieldset {
+        border: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: 0 0 10px 0;
+    }
+
+    th {
+        text-align: left;
+        vertical-align: top;
+        border-collapse: collapse;
+    }
+
+    td {
+        vertical-align: top;
+        border-collapse: collapse;
+    }
+    
+
+    /* -----------------------------------------------
+    home - main divisions
+    ----------------------------------------------- */
+
+    #sx-home-logo-wrapper {
+        clear: both;
+        background: #000;
+        text-align: center;
+    }
+
+    #sx-home-logo-wrapper img {
+        clear: both;
+        vertical-align: bottom;
+    }
+    
+    #sx-home-app-wrapper {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        position: relative;
+        z-index: 500;
+    }
+    
+    #sx-res-footer-wrapper {
+        padding: 5px 5px 0 5px;
+    	background-color: #fafafa;
+    }
+    
+    /* -----------------------------------------------
+        Content Area
+    ----------------------------------------------- */
+        
+    .sx-base-main-home #mainContent #sx-base-home-teaser-wrapper {
+        clear:both;
+        position: relative;
+        background: white;
+        padding: 10px;
+        margin: 30px auto 0;
+        border: 1px solid #E6E6E6; 
+        width: 972px;
+        overflow: hidden;
+        zoom: 1;                                   
+        
+        background: #fff;
+    	background: -moz-linear-gradient(top, #fff 70%, #e7e7e7 100%);
+    	background: -khtml-gradient(linear,left top,left bottom,color-stop(0.7, #fff),color-stop(1, #e7e7e7));
+    	background: -webkit-gradient(linear,left top,left bottom,color-stop(0.7, #fff),color-stop(1, #e7e7e7));
+    	filter:progid:DXImageTransform.Microsoft.Gradient(endColorstr='#e7e7e7', startColorstr='#ffffff', gradientType='0'); 
+    	
+        -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        -khtml-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        
+        min-height: 200px; 
+    }
+    
+    .sx-base-main-home #mainContent #sx-base-home-teaser-wrapper li {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .sx-base-main-home #mainContent #sx-base-home-teaser-wrapper .sx-base-home-teaser {
+        width: 904px;    
+        vertical-align: top;
+    } 
+    
+    .sx-base-main-home #mainContent #sx-base-home-teaser-wrapper .sx-base-home-teaser .sx-base-home-teaser-item {
+        border: 1px solid transparent;
+        display: inline-block;
+        vertical-align: top; 
+        margin: 5px 20px;
+        vertical-align: top;
+        width: 230px;
+    }  
+    
+    .sx-base-main-home #mainContent #sx-base-home-teaser-wrapper .sx-base-home-teaser .sx-base-home-teaser-item img {
+        padding: 0 0 10px;
+    }   
+    
+    .sx-base-main-home #mainContent #sx-base-home-teaser-wrapper .sx-base-home-teaser .sx-base-home-teaser-item h4 {
+        padding: 0 0 10px;
+        height: 35px;
+    } 
+    
+    #sx-js-tt-teaser-next {
+        background: url(../../../common/img/app/fleet/default/bg/bg-tt-teaser-next.html") no-repeat scroll 100% 50% transparent;
+        cursor: pointer;
+        width: 30px;
+        min-height: 200px;        
+        /*
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        */
+    }
+    
+    #sx-js-tt-teaser-back {
+        background: url(../../../common/img/app/fleet/default/bg/bg-tt-teaser-back.html") no-repeat scroll 0 50% transparent;
+        cursor: pointer; 
+        width: 30px;
+        min-height: 200px; 
+        /*position: absolute;
+        top: 50px;
+        left: 10px;*/
+    }
+    
+    #sx-js-tt-teaser-next span,
+    #sx-js-tt-teaser-back span {
+        display: none;
+    }
+    
+    .sx-tt-teaser-inactive {
+        opacity: 0.4;
+    }
+    
+    
+    /* -----------------------------------------------
+    	bottom sitemap navi (only for home)
+    ----------------------------------------------- */
+    
+    .sx-base-bottomnavi-wrapper {
+	    padding: 0 1px;
+		display: block;
+		overflow: hidden;
+		zoom:1;
+    }
+    
+    .sx-base-bottomnavi-wrapper a.sx-base-bottomnavi-item-kat {
+	    font: bold 15px/100% Arial, "Liberation Sans", "Bitstream Vera", Geneva, Helvetica, sans-serif;
+	    padding: 5px 0;
+		cursor: pointer;
+		text-decoration: none;
+		display: block;
+    }
+
+	.sx-base-bottomnavi-wrapper ul.sx-base-bottomnavi {
+    	list-style: none;
+    	margin: 0;
+    	padding: 0;
+    }
+
+	.sx-base-bottomnavi-wrapper .sx-base-bottomnavi li {
+	    padding: 3px 0;
+    }
+
+	.sx-base-bottomnavi-wrapper li a {
+	    font: normal 11px/100% Verdana, Arial, "Liberation Sans", "Bitstream Vera", Geneva, Helvetica, sans-serif;
+		text-decoration: none;
+    }
+
+	.sx-base-bottomnavi-wrapper li a:hover {
+		text-decoration: underline;
+    }
+
+    /* -----------------------------------------------
+    	social teasers  and awards
+    ----------------------------------------------- */
+    
+    #sx-res-td-smallteaser {
+        padding: 0 0 20px 0;
+    }
+    
+    #social { 
+        background-color: #FFFFFF;
+        margin: 0;          
+        padding: 0;
+        overflow: hidden;    
+    }
+    
+    #social #facebook-teaser {
+        width: 350px;
+        padding: 10px 0;
+    } 
+    
+    #social a { 
+        clear: both;
+        display: block;
+        padding: 0 0 10px;
+        overflow: hidden;
+        zoom:1;
+    }
+    
+    #social .social-teaser {
+        display: block;
+        float: left;
+        width: 170px;
+        padding: 10px 5px 10px 0;
+        margin:0;
+        overflow: hidden;
+        zoom:1;
+    }      
+    
+    #social #facebook-teaser img,
+    #social .social-teaser img {
+        display: block;
+        float: left;
+        padding: 0 10px 10px 0;
+        margin:0;
+        overflow: hidden;
+        zoom:1;
+    } 
+    
+    #socialteasers li.small-teaser {
+        width: 144px;
+    }      
+    
+    #socialteasers li.upper-teaser a {
+        float: none;
+        padding: 0;
+        margin:0;
+    } 
+    
+    #socialteasers li.small-teaser a { 
+        clear: both;
+        display: block;
+        padding: 0 0 10px;
+    }       
+    
+    #socialteasers li.upper-teaser img {
+        display: block;
+        float: left;
+        padding: 0 10px 10px 0;
+        margin:0;
+        overflow: hidden;
+        zoom:1;
+    } 
+    
+    #socialteasers li.awards { 
+        padding: 0;
+        margin:0;
+        width: 474px;    
+        border-right: none;
+        text-align: center;
+        vertical-align: middle;
+    }   
+    
+    #socialteasers li.awards img {
+        float: none;
+        margin: auto;
+        padding:0;
+        overflow: hidden;
+    } 
+    
+    /* -----------------------------------------------
+    	footer teasers (only for home)
+    ----------------------------------------------- */
+    
+    #moreteasers { 
+        background-color: #FFFFFF;
+        margin: 0;          
+        padding: 0 10px;
+        overflow: hidden;    
+    }
+    
+    #moreteasers li.teaser {
+        float: left;
+        width: 303px;
+        padding: 0 10px;
+        border-right: 1px solid #626262;
+    }
+    
+    #moreteasers li.teaserlast {
+        border-right: none;
+    }
+    
+    #moreteasers li.teaser p img {
+        float: left;
+        margin: 0 10px 10px 0;
+        padding:0;
+        overflow: hidden;
+    } 
+    
+    #moreteasers li.teaser .sx-gc-button-verysmall-next {
+        clear: both;
+    }
+    
+    #footerArea {  
+    	background-color: #fafafa;
+    }
+    
+    
+
+
+
+
+    
+
+    
+    
+
+
+
+
+    

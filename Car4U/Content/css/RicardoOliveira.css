@@ -1401,6 +1401,25 @@ ul.features {
     border: 0;
 }
 
+.button .submitSearchView {
+    background: none repeat scroll 0 0 #F9BF1D;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom:25px;
+    padding: 8px 33px;
+    text-align: center;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+    vertical-align: middle;
+    width: auto;
+    border: 0;
+}
+
 .buttonbackoffice .submit,
 .btn-primary {
     background: none repeat scroll 0 0 #F9BF1D;
@@ -1435,6 +1454,14 @@ ul.features {
     border: 0;
     float:left;
 
+}
+
+.submitSearchView:hover {
+    background: none repeat scroll 0 0 #F9BF1D;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
 }
 
 .btn-primary:hover,

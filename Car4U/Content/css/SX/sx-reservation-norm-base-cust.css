@@ -1,0 +1,1354 @@
+/* --------------------------------------------------
+//
+// reservation base customized styles
+// author:      jw
+// created:     28.09.2010
+//
+// ----------------------------------------------- */
+    /* -----------------------------------------------
+    reservation
+    ----------------------------------------------- */
+    /* inner width 896 */
+    #sx-reservation-head {
+        border: 1px solid #000;
+        background-color: rgba(0,0,0,0.5);
+    	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-khtml-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    }
+
+    * html #sx-reservation-head {
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../common/img/app/typo3/tt_corporate_base/sx-base-bg-content-top-transparent.png', sizingMethod='scale');
+        background:none;
+    }
+
+    * + html #sx-reservation-head {
+        filter: none;
+        background: url(../../../common/img/app/typo3/tt_corporate_base/sx-base-bg-content-top-transparent.png") repeat scroll left top transparent;
+    }
+
+    #sx-reservation-head form {
+        color: #fff;
+    }
+
+    /* inner width 896 */
+    #sx-quickpick-main,
+    #sx-reservation-main {
+        border: 5px solid #F9BE1E;
+        background: #fff;
+    	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-khtml-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    }
+
+    #sx-reservation-start {
+        background: #fff;
+    }
+
+    /* -----------------------------------------------
+    global classes
+    ----------------------------------------------- */
+    .sx-gc-info {
+        background: transparent url(icon/bg/bg-info.gif) no-repeat right top;
+        color: #000!important;
+    }
+
+    .sx-gc-info:hover {
+        text-decoration: underline;
+    }
+
+    .sx-gc-back {
+        margin: 0;
+        padding: 1px 0 1px 22px !important;
+        background: transparent url(icon/bg/bg-back.png) no-repeat left top;
+        cursor: pointer;
+        cursor: hand;
+        display: inline-block;
+        color: #000;
+        font-size: 11px;
+        line-height: normal;
+        font-weight: bold;
+    }
+
+    * html .sx-gc-back {
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-back.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    .sx-gc-help {
+        background: transparent url(icon/bg/bg-help.png) no-repeat left top;
+        color: #0001AC !important;
+    }
+
+    * html .sx-gc-help {
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-help.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    .sx-gc-error {
+        background: #F3C4C4;
+        border: 2px solid #ff0000;
+        color: #000000;
+    }
+
+    .sx-gc-error p {
+        color: #000000;
+    }
+
+    .sx-gc-message {
+		background: #fff3e3;
+		border: 1px solid #7A2624;
+		color:#7a2624;
+	}
+
+    .sx-gc-message p {
+		color:#7a2624 !important;
+	}
+
+    .sx-gc-info-box div {
+        border: 1px solid #F9BE1E;
+    	background: #fff;
+    }
+
+    .sx-gc-info-box div p {
+        color: #000;
+    }
+
+    a.sx-gc-def:hover {
+        color: #F9BE1E;
+    }
+
+    .sx-gc-eyecatch {
+        color: #F9BE1E;
+    }
+
+    .sx-gc-debug,
+    .sx-res-config-plus-minus span.sx-gc-debug {
+        border: 1px dashed blue;
+        color: blue;
+        background: #e9f5ff;
+    }
+
+    input.sx-gc-date {
+        background:transparent url(icon/icon-datapicker.gif) no-repeat right 1px;
+    }
+
+    /* -----------------------------------------------
+    head and breadcrumb tt_corporate only
+    ----------------------------------------------- */
+    .sx-res-head-wrapper {
+        background: #554e3e;
+    	background: -moz-linear-gradient(top, #312d2c, #554e3e 30% );
+    	background: -khtml-gradient(linear,left top,left bottom,color-stop(0, #312d2c),color-stop(0.3, #554e3e));
+    	background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #312d2c),color-stop(0.3, #554e3e));
+    	filter:progid:DXImageTransform.Microsoft.Gradient(endColorstr='#554e3e', startColorstr='#312d2c', gradientType='0');
+    	overflow: hidden;
+    	zoom: 1;
+    	height: 71px;
+    }
+
+    .sx-res-sixt-logo {
+        margin: 10px 20px 0 20px;
+        float: left;
+    }
+
+    .sx-res-breadcrumb {
+        width: 645px;
+        height: 29px;
+        float: left;
+        /*background: transparent url(/common/img/app/reservation/default/bg/bg-breadcrumb.png) no-repeat left top;*/
+        background: transparent url(icon/bg/bg-res-breadcrumb.png) no-repeat left top;
+        margin: 35px 0 0 30px;
+        padding: 8px 0 0 20px;
+    }
+
+    * html .sx-res-breadcrumb {
+        background: none;
+        /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/common/img/app/reservation/default/bg/bg-breadcrumb.png', sizingMethod='crop');*/
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-res-breadcrumb.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    .sx-res-breadcrumb li {
+        float: left;
+        width: 120px;
+        padding: 0 0 0 9px;
+        color: #ddd;
+    }
+
+    .sx-res-breadcrumb li a {
+        color: #ddd;
+    }
+    .sx-res-breadcrumb li span {
+        margin: 0 0 0 3px;
+    }
+
+    .sx-res-breadcrumb-1 {
+        /*background: transparent url(/common/img/app/reservation/default/bg/bg-breadcrumb-1.png) no-repeat left top;*/
+        background: transparent url(icon/bg/bg-res-breadcrumb-1.png) no-repeat left top;
+    }
+    .sx-res-breadcrumb-1 .sx-res-breadcrumb-current-1,
+    .sx-res-breadcrumb-1 .sx-res-breadcrumb-current-1 a {
+        color: #fff;
+    }
+
+    .sx-res-breadcrumb-2 {
+        /*background: transparent url(/common/img/app/reservation/default/bg/bg-breadcrumb-2.png) no-repeat left top;*/
+        background: transparent url(icon/bg/bg-res-breadcrumb-2.png) no-repeat left top;
+    }
+    .sx-res-breadcrumb-2 .sx-res-breadcrumb-current-2,
+    .sx-res-breadcrumb-2 .sx-res-breadcrumb-current-2 a {
+        color: #fff;
+    }
+
+    .sx-res-breadcrumb-3 {
+        /*background: transparent url(/common/img/app/reservation/default/bg/bg-breadcrumb-3.png) no-repeat left top;*/
+        background: transparent url(icon/bg/bg-res-breadcrumb-3.png) no-repeat left top;
+    }
+    .sx-res-breadcrumb-3 .sx-res-breadcrumb-current-3,
+    .sx-res-breadcrumb-3 .sx-res-breadcrumb-current-3 a {
+        color: #fff;
+    }
+
+    .sx-res-breadcrumb-4 {
+        /*background: transparent url(/common/img/app/reservation/default/bg/bg-breadcrumb-4.png) no-repeat left top;*/
+        background: transparent url(icon/bg/bg-res-breadcrumb-4.png) no-repeat left top;
+    }
+    .sx-res-breadcrumb-4 .sx-res-breadcrumb-current-4,
+    .sx-res-breadcrumb-4 .sx-res-breadcrumb-current-4 a {
+        color: #fff;
+    }
+
+    .sx-res-breadcrumb-5 {
+        /*background: transparent url(/common/img/app/reservation/default/bg/bg-breadcrumb-5.png) no-repeat left top;*/
+        background: transparent url(icon/bg/bg-res-breadcrumb-5.png) no-repeat left top;
+    }
+    .sx-res-breadcrumb-5 .sx-res-breadcrumb-current-5,
+    .sx-res-breadcrumb-5 .sx-res-breadcrumb-current-5 a {
+        color: #fff;
+    }
+
+    * html .sx-res-breadcrumb-1 {
+        background: none;
+        /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/common/img/app/reservation/default/bg/bg-breadcrumb-1.png', sizingMethod='crop');*/
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-res-breadcrumb-1.png', sizingMethod='crop');
+        zoom: 1;
+    }
+    * html .sx-res-breadcrumb-2 {
+        background: none;
+        /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/common/img/app/reservation/default/bg/bg-breadcrumb-2.png', sizingMethod='crop');*/
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-res-breadcrumb-2.png', sizingMethod='crop');
+        zoom: 1;
+    }
+    * html .sx-res-breadcrumb-3 {
+        background: none;
+        /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/common/img/app/reservation/default/bg/bg-breadcrumb-3.png', sizingMethod='crop');*/
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-res-breadcrumb-3.png', sizingMethod='crop');
+        zoom: 1;
+    }
+    * html .sx-res-breadcrumb-4 {
+        background: none;
+        /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/common/img/app/reservation/default/bg/bg-breadcrumb-4.png', sizingMethod='crop');*/
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-res-breadcrumb-4.png', sizingMethod='crop');
+        zoom: 1;
+    }
+    * html .sx-res-breadcrumb-5 {
+        background: none;
+        /*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/common/img/app/reservation/default/bg/bg-breadcrumb-5.png', sizingMethod='crop');*/
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-res-breadcrumb-5.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    .sx-res-head-wrapper .sx-gc-button-wrapper {
+        clear: none;
+        float: right;
+        padding: 3px 6px 3px 6px;
+        margin: 26px 12px 0 0;
+        background: transparent url(icon/bg/bg-trans-55.png) repeat left top;
+
+        border: 1px solid #fff;
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px 5px;
+    }
+
+    * html .sx-res-head-wrapper .sx-gc-button-wrapper {
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-trans-55.png', sizingMethod='scale');
+        zoom: 1;
+    }
+
+    /* -----------------------------------------------
+    addentry classes
+    ----------------------------------------------- */
+    .sx-gc-rem {
+        background: transparent url(icon/icon-minus.png) no-repeat left top;
+    }
+    .sx-gc-add {
+        background: transparent url(icon/icon-plus.png) no-repeat left top;
+    }
+
+    * html .sx-gc-rem {
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/icon-minus.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    * html .sx-gc-add {
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/icon-plus.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    /* -----------------------------------------------
+    booking head
+    ----------------------------------------------- */
+    .sx-res-bookingform .sx-gc-date {
+        background-color: #fff;
+    }
+
+    #sx-res-bookingform .sx-res-booking-row .sx-res-openhours-info {
+        background: #fff;
+        border: 1px solid #a2a2a2;
+        color: #000;
+    }
+
+    /* -----------------------------------------------
+    ddlist
+    ----------------------------------------------- */
+    #sx-reservation-head .sx-ddlist-suggest ul.sx-res-suggestlist {
+        border-right: 1px solid #a2a2a2;
+    }
+
+    #sx-reservation-head .sx-ddlist-suggest .sx-res-info-wrapper {
+        color: #000;
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway {
+        background-image: url(icon/icon-suggest-railway.gif);
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport {
+        background-image: url(icon/icon-suggest-airport.gif);
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway.ddlist-selected {
+        background-image: url(icon/icon-suggest-railway-sel.gif);
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport.ddlist-selected {
+        background-image: url(icon/icon-suggest-airport-sel.gif);
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li.ddlist-selected {
+        background-image: expression( (typeof sx_ie6_suggest_styles === "function")? sx_ie6_suggest_styles(this) : "none" );
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li h5 span {
+        background-image: url(icon/google/marker-position.png);
+    }
+
+    #sx-reservation-head .sx-res-ddlist-wrapper li h5 {
+        border-bottom: 1px dotted #A2A2A2;
+    }
+
+    /* -----------------------------------------------
+    suggest infos
+    ----------------------------------------------- */
+    #sx-reservation-head  .sx-res-info-wrapper {
+        color: #000;
+    }
+
+    #sx-reservation-head  .sx-res-phone-cost-note {
+        color: #777;
+    }
+
+    #sx-reservation-head  .sx-res-station-hint,
+    #sx-reservation-head  .sx-res-phone-cost-note {
+        color: #777;
+    }
+
+    /* -----------------------------------------------
+    booking datepicker
+    ----------------------------------------------- */
+    .ui-datepicker-current-period-start a,
+    .ui-datepicker-current-period-start .ui-state-default {
+        border: 1px solid #ffcb29;
+        background: #fef0a5 url(icon/bg/bg-first-day.gif) no-repeat left top;
+        color: #000;
+    }
+
+    .ui-datepicker-current-period-end a,
+    .ui-datepicker-current-period-end .ui-state-default {
+        border: 1px solid #ffcb29;
+        background: #fef0a5 url(icon/bg/bg-last-day.gif) no-repeat right top;
+        color: #000;
+    }
+
+    .ui-datepicker-current-period a,
+    .ui-datepicker-current-period .ui-state-default {
+        border: 1px solid #ffcb29;
+        background: #fffae2;
+        color: #000;
+    }
+
+    /* -----------------------------------------------
+    offerselect
+    ----------------------------------------------- */
+    h1.sx-res-offerselect-heading .sx-gc-rightfloater {
+        background: transparent url(icon/icon-help.png) no-repeat left 50%;
+    }
+
+    * html h1.sx-res-offerselect-heading .sx-gc-rightfloater {
+        background: none;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/icon-help.png', sizingMethod='crop');
+        zoom: 1;
+    }
+
+    .sx-res-currentoffer-data {
+        border: 2px solid #F9BE1E;
+        background: #ffdb8d;
+    }
+
+
+    /* -----------------------------------------------
+    offergrid and upsell as grid only available in
+    tt_corporate because page-size must fít with
+    the grid-sizes
+    ----------------------------------------------- */
+    .sx-res-offergrid-wrapper {
+        clear: both;
+        width: 100%;
+        padding: 0 0 20px 0;
+    }
+
+    .sx-res-offergrid {
+        width: 102%;
+        position: relative;
+        z-index: 200;
+        margin: 0 -6px 0 -6px;
+    }
+
+    * html .sx-res-offergrid {
+        left: -6px;
+        margin: 0 -2% 0 -6px;
+    }
+
+    .sx-res-offergrid li {
+        float: left;
+        width: 215px;
+        height: 240px;
+        position: relative;
+        z-index: 300;
+        margin: 0 6px 10px 6px;
+        text-align: center;
+    }
+
+    .sx-res-offergrid li.sx-res-offer-hover,
+    .sx-res-offergrid li:hover {
+        z-index: 400;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .sx-res-offergrid:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 1px;
+        visibility: hidden;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-item {
+        width: 213px;
+        height: 236px;
+        border: 1px solid #fff;
+        background: #fff;
+    }
+
+    .sx-res-offergrid li.sx-res-offer-hover .sx-res-offerlist-item,
+    .sx-res-offergrid li:hover .sx-res-offerlist-item {
+        -moz-box-shadow: 0px 0px 5px #777;
+        -khtml-box-shadow: 0px 0px 5px #777;
+        -webkit-box-shadow: 0px 0px 5px #777;
+        box-shadow: 0px 0px 5px #777;
+        border: 1px solid #555;
+    }
+
+    /* do not float here, display inline-block/inline */
+    .sx-res-offergrid .sx-gc-button-cta-red {
+        display: inline-block;
+        float: none;
+    }
+    * + html .sx-res-offergrid .sx-gc-button-cta-red {
+        display: inline;
+    }
+    * html .sx-res-offergrid .sx-gc-button-cta-red {
+        display: inline;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-button {
+        display: none;
+        padding: 0 0 20px 0;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offerfeatures {
+        display: none;
+        padding: 0 0 20px 0;
+    }
+
+    .sx-res-offergrid li.sx-res-offer-hover .sx-res-offerlist-item,
+    .sx-res-offergrid li:hover .sx-res-offerlist-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 213px;
+        height: auto;
+        z-index: 400;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offerexample {
+        width: 150px;
+        height: 107px;
+        margin: 0;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offername {
+        padding: 0 0 10px 0;
+        color: #0001ac;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offerprice {
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-offergrid li.sx-res-offer-hover .sx-res-offerlist-button,
+    .sx-res-offergrid li:hover .sx-res-offerlist-button {
+        display: block;
+    }
+
+    .sx-res-offergrid li.sx-res-offer-hover .sx-res-offerlist-offerfeatures,
+    .sx-res-offergrid li:hover .sx-res-offerlist-offerfeatures {
+        display: block;
+    }
+
+    .sx-res-offergrid h3 {
+        padding: 3px;
+        background: #eee;
+    }
+
+    .sx-res-offergrid li h4,
+    .sx-res-offergrid li p {
+        padding: 0;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offerprice strong {
+        font-size: 17px;
+        display: block;
+        color: #F9BE1E;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offerprice span {
+        color: #F9BE1E;
+    }
+
+    .sx-res-offergrid .sx-res-offerlist-offername h4 {
+        font-size: 14px;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-fkm {
+        background: #fff url(icon/offerlist/icon-incl-km.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-diamond {
+        background: #fff url(icon/offerlist/icon-diamond.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-navi {
+        background: #fff url(icon/offerlist/icon-navi.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-navi-incl {
+        background: #fff url(icon/offerlist/icon-navi-inkl.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-sb0 {
+        background: #fff url(icon/icon-0-sb.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-sl {
+        background: #fff url(icon/icon-charge-sl.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    .sx-res-offergrid li p.sx-res-offerlist-offer-wintertires {
+        background: #fff url(icon/offerlist/icon-wintertires.gif) no-repeat left top;
+        padding: 0 0 3px 20px;
+        margin: 0 10px 0 10px;
+        text-align: left;
+    }
+
+    /* upsell */
+    .sx-res-offerupsell {
+        z-index: 210;
+    }
+
+    .sx-res-offerupsell .sx-res-offerlist-item {
+        border: 1px solid #eee;
+    }
+
+    #sx-res-surprise {
+        background: transparent url(icon/icon-surprise.png) no-repeat left top;
+    }
+
+    /* -----------------------------------------------
+    offerlist with this layout only for
+    tt_corporate because of thepage-size
+    ----------------------------------------------- */
+    .sx-res-offerlist-wrapper {
+        clear: both;
+        width: 100%;
+        padding: 5px 0 40px 0;
+    }
+
+    .sx-res-offerlist-wrapper ul.sx-fade-out {
+        filter: alpha(opacity = 20);
+        opacity: 0.2;
+    }
+
+    .sx-res-offerlist li {
+        clear: both;
+        height: 98px;
+        position: relative;
+        z-index: 100;
+
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #a2a2a2;
+        background: #fff;
+    }
+
+    .sx-res-offergrid-wrapper .sx-res-offerlist li {
+        height: auto;
+        min-height: 1px;
+        border: 1px solid #eeeeee;
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-offerlist li.sx-res-offer-hover,
+    .sx-res-offerlist li:hover {
+        margin: 0 0 -1px 0;
+        z-index: 200;
+        position: relative;
+        top: -1px;
+        cursor: pointer;
+        cursor: hand;
+
+        border: 1px solid #555;
+        -moz-box-shadow: 0px 0px 5px #777;
+        -khtml-box-shadow: 0px 0px 5px #777;
+        -webkit-box-shadow: 0px 0px 5px #777;
+        box-shadow: 0px 0px 5px #777;
+    }
+
+    .sx-res-offergrid-wrapper .sx-res-offerlist li.sx-res-offer-hover,
+    .sx-res-offergrid-wrapper .sx-res-offerlist li:hover {
+        top: 0;
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offerexample {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+        height: 71px;
+        border-top: 13px solid #fff;
+        border-bottom: 13px solid #fff;
+        margin: 0 20px 0 10px;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offername,
+    .sx-res-offerlist .sx-res-offerlist-offerprice,
+    .sx-res-offerlist .sx-res-offerlist-offerfeatures {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    * + html .sx-res-offerlist .sx-res-offerlist-offerexample,
+    * + html .sx-res-offerlist .sx-res-offerlist-offername,
+    * + html .sx-res-offerlist .sx-res-offerlist-offerprice,
+    * + html .sx-res-offerlist .sx-res-offerlist-offerfeatures {
+        display: inline;
+    }
+
+    * html .sx-res-offerlist .sx-res-offerlist-offerexample,
+    * html .sx-res-offerlist .sx-res-offerlist-offername,
+    * html .sx-res-offerlist .sx-res-offerlist-offerprice,
+    * html .sx-res-offerlist .sx-res-offerlist-offerfeatures {
+        display: inline;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offername {
+        width: 27%;
+        color: #0001ac;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offerprice {
+        width: 26%;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offerfeatures {
+        width: 26%;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-lkw-link {
+        width: 57%;
+        margin: 0 3px 0 0;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-button {
+        display: none;
+        position: relative;
+    }
+
+    .sx-res-offerlist .sx-gc-button-cta-red {
+        position: absolute;
+        float: none;
+        top: -15px;
+        left: 0;
+    }
+
+    .sx-res-offerlist .sx-res-waitlist-wrapper {
+        position: absolute;
+        float: none;
+        top: -25px;
+        left: 0;
+    }
+
+    .sx-res-offerlist .sx-res-waitlist-wrapper p {
+        display: inline-block;
+        float: none;
+    }
+
+    .sx-res-offerlist  .sx-res-waitlist-wrapper p.sx-res-offerlist-alternative {
+        padding: 1px 0 0 50px;
+        margin: 0;
+    }
+
+    .sx-res-offerlist .sx-res-waitlist-wrapper span {
+        font-weight: normal;
+        white-space: nowrap;
+    }
+
+    .sx-res-offerlist li.sx-res-offer-hover .sx-res-offerlist-offerfeatures,
+    .sx-res-offerlist li:hover .sx-res-offerlist-offerfeatures {
+        display: none;
+    }
+
+    .sx-res-offerlist li.sx-res-offer-hover .sx-res-offerlist-button,
+    .sx-res-offerlist li:hover .sx-res-offerlist-button {
+        display: inline;
+    }
+
+    * html .sx-res-offerlist .sx-gc-button-cta-red {
+        filter:progid:DXImageTransform.Microsoft.Gradient(endColorstr='#ff6600', startColorstr='#fcb900', gradientType='0');*
+        top: 25px;
+    }
+
+    * + html .sx-res-offerlist .sx-gc-button-cta-red {
+        top: 25px;
+    }
+
+    * + html .sx-res-offerlist .sx-res-waitlist-wrapper {
+        top: 15px;
+    }
+
+    .sx-res-offerlist h3 {
+        background: none repeat scroll 0 0 #EEEEEE;
+        color: #000000;
+        font: bold 14px Arial,Helvetica,Verdana,sans-serif;
+        padding: 2px 5px;
+    }
+
+    .sx-res-offerlist li h4,
+    .sx-res-offerlist li p {
+        margin: 0;
+        padding: 0;
+        line-height: normal;
+    }
+
+    .sx-res-offerlist li p.sx-gc-offerlist-type-p, .sx-res-offerlist li p.sx-gc-offerlist-type-s {
+        color: #000;
+        padding: 2px 0 2px 22px;
+        background: #fff url(icon/icon-percent.gif) no-repeat left top;
+    }
+
+    .sx-res-offerlist li p.sx-gc-offerlist-type-o,
+    .sx-res-offerlist li p.sx-gc-offerlist-prmg {
+        color: #000;
+        padding: 2px 0 2px 22px;
+        background: #fff url(icon/icon-star.gif) no-repeat left top;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offerprice strong {
+        font-size: 17px;
+        color: #F9BE1E;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offerprice span {
+        color: #F9BE1E;
+    }
+
+    .sx-res-offerlist .sx-res-offerlist-offername h4 {
+        font-size: 14px;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-fkm {
+        padding: 2px 0 2px 20px;
+        background: #fff url(icon/offerlist/icon-incl-km.gif) no-repeat left top;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-diamond {
+        padding: 2px 0 2px 20px;
+        background: #fff url(icon/offerlist/icon-diamond.gif) no-repeat left top;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-navi {
+        padding: 2px 0 2px 20px;
+        background: #fff url(icon/offerlist/icon-navi.gif) no-repeat left top;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-navi-incl {
+        padding: 2px 0 2px 20px;
+        background: #fff url(icon/offerlist/icon-navi-inkl.gif) no-repeat left top;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-wintertires {
+        background: #fff url(icon/offerlist/icon-wintertires.gif) no-repeat left top;
+        padding: 2px 0 2px 20px;
+    }
+
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-wintertires-red {
+        background: #ff6600 url(icon/offerlist/icon-wintertires-red.gif) no-repeat left top;
+        padding: 2px 0 2px 20px;
+        margin: 0 0 2px 0;
+
+        color: #ffffff;
+        font-weight: bold;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-nearby {
+        background: #fff url(icon/offerlist/icon-umkreissuche.gif) no-repeat left top;
+        padding: 2px 0 2px 20px;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-waitlisted {
+        background: #fff url(icon/offerlist/icon-warteliste.gif) no-repeat left top;
+        padding: 2px 0 2px 20px;
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-sb0 {
+        background: #ff6600 url(icon/offerlist/icon-0-sb-o.png) no-repeat left 1px;
+        padding: 2px 0 2px 20px;
+        margin: 0 0 2px 0;
+        font-weight: bold;
+        color: #ffffff;
+        /*
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        */
+    }
+
+    .sx-res-offerlist li p.sx-res-offerlist-offer-sl {
+        background: #fff url(icon/icon-charge-sl.gif) no-repeat left top;
+        padding: 2px 0 2px 20px;
+    }
+
+    /* offerlist filter */
+    .sx-res-offerfilter-wrapper {
+        background: #eee;
+    }
+
+    .sx-res-selected-filter h4 {
+        color: #F9BE1E;
+    }
+
+    .sx-res-selected-filter p {
+        color: #F9BE1E;
+    }
+
+    .sx-res-offerselect-lkw-link {
+        border-top: 1px solid #a2a2a2;
+    }
+
+    #sx-res-catlist p {
+        border: 1px solid #777;
+        background: #fff url(icon/bg/bg-filter-open.gif) no-repeat 99% 6px;
+    }
+
+    #sx-res-catlist div ul {
+        background: #fff;
+        border: 1px solid #777;
+        -moz-box-shadow: 2px 2px 3px #777;
+        -khtml-box-shadow: 2px 2px 3px #777;
+        -webkit-box-shadow: 2px 2px 3px #777;
+        box-shadow: 2px 2px 3px #777;
+    }
+
+    /* layout select */
+    .sx-res-layout-wrapper #sx-res-button-grid {
+        background-image: url(icon/icon-layout-grid-normal.gif);
+    }
+
+    .sx-res-layout-wrapper #sx-res-button-list {
+        background-image: url(icon/icon-layout-list-normal.gif);
+    }
+
+    .sx-res-layout-wrapper #sx-res-button-grid:hover,
+    .sx-res-layout-wrapper #sx-res-button-grid.sx-gc-selected {
+        background-image: url(icon/icon-layout-grid-selected.gif);
+    }
+
+    .sx-res-layout-wrapper #sx-res-button-list:hover,
+    .sx-res-layout-wrapper #sx-res-button-list.sx-gc-selected {
+        background-image: url(icon/icon-layout-list-selected.gif);
+    }
+
+    .sx-res-hint {
+        background: #FED4D6;
+    }
+
+    /* alternative station */
+    #sx-js-res-lkw-altcit li,
+    #sx-js-res-altcit div li,
+    #sx-js-altcit-wrapper li {
+        border-bottom: 1px dashed #a2a2a2;
+    }
+
+    #sx-js-res-lkw-altcit li strong,
+    #sx-js-res-altcit div li strong,
+    #sx-js-altcit-wrapper li strong {
+        color: #F9BE1E;
+    }
+
+    .sx-js-reset-button .sx-gc-button-verysmall-next {
+        color: #fafafa !important;
+    }
+
+    /* -----------------------------------------------
+    offerconfig
+    ----------------------------------------------- */
+    /* left */
+    .sx-res-offerconfig-info h2,
+    .sx-res-offerconfig-info p {
+        color: #73787E;
+    }
+
+    .sx-res-config-list li {
+        border-bottom: 1px dotted #777;
+    }
+
+    .sx-res-example-data li {
+        color: #73787e;
+    }
+
+    .sx-gc-message .sx-res-config-entry,
+    .sx-gc-message .sx-res-config-unit,
+    .sx-gc-message .sx-res-config-cost {
+		color:#000;
+	}
+
+    .sx-offerconfig-wait-for-up {
+        background: #fff url(icon/updating-small-fff.gif) no-repeat 90% 50%;
+    }
+
+    /* counter extras */
+    .sx-res-config-plus-minus span {
+        background: #fff url(icon/bg/bg-plus-minus.gif) no-repeat left top;
+    }
+
+    .sx-res-offerconfig-info p.sx-gc-offerlist-type-p, .sx-res-offerconfig-info p.sx-gc-offerlist-type-s {
+        color: #000;
+        padding-left: 22px;
+        background: #fff url(icon/icon-percent.gif) no-repeat left top;
+    }
+
+    .sx-res-offerconfig-info p.sx-gc-offerlist-type-o,
+    .sx-res-offerconfig-info p.sx-gc-offerlist-prmg {
+        color: #000;
+        padding-left: 22px;
+        background: #fff url(icon/icon-star.gif) no-repeat left top;
+    }
+
+    .sx-res-example-data .sx-gc-button-verysmall-info,
+    .sx-res-example-data .sx-gc-button-verysmall-next {
+        font-weight: bold;
+        color: #73787E !important;
+    }
+
+    /* -----------------------------------------------
+    incremental_sale
+    ----------------------------------------------- */
+    #sx-res-secure-packages-wrapper td {
+        background-color: #f8f8f8;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-label {
+        background-color: #eeeeee;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-item-5 .sx-res-is-label {
+        background: #cccccc;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-item-5 .sx-res-is-val {
+        background: #eeeeee;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-hovered,
+    #sx-res-secure-packages-wrapper .sx-res-is-selected {
+        border-left-color: #ffb602;
+        border-right-color: #ffb602;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-item-1 td.sx-res-is-hovered,
+    #sx-res-secure-packages-wrapper .sx-res-is-item-6 td.sx-res-is-hovered,
+    #sx-res-secure-packages-wrapper .sx-res-is-item-1 td.sx-res-is-selected,
+    #sx-res-secure-packages-wrapper .sx-res-is-item-6 td.sx-res-is-selected {
+        border-top-color: #ffb602;
+        border-bottom-color: #ffb602;
+    }
+
+    #sx-res-secure-packages-wrapper .sx-res-is-note {
+        color: #e40018;
+    }
+
+    #sx-res-secure-packages-wrapper select {
+        color: green;
+    }
+
+    /* -----------------------------------------------
+    upselllist
+    ----------------------------------------------- */
+    .sx-res-upselllist li {
+        border-bottom: 1px solid #ddd;
+    }
+    .sx-res-upsell-offerprice strong {
+        color: #F9BE1E;
+    }
+
+    /* -----------------------------------------------
+    customerdetails
+    ----------------------------------------------- */
+    .sx-res-booking-info-wrapper {
+        border-top: 1px solid #a2a2a2;
+        border-bottom: 1px solid #a2a2a2;
+    }
+
+    .sx-res-footer-wrapper p {
+        color: #999;
+    }
+
+    .sx-res-footer-wrapper p a {
+        color: #999;
+    }
+
+    .sx-res-footer-wrapper p a:hover {
+        text-decoration: underline;
+    }
+
+    .sx-res-daten-wrapper p {
+		padding-bottom: 10px;
+        font-size: 10px;
+    }
+
+    .sx-res-daten-wrapper p a {
+        font-weight: bold;
+    }
+
+    .sx-res-flcomp-top {
+		background: #fbf6d8;
+    }
+
+    .sx-res-flcomp-top-last {
+        border-bottom: 1px dashed #000;
+    }
+
+    #sx-js-res-similar-booking .sx-gc-active {
+        color: #ff6600;
+    }
+
+    /* -----------------------------------------------
+    customerdetails - login
+    ----------------------------------------------- */
+    .sx-res-login-state {
+        color: #777;
+    }
+
+    .sx-res-login-state a {
+        color: #777;
+    }
+
+    #sx-res-login-passw.sx-gc-waiting {
+        background: #ffedbf url(icon/bg/bg-login-loader.gif) no-repeat 99% 1px;
+    }
+
+    #sx-res-mnum-list li {
+        border-bottom: 1px dashed #a2a2a2;
+    }
+
+    #sx-res-mnum-list li .sx-gc-leftfloater {
+        color: #F9BE1E;
+    }
+
+    .sx-res-password-or-surname p {
+        color: #F9BE1E;
+    }
+
+    /* -----------------------------------------------
+    switchoci
+    ----------------------------------------------- */
+    .sx-res-switch-oci-eyecatch {
+        color: #F9BE1E;
+    }
+
+    .sx-res-switch-oci-wrapper-trenner {
+        border-top: 1px dotted #000;
+    }
+
+    .sx-res-quickpick-wrapper {
+        border: 1px solid #a2a2a2;
+        -moz-box-shadow: 2px 2px 3px #BFBFBF;
+        -khtml-box-shadow: 2px 2px 3px #BFBFBF;
+        -webkit-box-shadow:2px 2px 3px #BFBFBF;
+        box-shadow: 2px 2px 3px #BFBFBF;
+    }
+
+    #sx-quickpick-main .error {
+        background: #fed4d6;
+        color: #000;
+    }
+
+    #sx-quickpick-main .message {
+        background: #fecf62;
+        color: #fff;
+    }
+
+    /* -----------------------------------------------
+    bookingconfirmation
+    ----------------------------------------------- */
+    .sx-res-print-file {
+        background: #fff url(icon/icon-print.png") no-repeat 0 0;
+    }
+
+    .sx-res-pdf-file {
+        background: #fff url(icon/icon-pdf.png") no-repeat 0 0;
+    }
+
+    .sx-res-confirmation-warning {
+        border: 1px solid #ff0000;
+    }
+
+    .sx-res-confirm-result {
+        color: #FF6600;
+    }
+
+    .sx-res-confirm-detail-wrapper {
+        border: 1px solid #a2a2a2;
+        -moz-box-shadow: 2px 2px 3px #BFBFBF;
+        -khtml-box-shadow: 2px 2px 3px #BFBFBF;
+        -webkit-box-shadow:2px 2px 3px #BFBFBF;
+        box-shadow: 2px 2px 3px #BFBFBF;
+    }
+
+    .sx-res-confirm-detail-wrapper h3 {
+        border-bottom: 1px solid #a2a2a2;
+    }
+
+    .sx-res-barcode-note h3 {
+        color: #F9BE1E;
+    }
+
+    .sx-res-barcode-note ul li {
+        background: #fff url(icon/bg/bg-list-dot.gif") no-repeat 0 5px;
+    }
+
+    /* -----------------------------------------------
+    tell a friend, wakz, online-help
+    ----------------------------------------------- */
+    #sx-js-res-online-help strong {
+        color: #ff6600;
+    }
+
+    /* -----------------------------------------------
+    topoffer
+    ----------------------------------------------- */
+
+    .sx-res-topoffer-price {
+        color: #F9BE1E;
+    }
+
+    .sx-res-topoffer-org-price, .sx-res-topoffer-dcn-price {
+        color: #777777;
+    }
+
+    .sx-res-topoffer-org-price span {
+        background: #fff url(icon/bg/bg-org-price-777.gif) no-repeat 50% top;
+    }
+
+    .sx-res-topoffer-planprice {
+        color: #F9BE1E;
+    }
+
+    .sx-res-topoffer-available-percent-wrapper{
+        background-color: #eee;
+    }
+
+    .sx-res-avp-high {
+        background-image:url(icon/bg/bg-shortage-high.gif);
+        width:80px;
+    }
+
+    .sx-res-avp-medium{
+        background-image:url(icon/bg/bg-shortage-middle.gif);
+        width:60px;
+    }
+
+    .sx-res-avp-low {
+        background-image:url(icon/bg/bg-shortage-rare.gif);
+        width: 30px;
+    }
+    .sx-res-avp-critical {
+        background-image:url(icon/bg/bg-shortage-rare.gif);
+        width: 25px;
+    }
+    .sx-res-avp-missing {
+        background-image:url(icon/bg/bg-shortage-rare.gif);
+        width: 20px;
+    }
+
+    .sx-res-dpl-low {
+        color:#ff0000;
+    }
+    .sx-res-dpl-med {
+        color:#000;
+    }
+    .sx-res-dpl-high {
+        color:#000;
+    }
+
+    .sx-res-topoffer-item h3 {
+        color: #F9BE1E;
+        border-bottom: 1px dashed #F9BE1E;
+    }
+
+    .sx-res-topoffer-item h3 span {
+        color: #000;
+    }
+
+    .sx-res-topoffer-details-footernote {
+        color: #777;
+    }
+
+    /*
+    .sx-res-topofferlist .sx-res-topoffer-item {
+        border-bottom: 1px solid #a2a2a2;
+    }
+
+
+
+   .sx-res-topofferlist ul.sx-gc-def li {
+        background: #fff url(/common/img/app/reservation/default/bg/bg-list-dot.gif") no-repeat 0 5px;
+    }
+
+    .sx-res-topoffer-countries li {
+        color: #000;
+    }
+
+    .sx-res-topoffer-countries li:hover,
+    .sx-res-topoffer-countries li.sx-gc-selected {
+        color: #ff6600;
+    }
+
+    */
+
+    /* -----------------------------------------------
+    agent rates
+    ----------------------------------------------- */
+    .sx-res-agentrate-wrapper .sx-res-agentrate-P {
+        background: #fff url(../../../common/img/base/rac/rac-agent-car.jpg) no-repeat left top;
+    }
+
+    .sx-res-agentrate-wrapper .sx-res-agentrate-L {
+        background: #fff url(../../../common/img/base/rac/rac-agent-truck.jpg) no-repeat left top;
+    }
+
+    .sx-res-agentrate-wrapper .sx-res-agentrate-hc {
+        background: #fff url(../../../common/img/base/rac/rac-agent-hc.jpg) no-repeat left top;
+    }
+
+    .sx-res-agentrate-wrapper .sx-res-agentrate-content {
+        border-top: 1px dashed #a2a2a2;
+    }
+
+    /* -----------------------------------------------
+    booking with left/right column like
+    topoffer, newsletter etc...
+    ----------------------------------------------- */
+    .sx-res-specialoffer-detail-data h3 {
+        color: #F9BE1E;
+        border-bottom: 1px dashed #F9BE1E;
+    }
+
+    .sx-res-specialoffer-detail-data h3 span {
+        color: #000;
+    }
+
+    .sx-res-specialoffer-detail-data ul.sx-gc-def li {
+        background: #fff url(icon/bg/bg-list-dot.gif") no-repeat 0 5px;
+    }
+
+    /* -----------------------------------------------
+    table
+    ----------------------------------------------- */
+    .sx-gc-table-wrapper th {
+        border-bottom: 1px solid #F9BE1E;
+    }
+
+    .sx-gc-table-wrapper td {
+        border-bottom: 1px solid #a2a2a2;
+    }
+
