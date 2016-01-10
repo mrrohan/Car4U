@@ -81,7 +81,8 @@ namespace Car4U.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
+            var pais = db.Countries.SingleOrDefault(l => l.Name.Equals("Portugal"));
+            ViewBag.Country = new SelectList(db.Countries, "ID", "Name", pais.ID);
             return View();
         }
 
@@ -381,7 +382,8 @@ namespace Car4U.Controllers
             else
             {
                 // If the user does not have an account, then prompt the user to create an account
-                ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
+                var pais = db.Countries.SingleOrDefault(l => l.Name.Equals("Portugal"));
+                ViewBag.Country = new SelectList(db.Countries, "ID", "Name", pais.ID);
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                 return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, Name = loginInfo.ExternalIdentity.Name });

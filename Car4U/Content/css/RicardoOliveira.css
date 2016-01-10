@@ -1502,8 +1502,10 @@ ul.features {
     color: #F9BF1D;
     border-bottom: 0px solid #6EB663;
     box-shadow: 0 0 0px #DEDEDE;
+    font-size:20px;
+    font-weight:900;
 }
-
+ 
 .reserva .col-md-6 img {
     width: 95%;
 }
