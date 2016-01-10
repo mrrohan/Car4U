@@ -2,20 +2,16 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
 @{
     ViewBag.Title = "Index";
 }
-<br />
-<h4 style="color:black">Tipo de Extra</h4>
-<br />
+<h2 style="color:black">Tipo de Extra</h2>
 
 <div class="form-group">
     <div class="buttonbackoffice">
         <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "ExtraModelTypes")'"> Adicionar </button>
     </div>
 </div>
-
 <table class="table tableheader">
     <tr>
         <th>
@@ -30,14 +26,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td >
+            <td>
                 <div class="buttonbackoffice">
                     @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                     @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                     @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
                 </div>
-                    </td>
+            </td>
         </tr>
     }
 </table>
-

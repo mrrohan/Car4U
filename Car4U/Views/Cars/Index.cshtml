@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Frota Car4U</h2>
 <div class="form-group">
     <div class="buttonbackoffice">
 
@@ -22,7 +22,7 @@
         <th>Tipo Combustível</th>
         <th> Matrícula </th>
         <th> Data Registo </th>
-        <th> nº Portas </th>
+        <th> Nº Portas </th>
         <th>  Capacidade Mala </th>
         <th>  Cilindrada (cc)  </th>
         <th>  Potência (cv)</th>
@@ -38,7 +38,7 @@
                     @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
                     {
 
-                        <img width="100" height="50" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                        <img width="100" height="auto" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
 
                     }
                 </div>
