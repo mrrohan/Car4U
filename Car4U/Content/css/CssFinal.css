@@ -2,19 +2,28 @@
 
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+#footer {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+
 .reserveIndex {
     margin-top: 20px;
     position: relative;
     z-index: 50;
     float: left;
+    
 }
 
 .car4U-text {
+   
 }
 
 .principle {
     max-width: 500px;
     max-height: 250px;
+    margin-top: 60px;
 }
 
 .navbar-collapse {
@@ -33,7 +42,7 @@
 
 /*Car logo*/
 
-@media(max-width:1280px) {
+@media(max-width:1049px) {
     .five .shape-container {
         display: none;
     }
@@ -45,6 +54,10 @@
     .car4U-text {
         display: none;
     }
+
+   row {
+       align-content:center;
+   }
 
 }
 
@@ -183,7 +196,7 @@ button {
         background-color: burlywood;
         color: #f9bf1d;
     }
-/*end Button active 3d*/
+/*end Button active 3d
 .footer-button {
     /*border: 0;
     background: #f9bf1d;
@@ -430,8 +443,21 @@ button {
 .tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
     border:2px solid white!important;
     font-family: Arial,sans-serif;
-}
+    border-radius:6px;
+    text-align:center;
+    vertical-align:central;
 
+  
+}
+#hover-icon {
+
+
+}
+#hover-icon:hover{
+    opacity:0.25;
+
+
+}
 .tableheader tbody tr:nth-child(odd) {
    background-color: rgba(255, 216, 0, 0.39);
 }
@@ -439,12 +465,13 @@ button {
  .tableheader1 {
     visibility  : hidden;
     width:50px;
+   
 }
  
 
 .tableheader tr td:last-child div {
      visibility  : hidden;
-    width:150px;
+     width: 150px;
 }
 
 .tableheader tr:hover td:last-child div {
@@ -524,6 +551,7 @@ border-radius: 4px;
 [class^="ico-"]:before {
   
      content: " ";
+     
   width:10px; height:10px;
   display:inline-block;
   vertical-align:middle;

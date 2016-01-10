@@ -37,12 +37,16 @@
                 <form method="get">
                     <ul class="nav fleet-nav pull-left">
                         @foreach (var item in ViewBag.categories)
-                        {
-                            <li> <input type="checkbox" name="selectedCats" value="@item.ID" />@item.CategoryName</li>
+                        { 
+                          <li>
+                              <div align="center" style="width:70px ; height:70px" >
+                                  <input type="checkbox" class="option-input radio" name="selectedCats" value="@item.ID" title="" /><h5><b>@item.CategoryName</b></h5>
+                              </div>                               
+                          </li>
                         }
                     </ul>
                     <div class="button">
-                        <button id="bookingFormSubmit" class="submit" type="submit">Pesquisar</button>
+                        <button id="btnFrota" class="submit" type="submit">Pesquisar</button>
                     </div>
                 </form>
             </div>

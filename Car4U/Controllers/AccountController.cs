@@ -384,7 +384,7 @@ namespace Car4U.Controllers
                 ViewBag.Country = new SelectList(db.Countries, "ID", "Name");
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, Name = loginInfo.ExternalIdentity.Name });
             }
         }
 
