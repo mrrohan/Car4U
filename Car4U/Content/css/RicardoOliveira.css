@@ -1453,22 +1453,14 @@ ul.features {
     width: auto;
     border: 0;
     float:left;
-
 }
 
-.submitSearchView:hover {
-    background: none repeat scroll 0 0 #F9BF1D;
-    color: #FFFFFF;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-}
 
 .btn-primary:hover,
 .buttonbackoffice .submit:hover,
 .button .submit:hover {
     background: none repeat scroll 0 0 #F9BF1D;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
     cursor: pointer;
     outline: none;
