@@ -11,6 +11,7 @@ using Car4U.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net.Mail;
+using System.Threading;
 
 namespace Car4U.Controllers
 {
@@ -19,6 +20,8 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
         static int MULTI = 123456789;
+        public double price;
+        public int warrat;
         // GET: Reservations
         public ActionResult Index()
         {
@@ -185,7 +188,8 @@ namespace Car4U.Controllers
                 }
                 
                 reservation.ReservationDate = DateTime.Now;
-                               
+
+                
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -276,8 +280,7 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
+             
 
                
                 if (mpreliveryid != null)
@@ -324,10 +327,13 @@ namespace Car4U.Controllers
                     {
                         extid = Convert.ToInt32(selectedExtraModels[count]);
                         extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
-                        extritem.InUse = true;
-                        //db.Entry(extritem).State = EntityState.Modified;
-                        //db.SaveChanges();
-                        reservation.ExtraItems.Add(extritem);
+                        if (extritem != null)
+                        {
+                            extritem.InUse = true;
+                            //db.Entry(extritem).State = EntityState.Modified;
+                            //db.SaveChanges();
+                            reservation.ExtraItems.Add(extritem);
+                        }
                     }
                 }
                 else
@@ -340,12 +346,16 @@ namespace Car4U.Controllers
                 Category cat = db.Categories.First(c => c.ID == catid);
 
                 //add price of ExtraItems to FinalPrice
-                foreach (ExtraItem i in reservation.ExtraItems)
+                if (reservation.ExtraItems != null)
                 {
-                    int modelid = i.ExtraModelID;
-                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
-                    reservation.FinalPrice += extrmodel.Price;
+                    foreach (ExtraItem i in reservation.ExtraItems)
+                    {
+                        int modelid = i.ExtraModelID;
+                        ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
+                        reservation.FinalPrice += extrmodel.Price;
+                    }
                 }
+              
                 var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
                 int ndaysres = span.Days;
 
@@ -376,17 +386,49 @@ namespace Car4U.Controllers
 
                 reservation.ReservationDate = DateTime.Now;
 
+                price = reservation.FinalPrice;
+                warrat= cat.Warranty;
+
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
-                     }
+                
+                ///////////////////////////////////v mail sender
+                try
+                {
+                    string to = reservation.Email;
+                    string from = "car4upt@portugalmail.pt";
+                    string subject = "Reserva na Car4U";
+                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + price + " e a caução:" + warrat + ".";
+
+                    var client = new SmtpClient("smtp.portugalmail.pt", 25)
+                    {
+                        Credentials = new NetworkCredential("car4upt@portugalmail.pt", "123456"),
+                        EnableSsl = false
+                    };
+
+                    try
+                    {
+                        client.Send(from, to, subject, body);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Exception caught in Sending Email(): {0}",
+                                    ex.ToString());
+                    }
+                }
                 catch
                 {
-
+                    Console.WriteLine("Erro no mail");
+                                 
                 }
-
-              
-
                 return RedirectToAction("Index", "Home");
+                    /////
+                //     }
+                //catch
+                //{
+                //    Console.WriteLine("Erro no modelo");
+                //}
             }
 
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
@@ -518,29 +560,6 @@ namespace Car4U.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        public static void CreateTestMessage1(string server, int port, Reservation reservation)
-        {
-
-            string to = reservation.Email;
-            string from = "car4u@gmail.com";
-            string subject = "Reserva na Car4U";
-            string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + reservation.FinalPrice + "e a caução:";
-            MailMessage message = new MailMessage(from, to, subject, body);
-            SmtpClient client = new SmtpClient(server, port);
-            // Credentials are necessary if the server requires the client 
-            // to authenticate before it will send e-mail on the client's behalf.
-            client.Credentials = CredentialCache.DefaultNetworkCredentials;
-
-            try
-            {
-                client.Send(message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception caught in CreateTestMessage1(): {0}",
-                            ex.ToString());
-            }
         }
     }
 }
