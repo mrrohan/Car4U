@@ -20,6 +20,8 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
         static int MULTI = 123456789;
+        public double price;
+        public int warrat;
         // GET: Reservations
         public ActionResult Index()
         {
@@ -186,7 +188,8 @@ namespace Car4U.Controllers
                 }
                 
                 reservation.ReservationDate = DateTime.Now;
-                               
+
+                
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -383,16 +386,19 @@ namespace Car4U.Controllers
 
                 reservation.ReservationDate = DateTime.Now;
 
+                price = reservation.FinalPrice;
+                warrat= cat.Warranty;
+
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                
                 ///////////////////////////////////v mail sender
                 try
                 {
                     string to = reservation.Email;
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
-                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + reservation.FinalPrice + " e a caução:";
+                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + price + " e a caução:" + warrat + ".";
 
                     var client = new SmtpClient("smtp.portugalmail.pt", 25)
                     {
@@ -416,6 +422,7 @@ namespace Car4U.Controllers
                     Console.WriteLine("Erro no mail");
                                  
                 }
+                return RedirectToAction("Index", "Home");
                     /////
                 //     }
                 //catch
