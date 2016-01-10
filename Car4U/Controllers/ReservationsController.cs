@@ -277,8 +277,7 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
+             
 
                
                 if (mpreliveryid != null)
@@ -325,10 +324,13 @@ namespace Car4U.Controllers
                     {
                         extid = Convert.ToInt32(selectedExtraModels[count]);
                         extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
-                        extritem.InUse = true;
-                        //db.Entry(extritem).State = EntityState.Modified;
-                        //db.SaveChanges();
-                        reservation.ExtraItems.Add(extritem);
+                        if (extritem != null)
+                        {
+                            extritem.InUse = true;
+                            //db.Entry(extritem).State = EntityState.Modified;
+                            //db.SaveChanges();
+                            reservation.ExtraItems.Add(extritem);
+                        }
                     }
                 }
                 else
@@ -341,12 +343,16 @@ namespace Car4U.Controllers
                 Category cat = db.Categories.First(c => c.ID == catid);
 
                 //add price of ExtraItems to FinalPrice
-                foreach (ExtraItem i in reservation.ExtraItems)
+                if (reservation.ExtraItems != null)
                 {
-                    int modelid = i.ExtraModelID;
-                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
-                    reservation.FinalPrice += extrmodel.Price;
+                    foreach (ExtraItem i in reservation.ExtraItems)
+                    {
+                        int modelid = i.ExtraModelID;
+                        ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
+                        reservation.FinalPrice += extrmodel.Price;
+                    }
                 }
+              
                 var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
                 int ndaysres = span.Days;
 
@@ -411,11 +417,11 @@ namespace Car4U.Controllers
                                  
                 }
                     /////
-                     }
-                catch
-                {
-                    Console.WriteLine("Erro no modelo");
-                }
+                //     }
+                //catch
+                //{
+                //    Console.WriteLine("Erro no modelo");
+                //}
             }
 
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
