@@ -308,6 +308,9 @@ namespace Car4U.Controllers
                 var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
                 ViewBag.Roles = list;
             }
+            // prepopulat roles for the view dropdown
+            var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
+            ViewBag.Roles = list;
 
             return View("ManageUserRoles");
         }

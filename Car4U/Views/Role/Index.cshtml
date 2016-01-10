@@ -16,7 +16,7 @@
         <p>
             <strong>@role.Name | </strong>
             <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span> |
-            @Html.ActionLink("Editar", "Edit", new { roleName = @role.Name })
+            @Html.ActionLink("Editar", "Edit", new { roleName = @role.Name }, new { @class = "icon-edit" })
         </p>
     }
 </div>
