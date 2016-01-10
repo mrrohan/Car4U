@@ -56,14 +56,8 @@ namespace Car4U.Controllers
         [HttpPost]
         public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info, int? carid)
         {
-
-            //if (carid == null)
-            //{
-            //    return View();
-            //}
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
-            //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
 
             return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm"), carid=carid });
         }
@@ -87,6 +81,7 @@ namespace Car4U.Controllers
             if (categotyid != null)
             {
                 viewModel.Infosender.CategoryID = categotyid ?? default(int);
+                viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).ToList();
             }
             if (begindate != null)
             {
@@ -108,14 +103,10 @@ namespace Car4U.Controllers
                 viewModel.Infosender.EndHour = endhour ?? default(DateTime);
               
             }
-            var DateAndTime = DateTime.Now;
-            var today = DateAndTime.Date;
+        
 
-            viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).Where(l => (l.CarStatus.Count(c => c.FinishDate < viewModel.Infosender.BeginDate || c.BeginDate > viewModel.Infosender.EndDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.Car == null) <= 0).ToList();
-            if (viewModel.Cars == null)
-            {
-                viewModel.Cars = db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < viewModel.Infosender.BeginDate || c.BeginDate > viewModel.Infosender.EndDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.Car == null) <= 0).ToList();
-            }
+           
+         
            
           
             return View(viewModel);
