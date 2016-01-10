@@ -215,7 +215,7 @@ namespace Car4U.Controllers
 
 
         // GET: Reservations/Create
-        public ActionResult CreateTeste(Reservation reservation, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        public ActionResult CreateTeste(Reservation reservation, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour, int? carid)
         {
 
             if (mpreliveryid != null)
@@ -229,6 +229,8 @@ namespace Car4U.Controllers
             if (categotyid != null)
             {
                 reservation.Category = db.Categories.Find(categotyid);
+
+              
             }
 
             if (begindate != null)
@@ -248,6 +250,35 @@ namespace Car4U.Controllers
             if (endhour != null)
             {
                 reservation.ReturnHour = endhour ?? default(DateTime);
+            }
+            if (carid != null && categotyid!=null)
+            {
+                ViewBag.carother = db.Cars.Where(l=>l.ID!=carid).FirstOrDefault(l => l.CategoryID == categotyid);
+                var car = db.Cars.SingleOrDefault(l => l.ID == carid);
+                var car2 = db.Cars.FirstOrDefault(l => l.CategoryID == categotyid);
+
+      
+                if (car != null)
+                {
+                    if (car.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                    {
+
+                        ViewBag.img = "/images/" + car.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName;
+
+                    }
+                    ViewBag.car = car;
+                }
+                else
+                {
+                    if (car2.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                    {
+
+                        ViewBag.img = "/images/" + car2.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName;
+
+                    }
+
+                    ViewBag.car = car2;
+                }
             }
 
             string userid = User.Identity.GetUserId();
@@ -409,7 +440,7 @@ namespace Car4U.Controllers
                     string to = reservation.Email;
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
-                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + price + " e a caução:" + warrat + ".";
+                    string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ .";
 
                     var client = new SmtpClient("smtp.portugalmail.pt", 25)
                     {
