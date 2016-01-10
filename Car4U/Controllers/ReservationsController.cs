@@ -229,8 +229,6 @@ namespace Car4U.Controllers
             if (categotyid != null)
             {
                 reservation.Category = db.Categories.Find(categotyid);
-
-              
             }
 
             if (begindate != null)
@@ -308,8 +306,15 @@ namespace Car4U.Controllers
             {
                 ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
             }
-          
+
+            if(reservation.DeliveryDate!=null && reservation.ReturnDate != null)
+            {
+                var time = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
+                ViewBag.time = time.ToString("dd");
+            }
          
+
+
             return View(reservation);
         }
 
