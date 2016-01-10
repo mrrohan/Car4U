@@ -98,6 +98,7 @@ namespace Car4U.Controllers
             ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation");
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
+            ViewBag.CarModel = new SelectList(db.CarModels, "ID", "Description");
             return View(reservation);
         }
 
