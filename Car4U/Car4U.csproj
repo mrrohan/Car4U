@@ -235,8 +235,8 @@
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\jquery-ui.min.css" />
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.3\jquery-ui.min.js" />
+    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\CssFinal.css" />
-    <Content Include="Content\css\images\Separador8.png" />
     <Content Include="Content\css\Osvaldo.css" />
     <Content Include="Content\css\prettify.css" />
     <Content Include="Content\css\bootstrap.css" />
