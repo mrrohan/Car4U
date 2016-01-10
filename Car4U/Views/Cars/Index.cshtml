@@ -10,7 +10,7 @@
 <div class="form-group">
     <div class="buttonbackoffice">
 
-        @Html.ActionLink("Adicionar", "Create", "Cars", new { @class = "icon-Add submit" })
+        @Html.ActionLink(" Adicionar", "Create", "Cars", new { @class = "icon-Add submit" })
     </div>
 </div>
 <table class="table tableheader">
@@ -33,7 +33,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td style="background-color:#ffffff">
                 <div class="control-image">
                     @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
                     {
@@ -75,10 +75,10 @@
             </td>
             <td>
                 <div class="buttonbackoffice">
-                    @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
-                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                    @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                    @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new {@id="hover-icon", @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
+                    @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @id = "hover-icon", @class = "icon-Details submit", @title = "Detalhes" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
                 </div>
             </td>
         </tr>
