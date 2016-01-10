@@ -1,9 +1,35 @@
 ﻿@model Car4U.ViewModels.CarIndex
 
 @{
-    ViewBag.Title = "PublicIndex";
+    ViewBag.Title = "Frota";
 }
+
+
+<!DOCTYPE html>
+
 <html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <meta name="title" content="Frota ">
+    <meta name="description" content="Aluguer de carros em portugal">
+
+
+    <!-- Css -->
+    @*
+        <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">*@
+    @*
+        <link rel="stylesheet" type="text/css" href="~/Content/css/common.css">*@
+
+
+    @*<link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">*@
+
+</head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -22,6 +48,8 @@
             </div>
         </div>
     </div>
+
+    <!-- End Category List -->
 
     <div>
 
@@ -220,27 +248,26 @@
     </div>
 
 
-
     <hr>
 
 
-    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-        <script type="text/javascript" src="~/Scripts/common.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
-        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
-        <script type="text/javascript" src="~/Scripts/main.js"></script>
-        <script type="text/javascript" src="~/Scripts/slideshow.js"></script>*@
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/common.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
 
     <script type="text/javascript">
         if (jQuery.browser.mozilla) {
             $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
         }
     </script>
-
 
     <!-- ANALYTICS -->
 
@@ -261,19 +288,16 @@
 
 
 
-    @*<script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>*@
-    <script>
-
-        $('#picking_equals_delivery').click(function () {
-            if ($(this).is(':checked')) {
-                $('#delivery_location_row').hide();
-            } else {
-                $('#delivery_location_row').show();
-            }
-        });
-
+    <script type="text/javascript" src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
+    <script type="text/javascript">
         $(document).ready(function () {
-
+            $('#picking_equals_delivery').click(function () {
+                if ($(this).is(':checked')) {
+                    $('#delivery_location_row').hide();
+                } else {
+                    $('#delivery_location_row').show();
+                }
+            });
 
             $('#picking_location_id').change(function () {
                 if ($('#picking_equals_delivery').is(':checked')) {
@@ -373,27 +397,6 @@
             });
         });
     </script>
-
-    <!-- Picking Date Ricardo -->
-
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/jquery-ui.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
-    <script>
-        $("#picking_date").datepicker({
-            //changeMonth: true,
-            //changeYear: true
-        });
-        $("#delivery_date").datepicker({
-            //changeMonth: true,
-            //changeYear: true
-        });
-    </script>
-
-
-
-
 
 
 </body>

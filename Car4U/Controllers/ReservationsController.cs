@@ -20,6 +20,8 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
         static int MULTI = 123456789;
+        public double price;
+        public int warrat;
         // GET: Reservations
         public ActionResult Index()
         {
@@ -186,7 +188,8 @@ namespace Car4U.Controllers
                 }
                 
                 reservation.ReservationDate = DateTime.Now;
-                               
+
+                
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -277,8 +280,7 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
+             
 
                
                 if (mpreliveryid != null)
@@ -325,10 +327,13 @@ namespace Car4U.Controllers
                     {
                         extid = Convert.ToInt32(selectedExtraModels[count]);
                         extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
-                        extritem.InUse = true;
-                        //db.Entry(extritem).State = EntityState.Modified;
-                        //db.SaveChanges();
-                        reservation.ExtraItems.Add(extritem);
+                        if (extritem != null)
+                        {
+                            extritem.InUse = true;
+                            //db.Entry(extritem).State = EntityState.Modified;
+                            //db.SaveChanges();
+                            reservation.ExtraItems.Add(extritem);
+                        }
                     }
                 }
                 else
@@ -341,12 +346,16 @@ namespace Car4U.Controllers
                 Category cat = db.Categories.First(c => c.ID == catid);
 
                 //add price of ExtraItems to FinalPrice
-                foreach (ExtraItem i in reservation.ExtraItems)
+                if (reservation.ExtraItems != null)
                 {
-                    int modelid = i.ExtraModelID;
-                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
-                    reservation.FinalPrice += extrmodel.Price;
+                    foreach (ExtraItem i in reservation.ExtraItems)
+                    {
+                        int modelid = i.ExtraModelID;
+                        ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
+                        reservation.FinalPrice += extrmodel.Price;
+                    }
                 }
+              
                 var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
                 int ndaysres = span.Days;
 
@@ -377,16 +386,19 @@ namespace Car4U.Controllers
 
                 reservation.ReservationDate = DateTime.Now;
 
+                price = reservation.FinalPrice;
+                warrat= cat.Warranty;
+
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                
                 ///////////////////////////////////v mail sender
                 try
                 {
                     string to = reservation.Email;
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
-                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + reservation.FinalPrice + " e a caução:";
+                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + price + " e a caução:" + warrat + ".";
 
                     var client = new SmtpClient("smtp.portugalmail.pt", 25)
                     {
@@ -410,12 +422,13 @@ namespace Car4U.Controllers
                     Console.WriteLine("Erro no mail");
                                  
                 }
+                return RedirectToAction("Index", "Home");
                     /////
-                     }
-                catch
-                {
-                    Console.WriteLine("Erro no modelo");
-                }
+                //     }
+                //catch
+                //{
+                //    Console.WriteLine("Erro no modelo");
+                //}
             }
 
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
