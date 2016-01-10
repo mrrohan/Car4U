@@ -38,13 +38,18 @@ namespace Car4U.Controllers
             }
             Reservation reservation = db.Reservations.Find(id);
 
-            MomentDelivery momDel = new MomentDelivery();
-            MomentReturn momRet = new MomentReturn();
+        
 
-            momDel = db.MomentDeliveries.First(m => m.ReservationID == reservation.ID);
-            momRet = db.MomentReturns.First(m => m.ReservationID == reservation.ID);
-            reservation.MomentDelivery = momDel;
-            reservation.MomentReturn = momRet;
+            if (db.MomentDeliveries.FirstOrDefault(m => m.ReservationID == reservation.ID) != null)
+            {
+                reservation.MomentDelivery = db.MomentDeliveries.FirstOrDefault(m => m.ReservationID == reservation.ID);
+            }
+            if (db.MomentReturns.FirstOrDefault(m => m.ReservationID == reservation.ID) != null)
+            {
+                reservation.MomentReturn = db.MomentReturns.FirstOrDefault(m => m.ReservationID == reservation.ID);
+            }
+           
+           
 
 
             if (reservation == null)

@@ -258,7 +258,7 @@ namespace Car4U.Controllers
                 }
                 db.Entry(car).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details/" + id);
+                return RedirectToAction("Details/" + id + "&view = 1");
             }
             return View(car);
         }
