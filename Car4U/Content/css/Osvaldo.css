@@ -1,4 +1,26 @@
 ﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+
+.divFixed {
+    position:fixed; 
+    left:600px
+}
+
+@media (max-width: 992px){
+    .divFixed{
+       position: relative;
+       left:auto;
+    }
+}
+
+
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top: 15px;
+}
+
 #btnFrota {
     float:left;
     margin-top:55px;
@@ -46,10 +68,6 @@
 
 @media(max-width:420px) {
 
-    .article.principle .five .move-right {
-        height: 50px;
-    }
-
     #paddingFooterL {
         padding-left: 100px;
         display: inline-block;
@@ -69,14 +87,6 @@
     position: relative;
     z-index: 50;
     float: left;
-}
-
-.car4U-text {
-}
-
-.principle {
-    max-width: 500px;
-    max-height: 250px;
 }
 
 .navbar-collapse {

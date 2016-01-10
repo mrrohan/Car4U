@@ -13,48 +13,48 @@
                 <div class="page-header">
                     <h2>Frota </h2>
                 </div>
-                    @foreach (var item in Model.Cars)
-                    {
-                            <div class="frota">
-                                <div class="col-md-4">
-                                    @*verificar metodo para procurar foto pelo nome do carro com _ *@
-                                    @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
-                                    {
-                                        <div>
-                                            <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
-                                        </div>
-                                    }
-
-                                    <br>
-                                    <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
-                                    <p class="comment"><b></b></p>
-                                    <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
-                                    <div>
-                                        <ul class="features">
-                                            @*<li class="seats" title="Nº de pessoas">4</li>*@
-                                            <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
-                                            <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
-                                            <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
-                                            <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
-                                            @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
-                                            <li class="seats" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
-
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
-                                    </div>
-                                    <div>
-                                        @Html.ActionLink("Detalhes", "Details", new { id = item.ID, view = 2 })
-                                    </div>
-                                    <div class="button">
-                                        <a id="edit-details" href="~/Reservations/CreateTeste?mpreliveryid=@Model.Infosender.MPDeliveryID&mpreturnid=@Model.Infosender.MPReturnID&categotyid=@Model.Infosender.CategoryID&begindate=@Model.Infosender.BeginDate.ToString("yyyy-MM-dd")&beginhour=@Model.Infosender.BeginHour.ToString("HH:mm")&enddate=@Model.Infosender.EndDate.ToString("yyyy-MM-dd")&endhour=@Model.Infosender.EndHour.ToString("HH:mm")&carid=@item.ID">Reservar</a>
-                                        @*@Html.ActionLink("Reservar", "CreateTeste","Reservations", new { , , , , , , ,  })*@
-                                        @*<button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>*@
-                                    </div>
+                @foreach (var item in Model.Cars)
+                {
+                    <div class="frota">
+                        <div class="col-md-4">
+                            @*verificar metodo para procurar foto pelo nome do carro com _ *@
+                            @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                            {
+                                <div>
+                                    <img width="300" height="200" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
                                 </div>
+                            }
+
+                            <br>
+                            <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                            <p class="comment"><b></b></p>
+                            <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
+                            <div>
+                                <ul class="features">
+                                    @*<li class="seats" title="Nº de pessoas">4</li>*@
+                                    <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
+                                    <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
+                                    <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
+                                    <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
+                                    @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
+                                    <li class="seats" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
+
+                                </ul>
                             </div>
-                    }
+                            <div>
+                                <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
+                            </div>
+                            <div>
+                                @Html.ActionLink("Detalhes", "Details", new { id = item.ID, view = 2 })
+                            </div>
+                            <form class="button" method="get" action="~/Reservations/CreateTeste?mpreliveryid=@Model.Infosender.MPDeliveryID&mpreturnid=@Model.Infosender.MPReturnID&categotyid=@Model.Infosender.CategoryID&begindate=@Model.Infosender.BeginDate.ToString("yyyy-MM-dd")&beginhour=@Model.Infosender.BeginHour.ToString("HH:mm")&enddate=@Model.Infosender.EndDate.ToString("yyyy-MM-dd")&endhour=@Model.Infosender.EndHour.ToString("HH:mm")&carid=@item.ID">
+                                <button class="submit" type="submit">Reservar</button>
+                                @*@Html.ActionLink("Reservar", "CreateTeste","Reservations", new { , , , , , , ,  })*@
+                                @*<button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>*@
+                            </form>
+                        </div>
+                    </div>
+                }
             </div>
         }
     </div>
