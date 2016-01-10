@@ -111,10 +111,10 @@ namespace Car4U.Controllers
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
 
-            viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).Where(l => (l.CarStatus.Count(c => c.FinishDate < viewModel.Infosender.BeginDate || c.BeginDate > viewModel.Infosender.EndDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.CarID == null) <= 0).ToList();
+            viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).Where(l => (l.CarStatus.Count(c => c.FinishDate < viewModel.Infosender.BeginDate || c.BeginDate > viewModel.Infosender.EndDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.Car == null) <= 0).ToList();
             if (viewModel.Cars == null)
             {
-                viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).Where(l => (l.CarStatus.Count(c => c.FinishDate < viewModel.Infosender.BeginDate || c.BeginDate > viewModel.Infosender.EndDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.CarID == null) <= 0).ToList();
+                viewModel.Cars = db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < viewModel.Infosender.BeginDate || c.BeginDate > viewModel.Infosender.EndDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.Car == null) <= 0).ToList();
             }
            
           

@@ -443,8 +443,21 @@ button {
 .tableheader tbody, .tableheader tr, .tableheader td, .tableheader th {
     border:2px solid white!important;
     font-family: Arial,sans-serif;
-}
+    border-radius:6px;
+    text-align:center;
+    vertical-align:central;
 
+  
+}
+#hover-icon {
+
+
+}
+#hover-icon:hover{
+    opacity:0.25;
+
+
+}
 .tableheader tbody tr:nth-child(odd) {
    background-color: rgba(255, 216, 0, 0.39);
 }
@@ -452,6 +465,7 @@ button {
  .tableheader1 {
     visibility  : hidden;
     width:50px;
+   
 }
  
 
@@ -537,6 +551,7 @@ border-radius: 4px;
 [class^="ico-"]:before {
   
      content: " ";
+     
   width:10px; height:10px;
   display:inline-block;
   vertical-align:middle;
