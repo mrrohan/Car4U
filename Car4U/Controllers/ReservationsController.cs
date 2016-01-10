@@ -37,6 +37,16 @@ namespace Car4U.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Reservation reservation = db.Reservations.Find(id);
+
+            MomentDelivery momDel = new MomentDelivery();
+            MomentReturn momRet = new MomentReturn();
+
+            momDel = db.MomentDeliveries.First(m => m.ReservationID == reservation.ID);
+            momRet = db.MomentReturns.First(m => m.ReservationID == reservation.ID);
+            reservation.MomentDelivery = momDel;
+            reservation.MomentReturn = momRet;
+
+
             if (reservation == null)
             {
                 return HttpNotFound();

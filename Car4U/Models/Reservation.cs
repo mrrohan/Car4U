@@ -22,19 +22,19 @@ namespace Car4U.Models
         public bool Check { get; set; }//false unchecked by employee, no car associated to reservation.
 
 
-        //reserva
+        //reserva        
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReservationDate { get; set; }
-
-        [DataType(DataType.Date)]
+       
+        [DataType(DataType.Date)]        
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReturnDate { get; set; }
-
-        [DataType(DataType.Time)]
+              
+        [DataType(DataType.Time)]       
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime ReturnHour { get; set; }
-
+               
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryDate { get; set; }
@@ -43,13 +43,17 @@ namespace Car4U.Models
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime DeliveryHour { get; set; }
 
-        
-        
+
+
 
         //Dropboxs
+        [Required]
         public int CountryID { get; set; }
+        [Required]
         public int CategoryID { get; set; }
+        [Required]
         public int MPDeliveryID { get; set; }
+        [Required]
         public int MPReturnID { get; set; }
         public int ExtraItemsID { get; set; }      
         public int carID { get; set; } //nao está ligado ao modelo car, é so para inserir o ID do carro.

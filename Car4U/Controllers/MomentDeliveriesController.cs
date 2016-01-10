@@ -129,7 +129,7 @@ namespace Car4U.Controllers
             MomentDelivery momentDelivery = db.MomentDeliveries.Find(id);
             db.MomentDeliveries.Remove(momentDelivery);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Reservations");
         }
 
         protected override void Dispose(bool disposing)

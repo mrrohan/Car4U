@@ -61,7 +61,12 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-              
+
+                if (id != null)
+                {
+                     momentReturn.ReservationID = id ?? default(int);
+                }
+
                 momentReturn.Date = db.Reservations.Find(momentReturn.ID).ReturnDate;
                 db.MomentReturns.Add(momentReturn);
                 db.SaveChanges();
@@ -125,7 +130,7 @@ namespace Car4U.Controllers
             MomentReturn momentReturn = db.MomentReturns.Find(id);
             db.MomentReturns.Remove(momentReturn);
             db.SaveChanges();
-            return RedirectToAction("Index", "Reservations");
+            return RedirectToAction("Index","Reservations");
         }
 
         protected override void Dispose(bool disposing)
