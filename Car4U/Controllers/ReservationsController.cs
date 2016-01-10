@@ -10,6 +10,8 @@ using Car4U.DAL;
 using Car4U.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net.Mail;
+using System.Threading;
 
 namespace Car4U.Controllers
 {
@@ -17,6 +19,9 @@ namespace Car4U.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
+        static int MULTI = 123456789;
+        private static Thread worker;
+        public delegate void Worker();
         // GET: Reservations
         public ActionResult Index()
         {
@@ -274,6 +279,10 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
+                try
+                {
+
+               
                 if (mpreliveryid != null)
                 {
                     reservation.MPDeliveryID = mpreliveryid ?? default(int);
@@ -372,6 +381,42 @@ namespace Car4U.Controllers
 
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
+                     }
+                catch
+                {
+
+                }
+                ///////////////////////////////////v mail sender
+                try
+                {
+                    string to = reservation.Email;
+                    string from = "car4upt@portugalmail.pt";
+                    string subject = "Reserva na Car4U";
+                    string body = @"A sua reserva foi efetua com sucesso, Referencia de MultiBanco:" + MULTI + ". Preço da reserva:" + reservation.FinalPrice + " e a caução:";
+
+                    var client = new SmtpClient("smtp.portugalmail.pt", 25)
+                    {
+                        Credentials = new NetworkCredential("car4upt@portugalmail.pt", "123456"),
+                        EnableSsl = false
+                    };
+
+                    try
+                    {
+                        client.Send(from, to, subject, body);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Exception caught in Sending Email(): {0}",
+                                    ex.ToString());
+                    }
+                }
+                catch
+                {
+
+                }
+
+                /////
                 return RedirectToAction("Index", "Home");
             }
 

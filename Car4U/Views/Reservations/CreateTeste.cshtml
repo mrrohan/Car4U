@@ -1,25 +1,25 @@
 ﻿@model Car4U.Models.Reservation
 
 @{
-    ViewBag.Title = "CreateTeste";
+    ViewBag.Title = "Reserva";
 }
 
-<h2>CreateTeste</h2>
-
-@Html.DisplayFor(model => model.MPDelivery.Place)<br>
-@Html.DisplayFor(model => model.DeliveryDate) \ @Html.DisplayFor(model => model.DeliveryHour) \
-@Html.DisplayFor(model => model.MPReturn.Place)<br>
-@Html.DisplayFor(model => model.ReturnDate) \@Html.DisplayFor(model => model.ReturnHour) \ @Html.DisplayFor(model => model.Category.CategoryName)
+<h2>Estado Reserva</h2>
+<div class="jumbotron">
+    <label>Entrega veículo: </label> @Html.DisplayFor(model => model.MPDelivery.Place) <b>na data</b> @Html.DisplayFor(model => model.DeliveryDate) <b>pelas</b> @Html.DisplayFor(model => model.DeliveryHour)<br>
+    <label>Recolha veículo: </label> @Html.DisplayFor(model => model.MPReturn.Place) <b>na data</b> @Html.DisplayFor(model => model.ReturnDate) <b>pelas</b> @Html.DisplayFor(model => model.ReturnHour)<br>
+    <label>Categoria Veículo: </label> @Html.DisplayFor(model => model.Category.CategoryName)
+</div>
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Reservation</h4>
+        <h2>Finalizar Reserva</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name,"Nome", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Address,"Morada", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PostalCode,"Codigo Postal", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
@@ -51,7 +51,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.License, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.License,"Carta de Condução", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.License, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.License, "", new { @class = "text-danger" })
@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BI, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BI,"BI / CC", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BI, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BI, "", new { @class = "text-danger" })
@@ -67,7 +67,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CountryID, "CountryID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CountryID, "País", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CountryID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
@@ -95,7 +95,7 @@
                                     <input type="checkbox"
                                            name="selectedExtraModels"
                                            value="@m.ID" />                                          
-                                    @m.ID @:  @m.Model
+                                     @:  @m.Model    Preço: @m.Price
                                     @:</td>
                              }
                              @:</tr>
@@ -106,7 +106,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Reservar" class="btn btn-default" />
             </div>
         </div>
     </div>

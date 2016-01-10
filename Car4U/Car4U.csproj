@@ -236,6 +236,7 @@
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.1\themes\smoothness\jquery-ui.min.css" />
     <Content Include="Content\css\ajax\libs\jqueryui\1.10.3\jquery-ui.min.js" />
     <Content Include="Content\css\CssFinal.css" />
+    <Content Include="Content\css\Osvaldo.css" />
     <Content Include="Content\css\prettify.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\frota_icons.png" />
@@ -282,6 +283,40 @@
     <Content Include="images\BMW_Serie1.jpg" />
     <Content Include="images\BMW_Serie3.jpg" />
     <Content Include="images\BMW_Serie5.jpg" />
+    <Content Include="images\car logos\car_logo_PNG1636.png" />
+    <Content Include="images\car logos\car_logo_PNG1637.png" />
+    <Content Include="images\car logos\car_logo_PNG1638.png" />
+    <Content Include="images\car logos\car_logo_PNG1639.png" />
+    <Content Include="images\car logos\car_logo_PNG1640.png" />
+    <Content Include="images\car logos\car_logo_PNG1641.png" />
+    <Content Include="images\car logos\car_logo_PNG1642.png" />
+    <Content Include="images\car logos\car_logo_PNG1643.png" />
+    <Content Include="images\car logos\car_logo_PNG1644.png" />
+    <Content Include="images\car logos\car_logo_PNG1645.png" />
+    <Content Include="images\car logos\car_logo_PNG1646.png" />
+    <Content Include="images\car logos\car_logo_PNG1647.png" />
+    <Content Include="images\car logos\car_logo_PNG1648.png" />
+    <Content Include="images\car logos\car_logo_PNG1649.png" />
+    <Content Include="images\car logos\car_logo_PNG1650.png" />
+    <Content Include="images\car logos\car_logo_PNG1651.png" />
+    <Content Include="images\car logos\car_logo_PNG1652.png" />
+    <Content Include="images\car logos\car_logo_PNG1653.png" />
+    <Content Include="images\car logos\car_logo_PNG1654.png" />
+    <Content Include="images\car logos\car_logo_PNG1655.png" />
+    <Content Include="images\car logos\car_logo_PNG1656.png" />
+    <Content Include="images\car logos\car_logo_PNG1657.png" />
+    <Content Include="images\car logos\car_logo_PNG1658.png" />
+    <Content Include="images\car logos\car_logo_PNG1659.png" />
+    <Content Include="images\car logos\car_logo_PNG1660.png" />
+    <Content Include="images\car logos\car_logo_PNG1661.png" />
+    <Content Include="images\car logos\car_logo_PNG1662.png" />
+    <Content Include="images\car logos\car_logo_PNG1663.png" />
+    <Content Include="images\car logos\car_logo_PNG1664.png" />
+    <Content Include="images\car logos\car_logo_PNG1665.png" />
+    <Content Include="images\car logos\car_logo_PNG1666.png" />
+    <Content Include="images\car logos\car_logo_PNG1667.png" />
+    <Content Include="images\car logos\car_logo_PNG1668.png" />
+    <Content Include="images\car logos\car_logo_PNG1669.png" />
     <Content Include="images\Car4U.fw.png" />
     <Content Include="images\Car4Ucar.fw.png" />
     <Content Include="images\Car4ULogo.png" />
@@ -508,6 +543,7 @@
     <Content Include="Views\Cars\EnteringCars.cshtml" />
     <Content Include="Views\CarStatus\Edit.cshtml" />
     <Content Include="Views\Cars\PublicIndex - Copy.cshtml" />
+    <Content Include="Views\Cars\SearchView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

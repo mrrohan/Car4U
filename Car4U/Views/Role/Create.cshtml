@@ -6,25 +6,29 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <div>
-    <div class="buttonbackoffice" style="margin:5px">
-    <h2>Adicionar Cargo</h2>
-    
-    @Html.ActionLink("List Roles", "Index","Role", new {@class="icon-Details1 submit"}) | @Html.ActionLink("Manage User Role", "ManageUserRoles")
-    </div>
-    
-    <div>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+    <div class="buttonbackoffice" style="margin-bottom:5px">
+        <h2>Adicionar Cargo</h2>
 
-        <h4>Nome do Cargo</h4>
-        <p>
-            @Html.TextBox("RoleName")
-        </p>
-        <div class=" buttonbackoffice">
-            <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
-        </div>
-    }
-        </div>
+        @Html.ActionLink(" List Roles ", "Index", "Role", new { @class = "icon-Details1 submit" })
+        @Html.ActionLink(" Controlar Cargos de Utilizadores ", "ManageUserRoles", "Role", new { @class = "icon-Users submit" })
+    </div>
+
+    <div style="margin-top:70px">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <h4>Nome do Cargo</h4>
+            <p>
+                @Html.TextBox("RoleName")
+            </p>
+
+            <div class=" buttonbackoffice">
+                <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+            </div>
+        }
+
+    </div>
 </div>

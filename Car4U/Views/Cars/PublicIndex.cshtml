@@ -114,7 +114,7 @@
                                                             <div class="form-group">
                                                                 <label for="picking_date" class="control-label">Data de levantamento</label>
                                                                 <a required>
-                                                                   
+
                                                                     @Html.EditorFor(model => model.Infosender.BeginDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
                                                                 </a>
 
@@ -195,14 +195,14 @@
                                             <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
                                             @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
                                             <li class="seats" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
-                                          
+
                                         </ul>
                                     </div>
                                     <div>
                                         <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
                                     </div>
                                     <div>
-                                        @Html.ActionLink("Detalhes", "Details", new { id = item.ID })
+                                        @Html.ActionLink("Detalhes", "Details", new { id = item.ID, view = 2 })
                                     </div>
                                     <div class="button">
 
@@ -218,7 +218,7 @@
             </div>
         }
     </div>
-    
+
 
 
     <hr>
@@ -273,7 +273,7 @@
         });
 
         $(document).ready(function () {
-            
+
 
             $('#picking_location_id').change(function () {
                 if ($('#picking_equals_delivery').is(':checked')) {
