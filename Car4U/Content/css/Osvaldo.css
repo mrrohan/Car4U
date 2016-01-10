@@ -1,5 +1,18 @@
 ﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+#btnFrota {
+    float:left;
+    margin-top:55px;
+    margin-left:50px;
 
+}
+
+.footerPos1 {
+    margin-bottom: 2px;
+}
+
+.footerPos2 {
+    margin-bottom: 2px;
+}
 
 #navbarWidth {
     max-width: 100%;
@@ -11,10 +24,10 @@
     display: inline;
 }
 
-    #paddingFooterL img {
+#paddingFooterL img {
         max-width: 150px;
         max-height: 150px;
-    }
+}
 
 #paddingFooterR {
     padding-left: 70px;
@@ -33,9 +46,9 @@
 
 @media(max-width:420px) {
 
-   .article.principle .five .move-right {
-       height:50px;
-   }
+    .article.principle .five .move-right {
+        height: 50px;
+    }
 
     #paddingFooterL {
         padding-left: 100px;
@@ -43,12 +56,11 @@
     }
 
     #paddingFooterR {
-        padding-left:60px;
+        padding-left: 60px;
     }
 
     #footerCarLogos {
         padding-left: 70px;
-        
     }
 }
 
@@ -494,6 +506,7 @@ body {
 
     .navbar-brand img {
         height: 50px;
+        width:120px;
     }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -617,7 +630,7 @@ textarea {
             display: block;
             border-radius: 3px;
             box-sizing: border-box;
-            background-color:#8f9296;
+            background-color: #8f9296;
             box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
             border: solid;
             border-color: black;
@@ -789,3 +802,69 @@ textarea {
         display: none;
     }
 }
+
+/*Checkbox*/
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  background: #F9BF1D;
+  border: medium;
+  border-color: black;
+  color: #F9BF1D;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  margin-right: 0.5rem;
+  z-index: 1000;
+  margin-bottom:20px;
+}
+
+.option-input:hover { background: #e6e6e6; }
+
+.option-input:checked { background: black; }
+
+.option-input:checked::before {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  content: '\2716';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: black;
+  content: '';
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+}
+
+.option-input.radio { 
+    border-radius: 50%;
+    margin-bottom: 10px;
+    align-content:center
+
+}
+
+.option-input.radio::after { border-radius: 50%; }
+
+
+/*Checkbox*/
+

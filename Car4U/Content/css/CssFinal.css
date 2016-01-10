@@ -2,11 +2,18 @@
 
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+#footer {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+
 .reserveIndex {
     margin-top: 20px;
     position: relative;
     z-index: 50;
     float: left;
+    
 }
 
 .car4U-text {
@@ -183,7 +190,7 @@ button {
         background-color: burlywood;
         color: #f9bf1d;
     }
-/*end Button active 3d*/
+/*end Button active 3d
 .footer-button {
     /*border: 0;
     background: #f9bf1d;
