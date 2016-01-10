@@ -6,15 +6,19 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <h2>Marcas de Automóvel</h2>
+
 <div class="buttonbackoffice" style="margin-bottom:70px">
     @Html.ActionLink(" Adicionar Marcas ", "Create", "Brands", new { @class = "icon-Add submit" })
 </div>
+
 <div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 " align="center">
-        <table class="table tableheader" style="width:200px">
+
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 " style= "width:370px">
+
+        <table class="table tableheader">
             <tr>
-                <th style="width:100px">Marca</th>
-                <th style="width:100px">Acções</th>
+                <th>Marca</th>
+                <th>Acções</th>
             </tr>
             @foreach (var item in ViewBag.Brands)
             {
@@ -23,66 +27,60 @@
                 {
                     selectedRow = "success";
                 }
-                <tr style="width:200px; padding:1px" class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"'>
-                    <td style="padding:2px">
+
+                <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"' style="height:50px">
+
+                    <td>
                         @item.Description
                     </td>
-                    <td style="padding:2px">
+                    <td>
                         <div class="buttonbackoffice">
                             @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Select" })
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-
                         </div>
                     </td>
                 </tr>
             }
         </table>
     </div>
-    <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2"></div>
-    <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 divFixed" style="margin-left:50px" align="center">
 
-        <div>
-            @if (Model != null)
-            {
+    @if (Model != null)
+    { <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2"></div>
+        <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 " style="width:370px" >
 
-                    <h2>Modelos de @ViewBag.Brand </h2>
-                    <div class="buttonbackoffice" style="margin-bottom:50px">
-                        @Html.ActionLink(" Adicionar novo Modelo ", "Create", "Brands", new { id = ViewBag.ID }, new { @class = "icon-Add submit" })
-                    </div>
+            <h2>Modelos de @ViewBag.Brand </h2>
+            <div class="buttonbackoffice" style="margin-bottom:50px">
+                @Html.ActionLink(" Adicionar novo Modelo ", "Create", "Brands", new { id = ViewBag.ID }, new { @class = "icon-Add submit" })
+            </div>
 
-              
-                <div>
-                    <table class="table tableheader" style="width:200px">
-                        <tr>
-                            <th style="width:100px">Modelos</th>
-                            <th style="width:100px">Acções</th>
-                        </tr>
-                        @foreach (var item in Model)
-                        {
 
-                            <tr style="width:100px; padding:1px">
-                                <td style="padding:2px">
-                                    @item.Description
-                                </td>
-                                <td style="padding:2px">
+            <table class="table tableheader">
+                <tr>
+                    <th>Modelos</th>
+                    <th>Acções</th>
+                </tr>
+                @foreach (var item in Model)
+                {
 
-                                    <div class="buttonbackoffice">
-                                        @Html.ActionLink(" ", "Edit", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
-                                        @Html.ActionLink(" ", "Details", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Details submit", @title = "Detalhes" })
-                                        @Html.ActionLink(" ", "Delete", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
-                                    </div>
+                    <tr>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
 
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                </div>
+                            <div class="buttonbackoffice">
+                                @Html.ActionLink(" ", "Edit", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
+                                @Html.ActionLink(" ", "Details", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Details submit", @title = "Detalhes" })
+                                @Html.ActionLink(" ", "Delete", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
+                            </div>
 
-            }
+                        </td>
+                    </tr>
+                }
+            </table>
 
-        </div>
+        </div>}
 
-    </div>
 </div>
