@@ -20,8 +20,6 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
         static int MULTI = 123456789;
-        private static Thread worker;
-        public delegate void Worker();
         // GET: Reservations
         public ActionResult Index()
         {
@@ -381,11 +379,7 @@ namespace Car4U.Controllers
 
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
-                     }
-                catch
-                {
-
-                }
+                return RedirectToAction("Index", "Home");
                 ///////////////////////////////////v mail sender
                 try
                 {
@@ -413,11 +407,15 @@ namespace Car4U.Controllers
                 }
                 catch
                 {
-
+                    Console.WriteLine("Erro no mail");
+                                 
                 }
-
-                /////
-                return RedirectToAction("Index", "Home");
+                    /////
+                     }
+                catch
+                {
+                    Console.WriteLine("Erro no modelo");
+                }
             }
 
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
