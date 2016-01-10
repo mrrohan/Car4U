@@ -54,164 +54,164 @@ namespace Car4U.Controllers
             return View(reservation);
         }       
 
-        // GET: Reservations/Create
-        public ActionResult Create(Reservation reservation, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
-        {
+        //// GET: Reservations/Create
+        //public ActionResult Create(Reservation reservation, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        //{
             
-            if (mpreliveryid != null)
-            {
-                reservation.MPDelivery = db.MeetingPoints.Find(mpreliveryid);
-            }
-            if (mpreturnid != null)
-            {
-                reservation.MPReturn = db.MeetingPoints.Find(mpreturnid);
-            }
-            if (categotyid != null)
-            {
-                reservation.Category = db.Categories.Find(categotyid);
-            }
+        //    if (mpreliveryid != null)
+        //    {
+        //        reservation.MPDelivery = db.MeetingPoints.Find(mpreliveryid);
+        //    }
+        //    if (mpreturnid != null)
+        //    {
+        //        reservation.MPReturn = db.MeetingPoints.Find(mpreturnid);
+        //    }
+        //    if (categotyid != null)
+        //    {
+        //        reservation.Category = db.Categories.Find(categotyid);
+        //    }
 
-            if (begindate != null)
-            {
-                reservation.DeliveryDate = begindate ?? default(DateTime);
-            }
-            if (beginhour != null)
-            {
-                reservation.DeliveryHour = beginhour ?? default(DateTime);
-            }
+        //    if (begindate != null)
+        //    {
+        //        reservation.DeliveryDate = begindate ?? default(DateTime);
+        //    }
+        //    if (beginhour != null)
+        //    {
+        //        reservation.DeliveryHour = beginhour ?? default(DateTime);
+        //    }
 
-            if (enddate != null)
-            {
-                reservation.ReturnDate = enddate ?? default(DateTime);
-            }
+        //    if (enddate != null)
+        //    {
+        //        reservation.ReturnDate = enddate ?? default(DateTime);
+        //    }
 
-            if (endhour != null)
-            {
-                reservation.ReturnHour = endhour ?? default(DateTime);
-            }
+        //    if (endhour != null)
+        //    {
+        //        reservation.ReturnHour = endhour ?? default(DateTime);
+        //    }
 
-            ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
-            ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
-            ViewBag.MomentDeliveryID = new SelectList(db.MomentDeliveries, "ID", "Observation");
-            ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation");
-            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
-            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
-            ViewBag.CarModel = new SelectList(db.CarModels, "ID", "Description");
-            return View(reservation);
-        }
+        //    ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
+        //    ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
+        //    ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName");
+        //    ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
+        //    ViewBag.MomentDeliveryID = new SelectList(db.MomentDeliveries, "ID", "Observation");
+        //    ViewBag.MomentReturnID = new SelectList(db.MomentReturns, "ID", "Observation");
+        //    ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place");
+        //    ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place");
+        //    ViewBag.CarModel = new SelectList(db.CarModels, "ID", "Description");
+        //    return View(reservation);
+        //}
 
-        // POST: Reservations/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Email,License,BI,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
-        {
-            if (ModelState.IsValid)
-            {
-                if (mpreliveryid != null)
-                {
-                    reservation.MPDeliveryID = mpreliveryid ?? default(int);
-                }
-                if (mpreturnid != null)
-                {
-                    reservation.MPReturnID = mpreturnid ?? default(int);
-                }
-                if (categotyid != null)
-                {
-                    reservation.CategoryID = categotyid ?? default(int);
-                }
+        //// POST: Reservations/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "ID,Name,Address,PostalCode,Email,License,BI,ReservationDate,ReturnDate,ReturnHour,DeliveryDate,DeliveryHour,FinalPrice,CountryID,CategoryID,MPDeliveryID,MPReturnID")] Reservation reservation, string[] selectedExtraModels, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (mpreliveryid != null)
+        //        {
+        //            reservation.MPDeliveryID = mpreliveryid ?? default(int);
+        //        }
+        //        if (mpreturnid != null)
+        //        {
+        //            reservation.MPReturnID = mpreturnid ?? default(int);
+        //        }
+        //        if (categotyid != null)
+        //        {
+        //            reservation.CategoryID = categotyid ?? default(int);
+        //        }
 
-                if (begindate != null)
-                {
-                    reservation.DeliveryDate = begindate ?? default(DateTime);
-                }
-                if (beginhour != null)
-                {
-                    reservation.DeliveryHour = beginhour ?? default(DateTime);
-                }
+        //        if (begindate != null)
+        //        {
+        //            reservation.DeliveryDate = begindate ?? default(DateTime);
+        //        }
+        //        if (beginhour != null)
+        //        {
+        //            reservation.DeliveryHour = beginhour ?? default(DateTime);
+        //        }
 
-                if (enddate != null)
-                {
-                    reservation.ReturnDate = enddate ?? default(DateTime);
-                }
+        //        if (enddate != null)
+        //        {
+        //            reservation.ReturnDate = enddate ?? default(DateTime);
+        //        }
 
-                if (endhour != null)
-                {
-                    reservation.ReturnHour = endhour ?? default(DateTime);
-                }
+        //        if (endhour != null)
+        //        {
+        //            reservation.ReturnHour = endhour ?? default(DateTime);
+        //        }
 
-                //get model ID from slectedcheckbox and search for the 1st available item of that model and add it to the reservation. 
-                int extid;
-                ExtraItem extritem = new ExtraItem();
-                reservation.ExtraItems = new List<ExtraItem>();
+        //        //get model ID from slectedcheckbox and search for the 1st available item of that model and add it to the reservation. 
+        //        int extid;
+        //        ExtraItem extritem = new ExtraItem();
+        //        reservation.ExtraItems = new List<ExtraItem>();
 
-                int s = selectedExtraModels.Count();
+        //        int s = selectedExtraModels.Count();
 
-                for (int count = 0; count < s; count++)
-                {
-                    extid = Convert.ToInt32(selectedExtraModels[count]);
-                    extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse==false);
-                    extritem.InUse = true;
-                    //db.Entry(extritem).State = EntityState.Modified;
-                    //db.SaveChanges();
-                    reservation.ExtraItems.Add(extritem);
-                }
+        //        for (int count = 0; count < s; count++)
+        //        {
+        //            extid = Convert.ToInt32(selectedExtraModels[count]);
+        //            extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse==false);
+        //            extritem.InUse = true;
+        //            //db.Entry(extritem).State = EntityState.Modified;
+        //            //db.SaveChanges();
+        //            reservation.ExtraItems.Add(extritem);
+        //        }
 
 
-                //get price and add to FinalPrice from category of car
-                int catid = reservation.CategoryID;
-                Category cat = db.Categories.First(c => c.ID == catid);
+        //        //get price and add to FinalPrice from category of car
+        //        int catid = reservation.CategoryID;
+        //        Category cat = db.Categories.First(c => c.ID == catid);
 
-                //add price of ExtraItems to FinalPrice
-                foreach (ExtraItem i in reservation.ExtraItems)
-                {
-                    int modelid = i.ExtraModelID;
-                    ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
-                    reservation.FinalPrice += extrmodel.Price;
-                }
-                var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
-                int ndaysres = span.Days;
+        //        //add price of ExtraItems to FinalPrice
+        //        foreach (ExtraItem i in reservation.ExtraItems)
+        //        {
+        //            int modelid = i.ExtraModelID;
+        //            ExtraModel extrmodel = db.ExtraModels.First(m => m.ID == modelid);
+        //            reservation.FinalPrice += extrmodel.Price;
+        //        }
+        //        var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
+        //        int ndaysres = span.Days;
 
-                //Promotion                
-                int bestpromobydays = 0;
-                try { 
-                    foreach (var p in db.Promotions)
-                    {
-                        if (ndaysres >= p.Days && p.Days >= bestpromobydays)
-                        {
-                            bestpromobydays = p.Days;                   
-                            reservation.Promotion = p;
-                        }
-                    }
-                }
-                catch { }
+        //        //Promotion                
+        //        int bestpromobydays = 0;
+        //        try { 
+        //            foreach (var p in db.Promotions)
+        //            {
+        //                if (ndaysres >= p.Days && p.Days >= bestpromobydays)
+        //                {
+        //                    bestpromobydays = p.Days;                   
+        //                    reservation.Promotion = p;
+        //                }
+        //            }
+        //        }
+        //        catch { }
 
-                if (!(reservation.Promotion == null))
-                {
-                    reservation.FinalPrice += ((cat.Price * (reservation.Promotion.Percentage*0.01)) * ndaysres);
+        //        if (!(reservation.Promotion == null))
+        //        {
+        //            reservation.FinalPrice += ((cat.Price * (reservation.Promotion.Percentage*0.01)) * ndaysres);
                     
-                }
-                else {
-                    reservation.FinalPrice += cat.Price * ndaysres;
-                }
+        //        }
+        //        else {
+        //            reservation.FinalPrice += cat.Price * ndaysres;
+        //        }
                 
-                reservation.ReservationDate = DateTime.Now;
+        //        reservation.ReservationDate = DateTime.Now;
 
                 
-                db.Reservations.Add(reservation);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //        db.Reservations.Add(reservation);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
            
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
-            ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
-            ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
-            return View(reservation);
-        }
+        //    ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", reservation.CategoryID);
+        //    ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);            
+        //    ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPDeliveryID);
+        //    ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", reservation.MPReturnID);
+        //    return View(reservation);
+        //}
 
 
         // GET: Reservations/Create
@@ -445,7 +445,7 @@ namespace Car4U.Controllers
                     string to = reservation.Email;
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
-                    string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ .";
+                    string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ ." +"Dados da reserva:          Dia de inicio:"+reservation.DeliveryDate+"pelas"+reservation.DeliveryHour +"até:"+reservation.ReturnDate+"pelas"+reservation.ReturnHour;
 
                     var client = new SmtpClient("smtp.portugalmail.pt", 25)
                     {
