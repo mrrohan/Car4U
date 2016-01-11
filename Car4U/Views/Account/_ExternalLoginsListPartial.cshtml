@@ -22,8 +22,11 @@
                 <p>
                     @foreach (AuthenticationDescription p in loginProviders)
                     {
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-block btn-social btn-lg btn-facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account" />                                                    
+                        <div class="social-wrap">
+                            
+                            <input type="submit" class="facebook" id="@p.AuthenticationType " name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account" />
+
+
                         </div>
                     }
                 </p>
