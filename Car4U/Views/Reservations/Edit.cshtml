@@ -18,53 +18,48 @@
         <td>@Html.DisplayNameFor(model => model.Email)</td>
         <td>@Html.DisplayFor(model => model.Email)</td>
     </tr>
-
-    <tr>
-        <td>@Html.DisplayNameFor(model => model.ID)</td>
-        <td>@Html.DisplayFor(model => model.ID)</td>
-    </tr>
-
     <tr>
         <td>@Html.DisplayNameFor(model => model.BI) </td>
         <td>@Html.DisplayFor(model => model.BI)</td>
     </tr>
 
     <tr>
-        <td>@Html.DisplayNameFor(model => model.Country)</td>
+        <td>@*@Html.DisplayNameFor(model => model.Country)*@ País</td>
         <td>@Html.DisplayFor(model => model.Country.Name)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(model => model.MPDelivery)</td>
+        <td>@*@Html.DisplayNameFor(model => model.MPDelivery)*@ Local de Entrega</td>
         <td>@Html.DisplayFor(model => model.MPDelivery.Place)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(model => model.DeliveryDate)</td>
+        <td>@*@Html.DisplayNameFor(model => model.DeliveryDate)*@ Data de Entrega</td>
         <td>@Html.DisplayFor(model => model.DeliveryDate)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(model => model.DeliveryHour)</td>
+        <td>@*@Html.DisplayNameFor(model => model.DeliveryHour)*@ Hora de Entrega</td>
         <td>@Html.DisplayFor(model => model.DeliveryHour)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(model => model.MPReturn) </td>
+        <td>@*@Html.DisplayNameFor(model => model.MPReturn)*@ Local de Devolução</td>
         <td>@Html.DisplayFor(model => model.MPReturn.Place)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(model => model.ReturnDate)</td>
+        <td>@*@Html.DisplayNameFor(model => model.ReturnDate)*@ Data de Devolução</td>
         <td>@Html.DisplayFor(model => model.ReturnDate)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(model => model.ReturnHour)</td>
+        <td>@*@Html.DisplayNameFor(model => model.ReturnHour)*@ Hora de Devolução</td>
         <td>@Html.DisplayFor(model => model.ReturnHour)</td>
     </tr>
 
 </table>
-<div class="form-horizontal">
+<div class="form-horizontal" style="padding-top:40px">
 
         @if (Model.ExtraItems != null)
         {
+            <h4 style="position:center">Items Extra</h4>
             <div>
-                @Html.DisplayNameFor(model => model.ExtraItems) :
+                @*@Html.displaynamefor(model => model.extraitems) :*@
 
                 @foreach (var item in Model.ExtraItems)
                 {
@@ -76,7 +71,7 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-    <div class="form-group">
+    <div class="form-group" style="padding-top:40px">
         @Html.LabelFor(model => model.carID, "Matrícula", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("carID", null, "Matricula", htmlAttributes: new { @class = "form-control" })
