@@ -1,7 +1,7 @@
 ﻿@using Car4U.Models
 @model ExternalLoginListViewModel
 @using Microsoft.Owin.Security
-<h4>Log in com o Facebook</h4>
+
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0)
@@ -23,7 +23,7 @@
                     @foreach (AuthenticationDescription p in loginProviders)
                     {
                         <div class="social-wrap">
-                            
+                            <h4 style="float:left">Log in com o Facebook</h4>
                             <input type="submit" class="facebook" id="@p.AuthenticationType " name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account" />
 
 
