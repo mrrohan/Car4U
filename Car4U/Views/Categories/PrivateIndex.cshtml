@@ -8,53 +8,56 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Categorias</h2>
+<div class="page-header">
+    <h2>Categorias</h2>
+</div>
+<div class="container">
+    <div class="container col-lg-8">
 
-<div class="container col-lg-8">
 
+        <div class="buttonbackoffice">
+            <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Categories")'"> Adicionar </button>
+        </div>
 
-    <div class="buttonbackoffice">
-        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Categories")'"> Adicionar </button>
-    </div>
-
-    <table class="table tableheader table-responsive">
-        <tr>
-            <th>
-                Nome Categoria
-            </th>
-            <th>
-                Preço
-            </th>
-            <th>
-                Valor Caução
-            </th>
-            <th>
-
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <table class="table tableheader table-responsive">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CategoryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Warranty)
-                </td>
-                <td>
-                    <div class="buttonbackoffice">
-                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                    </div>
-                </td>
+                <th>
+                    Nome Categoria
+                </th>
+                <th>
+                    Preço
+                </th>
+                <th>
+                    Valor Caução
+                </th>
+                <th>
+
+                </th>
             </tr>
-        }
-    </table>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Warranty)
+                    </td>
+                    <td>
+                        <div class="buttonbackoffice">
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
 
 
+    </div>
 </div>

@@ -10,120 +10,120 @@
 <div class="page-header">
     <h2 class="titles">Adicionar Veículo</h2>
 </div>
+<div class="container">
+    @using (Html.BeginForm("Create", "Cars", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("Create", "Cars", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
 
 
+        <div class="col-lg-5 form-horizontal">
 
-    <div class="col-lg-5 form-horizontal">
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.LicensePlate, "Matricula", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LicensePlate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LicensePlate, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.LicensePlate, "Matricula", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LicensePlate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LicensePlate, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.RegisterDate, "Data Registo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.RegisterDate, "Data Registo", htmlAttributes: new { @class = "control-label col-md-2" })
 
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RegisterDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
-                @*<input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RegisterDate, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off" } })
+                    @*<input id="picking_date" name="picking_date" type="text" class="form-control" placeholder="dd-mm-aaaa" autocomplete="off" required>*@
 
-                <script src="~/Scripts/jquery.min.js"></script>
-                <script src="~/Scripts/jquery-ui.min.js"></script>
-                <script src="~/Scripts/bootstrap.min.js"></script>
-                <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
-                <script>
-                    $("#picking_date").datepicker({
-                        //changeMonth: true,
-                        //changeYear: true
-                    });
-                </script>
-                @Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })
+                    <script src="~/Scripts/jquery.min.js"></script>
+                    <script src="~/Scripts/jquery-ui.min.js"></script>
+                    <script src="~/Scripts/bootstrap.min.js"></script>
+                    <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
+                    <script>
+                        $("#picking_date").datepicker({
+                            //changeMonth: true,
+                            //changeYear: true
+                        });
+                    </script>
+                    @Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })
 
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
-                    </div>*@
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.BeginDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BeginDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
+                        </div>*@
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.NDoors, "Nº Portas", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NDoors, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NDoors, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NLuggage, "Capacidade Mala", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NLuggage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NLuggage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Engine, "Cilindrada (cc)", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Engine, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Engine, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HorsePower, "Potência (cv)", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HorsePower, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryID, "Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryID", null, "-- Categoria do Veiculo --", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FuelTypeID, "Tipo Combustivel", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("FuelTypeID", null, "-- Tipo de Combustivel --", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FuelTypeID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GearID, "Caixa", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("GearID", null, "-- Caixa --", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.GearID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CarModelID, "Modelo Veiculo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CarModelID", null, "Modelo Veiculo", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CarModelID, "", new { @class = "text-danger" })
+                </div>
             </div>
 
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.NDoors, "Nº Portas", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NDoors, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NDoors, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NLuggage, "Capacidade Mala", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NLuggage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NLuggage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Engine, "Cilindrada (cc)", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Engine, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Engine, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HorsePower, "Potência (cv)", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HorsePower, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryID, "Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CategoryID", null, "-- Categoria do Veiculo --", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FuelTypeID, "Tipo Combustivel", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("FuelTypeID", null, "-- Tipo de Combustivel --", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FuelTypeID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GearID, "Caixa", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("GearID", null, "-- Caixa --", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.GearID, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CarModelID, "Modelo Veiculo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CarModelID", null, "Modelo Veiculo", htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CarModelID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-       
-    </div>
 
-
-   
         <div class="col-lg-7 moldura3 positionright">
 
             <img id="img" src="" height="300" width="470">
@@ -137,30 +137,31 @@
         </div>
 
 
-    
-}
-<div class="form-group">
-    <div class=" button col-md-offset-2 col-md-10">
-        <input type="submit" value="+ Adicionar" class="submit" />
-    </div>
-</div>
-<div class="button btn-position-right positiontop">
-    @Html.ActionLink("Voltar à Lista", "Index", "Cars", new { @class = "submit" })
-</div>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#img').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
     }
+    <div class="form-group">
+        <div class=" button col-md-offset-2 col-md-10">
+            <input type="submit" value="+ Adicionar" class="submit" />
+        </div>
+    </div>
+    <div class="button btn-position-right positiontop">
+        @Html.ActionLink("Voltar à Lista", "Index", "Cars", new { @class = "submit" })
+    </div>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-    $("#Photo").change(function () {
-        readURL(this);
-    });
-</script>
+                reader.onload = function (e) {
+                    $('#img').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#Photo").change(function () {
+            readURL(this);
+        });
+    </script>
+</div>

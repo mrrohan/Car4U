@@ -8,40 +8,43 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Países</h2>
+<div class="page-header">
+    <h2>Países</h2>
+</div>
+<div class="container">
+    <div class="container col-lg-4">
 
-<div class="container col-lg-4">
-
-    <div class="buttonbackoffice">
-        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Countries")'"> Adicionar </button>
-    </div>
-    <table class="table tableheader">
-        <tr>
-            <th>
-                Países
-                @*@Html.DisplayNameFor(model => model.Name)*@
-            </th>
-            <th>Acções</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <div class="buttonbackoffice">
+            <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Countries")'"> Adicionar </button>
+        </div>
+        <table class="table tableheader">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <div class="buttonbackoffice">
-                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                    </div>
-                </td>
+                <th>
+                    Países
+                    @*@Html.DisplayNameFor(model => model.Name)*@
+                </th>
+                <th>Acções</th>
             </tr>
-        }
-    </table>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <div class="buttonbackoffice">
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
 
 
 
 
+    </div>
 </div>

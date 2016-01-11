@@ -5,86 +5,87 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Estado dos Veiculos</h2>
-
-<div class="buttonbackoffice">
-    <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarStatus")'"> Adicionar </button>
+<div class="page-header">
+    <h2>Estado dos Veiculos</h2>
 </div>
-<table class="table tableheader">
-    <tr>
-        <th>
-            Matrícula     
-        </th>
-        <th>
-            Estado     
-        </th>
-        <th>
-            Observações   
-        </th>
-        <th>
-            Local de Entrega       
-        </th>
-        <th>
-            Local de Recolha
-     
-        </th>
-        <th>
-            Data Início
-      
-        </th>
-        <th>
-            Hora Início
-    
-        </th>
-        <th>
-            Data Fim
+<div class="container">
+    <div class="buttonbackoffice">
+        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarStatus")'"> Adicionar </button>
+    </div>
+    <table class="table tableheader">
+        <tr>
+            <th>
+                Matrícula
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Observações
+            </th>
+            <th>
+                Local de Entrega
+            </th>
+            <th>
+                Local de Recolha
 
-        </th>
-        <th>
-            Hora Fim
-         
-        </th>
-        <th>Acções</th>
-    </tr>
+            </th>
+            <th>
+                Data Início
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Car.LicensePlate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeliveryPlace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReturnPlace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeginDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeginHour.TimeOfDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FinishDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FinishHour.TimeOfDay)
-        </td>
-        <td>
-            <div class="buttonbackoffice">
-                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-            </div>
-        </td>
-    </tr>
-}
+            </th>
+            <th>
+                Hora Início
 
-</table>
+            </th>
+            <th>
+                Data Fim
+
+            </th>
+            <th>
+                Hora Fim
+
+            </th>
+            <th>Acções</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car.LicensePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeginDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeginHour.TimeOfDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishHour.TimeOfDay)
+                </td>
+                <td>
+                    <div class="buttonbackoffice">
+                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

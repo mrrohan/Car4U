@@ -7,50 +7,51 @@
     ViewBag.Title = "Index";
 }
 
+<div class="page-header">
+    <h2>Modelos de Veiculos</h2>
+</div>
+<div class="container">
+    <div class="container col-lg-6">
 
-<h2>Modelos de Veiculos</h2>
 
-
-<div class="container col-lg-6">
-
-
-    <div class="buttonbackoffice table-responsive ">
-        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarModels")'"> Adicionar Modelo de Veiculo </button>
-    </div>
-    <table class="table tableheader">
-        <tr>
-            <th>
-                Marca
-                @*@Html.DisplayNameFor(model => model.brand.Description)*@
-            </th>
-            <th>
-                Modelo
-                @*@Html.DisplayNameFor(model => model.Description)*@
-            </th>
-            <th>Acções</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <div class="buttonbackoffice table-responsive ">
+            <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarModels")'"> Adicionar Modelo de Veiculo </button>
+        </div>
+        <table class="table tableheader">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.brand.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <div class="buttonbackoffice">
-                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                    </div>
-                </td>
+                <th>
+                    Marca
+                    @*@Html.DisplayNameFor(model => model.brand.Description)*@
+                </th>
+                <th>
+                    Modelo
+                    @*@Html.DisplayNameFor(model => model.Description)*@
+                </th>
+                <th>Acções</th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.brand.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <div class="buttonbackoffice">
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
 
 
 
+    </div>
 </div>
