@@ -5,44 +5,61 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Editar Reserva</h2>
 
-<div class="form-horizontal">
-    <div>
-        @Html.DisplayNameFor(model => model.ID) : @Html.DisplayFor(model => model.ID)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.Email) : @Html.DisplayFor(model => model.Email)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.BI) : @Html.DisplayFor(model => model.BI)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.Country) : @Html.DisplayFor(model => model.Country.Name)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.MPDelivery) : @Html.DisplayFor(model => model.MPDelivery.Place)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.DeliveryDate) : @Html.DisplayFor(model => model.DeliveryDate)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.DeliveryHour) : @Html.DisplayFor(model => model.DeliveryHour)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.MPReturn) : @Html.DisplayFor(model => model.MPReturn.Place)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.ReturnDate) : @Html.DisplayFor(model => model.ReturnDate)
-    </div>
-    <div>
-        @Html.DisplayNameFor(model => model.ReturnHour) : @Html.DisplayFor(model => model.ReturnHour)
-    </div>
-    
+<table class=" table tableheader" style="width:400px">
+    <tr><td></td><td></td></tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ID)</td>
+        <td>@Html.DisplayFor(model => model.ID)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Email)</td>
+        <td>@Html.DisplayFor(model => model.Email)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.BI) </td>
+        <td>@Html.DisplayFor(model => model.BI)</td>
+    </tr>
+
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.Country)*@ País</td>
+        <td>@Html.DisplayFor(model => model.Country.Name)</td>
+    </tr>
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.MPDelivery)*@ Local de Entrega</td>
+        <td>@Html.DisplayFor(model => model.MPDelivery.Place)</td>
+    </tr>
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.DeliveryDate)*@ Data de Entrega</td>
+        <td>@Html.DisplayFor(model => model.DeliveryDate)</td>
+    </tr>
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.DeliveryHour)*@ Hora de Entrega</td>
+        <td>@Html.DisplayFor(model => model.DeliveryHour)</td>
+    </tr>
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.MPReturn)*@ Local de Devolução</td>
+        <td>@Html.DisplayFor(model => model.MPReturn.Place)</td>
+    </tr>
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.ReturnDate)*@ Data de Devolução</td>
+        <td>@Html.DisplayFor(model => model.ReturnDate)</td>
+    </tr>
+    <tr>
+        <td>@*@Html.DisplayNameFor(model => model.ReturnHour)*@ Hora de Devolução</td>
+        <td>@Html.DisplayFor(model => model.ReturnHour)</td>
+    </tr>
+
+</table>
+<div class="form-horizontal" style="padding-top:40px">
+
         @if (Model.ExtraItems != null)
         {
+            <h4 style="position:center">Items Extra</h4>
             <div>
-                @Html.DisplayNameFor(model => model.ExtraItems) :
+                @*@Html.displaynamefor(model => model.extraitems) :*@
 
                 @foreach (var item in Model.ExtraItems)
                 {
@@ -54,20 +71,20 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <div class="form-group">
-            @Html.LabelFor(model => model.carID, "Matrícula", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("carID", null, "Matricula",htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.carID, "", new { @class = "text-danger" })
+    <div class="form-group" style="padding-top:40px">
+        @Html.LabelFor(model => model.carID, "Matrícula", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("carID", null, "Matricula", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.carID, "", new { @class = "text-danger" })
+
+            <div class="buttonbackoffice">
+
+                <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Reservations")'"> Voltar </button>
+
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-
+    </div>
     }
 </div>
 

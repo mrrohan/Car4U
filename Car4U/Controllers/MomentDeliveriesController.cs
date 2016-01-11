@@ -66,7 +66,7 @@ namespace Car4U.Controllers
                         momentDelivery.ReservationID = id ?? default(int);
                     }
 
-                    momentDelivery.Date = db.Reservations.Find(momentDelivery.ID).DeliveryDate;
+                    momentDelivery.Date = DateTime.Now;
                     db.MomentDeliveries.Add(momentDelivery);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Reservations");
