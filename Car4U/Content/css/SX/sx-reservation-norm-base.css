@@ -1067,7 +1067,7 @@ h1 span.sx-res-offerconfig-subhd {
 
     .sx-res-offerconfig-data h3 {
         font-size: 20px;
-        font-weight: normal;
+        font-weight:bold;
         line-height: normal;
     }
 
