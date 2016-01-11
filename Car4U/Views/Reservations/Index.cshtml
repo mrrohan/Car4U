@@ -11,76 +11,79 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-
-    <h3>Visualizar Reservas</h3>
-
-    <div class="container">
+    <div class="container col-lg-10">
 
 
-        <table class="table tableheader table-responsive" style="width:85%">
+        <h3>Visualizar Reservas</h3>
 
-    <tr class="text-center">
-                <th>ID </th>
-                <th> Nome </th>
-                <th>E-mail</th>
-                <th> Data de Entrega</th>
-                <th >Data de Recolha  </th>               
-                <th>Preço Final </th>
-                <th style="width:200px">
-                    + Opções
-                </th>
-
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveryDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FinalPrice)
-            </td>
-            <td style="height:5px">
-                
-                    <div class=" buttonbackoffice" style="padding:1px; margin-bottom:1px" >
-                        <div class="form-group col-lg-6">
-
-                            <button class="submit icon-Car" title="Observações de Entrega" type="button" onclick="location.href='@Url.Action("Details", "MomentDeliveries", new { id = item.ID })'"> E </button>
-                            <button class="submit icon-Car" title="Observações de devolução" type="button" onclick="location.href='@Url.Action("Details", "MomentReturns", new { id = item.ID })'"> D </button>
-                            @*<a id="edit-details" href="~/MomentDeliveries/Details/@item.ID">Data de Entrega</a> |
-                                <a id="edit-details" href="~/MomentReturns/Details/@item.ID">Data de Devolução</a> |*@
-                        </div>
-                        <div class="form-group col-lg-4">
-                            @if (item.ReturnDate > DateTime.Now)
-                            {
-                                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
+        <div class="container">
 
 
-                            }
-                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes de Reserva" })
-                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Eliminar Reserva" })
-                        </div>
-                    </div>
-               
-            </td>
-        </tr>
-    }
+            <table class="table tableheader table-responsive" >
 
-</table>
+                <tr class="text-center">
+                    <th>ID </th>
+                    <th> Nome </th>
+                    <th>E-mail</th>
+                    <th> Data de Entrega</th>
+                    <th>Data de Recolha  </th>
+                    <th>Preço Final </th>
+                    <th style="width:200px">
+                        + Opções
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DeliveryDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReturnDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FinalPrice)
+                        </td>
+                        <td>
+
+                            <div class=" buttonbackoffice">
+                                <div class="form-group" style="width:250px">
+
+                                    <button class="submit icon-Car" title="Observações de Entrega" type="button" onclick="location.href='@Url.Action("Details", "MomentDeliveries", new { id = item.ID })'"> E </button>
+                                    <button class="submit icon-Car" title="Observações de devolução" type="button" onclick="location.href='@Url.Action("Details", "MomentReturns", new { id = item.ID })'"> D </button>
+                                    @*<a id="edit-details" href="~/MomentDeliveries/Details/@item.ID">Data de Entrega</a> |
+                                        <a id="edit-details" href="~/MomentReturns/Details/@item.ID">Data de Devolução</a> |*@
+                                </div>
+                                <div class="form-group " style="width:250px">
+                                    @if (item.ReturnDate > DateTime.Now)
+                                    {
+                                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
+
+                                    }
+                                    @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes de Reserva" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Eliminar Reserva" })
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
     </div>
 </body>
+
+
+
