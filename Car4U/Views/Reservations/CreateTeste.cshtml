@@ -25,7 +25,7 @@
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css" />*@
     <link rel="stylesheet" type="text/css" href="~/Content/css/SX/sx-reservation-norm-base.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/css/SX/sx-reservation-norm-base-cust.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/buttons-base-1.0.css" />  
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/buttons-base-1.0.css" />
     @*<link rel="stylesheet" type="text/css"link href="~/Content/css/SX/forms-1.0.css" />*@
 
 
@@ -288,32 +288,63 @@
 
                         <div id="sx-js-res-offerconfig-recommand-wrapper" class="sx-res-offerconfig-recommand-wrapper">
                             <ul class="sx-res-config-list">
-                                @{
-                                    int cnt = 0;
-                                    List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
-                                    extmodels = ViewBag.ExtraModels;
+                                <li>
 
-                                    foreach (var m in extmodels)
-                                    {
-                                        //if (cnt++ % 3 == 0)
-                                        //{
-                                        <li>
-                                            <div class="sx-res-config-entry sx-fake-checkbox">
-                                                <input name="sx_res_AD" id="sx-res-config-AD" type="checkbox" class="sx-gc-ck" value="@m.ID" />
-                                                <label for="sx-res-config-AD">
-                                                    <span class="sx-gc-debug">AD</span>
-                                                    @m.Model
-                                                </label>
-                                            </div>
-                                            <div class="sx-res-config-unit"> por dia </div>
-                                            <div class="sx-res-config-cost"> @m.Price &euro;</div>
-                                        </li>
-                                        //}
+                                    @{
+                                        int cnt = 0;
+                                        List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
+                                        extmodels = ViewBag.ExtraModels;
 
+                                        foreach (var m in extmodels)
+                                        {
+                                            //if (cnt++ % 3 == 0)
+                                            //{
+                                                <div class="sx-res-config-entry sx-fake-checkbox">
+                                                    <input type="checkbox" name="selectedExtraModels" value="@m.ID" />
+                                                    <label for="sx-res-config-AD">
+                                                        <span class="sx-gc-debug">AD</span>
+                                                        @m.Model
+                                                    </label>
+                                                </div>
+                                                <div class="sx-res-config-unit"> por dia </div>
+                                                <div class="sx-res-config-cost"> @m.Price &euro;</div>
+                                            //}
+                                        }
                                     }
-                                }
+
+                                </li>
                             </ul>
                         </div>
+
+                        @*<div id="sx-js-res-offerconfig-recommand-wrapper" class="sx-res-offerconfig-recommand-wrapper">
+                                <ul class="sx-res-config-list">
+
+                                    @{
+                                        int cnt = 0;
+                                        List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
+                                        extmodels = ViewBag.ExtraModels;
+
+                                        foreach (var m in extmodels)
+                                        {
+                                            //if (cnt++ % 3 == 0)
+                                            //{
+                                            <li>
+                                                <div class="sx-res-config-entry sx-fake-checkbox">
+                                                    <input name="sx_res_AD" id="sx-res-config-AD" type="checkbox" class="sx-gc-ck" value="@m.ID" />
+                                                    <label for="sx-res-config-AD">
+                                                        <span class="sx-gc-debug">AD</span>
+                                                        @m.Model
+                                                    </label>
+                                                </div>
+                                                <div class="sx-res-config-unit"> por dia </div>
+                                                <div class="sx-res-config-cost"> @m.Price &euro;</div>
+                                            </li>
+                                            //}
+
+                                        }
+                                    }
+                                </ul>
+                            </div>*@
 
                         <!-- default extra display button -->
                         <p class="sx-res-select-more">

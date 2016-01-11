@@ -383,7 +383,7 @@ namespace Car4U.Controllers
                     for (int count = 0; count < s; count++)
                     {
                         extid = Convert.ToInt32(selectedExtraModels[count]);
-                        extritem = db.ExtraItems.First(e => e.ExtraModelID == extid && e.InUse == false);
+                        extritem = db.ExtraItems.FirstOrDefault(e => e.ExtraModelID == extid && e.InUse == false);
                         if (extritem != null)
                         {
                             extritem.InUse = true;
