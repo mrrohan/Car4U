@@ -4,56 +4,57 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+<div class=" page-header">
+    <h2>Editar Reserva</h2>
+</div>
+<div class=" container">
+    <table class=" table tableheader" style="width:400px">
+        <tr><td></td><td></td></tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ID)</td>
+            <td>@Html.DisplayFor(model => model.ID)</td>
+        </tr>
 
-<h2>Editar Reserva</h2>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Email)</td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BI) </td>
+            <td>@Html.DisplayFor(model => model.BI)</td>
+        </tr>
 
-<table class=" table tableheader" style="width:400px">
-    <tr><td></td><td></td></tr>
-    <tr>
-        <td>@Html.DisplayNameFor(model => model.ID)</td>
-        <td>@Html.DisplayFor(model => model.ID)</td>
-    </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.Country)*@ País</td>
+            <td>@Html.DisplayFor(model => model.Country.Name)</td>
+        </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.MPDelivery)*@ Local de Entrega</td>
+            <td>@Html.DisplayFor(model => model.MPDelivery.Place)</td>
+        </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.DeliveryDate)*@ Data de Entrega</td>
+            <td>@Html.DisplayFor(model => model.DeliveryDate)</td>
+        </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.DeliveryHour)*@ Hora de Entrega</td>
+            <td>@Html.DisplayFor(model => model.DeliveryHour)</td>
+        </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.MPReturn)*@ Local de Devolução</td>
+            <td>@Html.DisplayFor(model => model.MPReturn.Place)</td>
+        </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.ReturnDate)*@ Data de Devolução</td>
+            <td>@Html.DisplayFor(model => model.ReturnDate)</td>
+        </tr>
+        <tr>
+            <td>@*@Html.DisplayNameFor(model => model.ReturnHour)*@ Hora de Devolução</td>
+            <td>@Html.DisplayFor(model => model.ReturnHour)</td>
+        </tr>
 
-    <tr>
-        <td>@Html.DisplayNameFor(model => model.Email)</td>
-        <td>@Html.DisplayFor(model => model.Email)</td>
-    </tr>
-    <tr>
-        <td>@Html.DisplayNameFor(model => model.BI) </td>
-        <td>@Html.DisplayFor(model => model.BI)</td>
-    </tr>
-
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.Country)*@ País</td>
-        <td>@Html.DisplayFor(model => model.Country.Name)</td>
-    </tr>
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.MPDelivery)*@ Local de Entrega</td>
-        <td>@Html.DisplayFor(model => model.MPDelivery.Place)</td>
-    </tr>
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.DeliveryDate)*@ Data de Entrega</td>
-        <td>@Html.DisplayFor(model => model.DeliveryDate)</td>
-    </tr>
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.DeliveryHour)*@ Hora de Entrega</td>
-        <td>@Html.DisplayFor(model => model.DeliveryHour)</td>
-    </tr>
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.MPReturn)*@ Local de Devolução</td>
-        <td>@Html.DisplayFor(model => model.MPReturn.Place)</td>
-    </tr>
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.ReturnDate)*@ Data de Devolução</td>
-        <td>@Html.DisplayFor(model => model.ReturnDate)</td>
-    </tr>
-    <tr>
-        <td>@*@Html.DisplayNameFor(model => model.ReturnHour)*@ Hora de Devolução</td>
-        <td>@Html.DisplayFor(model => model.ReturnHour)</td>
-    </tr>
-
-</table>
-<div class="form-horizontal" style="padding-top:40px">
+    </table>
+    <div class="form-horizontal" style="padding-top:40px">
 
         @if (Model.ExtraItems != null)
         {
@@ -67,29 +68,30 @@
                 }
             </div>
         }
-    
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-    <div class="form-group" style="padding-top:40px">
-        @Html.LabelFor(model => model.carID, "Matrícula", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("carID", null, "Matricula", htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.carID, "", new { @class = "text-danger" })
 
-            <div class="buttonbackoffice">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group" style="padding-top:40px">
+                @Html.LabelFor(model => model.carID, "Matrícula", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("carID", null, "Matricula", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.carID, "", new { @class = "text-danger" })
 
-                <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
-                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Reservations")'"> Voltar </button>
+                    <div class="buttonbackoffice">
 
+                        <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Reservations")'"> Voltar </button>
+
+                    </div>
+                </div>
             </div>
-        </div>
+        }
     </div>
-    }
 </div>
 
 
 
 @*<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>*@
+        @Html.ActionLink("Voltar", "Index")
+    </div>*@

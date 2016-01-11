@@ -29,7 +29,7 @@ namespace Car4U.Controllers
             var reservations = db.Reservations.Include(r => r.Category).Include(r => r.Country).Include(r => r.MomentDelivery).Include(r => r.MomentReturn).Include(r => r.MPDelivery).Include(r => r.MPReturn);
             return View(reservations.ToList());
         }
-
+         [Authorize(Roles = "Admin, Employee")]
         // GET: Reservations/Details/5
         public ActionResult Details(int? id)
         {
@@ -273,6 +273,11 @@ namespace Car4U.Controllers
 
                     }
                     ViewBag.car = car;
+                    var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
+                    int ndaysres = span.Days;
+                    var pricefinal = car.category.Price * ndaysres;
+
+                    ViewBag.price = pricefinal;
                 }
                 else
                 {
@@ -309,6 +314,7 @@ namespace Car4U.Controllers
 
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
+            ViewBag.ExtraItems = new List<ExtraItem>(db.ExtraItems);
 
             var pais = db.Countries.SingleOrDefault(l => l.Name.Equals("Portugal"));
             ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", pais.ID);
@@ -505,7 +511,9 @@ namespace Car4U.Controllers
             return View(reservation);
         }
 
+        
         // GET: Reservations/Edit/5
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -534,6 +542,7 @@ namespace Car4U.Controllers
         // POST: Reservations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [Authorize(Roles = "Admin, Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Reservation reservation, int? id)
@@ -608,6 +617,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Reservations/Delete/5
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -623,6 +633,7 @@ namespace Car4U.Controllers
         }
 
         // POST: Reservations/Delete/5
+         [Authorize(Roles = "Admin, Employee")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

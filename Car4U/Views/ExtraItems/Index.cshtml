@@ -6,33 +6,35 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Tipo de Extra</h2>
-
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Tipo de Extra
-            @*@Html.DisplayNameFor(model => model.ExtraModel.Model)*@
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExtraModel.Model)
-        </td>
-        <td>
-            <div class="buttonbackoffice">
-                @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
-                @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
-                @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
-            </div>
-        </td>
-    </tr>
-}
-
-</table>
+<div class="page-header">
+    <h2>Tipo de Extra</h2>
+</div>
+<div class="container">
+    <p>
+        @Html.ActionLink("+ Adicionar", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tipo de Extra
+                @*@Html.DisplayNameFor(model => model.ExtraModel.Model)*@
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExtraModel.Model)
+                </td>
+                <td>
+                    <div class="buttonbackoffice">
+                        @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
+                        @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
+                        @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

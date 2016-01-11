@@ -291,26 +291,27 @@
                                 <li>
 
                                     @{
-                                        int cnt = 0;
+                                      
                                         List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
                                         extmodels = ViewBag.ExtraModels;
-
+                                      
                                         foreach (var m in extmodels)
-                                        {
-                                            //if (cnt++ % 3 == 0)
-                                            //{
-                                            if(m.Stock !=0)
+                                        {  
+                                              List<Car4U.Models.ExtraItem> extitems = new List<Car4U.Models.ExtraItem>();
+                                              extitems = ViewBag.ExtraItems;
+                                              int extitemscount = extitems.Where(i=>i.ExtraModelID == m.ID).Count(i=>(i.InUse == false));
+
+                                            if(m.Stock !=0 && extitemscount !=0)
                                             { 
                                                 <div class="sx-res-config-entry sx-fake-checkbox">
-                                                    <input type="checkbox" name="selectedExtraModels" value="@m.ID" />
+                                                    <input type="checkbox" name="selectedExtraModels @m.ID" value="@m.ID" />
                                                     <label for="sx-res-config-AD">
                                                         <span class="sx-gc-debug">AD</span>
                                                         @m.Model
                                                     </label>
                                                 </div>
                                                 <div class="sx-res-config-unit"> por dia </div>
-                                                <div class="sx-res-config-cost"> @m.Price &euro;</div>
-                                            //}
+                                                <div class="sx-res-config-cost"> @m.Price &euro;</div> 
                                             }
                                         }
                                     }
@@ -378,7 +379,7 @@
 
                                     </span>
                                 </span>
-                                <span class="sx-gc-rightfloater sx-res-price-value" id="sx-js-res-offerconfig-price"> 90,48 &euro;</span>
+                                <span class="sx-gc-rightfloater sx-res-price-value" id="sx-js-res-offerconfig-price"> @ViewBag.price &euro;</span>
                             </p>
                         </div>
 

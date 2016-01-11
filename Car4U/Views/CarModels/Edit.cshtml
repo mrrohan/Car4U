@@ -7,44 +7,46 @@
 @{
     ViewBag.Title = "Edit";
 }
+<div class="page-header">
+    <h2>Editar Modelo de Carro</h2>
+</div>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-<h2>Editar Modelo de Carro</h2>
+        <div class="form-horizontal">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-        
-        <div class="form-group">
-            @*@Html.LabelFor(model => model.BrandID, "BrandID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
 
-            <div class="col-md-10">
-                <h4> Marca </h4>
-                @Html.DropDownList("BrandID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.BrandID, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.BrandID, "BrandID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                <div class="col-md-10">
+                    <h4> Marca </h4>
+                    @Html.DropDownList("BrandID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BrandID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @*@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            
-            <div class="col-md-10">
-                <h4> Modelo </h4>
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })*@
 
-                <div class="buttonbackoffice">
+                <div class="col-md-10">
+                    <h4> Modelo </h4>
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
 
-                    <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+                    <div class="buttonbackoffice">
 
-                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> Voltar </button>
+                        <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
 
+                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> Voltar </button>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
