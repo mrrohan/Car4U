@@ -56,7 +56,7 @@
 .subButton {
     float: right;
     background-color: ActiveCaption;
-    margin-top: 10px; 
+    margin-top: 10px;
     color: black;
 }
 
@@ -188,14 +188,15 @@ textarea {
 
     /* Footer social icons */
 
-   .footer-distributed .footer-icons {
+    .footer-distributed .footer-icons {
         margin-top: 40px;
     }
 
         .footer-distributed .footer-icons a:hover {
             background-color: #3a5795;
         }
-    .footer-distributed .footer-icons a {
+
+        .footer-distributed .footer-icons a {
             display: inline-block;
             width: 35px;
             height: 35px;
@@ -499,23 +500,21 @@ p {
     float: left;
     list-style: none outside none;
     margin-bottom: 5px;
-        margin-right: 5px;
-        margin-top: 3px;
-        padding: 0 0 0 25px;
+    margin-right: 5px;
+    margin-top: 3px;
+    padding: 0 0 0 25px;
 }
 
     .language .pt {
-        background: url("../img/pt.png") no-repeat scroll 0 7px transparent;      
- }
+        background: url("../img/pt.png") no-repeat scroll 0 7px transparent;
+    }
 
     .language .en {
         background: url("../img/en.png") no-repeat scroll 0 7px transparent;
-
     }
 
     .language .es {
         background: url("../img/es.png") no-repeat scroll 0 7px transparent;
-       
     }
 
     .language .fr {
@@ -524,10 +523,9 @@ p {
 
     .language .de {
         background: url("../img/de.png") no-repeat scroll 0 7px transparent;
-      
     }
 
-    .language ul, ol {        
+    .language ul, ol {
         margin: 0 !important;
         padding: 0;
         float: right;
@@ -566,8 +564,7 @@ header {
     left: 0;
 }
 
-    header .main-nav {    
-        
+    header .main-nav {
         background: url("/img/nav.png") repeat-x;
         -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
         -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -894,7 +891,7 @@ footer {
         font-size: 14px;
     }
 
-    .recent_posts .col-md-4 {
+.recent_posts .col-md-4 {
     float: left;
     margin-left: 0;
 }
@@ -1035,16 +1032,14 @@ footer {
 
 .page-header2 {
     border-bottom: 1px solid #F9BF1D;
-  
 }
 
 .page-header h1 {
     font-weight: bold;
-    
 }
 
 .page-header2 h1 {
-    font-weight: bold;   
+    font-weight: bold;
     font-size: 24px;
 }
 
@@ -1392,7 +1387,7 @@ ul.features {
     font-size: 16px;
     font-weight: bold;
     margin-top: 18px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 8px 33px;
     text-align: center;
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
@@ -1411,7 +1406,7 @@ ul.features {
     font-size: 16px;
     font-weight: bold;
     margin-top: 18px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     padding: 8px 33px;
     text-align: center;
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
@@ -1437,14 +1432,14 @@ ul.features {
 }
 
 .buttonbackoffice .submit {
-    float:left;
+    float: left;
     font-family: Arial,sans-serif;
     font-size: 12px;
     font-weight: bold;
     padding: 4px 7px;
     margin-top: 5px;
-    margin-right:10px;
-    margin-bottom:10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
     display: inline-block;
     text-align: match-parent;
@@ -1452,7 +1447,12 @@ ul.features {
     vertical-align: middle;
     width: auto;
     border: 0;
-    float:left;
+    float: left;
+}
+
+.iconsbackoffice a {
+    font-size: 25px;
+    color:#F9BF1D;
 }
 
 
@@ -1502,10 +1502,10 @@ ul.features {
     color: #F9BF1D;
     border-bottom: 0px solid #6EB663;
     box-shadow: 0 0 0px #DEDEDE;
-    font-size:20px;
-    font-weight:900;
+    font-size: 20px;
+    font-weight: 900;
 }
- 
+
 .reserva .col-md-6 img {
     width: 95%;
 }
@@ -1875,9 +1875,8 @@ ul.features {
 }
 
 .btn-default2 {
-
     height: 500px;
 }
 
 
-                                                        /*Fim CSS Ricardo Oliveira*/
+/*Fim CSS Ricardo Oliveira*/
