@@ -4,26 +4,21 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalhes do tipo de caixa</h2>
-
-<div>
-  
-    <dl class="dl-horizontal">
-        <dt>
-            Tipo de caixa:
-            @*@Html.DisplayNameFor(model => model.Description)*@
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+<div class="page-header">
+    <h2>Detalhes do tipo de caixa</h2>
 </div>
-<div class="form-group">
-    <div class="buttonbackoffice pull-left">
-        <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Gears", new { id = Model.ID })'"> Editar </button>
-        <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Gears", new { id = Model.ID })'"> Eliminar </button>
-        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Gears")'">  Voltar </button>
+
+<div class=" form-horizontal">
+    <div class="form-group">
+        <div class=" col-md-10">
+            <div>
+                <h4>Tipo de caixa: @Html.DisplayFor(model => model.Description)</h4>
+            </div>
+             <div class="buttonbackoffice pull-left">
+                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Gears", new { id = Model.ID })'"> Editar </button>
+                <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Gears", new { id = Model.ID })'"> Eliminar </button>
+                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Gears")'">  Voltar </button>
+            </div>
+        </div>
     </div>
 </div>
