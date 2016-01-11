@@ -6,35 +6,35 @@
     ViewBag.Title = "Delete";
 }
 <div class="page-header">
-    <h2>Eliminar Tipo de caixa</h2>
+    <h3>Tem a certeza que quer eliminar este tipo de caixa ?</h3>
 </div>
-<div class="container">
-    <div class=" container">
-        <div class=" form-horizontal">
-            <div class="form-group">
-                <div class=" col-md-10">
-                    <h3>Tem a certeza que quer eliminar este tipo de caixa ?</h3>
-                    <div>
-                        <h4>
-                            Tipo de Caixa: @Html.DisplayFor(model => model.Description)
-                        </h4>
-                    </div>
 
-                    <div class="buttonbackoffice">
+<div class=" container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h3>Tem a certeza que quer eliminar este tipo de caixa ?</h3>
+                <div>
+                    <h4>
+                        Tipo de Caixa: @Html.DisplayFor(model => model.Description)
+                    </h4>
+                </div>
 
-                        @using (Html.BeginForm())
-                        {
+                <div class="buttonbackoffice">
 
-                            @Html.AntiForgeryToken()
+                    @using (Html.BeginForm())
+                    {
 
-                            <div class="form-actions">
-                                <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
-                            </div>
-                        }
-                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Gears")'"> Voltar </button>
-                    </div>
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions">
+                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        </div>
+                    }
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Gears")'"> Voltar </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

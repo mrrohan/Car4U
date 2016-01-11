@@ -5,11 +5,37 @@
 @{
     ViewBag.Title = "Delete";
 }
-
 <div class="page-header">
-    <h4>Tem a certeza que pretende apagar este modelo?</h4>
-    </div>
+    <h2>Eliminar modelo?</h2>
+</div>
 <div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h3> Tem a certeza que pretende apagar este modelo?</h3>
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr><th></th><th></th></tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.ExtraModelType.Description)</td>
+                        <td>@Html.DisplayFor(model => model.ExtraModelType.Description)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Model)</td>
+                        <td>@Html.DisplayFor(model => model.Model)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Price)</td>
+                        <td>@Html.DisplayFor(model => model.Price)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Stock)</td>
+                        <td>@Html.DisplayFor(model => model.Stock)</td>
+                    </tr>
+                </table>
+
+<div>
+    <h4>Tem a certeza que pretende apagar este modelo?</h4>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ExtraModelType.Description)
@@ -49,7 +75,10 @@
                 <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'"> Voltar </button>
             </div>        
     </div>
+        </div>
+    </div>
+</div>
    
 
     
-</div>
+

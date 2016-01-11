@@ -11,40 +11,41 @@
 <div class="container">
     <h4>Tem a certeza que pretende apagar esta promoção?</h4>
 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Percentage)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Percentage)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Days)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Days)
-        </dd>
-    </dl>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
 
-            <div class="buttonbackoffice">
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-actions">
-                        <button class="submit icon-Delete" type="submit" value="Delete"> Apagar </button>
-                    </div>
-                }
-                <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "Promotions")'"> Voltar </button>
-            </div>
+<div class="page-header">
+    <h2>Eliminar Promoção</h2>
+</div>
+<div class=" container">
+    <div class=" form-horizontal">
+<div class="form-group">
+            <div class=" col-md-10">
+                <h4>Tem a certeza que pretende apagar esta Promoção?</h4>
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr><th></th><th></th></tr>
+                    <tr>
+                        <td>Descrição</td>
+                        <td>@Html.DisplayFor(model => model.Description)</td>
+                    </tr>
+                    <tr>
+                        <td>Percentagem</td>
+                        <td>@Html.DisplayFor(model => model.Percentage)</td>
+                    </tr>
+                    <tr>
+                        <td>Dias de Promoção</td>
+                        <td>@Html.DisplayFor(model => model.Days)</td>
+                    </tr>
+                </table>
+        <div class="buttonbackoffice">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions">
+                    <button class="submit icon-Delete" type="submit" value="Delete"> Apagar </button>
+                </div>
+            }
+            <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "Promotions")'"> Voltar </button>
         </div>
+    </div>
+</div>
     </div>
 </div>
