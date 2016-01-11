@@ -23,10 +23,10 @@
     }
 
     body {
-    	font-size: 100.01%;
+    	font-size: 12px;
     	margin: 0;
     	padding: 0;
-    	font: normal normal normal 11px/130% Verdana, Arial, "Liberation Sans", "Bitstream Vera", Geneva, Helvetica, sans-serif;
+    	font: Arial,sans-serif;
     	color: #333;
     	background-color: #fafafa; 
         min-width: 980px;
@@ -62,7 +62,7 @@
     
     h3 {
         font: bold 14px Arial, Helvetica, Verdana, sans-serif;
-        padding: 10px 0 15px 0;
+        padding: -8px 0 15px 0;
     } 
     
     h4, h5, h6 {

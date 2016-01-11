@@ -74,10 +74,12 @@ namespace Car4U.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CarStatus carStatus = db.CarStatus.Find(id);
+
             if (carStatus == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.CarID = new SelectList(db.Cars, "ID", "LicensePlate", carStatus.CarID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Description", carStatus.StatusID);
             return View(carStatus);
@@ -92,7 +94,18 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(carStatus).State = EntityState.Modified;
+                CarStatus carstas = db.CarStatus.Find(carStatus.ID);
+
+                carstas.BeginDate =carStatus.BeginDate;
+                carstas.CarID = carStatus.CarID;
+                carstas.DeliveryPlace = carStatus.DeliveryPlace;
+                carstas.FinishDate = carStatus.FinishDate;
+                carstas.Observation = carStatus.Observation;
+                carstas.Outside = carStatus.Outside;
+                carstas.ReturnPlace = carStatus.ReturnPlace;
+                carstas.StatusID = carStatus.StatusID;
+
+                db.Entry(carstas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

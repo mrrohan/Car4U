@@ -8,10 +8,17 @@
     <meta name="author" content="">
     <title>Car4U - Backoffice</title>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/RicardoOliveira.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css" />
+    <link rel="icon" type="image/ico" href="/images/Car4U_ico.fw.ico" />
+    <link rel="logo" href="~/images/Car4ULogo.png" />
+
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link href="~/Content/css/simple-sidebar.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements" and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -19,17 +26,18 @@
     <![endif]-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">
-    <link rel="icon" type="image/ico" href="~/images/Car4U_ico.fw.ico" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-latest.js"></script>
+
+   
 
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -126,49 +134,52 @@
                     <a id="Role" href="~/Role/AllUsers" class="sidebar-brand">Todos Empregados</a>
                 </li>
             </ul>
+
         </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="container body-content">
-                            <div class=" buttonbackoffice">
-                                <a href="#menu-toggle" class="btn btn-default submit" id="menu-toggle"><i class="fa fa-arrow-left fa-1x"></i></a>
-                            </div>
-                            <div style="margin-top:50px">
-                                @RenderBody()
+       
+                <!-- /#sidebar-wrapper -->
+                <!-- Page Content -->
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="container body-content">
+                                    <div class="col-lg-0 buttonbackoffice">
+                                        <a href="#menu-toggle" class="btn btn-default submit backofice-slim" id="menu-toggle"><i class="fa fa-arrow-left fa-1g"></i></a>
+                                    </div>
+                                    <div class="col-lg-12" style="margin-top:1px;margin-left:30px;">
+                                        @RenderBody()
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- /#page-content-wrapper -->
             </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-            toggleB(this); // Chama a funçao toggleB
-        });
+            <!-- /#wrapper -->
+            <!-- jQuery -->
+            <script src="js/jquery.js"></script>
+            <!-- Bootstrap Core JavaScript -->
+            <script src="js/bootstrap.min.js"></script>
+            <!-- Menu Toggle Script -->
+            <script>
+                $("#menu-toggle").click(function (e) {
+                    e.preventDefault();
+                    $("#wrapper").toggleClass("toggled");
+                    toggleB(this); // Chama a funçao toggleB
+                });
 
 
-        function toggleB(lnk_obj) {
-            lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1x"></i>') ? '<i class="fa fa-arrow-right fa-1x"></i>' : '<i class="fa fa-arrow-left fa-1x"></i>';
-        }
+                function toggleB(lnk_obj) {
+                    lnk_obj.innerHTML = (lnk_obj.innerHTML == '<i class="fa fa-arrow-left fa-1g"></i>') ? '<i class="fa fa-arrow-right fa-1g"></i>' : '<i class="fa fa-arrow-left fa-1g"></i>';
+                }
 
-        //function toggleB(lnk_obj) {
-        //    lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? 'Esconder Menu' : 'Mostra Menu';
-        //}
+                //function toggleB(lnk_obj) {
+                //    lnk_obj.innerHTML = (lnk_obj.innerHTML == 'Mostra Menu') ? 'Esconder Menu' : 'Mostra Menu';
+                //}
 
-    </script>
+            </script>
 </body>
 </html>

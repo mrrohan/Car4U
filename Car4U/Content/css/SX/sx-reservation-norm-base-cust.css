@@ -9,6 +9,7 @@
     reservation
     ----------------------------------------------- */
     /* inner width 896 */
+
     #sx-reservation-head {
         border: 1px solid #000;
         background-color: rgba(0,0,0,0.5);
@@ -102,7 +103,7 @@
     .sx-gc-message {
 		background: #fff3e3;
 		border: 1px solid #7A2624;
-		color:#7a2624;
+		color:white;
 	}
 
     .sx-gc-message p {
