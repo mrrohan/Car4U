@@ -60,7 +60,7 @@
         <div class="form-group">
         @Html.LabelFor(model => model.BeginHour, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BeginHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.BeginHour.GetDateTimeFormats(), new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.BeginHour, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -74,7 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FinishHour, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FinishHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FinishHour.GetDateTimeFormats(), new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FinishHour, "", new { @class = "text-danger" })
             </div>
         </div>
