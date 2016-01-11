@@ -103,12 +103,12 @@
         
         @if (Request.IsAuthenticated)
         {
-            @Html.ActionLink("Seguir carro", "FollowCar", new { carModel = Model.ID }, new { @class = "submit" })
+            @Html.ActionLink(" Seguir carro ", "FollowCar", new { carModel = Model.ID }, new { @class = " icon-Car submit", @title = " Seguir carro " })
         }
-        @Html.ActionLink(" ", "Edit", new { id = Model.ID }, new { @class = "icon-edit submit", @title="Editar" })
+        @Html.ActionLink(" Editar ", "Edit", new { id = Model.ID }, new { @class = "icon-edit submit", @title = "Editar" })
         @if (ViewBag.View == 1)
         {
-            @Html.ActionLink("Voltar", "Index", "Cars", new { @class = "submit" })
+            @Html.ActionLink(" Voltar ", "Index", "Cars", new { @class = " icon-back submit", @title = " Voltar " })
         }
             @if (ViewBag.View == 2)
             {
