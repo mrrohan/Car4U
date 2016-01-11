@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Car4U.Models.Gear>
-
 @{
     ViewBag.Title = "Index";
 }
@@ -8,31 +7,36 @@
 }
 <h2>Tipo de Caixa</h2>
 
-<div class="buttonbackoffice">
-    <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Gears")'"> Adicionar </button>
+
+<div class="container col-lg-6">
+
+    <div class="buttonbackoffice">
+        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Gears")'"> Adicionar </button>
+    </div>
+
+
+    <table class="table tableheader table-responsive">
+        <tr>
+            <th>
+                Tipo de Caixa
+                @*@Html.DisplayNameFor(model => model.Description)*@
+            </th>
+            <th>Acções</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div class="buttonbackoffice">
+                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
 </div>
-<table class="table tableheader">
-    <tr>
-        <th>
-            Tipo de Caixa
-            @*@Html.DisplayNameFor(model => model.Description)*@
-        </th>
-        <th>Acções</th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            <div class="buttonbackoffice">
-                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-            </div>
-        </td>
-    </tr>
-}
-
-</table>
