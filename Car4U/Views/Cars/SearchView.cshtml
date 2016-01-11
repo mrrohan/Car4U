@@ -5,7 +5,7 @@
 }
 <html lang="pt">
 <body>
-    <div>
+
 
         @if (Model != null)
         {
@@ -60,15 +60,17 @@
                                 <a id="edit-details" class="submit" href="~/Reservations/CreateTeste?mpreliveryid=@Model.Infosender.MPDeliveryID&mpreturnid=@Model.Infosender.MPReturnID&categotyid=@Model.Infosender.CategoryID&begindate=@Model.Infosender.BeginDate.ToString("yyyy-MM-dd")&beginhour=@Model.Infosender.BeginHour.ToString("HH:mm")&enddate=@Model.Infosender.EndDate.ToString("yyyy-MM-dd")&endhour=@Model.Infosender.EndHour.ToString("HH:mm")&carid=@item.ID">Reservar</a>
                                 @*@Html.ActionLink("Reservar", "CreateTeste","Reservations", new { , , , , , , ,  })*@
                                 @*<button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>*@
+                            
                             </div>
 
+
                         </div>
+
                     </div>
                 }
+
             </div>
         }
-    </div>
-
 
 
 
