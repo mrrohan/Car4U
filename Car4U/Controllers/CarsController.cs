@@ -47,8 +47,8 @@ namespace Car4U.Controllers
             }
 
 
-
             
+
 
            return View(viewModel);
         }
@@ -60,7 +60,7 @@ namespace Car4U.Controllers
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
 
-            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm"), carid=carid });
+            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm"), carid = carid });
         }
 
         //GET: SearchView
@@ -83,6 +83,7 @@ namespace Car4U.Controllers
             {
                 viewModel.Infosender.CategoryID = categotyid ?? default(int);
                 viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).ToList();
+                ViewBag.cat = db.Categories.SingleOrDefault(l => l.ID == categotyid).CategoryName;
             }
             if (begindate != null)
             {
@@ -317,7 +318,7 @@ namespace Car4U.Controllers
             }
             
 
-            return RedirectToAction("Details/"+carModel);
+            return RedirectToAction("Details/" + carModel);
         }
 
         // GET: Leaving Cars Index

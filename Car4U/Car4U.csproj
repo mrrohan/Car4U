@@ -502,6 +502,7 @@
     <Content Include="Scripts\jquery-migrate-1.2.1.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.ui.datepicker-pt.js" />
     <Content Include="Scripts\jquery.validate.js" />

@@ -5,18 +5,72 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Reservas</h2>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <h3>Visualizar Reservas</h3>
+
+    <div class="container">
 
 
-<table class="table tableheader">
+        <table class="table tableheader table-responsive" style="width:85%">
 
     <tr class="text-center">
-        <td> ID</td>
-        <td> Nome</td>
-        <td> E-mail </td>
-        <td>Data de Entrega</td>
-        <td> Data de Recolha</td>
-        <td> Preço Final</td>
+                <th>
+                    ID
+                    @*@Html.DisplayName("ID")*@
+                </th>
+                <th>
+                    Nome
+                    @*@Html.DisplayName("Nome")*@
+                </th>
+                <th>
+                    E-mail
+                    @*@Html.DisplayName("E-Mail")*@
+                </th>
+
+                @*<td class="neon-text">
+                        Data de reserva
+                        @html.displayname("reservation date")
+                        @html.displaynamefor(model => model.reservationdate)
+                    </td>*@
+                <th>
+                    Data de Entrega
+                    @*@Html.DisplayName("Delivery Date")*@
+                    @*@Html.DisplayNameFor(model => model.DeliveryDate)*@
+                </th>
+                <th class="neon-text">
+                    Data de Recolha
+                    @*@Html.DisplayName(" Return Date")*@
+                    @*@Html.DisplayNameFor(model => model.ReturnDate)*@
+                </th>
+                @*<td class="neon-text">
+                        Categoria
+                        @Html.DisplayName("Category")
+                    </td>
+                    <td class="neon-text">
+                        Extras
+                        @Html.DisplayName("Extras")
+                    </td>
+                    <td class="neon-text">
+                        Promoção
+                        @Html.DisplayName("Promotion")
+                    </td>*@
+                <th>
+                    Preço Final
+                    @*@Html.DisplayName("Final Price")*@
+                    @*@Html.DisplayNameFor(model => model.FinalPrice)*@
+                </th>
+                <th style="width:200px">
+                    + Opções
+                </th>
+
     </tr>
 
     @foreach (var item in Model)
@@ -55,6 +109,8 @@
                             {
                                 @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
 
+            @if(item.ReturnDate > DateTime.Now ){
+                @Html.ActionLink("Confirmar", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) 
             }
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes de Reserva" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Eliminar Reserva" })
@@ -66,3 +122,5 @@
     }
 
 </table>
+    </div>
+</body>

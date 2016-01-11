@@ -54,13 +54,13 @@
                                     }
                                 }
                                 if (fui == 0)
-                                {
-                                    <li>
-                                        <div align="center" style="width:70px ; height:70px">
-                                            <input type="checkbox" class="option-input radio" name="selectedCats" value="@item.ID" title=""  /><h5><b>@item.CategoryName</b></h5>
-                                        </div>
-                                    </li>
-                                }
+                        { 
+                          <li>
+                              <div align="center" style="width:70px ; height:70px" >
+                                  <input type="checkbox" class="option-input radio" name="selectedCats" value="@item.ID" title="" /><h5><b>@item.CategoryName</b></h5>
+                              </div>                               
+                          </li>
+                        }
 
                             }
 }
@@ -82,7 +82,7 @@
         {
             <div class="container">
                 <div class="page-header">
-                    <h2>Frota </h2>
+                    <h2>Frota Car4U</h2>
                 </div>
 
                 @foreach (var i in ViewBag.catid)
@@ -235,9 +235,8 @@
                                             <img img padding-left="0" width="340" height="220" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
                                         </div>
                                     }
-
                                     <br>
-                                    <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                                    <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small>Ou Outro Similar </small></h4>
                                     <p class="comment"><b></b></p>
                                     <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
                                     <div>

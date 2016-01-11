@@ -11,7 +11,9 @@
         {
             <div class="container">
                 <div class="page-header">
-                    <h2>Frota </h2>
+                    
+                    <h3>Resultados para a categoria <b><i>@ViewBag.cat</i></b> </h3>
+
                 </div>
                 @foreach (var item in Model.Cars)
                 {
@@ -26,7 +28,7 @@
                             }
 
                             <br>
-                            <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Similares:  Similares </small></h4>
+                            <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Ou Outro Similar</small></h4>
                             <p class="comment"><b></b></p>
                             <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
                             <div>
