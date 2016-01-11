@@ -1,43 +1,39 @@
 ﻿@model Car4U.Models.MeetingPoint
-
 @{
     ViewBag.Title = "Delete";
 }
 
+<div class="page-header">
+    <h2>Eliminar Ponto de Encontro</h2>
+</div>
+<div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h4> Tem a certeza que pretende apagar este Ponto de Encontro?</h4>
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr></tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Place)</td>
+                        <td>@Html.DisplayFor(model => model.Place)</td>
+                    </tr>
+                </table>
 
+                <div class="buttonbackoffice">
 
-<h2>Tem a certeza que pretende apagar este Ponto de Encontro?</h2>
-<div>
-    
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Place)
-        </dt>
+                    @using (Html.BeginForm())
+                    {
 
-        <dd>
-            @Html.DisplayFor(model => model.Place)
-        </dd>
+                        @Html.AntiForgeryToken()
 
-    </dl>
-
-    <div class="form-group">
-        <div class="buttonbackoffice">
-
-            @using (Html.BeginForm())
-            {
-
-                @Html.AntiForgeryToken()
-
-                <div class="form-actions">
-
-                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        <div class="form-actions">
+                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        </div>
+                    }
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "MeetingPoints")'"> Voltar </button>
 
                 </div>
-            }
-
-            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "MeetingPoints")'"> Voltar </button>
-
+            </div>
         </div>
-
     </div>
 </div>

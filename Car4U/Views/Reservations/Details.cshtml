@@ -11,7 +11,7 @@
     <div class="form-group">
         <div class=" col-md-10">
             <div class=" container">
-                <table class=" table tableheader table-responsive" style="width:350px">
+                <table class=" table tableheader table-responsive" style="width:400px">
                     <tr>
                         <th></th>
                         <th></th>
@@ -27,27 +27,27 @@
 
                     <tr>
                         <td> Morada</td>
-                        <td>@Html.DisplayNameFor(model => model.Address)</td>
+                        <td>@Html.DisplayFor(model => model.Address)</td>
                     </tr>
                     <tr>
                         <td> Código Postal</td>
-                        <td>@Html.DisplayNameFor(model => model.PostalCode)</td>
+                        <td>@Html.DisplayFor(model => model.PostalCode)</td>
                     </tr>
                     <tr>
+                        <td>E-mail</td>
                         <td>@Html.DisplayFor(model => model.Email)</td>
-                        <td>@Html.DisplayNameFor(model => model.Email)</td>
                     </tr>
                     <tr>
                         <td> Carta Condução nº</td>
-                        <td>@Html.DisplayNameFor(model => model.License)</td>
+                        <td>@Html.DisplayFor(model => model.License)</td>
                     </tr>
                     <tr>
+                        <td>BI</td>
                         <td>@Html.DisplayFor(model => model.BI)</td>
-                        <td>@Html.DisplayNameFor(model => model.BI)</td>
                     </tr>
                     <tr>
                         <td> Data de Reserva</td>
-                        <td>@Html.DisplayNameFor(model => model.ReservationDate)</td>
+                        <td>@Html.DisplayFor(model => model.ReservationDate)</td>
                     </tr>
                     <tr>
                         <td> Local de Entrega</td>
@@ -59,11 +59,11 @@
                     </tr>
                     <tr>
                         <td> Data de Entrega</td>
-                        <td>@Html.DisplayNameFor(model => model.DeliveryDate)</td>
+                        <td>@Html.DisplayFor(model => model.DeliveryDate)</td>
                     </tr>
                     <tr>
                         <td> Hora de Entrega</td>
-                        <td>@Html.DisplayNameFor(model => model.DeliveryHour)</td>
+                        <td>@Html.DisplayFor(model => model.DeliveryHour)</td>
                     </tr>
                     <tr>
                         <td> Local de Devolução</td>
@@ -76,21 +76,21 @@
                     </tr>
                     <tr>
                         <td> Data de Devolução</td>
-                        <td>@Html.DisplayNameFor(model => model.ReturnDate)</td>
+                        <td>@Html.DisplayFor(model => model.ReturnDate)</td>
                     <tr>
                     <tr>
                         <td> Hora de Devolução</td>
-                        <td>@Html.DisplayNameFor(model => model.ReturnHour)</td>
+                        <td>@Html.DisplayFor(model => model.ReturnHour)</td>
                     </tr>
                     <tr>
+                        <td>Preço Final</td>
                         <td>@Html.DisplayFor(model => model.FinalPrice)</td>
-                        <td>@Html.DisplayNameFor(model => model.FinalPrice)</td>
                     </tr>
                 </table>
                 <div class="buttonbackoffice">
-                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "ExtraModels", new { id = Model.ID })'"> Editar </button>
-                    <button class="submit icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "ExtraModels", new { id = Model.ID })'">Eliminar</button>
-                    <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'"> Voltar </button>
+                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Reservations", new { id = Model.ID })'"> Editar </button>
+                    <button class="submit icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Reservations", new { id = Model.ID })'">Eliminar</button>
+                    <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "Reservations")'"> Voltar </button>
                 </div>
             </div>
         </div>
