@@ -19,9 +19,10 @@ namespace Car4U.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
-        static int MULTI = 123456789;
+        static int MULTI = 564738291;
         public double price;
         public int warrat;
+        public int entidade=192837465;
         // GET: Reservations
         public ActionResult Index()
         {
@@ -38,15 +39,16 @@ namespace Car4U.Controllers
             }
             Reservation reservation = db.Reservations.Find(id);
 
-            MomentDelivery momDel = new MomentDelivery();
-            MomentReturn momRet = new MomentReturn();
-
-            momDel = db.MomentDeliveries.First(m => m.ReservationID == reservation.ID);
-            momRet = db.MomentReturns.First(m => m.ReservationID == reservation.ID);
-            reservation.MomentDelivery = momDel;
-            reservation.MomentReturn = momRet;
-
-
+            var momret=db.MomentReturns.FirstOrDefault(m => m.ReservationID == reservation.ID);
+            var momdel = db.MomentDeliveries.FirstOrDefault(m => m.ReservationID == reservation.ID);
+            if (momdel != null)
+            {
+                reservation.MomentDelivery = momdel;
+            }
+            if (momret != null)
+            {
+                reservation.MomentReturn = momret;
+            }
             if (reservation == null)
             {
                 return HttpNotFound();
@@ -453,7 +455,20 @@ namespace Car4U.Controllers
                     string to = reservation.Email;
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
-                    string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ ." +"Dados da reserva:          Dia de inicio:"+reservation.DeliveryDate+"pelas"+reservation.DeliveryHour +"até:"+reservation.ReturnDate+"pelas"+reservation.ReturnHour;
+                    string body = @"Exmos Senhor(a)," + reservation.Name + "\n" + "\n";
+                       ;body = body + "A sua reserva foi efetua com sucesso." + "\n";
+                        body = body + "O valor da sua reserva é o seguinte: " + price + "€." + "\n" + "\n";
+                        body = body + "Detalhes para pagamento" + "\n";
+                        body = body + "Entidade: " + entidade + "\n";
+                        body = body + "Referencia: " + MULTI + "\n";
+                        body = body + "Montante: " + price + "€." + "\n" + "\n";
+                        body = body + "Detalhes da sua Reserva:" + "\n";
+                        body = body + "Data de Levantamento: " + reservation.DeliveryDate.ToString("yyyy-MM-dd") + " pelas " + reservation.DeliveryHour.ToString("HH:mm") + "\n";
+                        body = body + "Data de Entrega " + reservation.ReturnDate.ToString("yyyy-MM-dd") + " pelas " + reservation.ReturnHour.ToString("HH:mm") + "\n" + "\n";
+                        body = body + "Para nossa segurança no acto de levantamento do veículo terá de nos ser entregue uma caução no valor de " + warrat + "€." + "\n" + "\n";
+                        body = body + "Obrigado pela sua preferencia.";
+
+                    //string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ ." +"Dados da reserva:          Dia de inicio:"+reservation.DeliveryDate+"pelas"+reservation.DeliveryHour +"até:"+reservation.ReturnDate+"pelas"+reservation.ReturnHour;
 
                     var client = new SmtpClient("smtp.portugalmail.pt", 25)
                     {
@@ -477,7 +492,7 @@ namespace Car4U.Controllers
                     Console.WriteLine("Erro no mail");
                                  
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Confirm");
                     /////
                 //     }
                 //catch
@@ -584,6 +599,12 @@ namespace Car4U.Controllers
                 ViewBag.carID = new SelectList(db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.Car == null) <= 0), "ID", "LicensePlate", reservation.carID);
             }
             return View(reservation);
+        }
+
+        // GET: Confirmation
+        public ActionResult Confirm()
+        {
+            return View();
         }
 
         // GET: Reservations/Delete/5
