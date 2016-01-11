@@ -226,9 +226,9 @@ namespace Car4U.Migrations
                 new ExtraItem {ID = 8, ExtraModelID = 3 },
                 new ExtraItem {ID = 9, ExtraModelID = 3 },
                 //Via Verde - Identificador Via Verde - 3 items
-                new ExtraItem {ID = 9, ExtraModelID = 3 },
-                new ExtraItem {ID = 10, ExtraModelID = 3 },
-                new ExtraItem {ID = 11, ExtraModelID = 3 },
+                new ExtraItem {ID = 9, ExtraModelID = 4 },
+                new ExtraItem {ID = 10, ExtraModelID = 4 },
+                new ExtraItem {ID = 11, ExtraModelID = 4 },
             };
             item.ForEach(s => context.ExtraItems.AddOrUpdate(p=>p.ExtraModelID,s));
             context.SaveChanges();
