@@ -1,11 +1,14 @@
 ﻿@model Car4U.Models.ExtraItem
-
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
+<div class="page-header">
+    <h2>Details</h2>
+</div>
+<div class="container">
 <div>
     <h4>ExtraItem</h4>
     <hr />
@@ -24,3 +27,4 @@
     @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Voltar", "Index")
 </p>
+</div>

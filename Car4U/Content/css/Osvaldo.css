@@ -2,13 +2,13 @@
 
 .divFixed {
     position:fixed; 
-    left:600px
+    margin-left:400px
 }
 
 @media (max-width: 992px){
     .divFixed{
        position: relative;
-       left:auto;
+       margin-left:auto;
     }
 }
 

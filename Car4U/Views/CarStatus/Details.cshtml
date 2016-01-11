@@ -1,60 +1,65 @@
 ﻿@model Car4U.Models.CarStatus
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
     ViewBag.Title = "Details";
 }
 <div class="page-header">
     <h2>Detalhes do Estado do Carro</h2>
 </div>
-<div class=" form-horizontal">
-    <div class="form-group">
-        <div class=" col-md-10">
-            <div class=" container">
-                <table class=" table tableheader table-responsive" style="width:200px">
-                    <tr><th></th><th></th></tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.Car.LicensePlate)*@ Matricula</td>
-                        <td>@Html.DisplayFor(model => model.Car.LicensePlate)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.Status.Description)*@ Descrição</td>
-                        <td>@Html.DisplayFor(model => model.Status.Description)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.Observation)*@ Observações</td>
-                        <td>@Html.DisplayFor(model => model.Observation)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.DeliveryPlace)*@ Local de Entrega</td>
-                        <td>@Html.DisplayFor(model => model.DeliveryPlace)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.BeginDate)*@ Data de Entrega</td>
-                        <td>@Html.DisplayFor(model => model.BeginDate)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.BeginHour)*@ Hora de Entrega</td>
-                        <td>@Html.DisplayFor(model => model.BeginHour.TimeOfDay)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.ReturnPlace)*@ Local de Devolução</td>
-                        <td>@Html.DisplayFor(model => model.ReturnPlace)</td>
-                    </tr>
+<div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <div class=" container">
+                    <table class=" table tableheader table-responsive" style="width:200px">
+                        <tr><th></th><th></th></tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.Car.LicensePlate)*@ Matricula</td>
+                            <td>@Html.DisplayFor(model => model.Car.LicensePlate)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.Status.Description)*@ Descrição</td>
+                            <td>@Html.DisplayFor(model => model.Status.Description)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.Observation)*@ Observações</td>
+                            <td>@Html.DisplayFor(model => model.Observation)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.DeliveryPlace)*@ Local de Entrega</td>
+                            <td>@Html.DisplayFor(model => model.DeliveryPlace)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.BeginDate)*@ Data de Entrega</td>
+                            <td>@Html.DisplayFor(model => model.BeginDate)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.BeginHour)*@ Hora de Entrega</td>
+                            <td>@Html.DisplayFor(model => model.BeginHour.TimeOfDay)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.ReturnPlace)*@ Local de Devolução</td>
+                            <td>@Html.DisplayFor(model => model.ReturnPlace)</td>
+                        </tr>
 
 
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.FinishDate)*@ Data de Devolução</td>
-                        <td>@Html.DisplayFor(model => model.FinishDate)</td>
-                    </tr>
-                    <tr>
-                        <td>@*@Html.DisplayNameFor(model => model.FinishHour)*@ Hora de Devolução</td>
-                        <td>@Html.DisplayFor(model => model.FinishHour.TimeOfDay)</td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.FinishDate)*@ Data de Devolução</td>
+                            <td>@Html.DisplayFor(model => model.FinishDate)</td>
+                        </tr>
+                        <tr>
+                            <td>@*@Html.DisplayNameFor(model => model.FinishHour)*@ Hora de Devolução</td>
+                            <td>@Html.DisplayFor(model => model.FinishHour.TimeOfDay)</td>
+                        </tr>
+                    </table>
 
-                <div class="buttonbackoffice">
-                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "CarStatus", new { id = Model.ID })'"> Editar </button>
-                    <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "CarStatus", new { id = Model.ID })'"> Eliminar </button>
-                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarStatus")'">  Voltar </button>
+                    <div class="buttonbackoffice">
+                        <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "CarStatus", new { id = Model.ID })'"> Editar </button>
+                        <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "CarStatus", new { id = Model.ID })'"> Eliminar </button>
+                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarStatus")'">  Voltar </button>
+                    </div>
                 </div>
             </div>
         </div>

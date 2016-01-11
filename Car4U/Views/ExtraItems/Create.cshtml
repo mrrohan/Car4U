@@ -5,37 +5,38 @@
 @{
     ViewBag.Title = "Create";
 }
+<div class="page-header">
+    <h2>Adicionar Extra</h2>
+</div>
+<div class="container">
 
-<h2>Adicionar Extra</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
+        <div class="form-horizontal">
+            <h4>Extra Item</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.ExtraModelID, "ExtraModelID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ExtraModelID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ExtraModelID, "", new { @class = "text-danger" })
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>Extra Item</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ExtraModelID, "ExtraModelID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ExtraModelID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ExtraModelID, "", new { @class = "text-danger" })
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="+ Adicionar" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="+ Adicionar" class="btn btn-default" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
 
 
 
-        @*@section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-            }*@
+    @*@section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
+</div>

@@ -2,6 +2,11 @@
 
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+divFixed{
+    position:fixed;
+    margin-left:500px;
+}
+
 #footer {
     position: relative;
     bottom: 0px;
@@ -698,7 +703,7 @@ div.token-input-dropdown-facebook {
 .icon-Details1:before {
     content: '\1f4d6';
 }
-/* Select */
+/* Details 1 */
 
 .icon-Users:before {
     content: '\1f465';
@@ -709,6 +714,12 @@ div.token-input-dropdown-facebook {
     content: '\1f698';
 }
 /* Carrro */
+
+.icon-Confirmar:before {
+    content: '\2714';
+}
+/* Confirmar */ 
+
 
 /*Fim CSS António Gonçalves*/
 

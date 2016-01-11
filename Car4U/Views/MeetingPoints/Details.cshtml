@@ -1,21 +1,26 @@
 ﻿@model Car4U.Models.MeetingPoint
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
     ViewBag.Title = "Details";
 }
 <div class="page-header">
     <h2>Detalhes de Ponto de Encontro</h2>
 </div>
-<div class=" form-horizontal">
-    <div class="form-group">
-        <div class=" col-md-10">
-            <div>
-                <h4> @Html.DisplayNameFor(model => model.Place): @Html.DisplayFor(model => model.Place)</h4>
-            </div>
+<div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <div>
+                    <h4> @Html.DisplayNameFor(model => model.Place): @Html.DisplayFor(model => model.Place)</h4>
+                </div>
 
-            <div class="buttonbackoffice">
-                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "MeetingPoints", new { id = Model.ID })'"> Editar </button>
-                <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "MeetingPoints", new { id = Model.ID })'"> Eliminar </button>
-                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "MeetingPoints")'">  Voltar </button>
+                <div class="buttonbackoffice">
+                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "MeetingPoints", new { id = Model.ID })'"> Editar </button>
+                    <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "MeetingPoints", new { id = Model.ID })'"> Eliminar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "MeetingPoints")'">  Voltar </button>
+                </div>
             </div>
         </div>
     </div>

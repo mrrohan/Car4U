@@ -8,36 +8,40 @@
 }
 
 
+<div class="page-header">
+    <h2>Tem a certeza que pretende apagar este País?</h2>
+</div>
+<div class="container">
+    <div class=" container">
+        <div class=" form-horizontal">
+            <div class="form-group">
+                <div class=" col-md-10">
+                    <h3>Tem a certeza que pretende eliminar esste País?</h3>
+                    <table class=" table tableheader table-responsive" style="width:200px">
+                        <tr></tr>
+                        <tr>
+                            <td>
+                                <h4>País: @Html.DisplayFor(model => model.Name)</h4>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="buttonbackoffice">
 
-<h2>Tem a certeza que pretende apagar este País?</h2>
-<div>
-    
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                        @using (Html.BeginForm())
+                        {
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                            @Html.AntiForgeryToken()
 
-    </dl>
+                            <div class="form-actions">
+                                <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                            </div>
+                        }
+                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Countries")'"> Voltar </button>
 
-    <div class="form-group">
-        <div class="buttonbackoffice">
+                    </div>
 
-            @using (Html.BeginForm())
-            {
-
-                @Html.AntiForgeryToken()
-
-                <div class="form-actions">
-                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
                 </div>
-            }
-            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Countries")'"> Voltar </button>
-
+            </div>
         </div>
-
     </div>
 </div>

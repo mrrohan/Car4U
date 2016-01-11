@@ -5,44 +5,47 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2 style="color:black">Tipo de Extra</h2>
-
-
-
-<div class="container col-lg-6">
-
-    <div class="form-group">
-        <div class="buttonbackoffice">
-            <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "ExtraModelTypes")'"> Adicionar </button>
-        </div>
-    </div>
-
-
-    <table class="table tableheader table-responsive">
-        <tr>
-            <th>
-                Tipo de Extra
-                @*@Html.DisplayNameFor(model => model.Description)*@
-            </th>
-            <th>Acções</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <div class="buttonbackoffice">
-                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                    </div>
-                </td>
-            </tr>
-        }
-    </table>
-
-
+<div class="page-header">
+    <h2>Tipo de Extra</h2>
 </div>
 
+
+<div class="container">
+    <div class="container col-lg-6">
+
+        <div class="form-group">
+            <div class="buttonbackoffice">
+                <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "ExtraModelTypes")'"> Adicionar </button>
+            </div>
+        </div>
+
+
+        <table class="table tableheader table-responsive">
+            <tr>
+                <th>
+                    Tipo de Extra
+                    @*@Html.DisplayNameFor(model => model.Description)*@
+                </th>
+                <th>Acções</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <div class="buttonbackoffice">
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+
+</div>

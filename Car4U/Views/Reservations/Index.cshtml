@@ -6,8 +6,9 @@
 }
 
 <body>
-    
-        <h3>Visualizar Reservas</h3>
+    <div class="page-header">
+        <h2>Visualizar Reservas</h2>
+    </div>
 
         <div class="container col-lg-10">
 
@@ -60,7 +61,7 @@
                                 <div class="form-group" style="width:250px">
                                     @if (item.ReturnDate > DateTime.Now)
                                     {
-                                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
+                                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-Confirmar submit", @title = "Confirmar Reserva" })
 
                                     }
                                     @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes de Reserva" })

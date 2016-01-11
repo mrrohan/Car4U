@@ -1,79 +1,91 @@
 ﻿@model IEnumerable<Car4U.Models.Car>
-
-@{
+@using Car4U.Models;
+    @{
     ViewBag.Title = "FollowedCars";
-}
+    }
+    <div class="page-header">
+        <h2>Carros seguidos     </h2>
+    </div>
+    <table class="table tableheader">
+        <tr>
+            <th>
 
-<h2>FollowedCars</h2>
+            </th>
 
+            <th>
+                Modelo
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Tipo Combustível
+            </th>
+            <th>
+                Matrícula
+            </th>
+            <th>
+                Data Registo
+            </th>
+            <th>
+                Nº Portas
+            </th>
+            <th>
+                Capacidade Mala
+            </th>
+            <th>
+                Cilindrada (cc)
+            </th>
+            <th>
+                Potência (cv)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    <div class="control-image">
+                        @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                    {
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.carModel.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.category.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fuelType.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LicensePlate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NDoors)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NLuggage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Engine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorsePower)
-        </th>
-        <th></th>
-    </tr>
+                            <img width="100" height="50" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.carModel.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.category.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fuelType.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LicensePlate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegisterDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NDoors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NLuggage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Engine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorsePower)
-        </td>
-        <td>
-           
-            <a id="edit-details" href="~/Cars/Details/@item.ID">Details</a>|
-            @Html.ActionLink("UnfollowCar", "UnfollowCar", new { id = item.ID })
-        </td>
-    </tr>
-}
+                    }
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.carModel.brand.Description) @Html.DisplayFor(model => item.carModel.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fuelType.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicensePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NDoors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NLuggage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Engine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorsePower)
+                </td>
+                <td>
 
-</table>
+                    <a id="edit-details" href="~/Cars/Details/@item.ID">Detalhes</a>|
+                    @Html.ActionLink("Remover", "UnfollowCar", new { id = item.ID })
+                </td>
+            </tr>
+    }
+    </table>
