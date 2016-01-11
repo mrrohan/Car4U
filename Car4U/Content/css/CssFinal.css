@@ -680,7 +680,7 @@ div.token-input-dropdown-facebook {
 .icon-Details1:before {
     content: '\1f4d6';
 }
-/* Select */
+/* Details 1 */
 
 .icon-Users:before {
     content: '\1f465';
@@ -691,6 +691,12 @@ div.token-input-dropdown-facebook {
     content: '\1f698';
 }
 /* Carrro */  
+
+.icon-Confirmar:before {
+    content: '\2714';
+}
+/* Confirmar */ 
+
 
 /*Fim CSS António Gonçalves*/
 

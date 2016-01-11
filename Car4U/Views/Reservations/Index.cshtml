@@ -60,7 +60,7 @@
                                 <div class="form-group" style="width:250px">
                                     @if (item.ReturnDate > DateTime.Now)
                                     {
-                                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
+                                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-Confirmar submit", @title = "Confirmar Reserva" })
 
                                     }
                                     @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes de Reserva" })
