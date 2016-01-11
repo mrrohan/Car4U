@@ -5,19 +5,11 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
 <body>
-    <div class="container col-lg-10">
-
-
+    
         <h3>Visualizar Reservas</h3>
 
-        <div class="container">
+        <div class="container col-lg-10">
 
 
             <table class="table tableheader table-responsive" >
@@ -57,7 +49,7 @@
                         </td>
                         <td>
 
-                            <div class=" buttonbackoffice">
+                            <div class="buttonbackoffice">
                                 <div class="form-group" style="width:250px">
 
                                     <button class="submit icon-Car" title="Observações de Entrega" type="button" onclick="location.href='@Url.Action("Details", "MomentDeliveries", new { id = item.ID })'"> E </button>
@@ -65,7 +57,7 @@
                                     @*<a id="edit-details" href="~/MomentDeliveries/Details/@item.ID">Data de Entrega</a> |
                                         <a id="edit-details" href="~/MomentReturns/Details/@item.ID">Data de Devolução</a> |*@
                                 </div>
-                                <div class="form-group " style="width:250px">
+                                <div class="form-group" style="width:250px">
                                     @if (item.ReturnDate > DateTime.Now)
                                     {
                                         @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
@@ -82,7 +74,6 @@
 
             </table>
         </div>
-    </div>
 </body>
 
 
