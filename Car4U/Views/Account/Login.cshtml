@@ -56,7 +56,7 @@
         <img style="margin-left:200px;" width="50" height="200" src="~/Content/css/images/zz.png" />
     </div>
     <div class="col-md-4">
-        <section id="socialLoginForm">
+        <section id="socialLoginForm" class="row center-btn">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>

@@ -85,6 +85,7 @@
 
                                             <form class="fleet-booking-form" id="bookingForm" method="post">
                                                 @Html.Hidden("Infosender.CategoryID", @item.CategoryID)
+                                                @Html.Hidden("carid", @item.ID)
                                                 <input type="hidden" id="fleetId" name="fleet_id">
                                                 <div class="frota">
                                                     <div class="row">

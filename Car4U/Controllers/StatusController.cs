@@ -11,6 +11,8 @@ using Car4U.Models;
 
 namespace Car4U.Controllers
 {
+     [Authorize(Roles = "Admin")]
+     [Authorize(Roles = "Employee")]
     public class StatusController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

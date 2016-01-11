@@ -12,9 +12,9 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <br />
-        <h4>Criar Promoção</h4>
-        <hr />
+        
+        <h2>Criar Promoção</h2>
+       
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <div class="buttonbackoffice">
+                <div class="buttonbackoffice" style="float: none">
                     <button class="submit icon-Add" type="submit"> Adicionar </button>
                     <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "Promotions")'"> Voltar </button>
                 </div>
