@@ -2,59 +2,48 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 
+<div class="page-header">
+    <h2>Eliminar Categoria</h2>
+</div>
+<div class=" container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h3>Tem a certeza que pretende eliminar esta categoria?</h3>
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr><th></th><th></th></tr>
+                    <tr>
+                        <td>Nome de Categoria</td>
+                        <td>@Html.DisplayFor(model => model.CategoryName)</td>
+                    </tr>
+                    <tr>
+                        <td>Preço</td>
+                        <td>@Html.DisplayFor(model => model.Price)</td>
+                    </tr>
+                    <tr>
+                        <td>Garantia</td>
+                        <td>@Html.DisplayFor(model => model.Warranty)</td>
+                    </tr>
+                </table>
+                <div class="buttonbackoffice">
 
-<h2>Tem a certeza que pretende eliminar esta categoria?</h2>
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </dt>
+                    @using (Html.BeginForm())
+                    {
 
-        <dd>
-            @Html.DisplayFor(model => model.CategoryName)
-        </dd>
+                        @Html.AntiForgeryToken()
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Warranty)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Warranty)
-        </dd>
-
-    </dl>
-
-    <div class="form-group">
-        <div class="buttonbackoffice">
-
-            @using (Html.BeginForm())
-            {
-
-                @Html.AntiForgeryToken()
-
-                <div class="form-actions">
-
-                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        <div class="form-actions">
+                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        </div>
+                    }
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("PrivateIndex", "ExtraModels")'"> Voltar </button>
 
                 </div>
-            }
-
-            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("PrivateIndex", "ExtraModels")'"> Voltar </button>
-
+            </div>
         </div>
-
     </div>
 </div>

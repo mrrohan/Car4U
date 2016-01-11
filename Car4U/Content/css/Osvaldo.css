@@ -12,6 +12,16 @@
     }
 }
 
+#carIndexTable{
+
+}
+
+@media (max-width: 1366px) {
+
+    #carIndexTable{
+        max-width: 300px;
+    }
+}
 
 .sticky {
   position: -webkit-sticky;
