@@ -57,13 +57,13 @@
                 @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
         @Html.LabelFor(model => model.BeginHour, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.BeginHour.GetDateTimeFormats(), new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BeginHour, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.BeginHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BeginHour.TimeOfDay, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.FinishDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -71,13 +71,13 @@
                 @Html.ValidationMessageFor(model => model.FinishDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.FinishHour, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FinishHour.GetDateTimeFormats(), new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FinishHour, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.FinishHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FinishHour.TimeOfDay, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CarID, "CarID", htmlAttributes: new { @class = "control-label col-md-2" })

@@ -79,12 +79,6 @@ namespace Car4U.Controllers
             {
                 return HttpNotFound();
             }
-            var hour1 = carStatus.BeginHour.ToString("HH:mm");
-            var hour2 = DateTime.Parse(hour1);
-            carStatus.BeginHour = hour2;
-
-           
-            carStatus.FinishHour = DateTime.Parse(carStatus.FinishHour.ToString("HH:mm"));
 
             ViewBag.CarID = new SelectList(db.Cars, "ID", "LicensePlate", carStatus.CarID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Description", carStatus.StatusID);
@@ -100,7 +94,18 @@ namespace Car4U.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(carStatus).State = EntityState.Modified;
+                CarStatus carstas = db.CarStatus.Find(carStatus.ID);
+
+                carstas.BeginDate =carStatus.BeginDate;
+                carstas.CarID = carStatus.CarID;
+                carstas.DeliveryPlace = carStatus.DeliveryPlace;
+                carstas.FinishDate = carStatus.FinishDate;
+                carstas.Observation = carStatus.Observation;
+                carstas.Outside = carStatus.Outside;
+                carstas.ReturnPlace = carStatus.ReturnPlace;
+                carstas.StatusID = carStatus.StatusID;
+
+                db.Entry(carstas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
