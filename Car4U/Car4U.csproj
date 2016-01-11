@@ -637,6 +637,7 @@
     <Content Include="Views\Cars\PublicIndex - Copy.cshtml" />
     <Content Include="Views\Cars\SearchView.cshtml" />
     <Content Include="Views\Reservations\CreateTeste - Copy.cshtml" />
+    <Content Include="Views\Reservations\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

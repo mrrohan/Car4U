@@ -319,15 +319,6 @@ namespace Car4U.Controllers
             return RedirectToAction("Details/"+carModel);
         }
 
-        // GET: Cars that are leaving
-        //public ActionResult LeavingCars()
-        //{
-        //    var DateAndTime = DateTime.Now;
-        //    var today = DateAndTime.Date;
-        //    var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
-        //    return View(cars.ToList());
-        //}
-
         // GET: Leaving Cars Index
         public ActionResult LeavingCarsIndex(int? id)
         {
@@ -345,7 +336,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = true
+        //Post : CarStatus.Outside = true
         public ActionResult Outside(int? id)
         {
             var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
@@ -359,7 +350,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = false
+        //Post : CarStatus.Outside = false
         public ActionResult Inside(int? id)
         {
             var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
@@ -387,7 +378,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = true
+        //POST : CarStatus.Outside = true
         public ActionResult Outside2(int? id)
         {
             var carstatustoupdate = db.CarStatus.Find(id);
@@ -401,7 +392,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = false
+        //POST : CarStatus.Outside = false
         public ActionResult Inside2(int? id)
         {
             var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
