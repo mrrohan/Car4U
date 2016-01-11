@@ -93,5 +93,10 @@ namespace Car4U.Controllers
             return View();
         }
 
+        public ActionResult Erro()
+        {
+            return View();
+        }
+
     }
 }

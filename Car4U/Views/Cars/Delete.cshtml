@@ -7,92 +7,69 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.carModel.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.carModel.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.category.CategoryName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.category.CategoryName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fuelType.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fuelType.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LicensePlate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LicensePlate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RegisterDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RegisterDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NDoors)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NDoors)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NLuggage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NLuggage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Engine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Engine)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HorsePower)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HorsePower)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
-        </div>
-    }
+<div class="page-header">
+    <h3>Tem a certeza que pretende apagar este Carro?</h3>
 </div>
+
+<div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <table class=" table tableheader table-responsive" style="width:200px">
+                  
+                    <tr>
+                        <th>Descrição</th>
+                        <td>@Html.DisplayFor(model => model.carModel.Description)</td>
+                    </tr>
+                    <tr>
+                        <th>Categoria</th>
+                        <td>@Html.DisplayFor(model => model.category.CategoryName)</td>
+                    </tr>
+                    <tr>
+                        <th>Combustivel</th>
+                        <td>@Html.DisplayFor(model => model.fuelType.Description)</td>
+                    </tr>
+                    <tr>
+                        <th>Matricula</th>
+                        <td>@Html.DisplayFor(model => model.LicensePlate)</td>
+                    </tr>
+                    <tr>
+                        <th>Data de Registo</th>
+                        <td>@Html.DisplayFor(model => model.RegisterDate)</td>
+                    </tr>
+                    <tr>
+                        <th>Nº Portas</th>
+                        <td>@Html.DisplayFor(model => model.NDoors)</td>
+                    </tr>
+                    <tr>
+                        <th>nº Bagagens</th>
+                        <td>@Html.DisplayFor(model => model.NLuggage)</td>
+                    </tr>
+                    <tr>
+                        <th>Cilindrada</th>
+                        <td>@Html.DisplayFor(model => model.Engine)</td>
+                    </tr>
+                    <tr>
+                        <th>Potencia</th>
+                        <td>@Html.DisplayFor(model => model.HorsePower)</td>
+                    </tr>
+                </table>
+
+                <div class="buttonbackoffice">
+
+                    @using (Html.BeginForm())
+                    {
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions">
+                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        </div>
+                    }
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Cars")'"> Voltar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
