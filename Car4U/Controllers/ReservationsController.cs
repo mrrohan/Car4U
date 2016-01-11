@@ -19,9 +19,10 @@ namespace Car4U.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         static String RESERVADO = "Reservado";
-        static int MULTI = 123456789;
+        static int MULTI = 564738291;
         public double price;
         public int warrat;
+        public int entidade=192837465;
         // GET: Reservations
         public ActionResult Index()
         {
@@ -38,20 +39,16 @@ namespace Car4U.Controllers
             }
             Reservation reservation = db.Reservations.Find(id);
 
-        
-
-            if (db.MomentDeliveries.FirstOrDefault(m => m.ReservationID == reservation.ID) != null)
+            var momret=db.MomentReturns.FirstOrDefault(m => m.ReservationID == reservation.ID);
+            var momdel = db.MomentDeliveries.FirstOrDefault(m => m.ReservationID == reservation.ID);
+            if (momdel != null)
             {
-                reservation.MomentDelivery = db.MomentDeliveries.FirstOrDefault(m => m.ReservationID == reservation.ID);
+                reservation.MomentDelivery = momdel;
             }
-            if (db.MomentReturns.FirstOrDefault(m => m.ReservationID == reservation.ID) != null)
+            if (momret != null)
             {
-                reservation.MomentReturn = db.MomentReturns.FirstOrDefault(m => m.ReservationID == reservation.ID);
+                reservation.MomentReturn = momret;
             }
-           
-           
-
-
             if (reservation == null)
             {
                 return HttpNotFound();
@@ -256,7 +253,13 @@ namespace Car4U.Controllers
             }
             if (carid != null && categotyid!=null)
             {
+                ViewBag.view = 1;
+                
                 ViewBag.carother = db.Cars.Where(l=>l.ID!=carid).FirstOrDefault(l => l.CategoryID == categotyid);
+                if(ViewBag.carother == null)
+                {
+                    ViewBag.view = 0;
+                }
                 var car = db.Cars.SingleOrDefault(l => l.ID == carid);
                 var car2 = db.Cars.FirstOrDefault(l => l.CategoryID == categotyid);
 
@@ -306,7 +309,9 @@ namespace Car4U.Controllers
 
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
+
+            var pais = db.Countries.SingleOrDefault(l => l.Name.Equals("Portugal"));
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", pais.ID);
             if (reservation.CountryID != 0)
             {
                 ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
@@ -450,7 +455,20 @@ namespace Car4U.Controllers
                     string to = reservation.Email;
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
-                    string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ ." +"Dados da reserva:          Dia de inicio:"+reservation.DeliveryDate+"pelas"+reservation.DeliveryHour +"até:"+reservation.ReturnDate+"pelas"+reservation.ReturnHour;
+                    string body = @"Exmos Senhor(a), " + reservation.Name + "\n" + "\n";
+                        body = body + "A sua reserva foi efetuada com sucesso." + "\n";
+                        body = body + "O valor da sua reserva é o seguinte: " + price + "€." + "\n" + "\n";
+                        body = body + "Detalhes para pagamento" + "\n" + ":" + "\n";
+                        body = body + "Entidade: " + entidade + "\n";
+                        body = body + "Referência: " + MULTI + "\n";
+                        body = body + "Montante: " + price + "€." + "\n" + "\n";
+                        body = body + "Detalhes da sua Reserva:" + "\n";
+                        body = body + "Data de Levantamento: " + reservation.DeliveryDate.ToString("dd-MM-yyyy") + " pelas " + reservation.DeliveryHour.ToString("HH:mm") + "\n";
+                        body = body + "Data de Entrega " + reservation.ReturnDate.ToString("dd-MM-yyyy") + " pelas " + reservation.ReturnHour.ToString("HH:mm") + "\n" + "\n";
+                        body = body + "Para nossa segurança no acto de levantamento do veículo terá de nos ser entregue uma caução no valor de " + warrat + "€." + "\n" + "\n";
+                        body = body + "Obrigado pela sua preferência.";
+
+                    //string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ ." +"Dados da reserva:          Dia de inicio:"+reservation.DeliveryDate+"pelas"+reservation.DeliveryHour +"até:"+reservation.ReturnDate+"pelas"+reservation.ReturnHour;
 
                     var client = new SmtpClient("smtp.portugalmail.pt", 25)
                     {
@@ -474,7 +492,7 @@ namespace Car4U.Controllers
                     Console.WriteLine("Erro no mail");
                                  
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Confirm");
                     /////
                 //     }
                 //catch
@@ -581,6 +599,12 @@ namespace Car4U.Controllers
                 ViewBag.carID = new SelectList(db.Cars.Where(l => (l.CarStatus.Count(c => c.FinishDate < reservation.DeliveryDate || c.BeginDate > reservation.ReturnDate) > 0 && l.CarStatus.Count(c => c.FinishDate > today) > 0) || l.CarStatus.Count(c => c.Car == null) <= 0), "ID", "LicensePlate", reservation.carID);
             }
             return View(reservation);
+        }
+
+        // GET: Confirmation
+        public ActionResult Confirm()
+        {
+            return View();
         }
 
         // GET: Reservations/Delete/5

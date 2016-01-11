@@ -68,7 +68,7 @@ namespace Car4U.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "Utilizador ou Password Errada.");
                 }
             }
 

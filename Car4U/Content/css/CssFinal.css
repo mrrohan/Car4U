@@ -383,7 +383,50 @@ button {
 .btn-position-right {
     float: right;
 }
+.backofice-slim {
+        height:700px;
+        width:0px;
+        align-content:center;
+       
+      
+       position:fixed;
+        
+}
 /*------------------------------------------------------------------------*/
+@import "compass/css3";
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans);
+ div.social-wrap input {
+    padding-right: 45px;
+    height: 35px;
+    background-color:#2d5073;
+    border: none;
+    display: block;
+    background-size: 35px 35px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    font-family:"Merriweather Sans", sans-serif;
+    font-size: 18px;
+    font-weight:bold;
+    margin-bottom: 15px;
+    width: 205px;
+    border-bottom: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    box-shadow: 0 4px 2px -2px gray;
+    text-shadow: rgba(0, 0, 0, .5) -1px -1px 0;
+}
+input.facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+}
+
+
+
+
 
 
 .moldura3 {
@@ -519,12 +562,17 @@ button {
     border-radius: 6px;
 }
 
+.facebook{
+    width:200px;
+    height:50px;
+}
+
 .btn {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
+    font-size: 20px;
+    font-weight: bold;
     line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;
@@ -539,6 +587,19 @@ button {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+div.token-input-dropdown-facebook {
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    z-index: 1;
 }
 /*Log in with Facebook button*/
 

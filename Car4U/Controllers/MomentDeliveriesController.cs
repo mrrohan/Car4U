@@ -16,10 +16,10 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MomentDeliveries
-        public ActionResult Index()
-        {
-            return View(db.MomentDeliveries.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    return View(db.MomentDeliveries.ToList());
+        //}
 
         // GET: MomentDeliveries/Details/5
         public ActionResult Details(int? id)
@@ -101,7 +101,7 @@ namespace Car4U.Controllers
             {
                 db.Entry(momentDelivery).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Reservations");
             }
             return View(momentDelivery);
         }

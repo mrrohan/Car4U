@@ -74,10 +74,18 @@ namespace Car4U.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CarStatus carStatus = db.CarStatus.Find(id);
+
             if (carStatus == null)
             {
                 return HttpNotFound();
             }
+            var hour1 = carStatus.BeginHour.ToString("HH:mm");
+            var hour2 = DateTime.Parse(hour1);
+            carStatus.BeginHour = hour2;
+
+           
+            carStatus.FinishHour = DateTime.Parse(carStatus.FinishHour.ToString("HH:mm"));
+
             ViewBag.CarID = new SelectList(db.Cars, "ID", "LicensePlate", carStatus.CarID);
             ViewBag.StatusID = new SelectList(db.Status, "ID", "Description", carStatus.StatusID);
             return View(carStatus);
