@@ -1,31 +1,24 @@
 ﻿@model Car4U.Models.Status
-
 @{
     ViewBag.Title = "Details";
 }
 
-
-<div>
-    <h4>Deatlhes do Estado</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+<div class=" page-header">
+    <h2>Detalhes do Estado de Disponibilidade</h2>
+</div>
+<div class="form-horizontal">
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class=" col-md-10">
+            <div>
+                <h4>
+                    Estado: @Html.DisplayFor(model => model.Description)
+                </h4>
+            </div>
             <div class="buttonbackoffice">
-                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Status", new { id = Model.ID })'"> Editar </button> 
+                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Status", new { id = Model.ID })'"> Editar </button>
                 <button class="submit icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Status", new { id = Model.ID })'"> Eliminar </button>
                 <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "Status")'"> Voltar </button>
             </div>
         </div>
     </div>
 </div>
-
