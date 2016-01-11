@@ -4,20 +4,16 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-    <h4>Tipo de combustivel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+<div class="page-header">
+    <h2>Tipo de combustivel</h2>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-    </dl>
+<div class=" form-horizontal">
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class=" col-md-10">
+            <div>
+                <h4> @Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h4>
+            </div>
             <div class="buttonbackoffice">
                 <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "FuelTypes", new { id = Model.ID })'"> Editar </button>
                 <button class="submit icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "FuelTypes", new { id = Model.ID })'">Eliminar</button>

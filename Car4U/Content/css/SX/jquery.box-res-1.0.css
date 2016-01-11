@@ -1,0 +1,134 @@
+/*
+
+    jquery.box.css.css
+
+    basic styles thickbox need to run...
+
+    author:     joachim.wendenburg@sixt.de
+    created:    10.11.2009
+
+
+ */
+
+    #box-window {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: #fff;
+        z-index: 1001;
+        border: 3px solid #e9800f;
+        text-align: left;
+        
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px 5px;
+    }
+
+    #box-header {
+        overflow: hidden;
+        zoom: 1;
+        background: transparent url(bg/bg-box-title.gif) repeat-x left top;
+    }
+
+    #box-image-header {
+        padding: 10px 0 0 30px;
+        float: left;
+    }
+
+    #box-back,
+    #box-next,
+    #box-close {
+        float: right;
+        border: 1px solid #a2a2a2;
+        -moz-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px 2px;
+        margin: 6px 0 6px 6px;
+        padding: 1px 5px 2px 5px;
+        background: #fff;
+        cursor: pointer;
+        cursor: hand;
+        color: #666;
+    }
+
+    #box-title {
+        clear: none;
+        margin: 0 0 0 0;
+        padding: 6px 3px 6px 10px;
+        font-size: 14px;
+        color: #000;
+        font-weight: normal;
+        font-family: verdana, arial, sans-serif;
+    }
+
+    #box-iframe {
+        width: 100%;
+        margin-top: -3px;
+    }
+
+    #box-content {
+        clear: both;
+        padding: 0 10px 0 10px;
+        margin: 10px 0 10px 0;
+        overflow: auto;
+    }
+
+    #box-image-content {
+        clear: both;
+        padding: 0 30px 20px 30px;
+        margin: 0;
+    }
+
+    #box-image-content img {
+        border: 1px solid #333333;
+    }
+
+    #box-image-title {
+        padding: 6px 0 0 0;
+        text-align: center;
+    }
+
+    #box-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #000 url(bg/bg-box-loading.gif) no-repeat 50% 50%;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        z-index: 20000;
+    }
+
+    .jalert-button-wrapper {
+        overflow: hidden;
+        zoom: 1;
+        padding: 0 0 20px 0;
+    }
+    
+    .jalert-button-gray {
+        font: normal 11px Verdana,Arial,Helvetica,Geneva,sans-serif;
+        line-height:15px;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+        cursor: hand;
+        background: transparent url(buttons/very-small-button-sprites.gif") no-repeat 0 0;
+        background-position: 0 0;
+        padding:0 10px 2px 20px;
+        margin: 5px 0 5px 10px;
+        font-weight: bold;
+    }
+    
+    .jalert-button-gray:hover {
+       background-position: 0 -60px;
+        text-decoration: underline;
+        color: #000;
+    }
+
+
+
+
+

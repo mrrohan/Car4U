@@ -45,37 +45,88 @@ namespace Car4U.Controllers
                 ViewBag.catid = new int[1];
                 ViewBag.show = 1;
             }
-           
-             
+
+
             
-            
+
 
            return View(viewModel);
         }
 
         //Post Index
         [HttpPost]
-        public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info)
+        public ActionResult PublicIndex([Bind(Include = "BeginDate,BeginHour,EndDate,EndHour,CategoryID,MPDeliveryID,MPReturnID")] InfoSender info2, CarIndex info, int? carid)
         {
-
-            //if (ViewBag.catid != 0)
-            //{
-            //    info.Infosender.CategoryID = ViewBag.catid;
-            //}
             ViewBag.MPDeliveryID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPDeliveryID);
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info2.MPReturnID);
-            //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
 
-            return RedirectToAction("Teste", "Home", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm") });
+            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info2.MPDeliveryID, mpreturnid = info2.MPReturnID, categotyid = info.Infosender.CategoryID, begindate = info.Infosender.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.Infosender.BeginHour.ToString("HH:mm"), enddate = info.Infosender.EndDate.ToString("yyyy-MM-dd"), endhour = info.Infosender.EndHour.ToString("HH:mm"), carid = carid });
         }
 
-        // GET: Cars/Details/5
-        public ActionResult Details(int? id)
+        //GET: SearchView
+        public ActionResult SearchView(int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
         {
-            if (id == null)
+
+            var viewModel = new CarIndex();
+           
+            viewModel.Infosender = new InfoSender();
+
+            if (mpreliveryid != null)
+            {
+                viewModel.Infosender.MPDeliveryID = mpreliveryid ?? default(int);
+            }
+            if (mpreturnid != null)
+            {
+                viewModel.Infosender.MPReturnID = mpreturnid ?? default(int);
+            }
+            if (categotyid != null)
+            {
+                viewModel.Infosender.CategoryID = categotyid ?? default(int);
+                viewModel.Cars = db.Cars.Where(l => l.CategoryID == categotyid).ToList();
+                ViewBag.cat = db.Categories.SingleOrDefault(l => l.ID == categotyid).CategoryName;
+            }
+            if (begindate != null)
+            {
+                viewModel.Infosender.BeginDate = begindate ?? default(DateTime);
+          
+            }
+            if (beginhour != null)
+            {
+                viewModel.Infosender.BeginHour = beginhour ?? default(DateTime);
+              
+            }
+            if (enddate != null)
+            {
+                viewModel.Infosender.EndDate = enddate ?? default(DateTime);
+           
+            }
+            if (endhour != null)
+            {
+                viewModel.Infosender.EndHour = endhour ?? default(DateTime);
+              
+            }
+        
+
+           
+         
+           
+          
+            return View(viewModel);
+        }
+
+        //GET: Cars/Details/5
+        public ActionResult Details(int? id, int? view)
+        {
+            if (id == null || view == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            if (view != null)
+            {
+                ViewBag.View = view;
+            }
+            
             Car car = db.Cars.Find(id);
             if (car == null)
             {
@@ -209,7 +260,7 @@ namespace Car4U.Controllers
                 }
                 db.Entry(car).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details/" + id);
+                return RedirectToAction("Details/" + id + "&view = 1");
             }
             return View(car);
         }
@@ -267,17 +318,8 @@ namespace Car4U.Controllers
             }
             
 
-            return RedirectToAction("Details/"+carModel);
+            return RedirectToAction("Details/" + carModel);
         }
-
-        // GET: Cars that are leaving
-        //public ActionResult LeavingCars()
-        //{
-        //    var DateAndTime = DateTime.Now;
-        //    var today = DateAndTime.Date;
-        //    var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Select(c => c.BeginDate).Contains(today)).Where(l => l.CarStatus.Select(c => c.Outside).Contains(false));
-        //    return View(cars.ToList());
-        //}
 
         // GET: Leaving Cars Index
         public ActionResult LeavingCarsIndex(int? id)
@@ -296,7 +338,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = true
+        //Post : CarStatus.Outside = true
         public ActionResult Outside(int? id)
         {
             var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
@@ -310,7 +352,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = false
+        //Post : CarStatus.Outside = false
         public ActionResult Inside(int? id)
         {
             var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
@@ -338,10 +380,10 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = true
+        //POST : CarStatus.Outside = true
         public ActionResult Outside2(int? id)
         {
-            var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);
+            var carstatustoupdate = db.CarStatus.Find(id);
 
             carstatustoupdate.Outside = true;
 
@@ -352,7 +394,7 @@ namespace Car4U.Controllers
         }
 
         //
-        //GET : CarStatus.Outside = false
+        //POST : CarStatus.Outside = false
         public ActionResult Inside2(int? id)
         {
             var carstatustoupdate = db.CarStatus.SingleOrDefault(u => u.ID == id);

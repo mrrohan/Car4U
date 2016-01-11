@@ -1,0 +1,1014 @@
+/*
+    buttons-base.css
+    e-Sixt buttons-styles
+
+    @author:    Pierre Seifert/jw
+    @copyright: e-sixt GmbH & Co. KG
+    @created:   04.01.2011
+
+*/
+    a.sx-gc-button-cta-red,
+    a.sx-gc-button-cta-green,
+    a.sx-gc-button-cta-dark,
+    a.sx-gc-button-normal-red,
+    a.sx-gc-button-normal-dark,
+    a.sx-gc-button-back-red,
+    a.sx-gc-button-back-dark,
+    a.sx-gc-button-neutral-red,
+    a.sx-gc-button-neutral-green,
+    a.sx-gc-button-neutral-lime,    
+    a.sx-gc-button-neutral-dark,
+
+    p.sx-gc-button-cta-red,
+    p.sx-gc-button-cta-green,
+    p.sx-gc-button-cta-dark,
+    p.sx-gc-button-normal-red,
+    p.sx-gc-button-normal-dark,
+    p.sx-gc-button-back-red,
+    p.sx-gc-button-back-dark,
+    p.sx-gc-button-neutral-red,
+    p.sx-gc-button-neutral-green,
+    p.sx-gc-button-neutral-lime,    
+    p.sx-gc-button-neutral-dark {
+        text-decoration: none;
+        cursor: pointer;
+    }  
+
+    .sx-gc-buttonwrapper,
+    .sx-gc-button-wrapper{
+        clear: both;
+        margin: 0;
+        padding: 0 10px 20px 10px;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-buttonwrapper-red {
+        clear: both;
+        margin: 0;
+        padding: 10px;
+        background: #fd8502;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    button {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: transparent;
+        overflow: visible;
+        display: inline;
+        float: right;
+        cursor: pointer;
+    }
+
+
+    /* -------------------------------------
+        Buttons
+    ------------------------------------- */
+
+    /* All Buttons */
+    .sx-gc-button-cta-red,
+    .sx-gc-button-cta-green,
+    .sx-gc-button-cta-dark,
+    .sx-gc-button-normal-red,
+    .sx-gc-button-normal-dark,
+    .sx-gc-button-back-red,
+    .sx-gc-button-back-dark,
+    .sx-gc-button-neutral-red,
+    .sx-gc-button-neutral-green,
+    .sx-gc-button-neutral-lime,    
+    .sx-gc-button-neutral-dark {
+        text-decoration: none;
+        text-align: left;
+        border-style: solid;
+        white-space: nowrap;
+
+        -moz-border-radius:5px 5px 5px 5px;
+        -webkit-border-radius:5px 5px 5px 5px;
+        -khtml-border-radius:5px 5px 5px 5px;
+        border-radius:5px 5px 5px 5px;
+
+        -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        -khtml-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+    }  
+
+    .sx-gc-button-cta-red,
+    .sx-gc-button-cta-dark,
+    .sx-gc-button-normal-red,
+    .sx-gc-button-normal-dark,
+    .sx-gc-button-back-red,
+    .sx-gc-button-back-dark,
+    .sx-gc-button-neutral-red,
+    .sx-gc-button-neutral-green,
+    .sx-gc-button-neutral-lime,    
+    .sx-gc-button-neutral-dark {
+        border-width: 1px;
+    }
+    
+    .sx-gc-button-cta-green {
+        border-width: 2px;
+    }
+
+    /* Padding CTA, Normal, Back */   
+    .sx-gc-button-cta-red,
+    .sx-gc-button-cta-green,
+    .sx-gc-button-cta-dark,
+    .sx-gc-button-normal-red,
+    .sx-gc-button-normal-dark,
+    .sx-gc-button-back-red,
+    .sx-gc-button-back-dark,
+    .sx-gc-button-neutral-red,
+    .sx-gc-button-neutral-green,
+    .sx-gc-button-neutral-dark {
+        padding: 5px 8px 5px 8px !important;
+    }
+
+    .sx-gc-button-neutral-lime {
+        padding: 10px 30px 10px 30px !important;
+    }
+
+
+    /* Float and Margin CTA and Normal Buttons */
+    .sx-gc-button-cta-red,
+    .sx-gc-button-cta-green,
+    .sx-gc-button-cta-dark,
+    .sx-gc-button-normal-red,
+    .sx-gc-button-neutral-green, 
+    .sx-gc-button-neutral-lime, 
+    .sx-gc-button-normal-dark {
+        display: block;
+        float: right;
+        margin: 0;
+    }
+
+    /* Float and Margin Back Buttons */
+    .sx-gc-button-back-red,
+    .sx-gc-button-back-dark {
+        display: block;
+        float: left;
+        margin: 0;
+    }
+
+    /* Float and Margin Neutral Buttons */
+    .sx-gc-button-neutral-red,
+    .sx-gc-button-neutral-green,
+    .sx-gc-button-neutral-lime,    
+    .sx-gc-button-neutral-dark {
+        margin: 0;
+        display: inline-block;
+    }
+
+    /* Colors Red Buttons */
+    .sx-gc-button-cta-red,
+    .sx-gc-button-normal-red,
+    .sx-gc-button-back-red,
+    .sx-gc-button-neutral-red {
+        border-color: #b75502;
+        background-color: #ff9808 !important;
+        background:-moz-linear-gradient(top, #fcb900, #F9BE1E) !important; /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#fcb900), to(#F9BE1E)) !important; /* Safari, Chrome */
+        background:-khtml-gradient(linear, left top, left bottom, from(#fcb900), to(#F9BE1E)) !important; /* khtml */
+        background:-o-linear-gradient(top, #fcb900, #F9BE1E) !important; /* Firefox */
+        background:linear-gradient(top, #fcb900, #F9BE1E) !important; /* standard */
+    }   
+
+    /* Colors Green Buttons */
+    .sx-gc-button-cta-green,
+    .sx-gc-button-neutral-green {
+        border-color: #fff;
+        background-color: #006729;
+        background:-moz-linear-gradient(top, #41a62a, #006729) !important;
+        background:-webkit-gradient(linear, left top, left bottom, from(#41a62a), to(#006729)) !important;
+        background:-khtml-gradient(linear, left top, left bottom, from(#41a62a), to(#006729)) !important;
+        background:-o-linear-gradient(top, #41a62a, #006729) !important;
+        background:linear-gradient(top, #41a62a, #006729) !important;
+        }
+
+    .sx-gc-button-neutral-lime {
+        border-color: #00952d;
+        background-color: #86bb15;
+        background:-moz-linear-gradient(top, #95bd0f, #069231) !important;
+        background:-webkit-gradient(linear, left top, left bottom, from(#95bd0f), to(#069231)) !important;
+        background:-khtml-gradient(linear, left top, left bottom, from(#95bd0f), to(#069231)) !important;
+        background:-o-linear-gradient(top, #95bd0f, #069231) !important;
+        background:linear-gradient(top, #95bd0f, #069231) !important;
+        }        
+
+    /* Colors Dark Buttons */
+    .sx-gc-button-cta-dark,
+    .sx-gc-button-normal-dark,
+    .sx-gc-button-back-dark,
+    .sx-gc-button-neutral-dark {
+        border-color: #000;
+        background-color: #332d2a;
+        background:-moz-linear-gradient(top, #626262, #332d2a) !important;
+        background:-webkit-gradient(linear, left top, left bottom, from(#626262), to(#332d2a)) !important;
+        background:-khtml-gradient(linear, left top, left bottom, from(#626262), to(#332d2a)) !important;
+        background:-o-linear-gradient(top, #626262, #332d2a) !important;
+        background:linear-gradient(top, #626262, #332d2a) !important;
+        }
+
+    /* Hover effect - all buttons */
+    button:hover .sx-gc-button-cta-red,
+    button:hover .sx-gc-button-cta-green,
+    button:hover .sx-gc-button-cta-dark,   
+    .sx-gc-button-cta-red:hover,   
+    .sx-gc-button-cta-green:hover,
+    .sx-gc-button-cta-dark:hover,      
+    button:hover .sx-gc-button-normal-red,
+    button:hover .sx-gc-button-normal-green,
+    button:hover .sx-gc-button-neutral-green,    
+    button:hover .sx-gc-button-normal-dark,
+    .sx-gc-button-normal-red:hover,
+    .sx-gc-button-normal-dark:hover,
+    .sx-gc-button-back-red:hover,
+    .sx-gc-button-back-dark:hover,
+    .sx-gc-button-neutral-red:hover,
+    .sx-gc-button-neutral-green:hover,
+    .sx-gc-button-neutral-lime:hover,    
+    .sx-gc-button-neutral-dark:hover {
+        text-decoration: none !important;
+        -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        -khtml-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    } 
+
+    /* Color Hover effect - all green buttons */
+    button:hover .sx-gc-button-cta-green,
+    .sx-gc-button-cta-green:hover ,
+    .sx-gc-button-neutral-green:hover {
+        border-color: #fff;
+        background-color: #41a62a !important;
+        background:-moz-linear-gradient(top, #6ae224, #41a62a) !important; /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#6ae224), to(#41a62a)) !important; /* Safari, Chrome */
+        background:-khtml-gradient(linear, left top, left bottom, from(#6ae224), to(#41a62a)) !important;
+        background:-o-linear-gradient(top, #6ae224, #41a62a) !important; /* Opera */
+        background:linear-gradient(top, #6ae224, #41a62a) !important; /* Standard */
+    }
+
+    .sx-gc-button-neutral-lime:hover  {
+        border-color: #00952d;
+        background-color: #86bb15;
+        background:-moz-linear-gradient(top, #aef200, #41a62a) !important;
+        background:-webkit-gradient(linear, left top, left bottom, from(#aef200), to(#41a62a)) !important;
+        background:-khtml-gradient(linear, left top, left bottom, from(#aef200), to(#41a62a)) !important;
+        background:-o-linear-gradient(top, #aef200, #41a62a) !important;
+        background:linear-gradient(top, #aef200, #41a62a) !important;
+    }
+    /* Color Hover effect - all dark buttons */
+    button:hover .sx-gc-button-cta-dark,
+    .sx-gc-button-cta-dark:hover,
+    button:hover .sx-gc-button-normal-dark,
+    .sx-gc-button-normal-dark:hover,
+    .sx-gc-button-back-dark:hover,
+    .sx-gc-button-neutral-dark:hover {
+        border-color: #626262;
+        background-color: #c9c9c9 !important;
+        background:-moz-linear-gradient(top, #ececec, #c9c9c9) !important; /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#c9c9c9), to(#626262)) !important; /* Safari, Chrome */
+        background:-khtml-gradient(linear, left top, left bottom, from(#c9c9c9), to(#626262)) !important;
+        background:-o-linear-gradient(top, #ececec, #c9c9c9) !important; /* Opera */
+        background:linear-gradient(top, #ececec, #c9c9c9) !important; /* Standard */
+    }
+
+    /* SPAN CTA */
+    .sx-gc-button-cta-red span,
+    .sx-gc-button-cta-green span,
+    .sx-gc-button-cta-dark span {
+        background-image: url(buttons/sx-button-sprites.png);
+        background-repeat: no-repeat;
+        background-color: transparent;
+        float: left;
+        white-space: nowrap;
+    }
+
+    .sx-gc-button-cta-red span,
+    .sx-gc-button-cta-green span,
+    .sx-gc-button-cta-dark span {
+        height: 33px;
+        padding:5px 0 0 45px;
+    }
+
+    /* BG - CTA Red */
+    .sx-gc-button-cta-red span {
+        background-position: 0 -90px;
+    } 
+
+    /* BG - CTA Dark */
+    .sx-gc-button-cta-green span {
+        background-position: 0 -440px;
+    }
+
+    /* BG - CTA Dark */
+    .sx-gc-button-cta-dark span {
+        background-position: 0 -140px;
+    }
+
+    /* STRONG, SMALL for CTA */
+    .sx-gc-button-cta-red span,
+    .sx-gc-button-cta-red span strong,
+    .sx-gc-button-cta-red span small, 
+    .sx-gc-button-cta-green span,
+    .sx-gc-button-cta-green span strong,
+    .sx-gc-button-cta-green span small,
+    .sx-gc-button-cta-dark span,
+    .sx-gc-button-cta-dark span strong,
+    .sx-gc-button-cta-dark span small {
+        white-space: nowrap;
+        border: none;
+        text-decoration: none;
+        text-align: left;
+        display:block;
+    }
+
+    /* STRONG - CTA */
+    .sx-gc-button-cta-red span strong,
+    .sx-gc-button-cta-green span strong,
+    .sx-gc-button-cta-dark span strong {
+        font-family: Arial,Verdana,"Liberation Sans", "Bitstream Vera", Geneva, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 16px;
+        padding: 0;
+        border: none;
+    }
+
+    /* SMALL - CTA */
+    .sx-gc-button-cta-red span small,
+    .sx-gc-button-cta-green span small,
+    .sx-gc-button-cta-dark span small {
+        font-family: Verdana,"Liberation Sans", "Bitstream Vera", Arial,Geneva, Helvetica, sans-serif;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 12px;
+        padding: 0;
+        border: none;
+    }
+
+    /* Colors STRONG, SMALL - CTA Red */
+    .sx-gc-button-cta-red span,
+    .sx-gc-button-cta-red span strong,
+    .sx-gc-button-cta-red span small {
+        color: #000;
+    } 
+
+    /* Colors STRONG, SMALL - CTA Green */
+    .sx-gc-button-cta-green span,
+    .sx-gc-button-cta-green span strong,
+    .sx-gc-button-cta-green span small {
+        color: #fff;
+    }
+
+    /* Colors STRONG, SMALL - CTA Dark */
+    .sx-gc-button-cta-dark span,
+    .sx-gc-button-cta-dark span strong,
+    .sx-gc-button-cta-dark span small {
+        color: #fff;
+    }
+
+    /* SPAN - All Buttons except CTA */
+    .sx-gc-button-normal-red span,
+    .sx-gc-button-normal-dark span,
+    .sx-gc-button-back-red span,
+    .sx-gc-button-back-dark span,
+    .sx-gc-button-neutral-red span,
+    .sx-gc-button-neutral-green span,
+    .sx-gc-button-neutral-lime span,    
+    .sx-gc-button-neutral-dark span {
+        margin: 0;
+        font-family:Verdana,Arial,"Liberation Sans","DejaVu Sans","Bitstream Vera",Geneva,Helvetica,sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 14px;
+        white-space: nowrap;
+        border: none;
+        background-color: transparent;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .sx-gc-button-neutral-lime span {
+        font-size: 14px;
+        line-height: 18px;
+    }    
+
+    /* Background-img SPAN - All Buttons except CTA & neutral */
+    .sx-gc-button-normal-red span,
+    .sx-gc-button-normal-dark span,
+    .sx-gc-button-back-red span,
+    .sx-gc-button-back-dark span {
+        background-image: url(buttons/sx-button-sprites.png);
+        background-repeat: no-repeat;
+        float: left;
+        padding:0 0 0 17px;
+    }
+
+    /* Colors SPAN - Red */
+    .sx-gc-button-normal-red span,
+    .sx-gc-button-back-red span,
+    .sx-gc-button-neutral-red span {
+        color: #000;
+    }
+    /* Colors SPAN - Green */
+    .sx-gc-button-neutral-green span,
+    .sx-gc-button-neutral-lime span {
+        color: #fff;
+    }
+    /* Colors SPAN - Dark Buttons  */
+    .sx-gc-button-normal-dark span,
+    .sx-gc-button-back-dark span,
+    .sx-gc-button-neutral-dark span {
+        color: #fff;
+    }
+
+    /* BG - Normal Red */
+    .sx-gc-button-normal-red span {
+        background-position: 0 -200px;
+    }
+
+    /* BG - Back Red */
+    .sx-gc-button-back-red span {
+        background-position: 0 -250px;
+    }
+
+    /* BG - Normal Dark */
+    .sx-gc-button-normal-dark span {
+        background-position: 0 -220px;
+    }
+
+    /* BG - Back Dark */
+    .sx-gc-button-back-dark span {
+        background-position: 0 -280px;
+    }
+
+    /* BG Hover effect - Normal Red */
+    button:hover .sx-gc-button-normal-red span,
+    .sx-gc-button-normal-red:hover span {
+        background-position: 0 -220px;
+    }
+
+    /* BG Hover effect - Back Red */
+    .sx-gc-button-back-red:hover span {
+        background-position: 0 -280px;
+    }
+
+    /* BG Hover effect - Normal Dark */
+    button:hover .sx-gc-button-normal-dark span,
+    .sx-gc-button-normal-dark:hover span {
+        background-position: 0 -200px;
+    }
+
+    /* BG Hover effect - Back Dark */
+    .sx-gc-button-back-dark:hover span {
+        background-position: 0 -250px;
+    }
+
+    /* SPAN Hover Color - CTA Red, Normal Red */
+    button:hover .sx-gc-button-cta-red span strong,
+    button:hover .sx-gc-button-cta-red span small,
+    .sx-gc-button-cta-red:hover span strong,
+    .sx-gc-button-cta-red:hover span small,
+    button:hover .sx-gc-button-normal-red span,
+    .sx-gc-button-normal-red:hover span,
+    .sx-gc-button-back-red:hover span,
+    .sx-gc-button-neutral-red:hover span {
+        color: #fff;
+    }     
+    
+    /* SPAN Hover Color - CTA green */
+    button:hover .sx-gc-button-cta-green span strong,
+    button:hover .sx-gc-button-cta-green span small,    
+    .sx-gc-button-neutral-green:hover span,    
+    .sx-gc-button-cta-green:hover span strong,
+    .sx-gc-button-cta-green:hover span small {
+        color: #000;
+    }
+
+    /* SPAN Hover Color - CTA Dark, Normal Dark */
+    button:hover .sx-gc-button-cta-dark span strong,
+    button:hover .sx-gc-button-cta-dark span small,
+    .sx-gc-button-cta-dark:hover span strong,
+    .sx-gc-button-cta-dark:hover span small,
+    button:hover .sx-gc-button-normal-dark span,
+    .sx-gc-button-normal-dark:hover span,
+    .sx-gc-button-back-dark:hover span,
+    .sx-gc-button-neutral-dark:hover span {
+        color: #000;
+    }
+
+    /* chrome needs space to display shadows */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        button {
+            margin: 0 -8px -8px 0;
+        }
+        button .sx-gc-button-cta-red,
+        button .sx-gc-button-cta-green,
+        button .sx-gc-button-cta-dark,
+        button .sx-gc-button-normal-red,
+        button .sx-gc-button-normal-green,
+        button .sx-gc-button-neutral-green,      
+        button .sx-gc-button-neutral-lime,
+        button .sx-gc-button-normal-dark {
+            margin: 0 8px 8px 0;
+        }
+    }
+
+    /* -------------------------------------
+    Very Small Buttons
+    ------------------------------------- */
+    .sx-gc-button-verysmall-next,
+    .sx-gc-button-verysmall-back,
+    .sx-gc-button-verysmall-info,
+    .sx-gc-button-verysmall-plus,
+    .sx-gc-button-verysmall-minus {
+        font: normal 11px Verdana,Arial,Helvetica,Geneva,sans-serif;
+        line-height:15px;
+        text-decoration: none;
+        color: #333 !important;
+        cursor: pointer;
+        background: transparent url(buttons/very-small-button-sprites.png) no-repeat 0 0;
+        text-decoration: none;
+        display: block;
+    }
+
+    .sx-gc-button-verysmall-next:hover,
+    .sx-gc-button-verysmall-back:hover,
+    .sx-gc-button-verysmall-info:hover,
+    .sx-gc-button-verysmall-plus:hover,
+    .sx-gc-button-verysmall-minus:hover {
+        text-decoration: underline;
+        color: #000;
+    }
+
+    .sx-gc-button-verysmall-next {
+        background-position: 0 0;
+        padding:0 10px 2px 20px;
+        margin: 5px 0 5px 0;
+        font-weight: bold;
+    }
+
+    .sx-gc-button-verysmall-next:hover {
+        background-position: 0 -60px;
+    }
+
+    .sx-gc-button-verysmall-back {
+        background-position: 0 -480px;
+        padding:0 10px 2px 20px;
+        margin: 5px 0 5px 0;
+        font-weight: bold;
+    }
+
+    .sx-gc-button-verysmall-back:hover {
+        background-position: 0 -540px;
+    }
+
+    .sx-gc-button-verysmall-info,
+    .sx-gc-button-verysmall-plus,
+    .sx-gc-button-verysmall-minus {
+        padding: 0 0 0 20px;
+        margin: 0 0 0 0;
+    }
+
+    .sx-gc-button-verysmall-info {
+        background-position: 0 -120px;
+    }
+
+    .sx-gc-button-verysmall-info:hover {
+        background-position: 0 -180px;
+    }
+
+    .sx-gc-button-verysmall-plus {
+        background-position: 0 -240px;
+    }
+
+    .sx-gc-button-verysmall-plus:hover {
+        background-position: 0 -300px;
+    }
+
+    .sx-gc-button-verysmall-minus {
+        background-position: 0 -360px;
+    }
+
+    .sx-gc-button-verysmall-minus:hover {
+        background-position: 0 -420px;
+    }
+
+    .sx-gc-button-inline {
+        float: none;
+        display: inline-block;
+        margin: 0 3px 0 3px;
+        padding: 0 0 0 14px;
+        height:14px;
+        vertical-align: bottom;
+        color: #333;
+    }
+
+    label .sx-gc-button-inline {
+        vertical-align: middle;
+    }
+
+    .sx-gc-button-verysmall-next.sx-gc-inline,
+    .sx-gc-button-verysmall-back.sx-gc-inline,
+    .sx-gc-button-verysmall-info.sx-gc-inline,
+    .sx-gc-button-verysmall-plus.sx-gc-inline,
+    .sx-gc-button-verysmall-minus.sx-gc-inline {
+        float: none;
+        display: inline-block;
+        margin: 0;
+        font-weight: normal;
+        font-size: inherit;
+        color: inherit;
+        text-decoration:underline;
+    }
+    
+    /* keep distance if multiple buttons */
+    .sx-gc-button-wrapper .sx-gc-button-normal-red,
+    .sx-gc-button-wrapper .sx-gc-rightfloater {
+        margin-left: 20px;
+    }
+    
+    .sx-gc-button-wrapper .sx-gc-button-back-red {
+        margin-right: 20px;
+    }
+
+    /* -------------------------------------
+        sx-gc-pagination Styles
+    ------------------------------------- */
+    .sx-gc-pagination {
+        display: block;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #dfdfdf;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-pagination-header {
+        border: none;
+        font: bold 12px Verdana,Arial,Helvetica,Geneva,sans-serif;
+        display: block;
+        clear: both;
+        margin: 0;
+        padding: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-pagination-open .sx-gc-pagination-header {
+        background-color: #FFCFAC;
+    }
+
+    .sx-gc-pagination-header:hover {
+        background-color: #FFCFAC;
+    }      
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-header:hover {
+        background-color: #737373;
+    }
+
+    .sx-gc-pagination-header .sx-gc-pagination-text {
+        font-weight: bold;
+        text-decoration: none;
+        display: inline;
+        line-height: 24px;
+    }  
+
+    .sx-gc-pagination-header .sx-gc-pagination-text {
+        color: #000;
+    }
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-header .sx-gc-pagination-text {
+        color: #fff;
+    }
+
+    .sx-gc-pagination-header .sx-gc-pagination-icon {
+        display: block;
+        padding: 5px 6px;
+        margin: 0 10px 0 0;
+        float: left;
+
+        text-decoration: none;
+        text-align: left;
+        border-style: solid;
+        border-width: 1px;
+        white-space: nowrap;
+
+
+        -moz-border-radius:5px 5px 5px 5px;
+        -webkit-border-radius:5px 5px 5px 5px;
+        -khtml-border-radius:5px 5px 5px 5px;
+        border-radius:5px 5px 5px 5px;
+
+        -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        -khtml-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+        overflow: hidden;
+        zoom:1;
+    }
+    
+    .sx-gc-pagination-header .sx-gc-pagination-icon {
+        border-color: #b75502;
+        background-color: #ff9808;
+
+        background:-moz-linear-gradient(top, #fcb900, #F9BE1E); /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#fcb900), to(#F9BE1E)); /* Safari, Chrome */
+        background:-khtml-gradient(linear, left top, left bottom, from(#fcb900), to(#F9BE1E));
+        background:-o-linear-gradient(top, #fcb900, #F9BE1E); /* opera */
+        background:linear-gradient(top, #fcb900, #F9BE1E); /* standard */
+    }  
+    
+    .sx-gc-pagination-darkbg .sx-gc-pagination-header .sx-gc-pagination-icon {
+        border-color: #7d7d7d;
+        background-color: #332d2a;
+        
+        background:-moz-linear-gradient(top, #626262, #332d2a) !important;
+        background:-webkit-gradient(linear, left top, left bottom, from(#626262), to(#332d2a)) !important;
+        background:-khtml-gradient(linear, left top, left bottom, from(#626262), to(#332d2a)) !important;
+    }
+
+    .sx-gc-pagination-header:hover .sx-gc-pagination-icon {
+        -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        -khtml-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    }    
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-header:hover .sx-gc-pagination-icon {
+        border-color: #332d2a;
+    }   
+
+    .sx-gc-pagination-header .sx-gc-pagination-icon span {
+        display: block;
+        width: 11px;
+        height: 10px;
+        padding:0;
+        margin:0;
+        background-image: url(buttons/sx-button-sprites.png);
+        background-repeat: no-repeat;
+    }
+
+    .sx-gc-pagination-header .sx-gc-pagination-icon span {
+    	background-position: 0 -310px;
+    	}
+
+    .sx-gc-pagination-header:hover .sx-gc-pagination-icon span {
+    	background-position: 0 -350px;
+    	}  
+
+    .sx-gc-pagination-open .sx-gc-pagination-icon span {
+    	background-position: 0 -330px;
+    	}  
+
+    .sx-gc-pagination-open:hover .sx-gc-pagination-icon span {
+    	background-position: 0 -370px;
+    	}   
+    	
+    .sx-gc-pagination-darkbg .sx-gc-pagination-header .sx-gc-pagination-icon span {  
+    	background-position: 0 -350px;
+    	}  
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-header:hover .sx-gc-pagination-icon span {
+    	background-position: 0 -390px;
+    	}
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-open .sx-gc-pagination-icon span {
+    	background-position: 0 -370px;
+    	}
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-open:hover .sx-gc-pagination-icon span {
+    	background-position: 0 -410px;
+    	}   
+
+    .sx-gc-pagination .sx-gc-pagination-content {
+        margin: 0;
+        padding: 0 0 10px 0;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-pagination-darkbg .sx-gc-pagination-content {
+        color: #fff;
+    }
+
+    .sx-gc-pagination .sx-gc-pagination-content div {
+
+    }
+
+    .sx-gc-pagination-closed .sx-gc-pagination-content {
+        display: none;
+    }
+
+    .sx-gc-pagination-open .sx-gc-pagination-content {
+        display: block;
+    }
+
+    /* -----------------------------------------------
+        sx-gc-reiternav Styles
+    ----------------------------------------------- */
+    .sx-gc-reiternav-wrapper {
+        margin: 0;
+        padding: 0 10px;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-reiternav-wrapper .tabs-hide {
+        display: none;
+    }
+
+    .sx-gc-reiternav {
+        clear:both;
+        margin:0;
+        padding:0;
+        height: 26px;
+        width:100%;
+        font: bold 11px/100% Verdana,Arial,Helvetica,Geneva,sans-serif;
+        list-style: none;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-reiternav li {
+        display: block;
+        position:relative;
+        float:left;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-reiternav li a {
+        border:1px solid #b75502;
+        border-bottom:none;
+        font-size:10px;
+        font-weight:bold;
+        color:#000;
+        text-decoration:none;
+
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -khtml-border-top-right-radius: 5px;
+        -khtml-border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+        -khtml-box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);
+        box-shadow:2px 2px 3px rgba(0, 0, 0, 0.5);
+
+        background-color:#ff9808;
+        background:-moz-linear-gradient(top, #fcb900, #F9BE1E); /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#fcb900), to(#F9BE1E)); /* Safari, Chrome */
+        background:-khtml-gradient(linear, left top, left bottom, from(#fcb900), to(#F9BE1E)); /* Safari, Chrome */
+        background:-o-linear-gradient(top, #fcb900, #F9BE1E); /* Opera */
+        background:linear-gradient(top, #fcb900, #F9BE1E); /* standard */
+
+        display: block;
+        position:relative;
+        float:left;
+        height:14px;
+        margin:0 5px 0 0;
+        padding:5px 7px;
+        cursor:pointer;
+
+        overflow: hidden;
+        zoom:1;
+    }
+
+    .sx-gc-reiternav li a:hover {
+        border-color: #F9BE1E;
+        background-color:#fff;
+        background:-moz-linear-gradient(center top , #fff 80%, #efefef); /* Firefox */
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0.8, rgb(255,255,255)),color-stop(1, rgb(239,239,239)));
+        background: -khtml-gradient(linear,left top,left bottom,color-stop(0.8, rgb(255,255,255)),color-stop(1, rgb(239,239,239)));
+        background: gradient(linear,left top,left bottom,color-stop(0, rgb(255,255,255)),color-stop(0.8, rgb(239,239,239)));
+        background:-o-linear-gradient(center top , #fff 80%, #efefef); /* Opera */
+        background:linear-gradient(center top , #fff 80%, #efefef); /* Standard */
+    }
+
+    .sx-gc-reiternav li.tabs-selected a,
+    .sx-gc-reiternav li.tabs-selected a:hover {
+        background:#fff;
+        border-color: #a2a2a2;
+        margin-top: 1px;
+        height: 13px;
+        border-bottom:1px solid #FFFFFF;
+        cursor:default;
+        z-index:99 !important;
+
+        -khtml-box-shadow:3px 3px 5px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow:3px 3px 5px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow:3px 3px 5px rgba(0, 0, 0, 0.5);
+        box-shadow:3px 3px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .sx-gc-reiternav-content {
+        margin: -1px -10px 0;
+        padding: 20px 10px 0;
+           border-top: 1px solid #a2a2a2;
+        zoom: 1;
+    }
+
+
+
+
+    /* -----------------------------------------------
+       buttons overwritings b2b-websites
+    ----------------------------------------------- */  
+    .sx-b2b-button-wrapper .sx-gc-button-neutral-green {
+        padding: 15px 25px 15px 25px !important;        
+        border: 2px solid #000000;
+    }
+
+    .sx-b2b-button-wrapper .sx-gc-button-neutral-green span {
+        font-size: 16px;
+        color: #ffffff;
+    }   
+
+    .sx-b2b-button-wrapper button:hover .sx-gc-button-neutral-green,
+    .sx-b2b-button-wrapper .sx-gc-button-neutral-green:hover {
+        border-color: #000000;
+        background-color: #41a62a !important;
+        background:-moz-linear-gradient(top, #6ae224, #41a62a) !important; /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#6ae224), to(#41a62a)) !important; /* Safari, Chrome */
+        background:-khtml-gradient(linear, left top, left bottom, from(#6ae224), to(#41a62a)) !important;
+        background:-o-linear-gradient(top, #6ae224, #41a62a) !important; /* Opera */
+        background:linear-gradient(top, #6ae224, #41a62a) !important; /* Standard */        
+    }    
+
+    .sx-gc-button-centered {
+        text-align: center;
+    }
+
+    .sx-gc-button-centered button {
+        float: none;
+        display: inline-block;
+    }
+
+    /* recessed button style */
+    .sx-b2b-button-wrapper div .sx-gc-button-neutral-red {
+
+        padding: 10px 20px 10px 20px !important;
+        border: 2px solid #000000;
+        margin: auto;  
+        
+        -webkit-box-shadow: none;  
+        -moz-box-shadow: none;      
+        box-shadow: none;  
+    }   
+
+    .sx-b2b-button-wrapper div {
+      
+        display: inline-block;
+        margin: 3px;
+
+        border:0 solid #673e0a;   
+
+        -moz-border-radius: 7px;
+        -khtml-border-radius: 7px;
+        -webkit-border-radius: 7px;
+        border-radius: 7px 7px; 
+
+        -webkit-box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);  
+        -moz-box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);     
+        box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);  
+
+    }
+
+    .sx-b2b-button-wrapper div div {
+        display: inline-block;
+        padding: 2px;
+        margin: 0;
+
+        border: 1px solid #673e0a;
+        border-bottom-color: #ffd8a2;
+        border-right-color: #ffd8a2;        
+
+        -moz-border-radius: 7px;
+        -khtml-border-radius: 7px;
+        -webkit-border-radius: 7px;
+        border-radius: 7px 7px; 
+
+        -webkit-box-shadow: inset 2px 2px 2px  rgba(0, 0, 0, 0.3);  
+        -moz-box-shadow: inset 2px 2px 2px  rgba(0, 0, 0, 0.3);     
+        box-shadow: inset 2px 2px 2px  rgba(0, 0, 0, 0.3);  
+
+    }
+
+

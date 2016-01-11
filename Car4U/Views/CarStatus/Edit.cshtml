@@ -5,21 +5,20 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Editar Estado de Carro</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CarStatus</h4>
-        <hr />
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Observation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10">               
                 @Html.EditorFor(model => model.Observation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Observation, "", new { @class = "text-danger" })
             </div>
@@ -58,13 +57,13 @@
                 @Html.ValidationMessageFor(model => model.BeginDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
         @Html.LabelFor(model => model.BeginHour, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.BeginHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BeginHour, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.BeginHour.TimeOfDay, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.FinishDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -72,13 +71,13 @@
                 @Html.ValidationMessageFor(model => model.FinishDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.FinishHour, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FinishHour.TimeOfDay, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FinishHour, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.FinishHour.TimeOfDay, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CarID, "CarID", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -93,17 +92,17 @@
             <div class="col-md-10">
                 @Html.DropDownList("StatusID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StatusID, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+
+                <div class="buttonbackoffice">
+
+                    <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarStatus")'"> Voltar </button>
+
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

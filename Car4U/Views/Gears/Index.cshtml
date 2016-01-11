@@ -6,17 +6,18 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<h2>Index</h2>
+<h2>Tipo de Caixa</h2>
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
-<table class="table">
+<div class="buttonbackoffice">
+    <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Gears")'"> Adicionar </button>
+</div>
+<table class="table tableheader">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Tipo de Caixa
+            @*@Html.DisplayNameFor(model => model.Description)*@
         </th>
-        <th></th>
+        <th>Acções</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -25,9 +26,11 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
-            @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
-            @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
+            <div class="buttonbackoffice">
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+            </div>
         </td>
     </tr>
 }

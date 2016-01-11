@@ -2,25 +2,22 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Country</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-    </dl>
+<div class="page-header">
+    <h2>Detalhes</h2>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+<div class=" form-horizontal">
+    <div class="form-group">
+        <div class=" col-md-10">
+           <div>
+                    <h4>País: @Html.DisplayFor(model => model.Name)</h4>
+                </div>
+                <div class="buttonbackoffice pull-left">
+                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Countries", new { id = Model.ID })'"> Editar </button>
+                    <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Countries", new { id = Model.ID })'"> Eliminar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Countries")'">  Voltar </button>
+                </div>
+            </div>
+        </div>
+    </div>

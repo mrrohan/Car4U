@@ -31,47 +31,47 @@ namespace Car4U.Controllers
             ViewBag.MPReturnID = new SelectList(db.MeetingPoints, "ID", "Place", info.MPReturnID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "CategoryName", info.CategoryID);
 
-            return RedirectToAction("CreateTeste", "Reservations", new { mpreliveryid = info.MPDeliveryID, mpreturnid = info.MPReturnID, categotyid = info.CategoryID, begindate = info.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.BeginHour.ToString("HH:mm"), enddate = info.EndDate.ToString("yyyy-MM-dd"), endhour = info.EndHour.ToString("HH:mm") });
+            return RedirectToAction("SearchView", "Cars", new { mpreliveryid = info.MPDeliveryID, mpreturnid = info.MPReturnID, categotyid = info.CategoryID, begindate = info.BeginDate.ToString("yyyy-MM-dd"), beginhour = info.BeginHour.ToString("HH:mm"), enddate = info.EndDate.ToString("yyyy-MM-dd"), endhour = info.EndHour.ToString("HH:mm") });
         }
 
-         public ActionResult Teste(InfoSender info, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
-         {
-             if (mpreliveryid != null)
-             {
-                 info.MPDeliveryID = mpreliveryid ?? default(int);
-             }
-             if (mpreturnid != null)
-             {
-                 info.MPReturnID = mpreturnid ?? default(int);
-             }
-             if (categotyid != null)
-             {
-                 info.CategoryID = categotyid ?? default(int);
-             }
+         //public ActionResult Teste(InfoSender info, int? mpreliveryid, int? mpreturnid, int? categotyid, DateTime? begindate, DateTime? beginhour, DateTime? enddate, DateTime? endhour)
+         //{
+         //    if (mpreliveryid != null)
+         //    {
+         //        info.MPDeliveryID = mpreliveryid ?? default(int);
+         //    }
+         //    if (mpreturnid != null)
+         //    {
+         //        info.MPReturnID = mpreturnid ?? default(int);
+         //    }
+         //    if (categotyid != null)
+         //    {
+         //        info.CategoryID = categotyid ?? default(int);
+         //    }
 
-             if (begindate != null)
-             {
-                 info.BeginDate = begindate ?? default(DateTime);
-             }
+         //    if (begindate != null)
+         //    {
+         //        info.BeginDate = begindate ?? default(DateTime);
+         //    }
 
 
-             if (beginhour != null)
-             {
-                 info.BeginHour = beginhour ?? default(DateTime);
-             }
+         //    if (beginhour != null)
+         //    {
+         //        info.BeginHour = beginhour ?? default(DateTime);
+         //    }
 
-             if (enddate != null)
-             {
-                 info.EndDate = enddate ?? default(DateTime);
-             }
+         //    if (enddate != null)
+         //    {
+         //        info.EndDate = enddate ?? default(DateTime);
+         //    }
 
-             if (endhour != null)
-             {
-                 info.EndHour = endhour ?? default(DateTime);
-             }
+         //    if (endhour != null)
+         //    {
+         //        info.EndHour = endhour ?? default(DateTime);
+         //    }
 
-             return View(info);
-         }
+         //    return View(info);
+         //}
 
         public ActionResult About()
         {
@@ -87,10 +87,6 @@ namespace Car4U.Controllers
             return View();
         }
 
-        public ActionResult Frota()
-        {
-            return View();
-        }
 
         public ActionResult BackOffice()
         {

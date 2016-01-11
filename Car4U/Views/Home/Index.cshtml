@@ -43,7 +43,7 @@
         </div>*@
 
 
-    <div id="slider" class="reserveIndex col-md-12 col-sm-12">
+    <div id="slider" class="reserveIndex container col-md-12 col-sm-12">
 
 
         <div class="container">
@@ -163,7 +163,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="delivery_hour" class="control-label">Hora</label>
-                                        <a required disabled>
+                                        <a>
                                             @Html.EditorFor(model => model.EndHour, new { htmlAttributes = new { @id = "delivery_hour", @class = "form-control", @name = "delivery_hour", @autocomplete = "off", required = "required" } })
                                         </a>
                                     </div>

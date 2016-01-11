@@ -1,0 +1,251 @@
+﻿@model Car4U.ViewModels.CarIndex
+
+@{
+    ViewBag.Title = "SearchView";
+}
+<html lang="pt">
+<body>
+    <div>
+
+        @if (Model != null)
+        {
+            <div class="container">
+                <div class="page-header">
+                    
+                    <h3>Resultados para a categoria <b><i>@ViewBag.cat</i></b> </h3>
+
+                </div>
+                @foreach (var item in Model.Cars)
+                {
+                    <div class="frota">
+                        <div class="col-md-4">
+                            @*verificar metodo para procurar foto pelo nome do carro com _ *@
+                            @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                            {
+                                <div>
+                                    <img padding-left="0" width="340" height="220" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                                </div>
+                            }
+
+                            <br>
+                            <h4>@Html.DisplayFor(modelItem => item.carModel.brand.Description) @Html.DisplayFor(modelItem => item.carModel.Description)<br><small> Ou Outro Similar</small></h4>
+                            <p class="comment"><b></b></p>
+                            <h5>@Html.DisplayFor(modelItem => item.category.CategoryName)</h5>
+                            <div>
+                                <ul class="features">
+                                    @*<li class="seats" title="Nº de pessoas">4</li>*@
+                                    <li class="doors" title="Nº de portas">@Html.DisplayFor(modelItem => item.NDoors)</li>
+                                    <li class="baggage" title="Bagagem">@Html.DisplayFor(modelItem => item.NLuggage)</li>
+                                    <li class="manual" title="Caixa de velocidades">@Html.DisplayFor(modelItem => item.Gear.Description)</li>
+                                    <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
+                                    @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
+                                    <li class="seats" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
+
+                                </ul>
+                            </div>
+                            <div>
+                                <b>Desde @Html.DisplayFor(modelItem => item.category.Price)€ por dia</b>
+                            </div>
+                            <div>
+                                @Html.ActionLink("Detalhes", "Details", new { id = item.ID, view = 2 })
+                            </div>
+
+                            @*<form class="button" method="get" action="~/Reservations/CreateTeste?mpreliveryid=@Model.Infosender.MPDeliveryID&mpreturnid=@Model.Infosender.MPReturnID&categotyid=@Model.Infosender.CategoryID&begindate=@Model.Infosender.BeginDate.ToString("yyyy-MM-dd")&beginhour=@Model.Infosender.BeginHour.ToString("HH:mm")&enddate=@Model.Infosender.EndDate.ToString("yyyy-MM-dd")&endhour=@Model.Infosender.EndHour.ToString("HH:mm")&carid=@item.ID"></form>
+                                <button class="submit" type="submit">Reservar</button>*@
+
+                            @*@Html.ActionLink("Reservar", "CreateTeste","Reservations", new { , , , , , , ,  })*@
+                            @*<button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>*@
+
+                            <div class="button">
+                                <a id="edit-details" class="submit" href="~/Reservations/CreateTeste?mpreliveryid=@Model.Infosender.MPDeliveryID&mpreturnid=@Model.Infosender.MPReturnID&categotyid=@Model.Infosender.CategoryID&begindate=@Model.Infosender.BeginDate.ToString("yyyy-MM-dd")&beginhour=@Model.Infosender.BeginHour.ToString("HH:mm")&enddate=@Model.Infosender.EndDate.ToString("yyyy-MM-dd")&endhour=@Model.Infosender.EndHour.ToString("HH:mm")&carid=@item.ID">Reservar</a>
+                                @*@Html.ActionLink("Reservar", "CreateTeste","Reservations", new { , , , , , , ,  })*@
+                                @*<button id="button" class="submit" data-toggle="modal" data-target="#formModal" data-fleet="32" data-start-date="2014-06-25" data-end-date="2014-08-31">Reserve já  </button>*@
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+
+
+
+    <hr>
+
+
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+        <script type="text/javascript" src="~/Scripts/common.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/messages_pt.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+        <script type="text/javascript" src="~/Scripts/slideshow.js"></script>*@
+
+    <script type="text/javascript">
+        if (jQuery.browser.mozilla) {
+            $('head').append("<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>");
+        }
+    </script>
+
+
+    <!-- ANALYTICS -->
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-38988857-23']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+
+
+
+    @*<script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>*@
+    <script>
+
+        $('#picking_equals_delivery').click(function () {
+            if ($(this).is(':checked')) {
+                $('#delivery_location_row').hide();
+            } else {
+                $('#delivery_location_row').show();
+            }
+        });
+
+        $(document).ready(function () {
+
+
+            $('#picking_location_id').change(function () {
+                if ($('#picking_equals_delivery').is(':checked')) {
+                    $('#delivery_location_id').val($('#picking_location_id').val());
+                }
+            });
+
+            $('#picking_date').change(function () {
+                $(this).parent().removeClass('has-error');
+            });
+
+            $('#bookingForm').submit(function () {
+                if ($('#picking_date').val() == '' || $('#delivery_date').val() == '') return false;
+
+                var pDate = new Date($('#picking_date').datepicker('getDate').getTime());
+                pDate.setHours($('#picking_hour :selected').data().hours);
+                pDate.setMinutes($('#picking_hour :selected').data().minutes);
+
+                var dDate = new Date($('#delivery_date').datepicker('getDate').getTime());
+                dDate.setHours($('#delivery_hour :selected').data().hours);
+                dDate.setMinutes($('#delivery_hour :selected').data().minutes);
+
+                if (pDate.getTime() >= dDate.getTime()) {
+                    $('.form-error').show().find('.form-error-message').html('Por favor selecione uma data de devolução superior à data de levantamento');
+                    return false;
+                }
+
+                return true;
+            });
+
+            $('#bookingForm').validate({
+                highlight: function (element) {
+                    $(element).closest('.form-group').addClass('has-error');
+                },
+                unhighlight: function (element) {
+                    $(element).closest('.form-group').removeClass('has-error');
+                },
+                errorElement: 'span',
+                errorClass: 'help-block',
+                errorPlacement: function (error, element) {
+                    $('.form-error').show().find('.form-error-message').html('Por favor preencha todos os campos obrigatórios');
+                    return true;
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var maxBookingDays = 30;
+
+            $('#picking_date').datepicker({
+                dateFormat: 'dd-mm-yy',
+                minDate: 0,
+                onSelect: function () {
+                    var fleetId = $('#fleetId').val();
+                    var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
+                    var endDate = new Date($('button[data-fleet="' + fleetId + '"]').data().endDate);
+                    var minDate = $('#picking_date').datepicker('getDate');
+
+                    if (minDate.getTime() >= startDate.getTime() && minDate.getTime() <= endDate.getTime()) {
+                        $('#alertMessage').html('Não disponível para reserva desde ' + $.datepicker.formatDate('dd-mm-yy', startDate) + ' até ' + $.datepicker.formatDate('dd-mm-yy', endDate) + '.').show();
+                        $('#delivery_date').val('').attr('disabled', 'disabled');
+                        $('#bookingFormSubmit').attr('disabled', 'disabled');
+                    } else {
+                        $('#alertMessage').hide();
+                        $('#delivery_date').datepicker('option', 'minDate', $('#picking_date').datepicker('getDate'));
+                        $('#delivery_date').datepicker('option', 'maxDate', new Date($('#picking_date').datepicker('getDate').getTime() + 1000 * 60 * 60 * 24 * 30));
+                        $('#delivery_date').val('').removeAttr('disabled');
+                        $('#delivery_hour').removeAttr('disabled');
+                        $('#bookingFormSubmit').removeAttr('disabled');
+                    }
+                    $(this).parent().removeClass('has-error');
+                }
+            });
+
+            $('#delivery_date').datepicker({
+                dateFormat: 'dd-mm-yy',
+                onSelect: function () {
+                    $(this).parent().removeClass('has-error');
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('button[data-target="#formModal"]').click(function () {
+                $('#fleetId').val($(this).data().fleet);
+            });
+
+            $('#bookingForm').submit(function () {
+                var fleetId = $('#fleetId').val();
+                console.log($('button[data-fleet="' + fleetId + '"]'));
+                var startDate = new Date($('button[data-fleet="' + fleetId + '"]').data().startDate);
+                console.log(startDate);
+            });
+        });
+    </script>
+
+    <!-- Picking Date Ricardo -->
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker-pt.js"></script>
+    <script>
+        $("#picking_date").datepicker({
+            //changeMonth: true,
+            //changeYear: true
+        });
+        $("#delivery_date").datepicker({
+            //changeMonth: true,
+            //changeYear: true
+        });
+    </script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* --------------------------------------------------
+//
+// ddlist3 css styles for sixt.de
+// author:      jw
+// created:     12.06.2013
+//
+// ----------------------------------------------- */
+
+    /* ------------------------------------------
+        ddlist styles
+
+    ------------------------------------------ */
+
+    .ddlist-wrapper {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
+    } 
+    
+    .ddlist-wrapper input {
+        -webkit-tap-highlight-color:rgba(0,0,0,0);    
+    }
+    
+    .ddlist-wrapper .ddlist-content {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: #fff;
+        display: none;
+        width: 250px;
+        height: 300px;
+        border: 1px solid #a2a2a2;
+        position: absolute;
+        left: 0;  
+    }    
+
+    .ddlist-wrapper ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: #fff;
+        height: 100%; 
+        overflow: auto !important;  
+    }
+    
+    .ddlist-wrapper ul ul {
+        border: none;
+        display: block;
+        height: auto;
+        border: none;
+        background: none;
+    }
+    
+    .ddlist-wrapper li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        color: #000;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;        
+    }
+
+    .ddlist-wrapper li li {
+        padding: 5px 10px 5px 10px;
+        margin: 0;        
+        border-bottom: 1px dotted #a2a2a2;
+        border-right: none;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .ddlist-wrapper li a {
+        color: #000;
+    }
+
+    .ddlist-wrapper li.ddlist-hover,
+    .ddlist-wrapper li.ddlist-selected {
+        background: #FCB700;
+        color: #000;
+    } 
+
+    .ddlist-wrapper li.ddlist-hover a,
+    .ddlist-wrapper li.ddlist-selected a {
+        color: #000;
+    }
+    
+    .ddlist-wrapper li h5 {
+        margin: 0;
+        padding: 16px 10px 6px 10px;
+        font-size: 12px;
+    }
+
+    .ddlist-handle {
+        display:none;    
+    } 

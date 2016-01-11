@@ -1,84 +1,60 @@
 ﻿@model Car4U.Models.CarStatus
-
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>CarStatus</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Car.LicensePlate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Car.LicensePlate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Observation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Observation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DeliveryPlace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DeliveryPlace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ReturnPlace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ReturnPlace)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BeginDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BeginDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BeginHour)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BeginHour.TimeOfDay)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FinishDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FinishDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FinishHour)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FinishHour.TimeOfDay)
-        </dd>
-
-    </dl>
+<div class="page-header">
+    <h2>Detalhes do Estado do Carro</h2>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+<div class=" form-horizontal">
+    <div class="form-group">
+        <div class=" col-md-10">
+            <table class=" table tableheader" style="width:200px">
+                <tr><td></td><td></td></tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.Car.LicensePlate)*@ Matricula</td>
+                    <td>@Html.DisplayFor(model => model.Car.LicensePlate)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.Status.Description)*@ Descrição</td>
+                    <td>@Html.DisplayFor(model => model.Status.Description)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.Observation)*@ Observações</td>
+                    <td>@Html.DisplayFor(model => model.Observation)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.DeliveryPlace)*@ Local de Entrega</td>
+                    <td>@Html.DisplayFor(model => model.DeliveryPlace)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.BeginDate)*@ Data de Entrega</td>
+                    <td>@Html.DisplayFor(model => model.BeginDate)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.BeginHour)*@ Hora de Entrega</td>
+                    <td>@Html.DisplayFor(model => model.BeginHour.TimeOfDay)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.ReturnPlace)*@ Local de Devolução</td>
+                    <td>@Html.DisplayFor(model => model.ReturnPlace)</td>
+                </tr>
+
+
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.FinishDate)*@ Data de Devolução</td>
+                    <td>@Html.DisplayFor(model => model.FinishDate)</td>
+                </tr>
+                <tr>
+                    <td>@*@Html.DisplayNameFor(model => model.FinishHour)*@ Hora de Devolução</td>
+                    <td>@Html.DisplayFor(model => model.FinishHour.TimeOfDay)</td>
+                </tr>
+            </table>
+
+            <div class="buttonbackoffice">
+                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "CarStatus", new { id = Model.ID })'"> Editar </button>
+                <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "CarStatus", new { id = Model.ID })'"> Eliminar </button>
+                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarStatus")'">  Voltar </button>
+            </div>
+        </div>
+    </div>
+</div>

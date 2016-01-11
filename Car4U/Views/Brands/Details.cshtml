@@ -7,26 +7,21 @@
     ViewBag.Title = "Details";
 }
 <div class="page-header">
-<h2>Marca</h2>
-    </div>
-
-<div>
-    <h4>Editar Marca</h4>
-    
-    <dl class="form-group">
-        <dt>
-            @Html.LabelFor(model => model.Description, "Nome", htmlAttributes: new { @class = "control-label col-md-2" })
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+    <h2>Detalhes da Marca</h2>
 </div>
-<p>
-    <div class="buttonbackoffice">
-         <button class="submit" type="button" onclick="location.href='@Url.Action("Edit", "Brands", new { id = Model.ID })'">Editar</button>
-        <button class="submit" type="button" onclick="location.href='@Url.Action("Index", "Brands")'">Voltar</button>
-         </div>
-</p>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <div>
+                    <h4>
+                        Marca: @Html.DisplayFor(model => model.Description)
+                    </h4>
+                </div>
+                <div class="buttonbackoffice">
+                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "Brands", new { id = Model.ID })'"> Editar </button>
+                    <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "Brands", new { id = Model.ID })'"> Eliminar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'">  Voltar </button>
+                </div>
+            </div>
+        </div>
+    </div>

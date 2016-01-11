@@ -1,124 +1,432 @@
 ﻿@model Car4U.Models.Reservation
 
 @{
-    ViewBag.Title = "CreateTeste";
+    ViewBag.Title = "Reserva";
 }
 
-<h2>CreateTeste</h2>
+<h1>Finalizar Reserva</h1>
 
-@Html.DisplayFor(model => model.MPDelivery.Place)<br>
-@Html.DisplayFor(model => model.DeliveryDate) \ @Html.DisplayFor(model => model.DeliveryHour) \
-@Html.DisplayFor(model => model.MPReturn.Place)<br>
-@Html.DisplayFor(model => model.ReturnDate) \@Html.DisplayFor(model => model.ReturnHour) \ @Html.DisplayFor(model => model.Category.CategoryName)
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Reservation</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.License, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.License, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.License, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BI, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BI, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BI, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="picking_date" class="control-label">Data de Nascimento</label>
-                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @id = "picking_date", @name = "picking_date", @type = "text", @class = "form-control", @placeholder = "dd-mm-aaaa", @autocomplete = "off", required = "required" } })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CountryID, "CountryID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CountryID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<html lang="pt">
 
 
-      
-              <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <table>
-                    <tr>
-                        @{
-                            int cnt = 0;
-                            List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
-                            extmodels = ViewBag.ExtraModels;
 
-                            foreach (var m in extmodels)
-                            {
-                                if (cnt++ % 3 == 0)
-                                {
-                                    @:</tr><tr>
-                                }
-                                @:<td>
-                                    <input type="checkbox"
-                                           name="selectedExtraModels"
-                                           value="@m.ID" />                                          
-                                    @m.ID @:  @m.Model
-                                    @:</td>
-                             }
-                             @:</tr>
-                         }
-                    </table>
+<head>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/base_tt_franchise.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/css/jquery.box-res-1.0.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/css/ui-theme-res/ui.core.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/css/ui-theme-res/ui.theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/css/ui-theme-res/ui.datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/css/jquery.ddlist-res-1.3.css" />
+
+    <!-- OK Ricardo -->
+    @*<link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css" />*@
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/sx-reservation-norm-base.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/sx-reservation-norm-base-cust.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/SX/buttons-base-1.0.css" />
+    @*<link rel="stylesheet" type="text/css"link href="~/Content/css/SX/forms-1.0.css" />*@
+
+
+</head>
+
+<body>
+    <h1>Finalizar Reserva</h1>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="/jsbase/jQuery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/jsbase/Sixt/Web/helper.js"></script>
+    <script type="text/javascript" src="/jsbase/Sixt/Web/jquery.box-1.2.js"></script>
+    <script type="text/javascript" src="/jsbase/Sixt/Web/jquery.sxtabs-1.0.js"></script>
+    <script type="text/javascript" src="/jsbase/Sixt/Web/jquery.sxnavi-1.0.js"></script>
+    <script type="text/javascript" src="/static/tt_franchise/js/base_tt_franchise.js"></script>
+    <script type="text/javascript" src="/jsbase/jQuery/plugins/ui-1.8.10/jquery.ui.core.min.js"></script>
+    <script type="text/javascript" src="/jsbase/jQuery/plugins/ui-1.8.10/jquery.ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="/jsbase/Sixt/Web/jquery.addentry-1.0.js"></script>
+    <script type="text/javascript" src="/jsbase/Sixt/Web/jquery.ddlist-1.3.js"></script>
+
+    <!-- OK Ricardo -->
+    <script type="text/javascript" src="~/Scripts/SX/res.js"></script>
+    <script type="text/javascript" src="~/Scripts/SX/start.js"></script>
+
+    <!-- ### App Begin ### -->
+
+    <div id="sx-reservation-main">
+
+        <form name="helper_form">
+            <input type="hidden" id="equivalent-prices" name="equivalent-prices" value="IFMR:" />
+            <input type="hidden" id="default-prpd" name="default-prpd" value="P:N" />
+        </form>
+
+
+
+        <p class="sx-js-res-login-state sx-res-login-state" style="display:none">
+            <strong class="sx-js-res-login-state-name sx-js-res-login-state-upd"><!-- ajax --></strong>
+            <span class="sx-js-res-login-state-txt sx-js-res-login-state-upd"><!-- ajax --></span>
+
+            <a class="sx-gc-active" href="#">(Sair)</a>
+            <span class="sx-res-login-state-corp sx-js-res-login-state-corp sx-js-res-login-state-upd"><!-- ajax --></span>
+        </p>
+        <h1>@ViewBag.car.carModel.brand.Description <span class="sx-res-offerconfig-subhd">@ViewBag.car.carModel.Description</span></h1>
+
+        <div class="sx-res-offerconfig-wrapper">
+            <div class="sx-res-offerconfig-info">
+
+                <div class="sx-gc-centered">
+                    <img width="330" height="auto" src="@ViewBag.img" alt="" />
                 </div>
-            </div> 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <!--fim-->
+                <div class="sx-gc-message">
+                    <p>
+                        Este grupo de veículos está sujeito a confirmação. Dentro de um período máximo de 2 dias úteis, será contactado pela nossa Central de Reservas.
+                    </p>
+                </div>
+                @*</div>*@
+
+                <div class="sx-res-example-data">
+                    <div class="sx-res-example-data-booking">
+
+
+                        <p>
+                            <u>
+                                <em>
+                                    <b>
+                                        ou
+                                        @if (ViewBag.view == 1)
+                                        {
+                                            @ViewBag.carother.carModel.Description
+                                        }
+                                        ou idêntico
+                                        <span id="sx-js-res-debug-rate" class="sx-gc-debug"></span>
+                                    </b>
+                                </em>
+                            </u>
+                        </p>
+
+
+                        <h2>Estado Reserva</h2>
+
+                        <label>Categoria Veículo: </label> @Html.DisplayFor(model => model.Category.CategoryName)
+
+                        <h3>Levantamento</h3>
+                        <p>
+                            @Html.DisplayFor(model => model.MPDelivery.Place) <br /> @Html.DisplayFor(model => model.DeliveryDate) @Html.DisplayFor(model => model.DeliveryHour) hrs<br>
+
+                            <br />
+
+                        </p>
+
+                        <h3>Devolução</h3>
+                        <p>
+                            @Html.DisplayFor(model => model.MPReturn.Place) <br /> @Html.DisplayFor(model => model.ReturnDate), @Html.DisplayFor(model => model.ReturnHour) hrs<br>
+                            <br />
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="sx-res-example-data-equipment">
+                        <h3>Caracteristicas do Veiculo </h3>
+                        <ul class="features">
+
+                            <li class="doors" title="Nº de portas">@ViewBag.car.NDoors</li>
+                            <li class="baggage" title="Bagagem">@ViewBag.car.NLuggage</li>
+                            <li class="manual" title="Caixa de velocidades">@ViewBag.car.Gear.Description</li>
+                            <li class="fuel" title="Tipo de combustível">@ViewBag.car.fuelType.Description</li>
+                            <li class="seats" title="Matricula">@ViewBag.car.LicensePlate</li>
+
+                        </ul>
+                    </div>
+
+                    <div class="sx-res-example-data-resrictions">
+                        <div class="sx-gc-info-box" id="sx-js-res-age-restriction-details-wrapper">
+                            <p class="sx-gc-button-verysmall-info" id="sx-js-res-age-restriction-details">Restrições de idade:</p>
+                            <div>
+                                A sobretaxa de condutor jovem poderá ser aplicável, verifique por favor <a onclick="$.box.open('sx-js-res-info', this.href);return false" href=#><u><i> Informação de aluguer </i></u></a>.
+                            </div>
+                        </div>
+                        <p>
+                            Idade mínima do condutor: 19 anos<br />
+
+                            Período mínimo de obtenção de carta: 1 ano(s)
+                        </p>
+                    </div>
+
+
+                    <p id="sx-js-res-tell-a-friend-button" class="sx-gc-button-verysmall-next" onclick="$.box.open('sx-js-res-tell-a-friend')">Sugira esta oferta a um amigo</p>
+
+                </div>
+
+                <h3>Condições</h3>
+                <ul class="sx-res-info-list">
+                    <li><a class='sx-gc-def' onclick="$.box.open('sx-js-res-info', this.href);cancle_bubble(event);return false" href=#>Informação de aluguer</a></li>
+                    <li><a class='sx-gc-def' href='' target='_blank' onclick='cancle_bubble(event);'>Termos e condições</a></li>
+                </ul>
             </div>
+
+            <div id="sx-js-res-offerconfig-data" class="sx-res-offerconfig-data">
+
+
+
+
+                <form class="sx-res-offerconfig-form sx-cta-area-form" name="offer_config" method="post">
+                    @*<input type="hidden" id="sx-tab-identifier" name="tab_identifier" value="1452393745" />
+                        <input id="sx-offer-handle" type="hidden" name="offer_handle" value="IFMR-PTY70000-1" />*@
+                    @Html.AntiForgeryToken()
+
+                    <div class="sx-gc-customerform">
+                        <div class="sx-gc-info-box">
+                            <h3>
+                                1. A sua tarifa <span class="sx-gc-button-verysmall-info sx-gc-button-inline"></span>
+                            </h3>
+                            <div>
+                                <h3>Informação de tarifa:</h3>
+                                <h4>Pagamento no levantamento</h4>
+                                <p>Este veículo pode ser reservado sem pagamentos antecipados. O pagamento só será solicitado na acto de levantamento da viatura. Desfrute de mobilidade e flexibilidade máxima. Altere ou cancele a sua reserva a qualquer momento desde que anterior ao levantamento.</p>
+                                <p>Não existem taxas adicionais por re-utilização de reserva ou cancelamentos.</p>
+                            </div>
+                        </div>
+
+                        <ul class="sx-res-config-list">
+                            <li class="sx-res-flex-wrapper sx-gc-selected">
+                                <div class="sx-res-config-flex">
+                                    <div class="sx-res-config-entry sx-fake-radio">
+                                        <p><strong>Pagamento no levantamento</strong></p>
+                                    </div>
+                                    <div class="sx-res-config-unit">por dia</div>
+                                    <div class="sx-res-config-cost"> <strong>@ViewBag.car.category.Price</strong><span> &euro;</span></div>
+                                </div>
+                                <ul class="sx-res-config-entry-info">
+                                    <li class="sx-res-config-extra-incl">Remarcação e cancelamento sem custos</li>
+                                    <li class="sx-res-config-extra-incl">Quilometros ilimitados </li>
+                                    <li class="sx-res-config-extra-incl">Seguro Contra Terceiros </li>
+                                    <li class="sx-res-config-extra-incl">Proteção em caso de danos e/ou roubo s/ isenção de franquia (Franquia:  @ViewBag.car.category.Warranty)&euro;</li>
+                                    <li class="sx-res-config-extra-incl">Serviço de Aeroporto</li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div> <!--fim-->
+                    <!-- INICIO 2 -->
+                    <!-- FIM 2 -->
+                    <!-- 3 Dados-->
+
+                    <div class="form-horizontal">
+                        <h3>Dados Condutor</h3>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Nome", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, "Morada", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PostalCode, "Codigo Postal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.License, "Carta de Condução", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.License, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.License, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BI, "BI / CC", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.BI, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BI, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CountryID, "País", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("CountryID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div> <!--end form horizontal dados condutor-->
+
+                    <div class="sx-gc-customerform sx-res-offerconfig-extras-wrapper">
+                        <!-- default recommand extra header -->
+                        <h3 class="sx-res-offerconfig-recommand-header">
+                            <span class="sx-res-ordernr">Extras.</span>             Extras recomendados (Sujeito a disponibilidade)
+                        </h3>
+                        <!-- alternative mobile recommand extra button -->
+                        <p id="sx-js-button-extras-recommand" class="sx-button-hidden-extras" style="display:none" onclick="sx_toggle_dpl('sx-js-res-offerconfig-recommand-wrapper', {'sx-js-button-extras-recommand': 'sx-gc-button-verysmall-minus'}, 'block')">
+                            Extras recomendados
+                        </p>
+
+                        <div id="sx-js-res-offerconfig-recommand-wrapper" class="sx-res-offerconfig-recommand-wrapper">
+                            <ul class="sx-res-config-list">
+                                <li>
+
+                                    @{
+                                        int cnt = 0;
+                                        List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
+                                        extmodels = ViewBag.ExtraModels;
+
+                                        foreach (var m in extmodels)
+                                        {
+                                            //if (cnt++ % 3 == 0)
+                                            //{
+                                            if(m.Stock !=0)
+                                            { 
+                                                <div class="sx-res-config-entry sx-fake-checkbox">
+                                                    <input type="checkbox" name="selectedExtraModels" value="@m.ID" />
+                                                    <label for="sx-res-config-AD">
+                                                        <span class="sx-gc-debug">AD</span>
+                                                        @m.Model
+                                                    </label>
+                                                </div>
+                                                <div class="sx-res-config-unit"> por dia </div>
+                                                <div class="sx-res-config-cost"> @m.Price &euro;</div>
+                                            //}
+                                            }
+                                        }
+                                    }
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        @*<div id="sx-js-res-offerconfig-recommand-wrapper" class="sx-res-offerconfig-recommand-wrapper">
+                                <ul class="sx-res-config-list">
+
+                                    @{
+                                        int cnt = 0;
+                                        List<Car4U.Models.ExtraModel> extmodels = new List<Car4U.Models.ExtraModel>();
+                                        extmodels = ViewBag.ExtraModels;
+
+                                        foreach (var m in extmodels)
+                                        {
+                                            //if (cnt++ % 3 == 0)
+                                            //{
+                                            <li>
+                                                <div class="sx-res-config-entry sx-fake-checkbox">
+                                                    <input name="sx_res_AD" id="sx-res-config-AD" type="checkbox" class="sx-gc-ck" value="@m.ID" />
+                                                    <label for="sx-res-config-AD">
+                                                        <span class="sx-gc-debug">AD</span>
+                                                        @m.Model
+                                                    </label>
+                                                </div>
+                                                <div class="sx-res-config-unit"> por dia </div>
+                                                <div class="sx-res-config-cost"> @m.Price &euro;</div>
+                                            </li>
+                                            //}
+
+                                        }
+                                    }
+                                </ul>
+                            </div>*@
+
+                        <!-- default extra display button -->
+                        <p class="sx-res-select-more">
+                            <span id="sx-js-res-offerconfig-more" class="sx-gc-button-verysmall-plus sx-gc-button-inline-link" onclick="sx_toggle_dpl('sx-js-res-offerconfig-more-wrapper', {'sx-js-res-offerconfig-more': 'sx-gc-button-verysmall-minus'})">
+                                Para extras adicionais, clique aqui <span id="sx-js-res-offerconfig-count">(0 Extras escolhidos)</span>
+                            </span>
+                        </p>
+
+                        <!-- alternative mobile display extra button -->
+                        <p id="sx-js-button-extras-more" class="sx-button-hidden-extras" style="display:none" onclick="sx_toggle_dpl('sx-js-res-offerconfig-more-wrapper', {'sx-js-button-extras-more': 'sx-gc-button-verysmall-minus'})">
+                            Mais extras
+                        </p>
+
+
+                    </div>
+
+                    <div class="sx-cta-area">
+                        <div id="sx-js-res-offerconfig-price-wrapper" class="sx-res-offerconfig-price">
+                            <p id="sx-js-res-offerconfig-price-total">
+                                <span class="sx-gc-leftfloater sx-res-price-name">
+                                    Total:
+                                    <span>
+                                        <b>
+                                            Período de aluguer:
+                                            @ViewBag.time
+                                            Dia(s)
+                                        </b>
+
+                                    </span>
+                                </span>
+                                <span class="sx-gc-rightfloater sx-res-price-value" id="sx-js-res-offerconfig-price"> 90,48 &euro;</span>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="button">
+                                <button id="bookingFormSubmit" class="submit" type="submit" style="float:right;">Finalizar Reserva</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="sx-res-footer-wrapper">
+
+            <p>
+                *
+                Preços incluídos taxas legais
+            </p>
+
+            <p>Por favor note que a imagem exibida é apenas um exemplo da categoria do carro (à excepção de erros). Apenas pode efectuar a reserva de um grupo de viatura e não de um veículo específico.</p>
+            <p>Estes preços são válidos apenas para reservas via internet. O preço total apresentado já inclui todos os descontos.</p>
+            <div id="sx-js-res-info"></div>
+
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <script type="text/javascript">
+        function sx_track_event(cat, act, label, val, opt) {
+            var _label, _val, _opt;
+
+            _label = (label !== false) ? label : '';
+            _val = (val !== false) ? val : 0;
+            _opt = opt ? true : false;
+
+            var data0 = ['SX0._trackEvent', cat, act, _label, _val, _opt];
+
+
+            _gaq.push(data0);
+        }
+
+        function sx_track_pageview(page) {
+            _gaq.push(['SX0._trackPageview', page]);
+        }
+
+    </script>
+
+</body>
+</html>

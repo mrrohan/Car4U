@@ -1,0 +1,1255 @@
+/* --------------------------------------------------
+//
+// reservation home styles, redesign july, 26th 2011
+//
+// ----------------------------------------------- */
+
+
+    /* -----------------------------------------------
+    main divisions
+    ----------------------------------------------- */
+
+    #sx-home-reservation-wrapper {
+        clear: both;
+        background: #000;
+        text-align: center;
+    }
+
+    #sx-home-stage-wrapper {
+        clear: both;
+        background: #df7700 url(icon/bg/bg-rd-home.png) repeat-x left top;
+        text-align: center;
+        min-height: 500px;
+    }
+
+    * html #sx-home-stage-wrapper {
+        height: 500px;
+    }
+
+    #sx-home-ibe-wrapper {
+        background: #000;
+        text-align: left;
+        width: 992px;
+        margin: auto;
+        padding: 0 0 20px 0;
+        color: #fff;
+    }
+
+    #sx-home-ibe-wrapper:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    #sx-home-offer-wrapper {
+        text-align: left;
+        width: 992px;
+        margin: auto;
+        color: #000;
+    }
+
+    #sx-home-ibe-pickup {
+        float: left;
+        width: 36%;
+    }
+
+    #sx-home-ibe-return {
+        float: left;
+        width: 36%;
+    }
+
+    #sx-home-ibe-login {
+        float: right;
+        width: 28%;
+        padding: 25px 0 0 0;
+        margin: 0 -3px 0 0;
+    }
+
+    #sx-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        z-index: 3101; /* must fit with ddlis's initial value */
+        display: none;
+    }
+
+    /* -----------------------------------------------
+    cta-green home special-edition
+    ----------------------------------------------- */
+    .sx-ibe-button-wrapper {
+        padding: 0 0 10px 0;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    * html .sx-ibe-button-wrapper {
+        margin: 0 3px 0 0;
+    }
+
+    .sx-ibe-button-wrapper .sx-gc-button-cta-green {
+        padding: 12px 0 12px 20px !important;
+        display: block;
+        float: none;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-ibe-button-wrapper .sx-gc-button-cta-green span {
+        height: 28px;
+        padding: 10px 0 0 45px;
+
+    }
+
+    .sx-ibe-button-wrapper .sx-gc-button-cta-green span strong {
+        font-size: 20px;
+    }
+
+    /* -----------------------------------------------
+    global classes
+    ----------------------------------------------- */
+    .sx-gc-leftfloater {
+        float: left;
+    }
+
+    .sx-gc-rightfloater {
+        float: right;
+    }
+
+    .sx-gc-active {
+        text-decoration: underline;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .sx-gc-error {
+        background: none repeat scroll 0 0 #F3C4C4;
+        border: 2px solid red;
+        clear: both;
+        color: #000;
+        margin: 0 0 20px;
+        padding: 10px 10px 4px;
+    }
+
+    .sx-gc-error p {
+        color: #000000;
+        font-weight: bold;
+        margin: 0;
+        padding: 0 0 6px;
+    }
+
+    input.sx-gc-ck,
+    input.sx-gc-rd {
+        vertical-align: middle;
+        margin: 0 3px 3px 0;
+        height: 14px;
+        width: 14px;
+        border: none;
+    }
+
+    ul.sx-gc-def,
+    ul.sx-gc-def li {
+        list-style: disc;
+        margin: 0 0 0 12px;
+    }
+
+    .sx-gc-clear {
+        clear: both;
+    }
+
+    .sx-gc-clearfix {
+        min-height: 1px;
+    }
+
+    .sx-gc-clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    * html .sx-gc-clearfix {
+       height: 1px;
+    }
+
+    /* -----------------------------------------------
+    ibe forms
+    ----------------------------------------------- */
+    .sx-res-ddlist-wrapper label {
+        font: bold 18px arial, sans-serif;
+        display: block;
+        color: #fff;
+        padding: 0 0 3px 0;
+    }
+
+    .sx-res-booking-entry {
+        border: 1px solid #b75502;
+        /*
+        border: 1px solid #666;
+        */
+        padding: 8px 5px;
+        font-size: 14px;
+        background: #fff;
+        font-weight: normal;
+
+        -moz-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.9);
+        -o-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.9);
+        -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.9);
+        -khtml-box-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+        box-shadow: inset 1px 1px 3px rgba(0,0,0,0.9);
+
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+
+        background: #ffffff;
+        background: -moz-linear-gradient(top, #eeeeee, #ffffff);
+        background: -o-linear-gradient(top, #eeeeee, #ffffff);
+        background: -khtml-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #ffffff));
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #ffffff));
+        background: linear-gradient(top, #eeeeee, #ffffff);
+    }
+
+    .sx-gc-multientry-wrapper {
+        width: 93%;
+        display: block;
+        padding: 0 6px 0 6px;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-gc-singleentry-wrapper .sx-res-booking-entry {
+        width: 93%;
+    }
+
+    .sx-gc-multientry-wrapper .sx-res-booking-entry {
+        width: 46%;
+        margin: 0 -6px 0 -6px;
+    }
+
+    #sx-js-res-pu-datetime .sx-res-booking-entry,
+    #sx-js-res-ret-datetime .sx-res-booking-entry {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    /* -----------------------------------------------
+    ibe
+    ----------------------------------------------- */
+    .sx-res-dpl-toggle {
+        display: none;
+    }
+
+    .sx-res-residence-wrapper {
+        padding: 10px 0 10px 0;
+        display: none;
+        overflow: hidden;
+        zoom: 1;
+        width: 100%;
+    }
+
+    .sx-res-residence-wrapper-open {
+        display: block;
+    }
+
+    .sx-res-residence-wrapper strong {
+        float: left;
+        width: 41%;
+    }
+
+    .sx-res-residence-wrapper .sx-toggle-posl {
+        float: right;
+        width: 45%;
+    }
+
+    .sx-res-residence-wrapper span.sx-toggle-posl {
+        background: #2d2d2d url(../../../common/img/app/rac/bg-residence.gif) no-repeat right 50%;
+        padding: 5px 12% 5px 5px;
+    }
+    .sx-home-options-wrapper {
+        padding: 10px 0 10px 0;
+    }
+
+    .sx-home-options-wrapper p,
+    .sx-home-options-wrapper div {
+        padding:0 0 3px 0;
+    }
+
+    /* ORIGIN/MASTER
+    .sx-res-booking-del-col {
+        display: none;
+    }
+    */
+
+    .sx-res-booking-coi {
+        display: none;
+    }
+
+    .sx-res-booking-coi-open {
+        display: block;
+    }
+
+    /* -----------------------------------------------
+    delivery/collection del-col
+    ----------------------------------------------- */
+    /* RACREDESIGN-2023 */
+    .sx-res-ibe-label-wrapper {
+        overflow: hidden;
+        padding: 0 20px 0 0;
+    }
+
+    .sx-res-del-col input.sx-res-booking-entry {
+        padding: 3px 5px 3px 5px;
+    }
+
+    .sx-res-del-col textarea {
+        height: 30px;
+    }
+
+    .sx-res-ibe-label-wrapper span.sx-gc-rightfloater {
+        padding-top: 5px;
+    }
+
+    /* ORIGIN/MASTER
+    .sx-res-booking-del-col span {
+        padding: 0 20px 0 0;
+    }
+    */
+
+    .sx-res-ibe-label-wrapper span label {
+        display: inline;
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+    .sx-res-del-col .sx-gc-zip {
+        float: left;
+        width: 25%;
+    }
+
+    .sx-res-del-col .sx-gc-city {
+        float: right;
+        width: 66%;
+    }
+
+    .sx-res-del-col select.sx-res-booking-entry {
+        padding: 3px 0 3px 0;
+        width: 96.6%;
+        min-height: 30px;
+        height: auto;
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .ie8 .sx-res-del-col select.sx-res-booking-entry {
+        min-height: auto;
+    }
+
+    .sx-res-del-col .sx-res-del-col-hd {
+        padding: 10px 15px 10px 0;
+        font-weight: bold;
+    }
+
+    .sx-res-geodelcol-alt {
+        padding: 2%;
+        margin: 6px 0 6px 0;
+        width: 92%;
+        background: #fff3e3;
+        border: 1px solid #7A2624;
+        color:#7a2624;
+    }
+
+
+    .sx-res-geodelcol-alt p {
+        font-weight: bold;
+    }
+
+    .sx-res-geodelcol-alt li {
+        text-decoration: underline;
+        color:#7a2624;
+        margin: 0 0 6px 0;
+        cursor: pointer;
+    }
+
+    .sx-res-geodelcol-del2colcopylink-container {
+        display: block;
+        float: right;
+    }
+
+    .sx-res-geodelcol-del2colcopylink-container a {
+        color: #FFF;
+        font-weight: normal;
+        text-decoration: underline;
+    }
+
+    .sx-res-del-col-hd-col span:first-child {
+        display: block;
+        float: left;
+    }
+
+
+    /* -----------------------------------------------
+    login
+    ----------------------------------------------- */
+    .sx-home-login-box {
+        padding: 10px;
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .sx-gc-singleentry-wrapper .sx-res-login-entry {
+        width: 93%;
+    }
+
+    .sx-res-login-entry {
+        border: 0 solid #000;
+        padding: 4px 4px;
+        font-size: 13px;
+        background: #fff;
+        font-weight: normal;
+
+        -moz-box-shadow: inset 2px 2px 5px #626262;
+        -webkit-box-shadow: inset 2px 2px 5px #626262;
+        -khtml-box-shadow: 2px 2px 5px #626262;
+        box-shadow: inset 2px 2px 5px #626262;
+
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .sx-home-login-wrapper .sx-gc-active {
+        color: #fff;
+    }
+
+    .sx-home-login-entries {
+        display: none;
+    }
+
+    .sx-home-login-box-open {
+        background: #4b4b4b;
+    }
+
+    .sx-home-login-box-open .sx-home-login-entries {
+        display: block;
+    }
+
+    .sx-home-login-box-open .sx-gc-waiting {
+        background: #fff url(icon/bg/bg-login-loader.gif) no-repeat 99% 1px;
+    }
+
+    #sx-res-mnum-list li {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        padding: 6px 0 6px 0;
+        border-bottom: 1px dashed #a2a2a2;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-mnum-list li .sx-gc-leftfloater {
+        width: 27%;
+        color: #F9BE1E;
+        text-decoration: underline;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-mnum-list li .sx-gc-rightfloater {
+        width: 72%;
+    }
+
+    .sx-js-res-login-state-corp {
+        margin-top: 6px;
+        display: block;
+    }
+
+    /* display in ie only, modern browsers use placeholder */
+    .sx-res-dpl-in-ie {
+        display: none;
+    }
+
+    .ie7 .sx-res-dpl-in-ie,
+    .ie8 .sx-res-dpl-in-ie,
+    .ie9 .sx-res-dpl-in-ie {
+        display: block;
+        margin: 0 0 3px 0;
+    }
+
+
+    /* -----------------------------------------------
+    body
+    ----------------------------------------------- */
+
+
+
+
+
+
+
+    /* -----------------------------------------------
+    datepicker
+    ----------------------------------------------- */
+    /*
+        ATTN! time z-index must be lower in the beginning
+        and higher while beeing displayed
+    */
+    .sx-res-datepicker {
+        position: relative;
+        z-index: 3100;
+        margin: 6px 0 10px 0;
+    }
+
+    .ui-datepicker {
+        width: 96%;
+        min-height: 250px;
+    	-moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    	-webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    	-khtml-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .ui-datepicker.ui-datepicker-multi {
+        width: 30em !important;
+    }
+
+    .ui-datepicker .ui-datepicker-title select {
+        font-size: 1.1em;
+        margin: 1px 0 0 0;
+        padding: 1px;
+        height: auto;
+        min-height: 24px;
+    }
+
+
+    .ui-datepicker-current-period-start a,
+    .ui-datepicker-current-period-start .ui-state-default {
+        border: 1px solid #b36e01;
+        background: #fef0a5 url(icon/bg/bg-first-day.png) no-repeat left 50%;
+        font-weight: bold;
+        color: #000;
+    }
+
+    .ui-datepicker-current-period-end a,
+    .ui-datepicker-current-period-end .ui-state-default {
+        border: 1px solid #b36e01;
+        background: #fef0a5 url(icon/bg/bg-last-day.png) no-repeat right 50%;
+        font-weight: bold;
+        color: #000;
+    }
+
+    #sx-home-ibe-pickup .ui-datepicker-current-period-start a,
+    #sx-home-ibe-pickup .ui-datepicker-current-period-start .ui-state-default
+    #sx-home-ibe-return .ui-datepicker-current-period-end a,
+    #sx-home-ibe-return .ui-datepicker-current-period-end .ui-state-default {
+        background-color: #fcb800;
+        }
+
+    .ui-datepicker-current-period a,
+    .ui-datepicker-current-period .ui-state-default {
+        border: 1px solid #b36e01;
+        background: #fef0a5;
+        font-weight: normal;
+        color: #000;
+    }
+
+    #sx-home-ibe-pickup .ui-datepicker-current-period .ui-state-hover,
+    #sx-home-ibe-return .ui-datepicker-current-period .ui-state-hover,
+    #sx-home-ibe-pickup .ui-datepicker-current-period-start .ui-state-hover,
+    #sx-home-ibe-return .ui-datepicker-current-period-start .ui-state-hover,
+    #sx-home-ibe-pickup .ui-datepicker-current-period-end .ui-state-hover,
+    #sx-home-ibe-return .ui-datepicker-current-period-end .ui-state-hover {
+        background-color: #fc970b;
+    }
+
+    /* obsolete div if open datepicker */
+    #ui-datepicker-div {
+        display: none;
+    }
+
+    .ui-datepicker {
+        padding: 0
+    }
+
+    .ui-widget-header {
+        border: none;
+
+        -moz-border-radius: 0;
+        -khtml-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+
+    }
+
+    /* -----------------------------------------------
+    ddlist suggest
+    ----------------------------------------------- */
+    .sx-res-ddlist-wrapper {
+        padding: 0 0 7px 0;
+        clear: both;
+        position: relative;
+    }
+
+    .sx-res-ddlist-wrapper li em {
+        font-style: normal;
+        text-decoration: underline;
+    }
+
+    .sx-res-ddlist-wrapper .sx-ddlist-suggest {
+        width: 750px;
+        height: 500px;
+        margin: -3px 0 0 0;
+    }
+
+    * + html .sx-res-ddlist-wrapper .sx-ddlist-suggest {
+        margin: -5px 0 0 0;
+    }
+
+    * html .sx-res-ddlist-wrapper .sx-ddlist-suggest {
+        margin: -5px 0 0 0;
+    }
+
+    .sx-res-ret-location .sx-ddlist-suggest {
+        left: -114px;
+    }
+
+    .sx-ddlist-suggest ul.sx-res-suggestlist {
+        width: 40%;
+        height: 100%;
+        float: left;
+    }
+
+    .sx-ddlist-suggest .sx-res-info-wrapper {
+        color: #000;
+        width: 60%;
+        height: 100%;
+        float: right;
+        position: relative;
+        margin: 0 0 0 -3px;
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway {
+        background-image: url(icon/icon-suggest-railway.gif);
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        padding-left: 20px;
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport {
+        background-image: url(icon/icon-suggest-airport.gif);
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        padding-left: 20px;
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway.ddlist-selected {
+        background-image: url(icon/icon-suggest-railway-sel.gif);
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport.ddlist-selected {
+        background-image: url(icon/icon-suggest-airport-sel.gif);
+    }
+
+    .sx-res-ddlist-wrapper li.ddlist-selected {
+        background-image: expression( (typeof sx_ie6_suggest_styles === "function")? sx_ie6_suggest_styles(this) : "none" );
+    }
+
+    .sx-res-ddlist-wrapper li h5 span {
+        font-weight: normal;
+        display: block;
+        background-image: url(icon/google/marker-position.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        padding: 5px 0 5px 40px;
+        height: 39px;
+    }
+
+    .sx-res-ddlist-wrapper li h5 {
+        border-bottom: 1px dotted #A2A2A2;
+    }
+
+    /* -----------------------------------------------
+    suggest infos
+    ----------------------------------------------- */
+    .sx-res-info-wrapper .sx-res-info-content {
+        padding: 10px;
+    }
+
+    .sx-res-info-wrapper table {
+        width: 100%;
+        margin: 0 0 6px 0;
+    }
+
+    .sx-res-info-wrapper td {
+        vertical-align: top;
+        padding: 0 5px 1px 0;
+    }
+
+    .sx-res-phone-cost-note {
+        color: #777;
+        font-size: 10px;
+    }
+
+    .sx-res-phone-cost-note {
+        color: #777;
+        font-size: 10px;
+        padding: 0;
+        margin: 0 0 3px 0;
+    }
+
+    .sx-res-station-hint {
+		background: #FFF3E3;
+		border: 1px solid #7A2624;
+		color:#7a2624;
+        font-size: 10px;
+        padding: 2px 5px 2px 5px;
+        font-weight: bold;
+    }
+
+    .sx-res-ooh-note {
+
+    }
+
+    /* -----------------------------------------------
+    home - info arrows
+    ----------------------------------------------- */
+    .sx-res-info-wrapper-arrow {
+        width: 23px;
+        height: 12px;
+        position: absolute;
+        top: -12px;
+        left: 6%;
+        background: transparent url(icon/bg/bg-info-arrow.gif) no-repeat left top;
+    }
+
+    .sx-res-ret-location .sx-res-info-wrapper-arrow {
+        left: 20%;
+    }
+
+    .sx-res-info-wrapper-arrow-red {
+        background: transparent url(icon/bg/bg-info-arrow-ff6900.gif) no-repeat left top;
+    }
+
+    #sx-res-booking-howto .sx-res-info-wrapper-arrow {
+        left: 20px;
+    }
+
+
+    .sx-res-datepicker .sx-res-info-wrapper-arrow {
+        left: 20px;
+        top: -11px;
+    }
+
+    .sx-ddlist-time.sx-res-info-wrapper-arrow {
+        left: 20px;
+        top: -12px;
+    }
+
+    /* -----------------------------------------------
+    google-maps
+    ----------------------------------------------- */
+    .sx-js-res-google-map {
+        width: 98%;
+        height: 280px;
+        position: absolute;
+        right: 1%;
+        bottom: 1%;
+        background: #fff !important;
+    }
+
+    .sx-res-waiting-fff {
+        background: #fff url(icon/bg/bg-loader-fff.gif) no-repeat 50% 50% !important;
+    }
+
+    /* -----------------------------------------------
+    datetime
+    ----------------------------------------------- */
+    .sx-res-datetime {
+        margin: 0 0 10px 0;
+    }
+
+    .ddlist-wrapper .sx-ddlist-time {
+        width: 100%;
+        height: 300px;
+        left: 0;
+        margin-top: 5px;
+    }
+
+    .ddlist-wrapper .sx-ddlist-time ul {
+        width: 36%;
+        float: right;
+        border-left: 1px solid #000;
+    }
+
+    .ddlist-wrapper .sx-res-openhours-info {
+        width: 62%;
+        float: left;
+        color: #000;
+        padding: 10px 0 10px 1%;
+    }
+
+    .sx-ddlist-time .sx-res-info-wrapper-arrow {
+        left: 56%;
+    }
+
+    .sx-res-openhours-info p,
+    .sx-res-openhours-info .sx-res-phone-info,
+    .sx-res-openhours-info .sx-res-fax-info {
+        display: none;
+    }
+
+    .sx-res-openhours-info td {
+        padding: 5px 3px 5px 0;
+    }
+
+    .sx-ddlist-time li {
+        padding: 3px 5px 3px 5px;
+        border-bottom: 1px solid #959595;
+    }
+
+    /* -----------------------------------------------
+    stage backbutton
+    ----------------------------------------------- */
+    .sx-button-home-back {
+        padding-top: 10px;
+        display: none;
+    }
+
+    .sx-button-home-back .sx-gc-button-verysmall-back {
+        background-image: url(../../../common/img/app/base/buttons/very-small-button-sprites-dark.png);
+        color: #fff !important;
+    }
+
+    /* -----------------------------------------------
+    tab topoffer
+    ----------------------------------------------- */
+    .sx-home-topoffer {
+        text-align: center;
+        position: relative;
+        padding: 20px 0 50px 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        -ms-user-select: none;
+    }
+
+    #sx-js-offer-back {
+        position: absolute;
+        top: 100px;
+        left: 10px;
+        width: 34px;
+        height: 34px;
+        background: transparent url(icon/bg/bg-rd-offer-back.png) no-repeat 0 0;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    * html #sx-js-offer-back {
+		background: none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-rd-offer-back.png', sizingMethod='crop');
+	}
+
+    #sx-js-offer-next {
+        position: absolute;
+        top: 100px;
+        right: 10px;
+        width: 34px;
+        height: 34px;
+        background: transparent url(icon/bg/bg-rd-offer-next.png) no-repeat 0 0;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    * html #sx-js-offer-next {
+		background: none;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icon/bg/bg-rd-offer-next.png', sizingMethod='crop');
+	}
+
+    #sx-js-offer-next span,
+    #sx-js-offer-back span {
+        display: none;
+    }
+
+    .sx-res-home-topoffer-list {
+        width: 80%;
+        margin: 0 auto 20px auto;
+        list-style: none outside none;
+    }
+
+    * html .sx-res-home-topoffer-list {
+        height: 415px;
+        zoom: 1;
+        }
+
+    .sx-res-home-topoffer-list li {
+        min-height: 415px;
+        margin: 0;
+        padding: 0;
+    }
+
+    * html .sx-res-home-topoffer-list li {
+        height: 415px;
+    }
+
+    sx-res-home-topoffer-list li a {
+
+    }
+
+    .sx-res-home-topoffer-list img {
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-home-topoffer-list img.sx-res-topoffer-img {
+        min-width: 340px;
+        min-height: 213px;
+        background: transparent url(../../../common/img/app/base/tt_corporate/topoffer-loader.gif) no-repeat 50% 50%;
+    }
+
+    .sx-res-home-topoffer-list p {
+        font-weight: bold;
+        padding: 0 0 6px 0;
+        margin: 0;
+    }
+
+    .sx-res-home-topoffer-list .sx-res-offer-slog {
+    	font: bold 24px Arial, 'Shanti', Geneva, Helvetica, sans-serif;
+        line-height: 110%;
+    }
+
+    .sx-res-home-topoffer-list .sx-res-offer-ttle {
+    	font: bold 12px Arial, 'Shanti', Geneva, Helvetica, sans-serif;
+    }
+
+    .sx-res-home-topoffer-list .sx-res-offer-pric {
+    	font: bold 60px 'Shanti', Arial, Geneva, Helvetica, sans-serif;
+        color: #fff;
+
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 0px 15px rgba(0, 0, 0, 1);
+        -moz-text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 0px 15px rgba(0, 0, 0, 1);
+        -webkit-text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 0px 15px rgba(0, 0, 0, 1);
+        -khtml-text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 0px 15px rgba(0, 0, 0, 1);
+    }
+
+    .sx-res-home-topoffer-overview {
+        margin: 0 auto 10px auto;
+        display: inline-block;
+    }
+
+    * + html .sx-res-home-topoffer-overview {
+        display: inline;
+    }
+
+    * html .sx-res-home-topoffer-overview {
+        display: inline;
+    }
+
+    .sx-res-home-topoffer-overview li {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: transparent url(icon/bg/bg-rd-bullet-to-inactive.gif) no-repeat 0 0;
+        margin: 0 2px 0 2px;
+        position: relative;
+        z-index: 500;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    * + html .sx-res-home-topoffer-overview li {
+        display: inline;
+	}
+
+    * html .sx-res-home-topoffer-overview li {
+        display: inline;
+	}
+
+    .sx-res-home-topoffer-overview .sx-gc-selected {
+        background: transparent url(icon/bg/bg-rd-bullet-to-active.gif) no-repeat 0 0;
+    }
+
+    .sx-res-home-topoffer-overview li div {
+        display: none;
+        background: #fff;
+        position: absolute;
+        bottom: 12px;
+        left: -20px;
+        width: 150px;
+        padding: 5px;
+        border: 1px solid #000;
+
+
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .sx-res-home-topoffer-overview li.sx-gc-hover,
+    .sx-res-home-topoffer-overview li:hover {
+        z-index: 600;
+    }
+
+    .sx-res-home-topoffer-overview li.sx-gc-hover div,
+    .sx-res-home-topoffer-overview li:hover div {
+        display: block;
+    }
+
+    /* -----------------------------------------------
+    lkw services
+    ----------------------------------------------- */
+    .sx-home-lkw-wrapper {
+        padding: 0 0 50px 0;
+    }
+
+    .sx-home-lkw-wrapper p.sx-home-lkw-to-link {
+        text-align: center;
+    }
+    .sx-home-lkw-services-wrapper {
+        display: none;
+        height: 222px;
+    	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+    	-webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    	-khtml-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+
+        background: #fe9808;
+        background: -moz-linear-gradient(top, #fe9808, #e87500);
+        background: -o-linear-gradient(top, #fe9808, #e87500);
+        background: -khtml-gradient(linear,left top,left bottom,color-stop(0, #fe9808),color-stop(1, #e87500));
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fe9808),color-stop(1, #e87500));
+        background: linear-gradient(top, #fe9808, #e87500);
+        filter:progid:DXImageTransform.Microsoft.Gradient(endColorstr='#e87500', startColorstr='#fe9808', gradientType='0');
+        position: relative;
+        text-align: center;
+    }
+
+    * html .sx-home-lkw-services-wrapper {
+        border: 1px solid #000;
+    }
+
+    * + html .sx-home-lkw-services-wrapper {
+        border: 1px solid #000;
+    }
+
+    .sx-home-lkw-services-wrapper li {
+        vertical-align: top;
+        width: 272px;
+        margin: 5px;
+        display: inline-block;
+    }
+
+     * html .sx-home-lkw-services-wrapper li {
+        display: inline;
+    }
+
+    * + html .sx-home-lkw-services-wrapper li {
+        display: inline;
+    }
+
+    .sx-home-lkw-services-wrapper li h4 {
+        text-align: left;
+        padding: 10px 25px 10px 25px;
+        height: 40px;
+    }
+
+    /* next back */
+    .sx-home-lkw-list #sx-js-offer-back,
+    .sx-home-lkw-list #sx-js-offer-next {
+        /*top: 100px;*/
+    }
+
+    .sx-offer-inactive {
+        opacity: 0.4;
+        filter: alpha(opacity = 40);
+    }
+
+    #sx-js-offer-next.sx-offer-inactive,
+    #sx-js-offer-back.sx-offer-inactive {
+        cursor: auto;
+    }
+
+    /* -----------------------------------------------
+    trust banner ca
+    ----------------------------------------------- */
+    .sx-res-trust-banner {
+        clear: both;
+        padding: 0 0 20px 0;
+    }
+
+
+
+    /* -----------------------------------------------
+    cookie warning
+    ----------------------------------------------- */
+    .sx-cookie-notice {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 10000;
+    }
+
+    .sx-cookie-notice div {
+        position: relative;
+        width: 980px;
+        background: #ffffff;
+        margin: auto;
+        padding: 6px 0 6px 0;
+        border: 2px solid #581b00;
+        border-bottom: none;
+        text-align: left;
+
+        -khtml-border-top-left-radius: 5px;
+        -khtml-border-top-right-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        filter: alpha(opacity = 85);
+        opacity: 0.85;
+    }
+
+    .sx-cookie-notice span {
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+        padding: 1px 5px 4px 5px;
+        margin: 3px;
+        border: 1px solid #000000;
+        position: absolute;
+        right: 0;
+        top: 0;
+        line-height: 90%;
+        background: #ff4e00;
+
+        -khtml-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .sx-cookie-notice p {
+        padding: 3px 40px 3px 20px;
+    }
+
+    .sx-cookie-notice p.sx-cookie-notice-0 {
+        font-weight: bold;
+    }
+
+    /* -----------------------------------------------
+    loading spinner
+    ----------------------------------------------- */
+    .sx-waiting-banner .sx-gc-leftfloater {
+        float: left;
+        width: 49%;
+        text-align: center;
+    }
+
+    .sx-waiting-banner .sx-gc-rightfloater {
+        float: right;
+        width: 49%;
+        text-align: center;
+    }
+
+    .sx-waiting-banner img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 0 10px 0;
+    }
+
+/* -----------------------------------------------
+social media login
+----------------------------------------------- */
+/* TODO: Code befindet sich in sx-social-login.css und sollte zentral genutzt werden (kann hier dann gel?scht werden) */
+#sx-social-media-popup {
+    /* display: none;*/
+}
+.sx-social-media-login {
+    position: relative;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+    border-top: 1px solid #fff;
+}
+.sx-social-media-login h4{
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -35px;
+    padding: 0 20px;
+    background: #4b4b4b;
+}
+.sx-social-media-login ul li {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: top;
+}
+.sx-login-forgot-box {
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+    border-top: 1px solid #fff;
+}
+.sx-social-media-icon {
+    margin: 10px 0;
+    display: block;
+    width: 44px;
+    height: 39px;
+    cursor: pointer;
+    /* todo: replace with icon sprite or icon font */
+    background: url(../../../common/img/base/rac/homepage/social-login/sprite-social-login.png);
+    background-repeat: no-repeat;
+}
+.sx-social-media-icon.sx-social-media-icon-facebook {
+    background-position: -240px -240px;
+}
+.sx-social-media-icon.sx-social-media-icon-facebook.active,.sx-social-media-icon.sx-social-media-icon-facebook:hover {
+    background-position: -420px -60px;
+}
+
+.sx-social-media-icon.sx-social-media-icon-google {
+    background-position: -180px -300px;
+}
+.sx-social-media-icon.sx-social-media-icon-google.active, .sx-social-media-icon.sx-social-media-icon-google:hover {
+    background-position: -360px -120px;
+}
+
+.sx-social-media-icon.sx-social-media-icon-amazon {
+    background-position: -300px -180px;
+}
+.sx-social-media-icon.sx-social-media-icon-amazon.active, .sx-social-media-icon.sx-social-media-icon-amazon:hover {
+    background-position: -480px 0;
+}
+
+/* customer details */
+#sx-js-res-dpl-login-content {
+    position: relative;
+}
+#sx-js-res-dpl-login-content .sx-social-media-login{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+#sx-js-res-dpl-login-content .sx-social-media-login h4 {
+    display:none;
+}
+.sx-gc-active-login, .sx-social-logout {
+    color: #fff;
+    cursor: pointer;
+}

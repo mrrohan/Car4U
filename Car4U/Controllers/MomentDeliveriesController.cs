@@ -16,10 +16,10 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MomentDeliveries
-        public ActionResult Index()
-        {
-            return View(db.MomentDeliveries.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    return View(db.MomentDeliveries.ToList());
+        //}
 
         // GET: MomentDeliveries/Details/5
         public ActionResult Details(int? id)
@@ -66,7 +66,7 @@ namespace Car4U.Controllers
                         momentDelivery.ReservationID = id ?? default(int);
                     }
 
-                    momentDelivery.Date = db.Reservations.Find(momentDelivery.ID).DeliveryDate;
+                    momentDelivery.Date = DateTime.Now;
                     db.MomentDeliveries.Add(momentDelivery);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Reservations");
@@ -101,7 +101,7 @@ namespace Car4U.Controllers
             {
                 db.Entry(momentDelivery).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Reservations");
             }
             return View(momentDelivery);
         }
@@ -129,7 +129,7 @@ namespace Car4U.Controllers
             MomentDelivery momentDelivery = db.MomentDeliveries.Find(id);
             db.MomentDeliveries.Remove(momentDelivery);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Reservations");
         }
 
         protected override void Dispose(bool disposing)

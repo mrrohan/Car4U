@@ -1,0 +1,284 @@
+/* --------------------------------------------------
+//
+// reservation start customized styles
+// author:      jw
+// created:     24.02.2011
+//
+// ----------------------------------------------- */
+    /* -----------------------------------------------
+    global classes
+    ----------------------------------------------- */
+    .sx-gc-error {
+        background: #F3C4C4;
+        border: 2px solid #ff0000;
+        color: #000000;
+    }
+
+    .sx-gc-error p {
+        color: #000000;
+    }
+
+    .sx-gc-message {
+		background: #FFF3E3;
+		border: 1px solid #7A2624;
+		color:#7a2624;
+	}
+
+    .sx-gc-message p {
+		color:#7a2624 !important;
+	}
+
+    /* -----------------------------------------------
+    start - IBE
+    ----------------------------------------------- */
+    
+    /* do not display res header in default typo3 template */
+    #mainContent #sx-reservation-start h1 {
+        display: none;
+    }  
+    
+    /* Special for Marketing */
+    .sx-marketing #sx-reservation-start {
+        padding: 10px 0 10px 0;
+    }
+
+    .sx-res-booking {
+        border: 1px solid #a2a2a2;
+        -moz-box-shadow: 2px 2px 3px #BFBFBF;
+        -khtml-box-shadow: 2px 2px 3px #BFBFBF;
+        -webkit-box-shadow:2px 2px 3px #BFBFBF;
+        box-shadow: 2px 2px 3px #BFBFBF;
+    }
+
+    .sx-res-booking-entry {
+        border: 1px solid #ff6900;
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px 3px;
+        background: #fff;
+    }
+
+    .sx-res-booking .sx-gc-error * {
+        color: #000;
+    }
+
+    /* -----------------------------------------------
+    datepicker
+    ----------------------------------------------- */
+    .ui-datepicker-current-period-start a,
+    .ui-datepicker-current-period-start .ui-state-default {
+        border: 1px solid #b36e01;
+        background: #fef0a5 url(icon/bg/bg-first-day.png) no-repeat left 50%;
+        color: #000;
+    }
+
+    .ui-datepicker-current-period-end a,
+    .ui-datepicker-current-period-end .ui-state-default {
+        border: 1px solid #b36e01;
+        background: #fef0a5 url(icon/bg/bg-last-day.png) no-repeat right 50%;
+        color: #000;
+    }
+
+    .ui-datepicker-current-period a,
+    .ui-datepicker-current-period .ui-state-default {
+        border: 1px solid #b36e01;
+        background: #fef0a5;
+        color: #000;
+    }
+    
+    .ui-datepicker-current-period .ui-state-hover,
+    .ui-datepicker-current-period-start .ui-state-hover,
+    .ui-datepicker-current-period-end .ui-state-hover { 
+        background-color: #fc970b; 
+    }
+
+    /* -----------------------------------------------
+    login
+    ----------------------------------------------- */
+    .sx-res-login-state {
+        color: #777;
+    }
+
+    .sx-res-login-state a {
+        color: #777;
+    }
+
+    #sx-res-mnum-list li {
+        border-bottom: 1px dashed #a2a2a2;
+    }
+
+    #sx-res-mnum-list li .sx-gc-leftfloater {
+        color: #F9BE1E;
+    }
+
+    .sx-res-password-or-surname p {
+        color: #F9BE1E;
+    }
+
+    /* -----------------------------------------------
+    ddlist
+    ----------------------------------------------- */
+    .sx-ddlist-suggest .sx-res-info-wrapper {
+        color: #000;
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway {
+        background-image: url(icon/icon-suggest-railway.gif);
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport {
+        background-image: url(icon/icon-suggest-airport.gif);
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway.ddlist-selected {
+        background-image: url(icon/icon-suggest-railway-sel.gif);
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport.ddlist-selected {
+        background-image: url(icon/icon-suggest-airport-sel.gif);
+    }
+
+    .sx-res-ddlist-wrapper li.ddlist-selected {
+        background-image: expression( (typeof sx_ie6_suggest_styles === "function")? sx_ie6_suggest_styles(this) : "none" );
+    }
+
+    .sx-res-ddlist-wrapper li h5 span {
+        background-image: url(icon/google/marker-position.png);
+    }
+
+    .sx-res-ddlist-wrapper li h5 {
+        border-bottom: 1px dotted #A2A2A2;
+    }
+
+    /* -----------------------------------------------
+    suggest infos
+    ----------------------------------------------- */
+    .sx-res-info-wrapper {
+        color: #000;
+    }
+
+    .sx-res-phone-cost-note {
+        color: #777;
+    }
+
+    .sx-res-phone-cost-note {
+        color: #777;
+    }
+    
+    .sx-res-station-hint {
+		background: #FFF3E3;
+		border: 1px solid #7A2624;
+		color:#7a2624;
+	}
+
+    /* -----------------------------------------------
+    info arrows
+    ----------------------------------------------- */
+    .sx-res-info-wrapper-arrow {
+        background: transparent url(icon/bg/bg-info-arrow.gif) no-repeat left top;
+    }
+
+    .sx-res-info-wrapper-arrow-red {
+        background: transparent url(icon/bg/bg-info-arrow-ff6900.gif) no-repeat left top;
+    }
+
+    /* -----------------------------------------------
+    google-maps
+    ----------------------------------------------- */
+    .sx-js-res-google-map {
+        background: #fff !important;
+    }
+    
+    /* -----------------------------------------------
+    datetime
+    ----------------------------------------------- */
+    .ddlist-wrapper .sx-ddlist-time ul {
+        border-left: 1px solid #000;
+    }
+
+    .ddlist-wrapper .sx-res-openhours-info {
+        color: #000;
+    }
+
+    .sx-ddlist-time li {
+        border-bottom: 1px solid #a2a2a2;
+    }
+
+    /* -----------------------------------------------
+    agent rates
+    ----------------------------------------------- */
+    .sx-res-agentrate-wrapper .sx-res-agentrate-P {
+        background: #fff url(../../../common/img/base/rac/rac-agent-car.jpg) no-repeat left top;
+    }
+    
+    .sx-res-agentrate-wrapper .sx-res-agentrate-L {
+        background: #fff url(../../../common/img/base/rac/rac-agent-truck.jpg) no-repeat left top;
+    }
+    
+    .sx-res-agentrate-wrapper .sx-res-agentrate-hc {
+        background: #fff url(../../../common/img/base/rac/rac-agent-hc.jpg) no-repeat left top;
+    }
+    
+    .sx-res-agentrate-wrapper .sx-res-agentrate-content {
+        border-top: 1px dashed #a2a2a2;
+    }    
+
+
+    /* -----------------------------------------------
+    DELIVERY/COLLECTION DEL-COL/REBOOKING
+    ----------------------------------------------- */ 
+    .ie8 .sx-res-is-in-rebooking-view .sx-res-del-col .sx-gc-multientry-wrapper {
+        width: 100%;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col {
+        padding-right: 12px;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col select.sx-res-booking-entry {
+        width: 97.1%;
+    }
+    .ie8 .sx-res-is-in-rebooking-view .sx-res-del-col select.sx-res-booking-entry {
+        width: 97.1%;
+    }
+
+    .sx-res-ddlist-wrapper .sx-gc-singleentry-wrapper .sx-res-booking-entry {
+        padding: 3px 5px 3px 5px;
+        width: 91.5%;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col .sx-gc-multientry-wrapper,
+    .sx-res-ddlist-wrapper .sx-gc-singleentry-wrapper .sx-res-booking-entry,
+    .sx-gc-singleentry-wrapper .sx-res-booking-entry,
+    .sx-res-is-in-rebooking-view .sx-res-del-col input.sx-res-booking-entry,
+    .sx-res-is-in-rebooking-view .sx-res-del-col textarea.sx-res-booking-entry {
+        font-family: Arial;
+        height: 23px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col textarea.sx-res-booking-entry {
+        height: 70px;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col .sx-gc-zip {
+        width: 32%;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col .sx-gc-city {
+        margin-right: 2%;
+        width: 63%;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col .sx-res-del-col-hd {
+        padding-top: 0;
+    }
+
+    .sx-res-is-in-rebooking-view .sx-res-del-col .sx-res-geodelcol-alt {
+        width: 92.1%;
+        margin-bottom: 9px;
+    }
+

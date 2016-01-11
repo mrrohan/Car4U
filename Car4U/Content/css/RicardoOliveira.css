@@ -1,4 +1,4 @@
-﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+﻿/*CSS Ricardo Oliveira*/
 
 /*Index moving img*/
 .object {
@@ -56,7 +56,8 @@
 .subButton {
     float: right;
     background-color: ActiveCaption;
-    margin-top: 10px;
+    margin-top: 10px; 
+    color: black;
 }
 
 /*Select disable text*/
@@ -73,12 +74,14 @@ select option {
     color: #555;
 }
 /*Select disable text*/
+
 /*Index Box label*/
 .label-box {
     color: black;
     font-weight: unset;
     width: 140px;
     font-size: small;
+    margin: 2px;
 }
 
     .label-box:after {
@@ -132,12 +135,12 @@ textarea {
     border-color: #E7E7E7;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
-    width: 100%;
-    height: 45%;
+    /*width: 100%;*/
+    height: auto;
     font: bold 16px sans-serif;
     text-align: left;
-    padding: 50px 60px 40px;
-    margin-top: 80px;
+    /*padding: 50px 60px 40px;
+    margin-top: 80px;*/
     overflow: hidden;
     position: relative;
     bottom: 0;
@@ -185,11 +188,14 @@ textarea {
 
     /* Footer social icons */
 
-    .footer-distributed .footer-icons {
+   .footer-distributed .footer-icons {
         margin-top: 40px;
     }
 
-        .footer-distributed .footer-icons a {
+        .footer-distributed .footer-icons a:hover {
+            background-color: #3a5795;
+        }
+    .footer-distributed .footer-icons a {
             display: inline-block;
             width: 35px;
             height: 35px;
@@ -213,7 +219,7 @@ textarea {
         .footer-distributed .footer-right p {
             display: inline-block;
             vertical-align: top;
-            margin: 15px 42px 0 0;
+            margin: 15px 20px 0 0;
             color: #ffffff;
         }
 
@@ -228,7 +234,7 @@ textarea {
             display: block;
             border-radius: 3px;
             box-sizing: border-box;
-            background-color: #1f2022;
+            /*background-color: #1f2022;*/
             box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
             border: none;
             resize: none;
@@ -236,12 +242,12 @@ textarea {
             font-size: 14px;
             font-weight: normal;
             color: #d1d2d2;
-            width: 400px;
+            width: 250px;
             padding: 15px;
         }
 
     .footer-distributed ::-webkit-input-placeholder {
-        color: #5c666b;
+        color: black;
     }
 
     .footer-distributed ::-moz-placeholder {
@@ -255,23 +261,25 @@ textarea {
 
 
     .footer-distributed form input {
-        height: 46px;
+        height: 36px;
         margin-bottom: 15px;
     }
 
     .footer-distributed form textarea {
-        height: 100px;
-        margin-bottom: 20px;
+        height: 70px;
+        margin-bottom: 5px;
     }
 
     .footer-distributed form button {
         border-radius: 3px;
-        background-color: #33383b;
-        color: #ffffff;
+        background: #f9bf1d;
+        color: black;
         border: 0;
-        padding: 15px 50px;
+        padding: 7px 20px;
         font-weight: bold;
         float: right;
+        text-align: center;
+        height: 30px;
     }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -488,60 +496,38 @@ p {
     border-top: 0px solid #000000;
     height: auto;
     width: 100%;
+    float: left;
+    list-style: none outside none;
+    margin-bottom: 5px;
+        margin-right: 5px;
+        margin-top: 3px;
+        padding: 0 0 0 25px;
 }
 
     .language .pt {
-        background: url("../img/pt.png") no-repeat scroll 0 7px transparent;
-        float: left;
-        list-style: none outside none;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        margin-top: 3px;
-        padding: 0 0 0 25px;
-    }
+        background: url("../img/pt.png") no-repeat scroll 0 7px transparent;      
+ }
 
     .language .en {
         background: url("../img/en.png") no-repeat scroll 0 7px transparent;
-        float: left;
-        list-style: none outside none;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        margin-top: 3px;
-        padding: 0 0 0 25px;
+
     }
 
     .language .es {
         background: url("../img/es.png") no-repeat scroll 0 7px transparent;
-        float: left;
-        list-style: none outside none;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        margin-top: 3px;
-        padding: 0 0 0 25px;
+       
     }
 
     .language .fr {
         background: url("../img/fr.png") no-repeat scroll 0 7px transparent;
-        float: left;
-        list-style: none outside none;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        margin-top: 3px;
-        padding: 0 0 0 25px;
     }
 
     .language .de {
         background: url("../img/de.png") no-repeat scroll 0 7px transparent;
-        float: left;
-        list-style: none outside none;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        margin-top: 3px;
-        padding: 0 0 0 25px;
+      
     }
 
-    .language ul, ol {
-        list-style: none outside none;
+    .language ul, ol {        
         margin: 0 !important;
         padding: 0;
         float: right;
@@ -580,9 +566,8 @@ header {
     left: 0;
 }
 
-    header .main-nav {
-        width: 100%;
-        height: 110px;
+    header .main-nav {    
+        
         background: url("/img/nav.png") repeat-x;
         -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
         -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -737,85 +722,7 @@ nav#menu {
                 color: #323A45;
             }
 
-/* ==================================================
-   Mobile Navigation
-================================================== */
 
-#mobile-nav {
-    display: none;
-}
-
-.menu-nav {
-    background: url(../img/menu-mobile.png) 0 0 no-repeat;
-    width: 16px;
-    height: 16px;
-    display: block;
-    margin: 22px 0 0 0;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: -webkit-transform 250ms ease-out 0s;
-    -moz-transition: -moz-transform 250ms ease-out 0s;
-    -o-transition: -o-transform 250ms ease-out 0s;
-    transition: transform 250ms ease-out 0s;
-}
-
-    .menu-nav.open {
-        background-position: 0 -16px;
-        -webkit-transform: rotate(-180deg);
-        -moz-transform: rotate(-180deg);
-        -ms-transform: rotate(-180deg);
-        -o-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-        -webkit-transition: -webkit-transform 250ms ease-out 0s;
-        -moz-transition: -moz-transform 250ms ease-out 0s;
-        -o-transition: -o-transform 250ms ease-out 0s;
-        transition: transform 250ms ease-out 0s;
-    }
-
-#navigation-mobile {
-    display: none;
-    text-align: center;
-    width: 100%;
-    background: #26292E;
-    border-bottom: 1px solid #2F3238;
-    position: relative;
-    float: left;
-    z-index: 9999;
-}
-
-    #navigation-mobile li {
-        list-style: none;
-        border-top: 1px solid #2F3238;
-    }
-
-        #navigation-mobile li a {
-            color: #FFFFFF;
-            display: block;
-            font-size: 16px;
-            padding: 20px 0;
-            text-transform: uppercase;
-        }
-
-#menu-nav-mobile ul.sub-menu {
-    background: transparent;
-    margin: 0;
-    position: relative;
-    top: auto;
-    width: auto;
-}
-
-    #menu-nav-mobile ul.sub-menu li {
-        border-top: 1px solid #313335;
-        height: auto;
-        margin-top: 0;
-    }
-
-#menu-nav-mobile .sub-menu li a {
-    padding-left: 0px;
-}
 
 .form_hp {
     background: url("//media.iolnegocios.pt/media1201/14f6c04a05b633181d8e0a7329589e69/") repeat;
@@ -964,11 +871,6 @@ footer {
     margin-left: 0;
 }
 
-.recent_posts .col-md-4 {
-    float: left;
-    margin-left: 0;
-}
-
 #footer .post {
     margin-bottom: 70px;
     width: 93%;
@@ -991,6 +893,11 @@ footer {
         display: block;
         font-size: 14px;
     }
+
+    .recent_posts .col-md-4 {
+    float: left;
+    margin-left: 0;
+}
 
 .post ul, ol {
     list-style: none outside none;
@@ -1128,18 +1035,16 @@ footer {
 
 .page-header2 {
     border-bottom: 1px solid #F9BF1D;
-    margin: 30px 0 20px;
-    font-family: Arial, sans-serif;
+  
 }
 
 .page-header h1 {
     font-weight: bold;
-    font-family: Arial, sans-serif;
+    
 }
 
 .page-header2 h1 {
-    font-weight: bold;
-    font-family: Arial, sans-serif;
+    font-weight: bold;   
     font-size: 24px;
 }
 
@@ -1219,7 +1124,7 @@ footer {
 
 .frota .comment {
     color: red;
-    height: 35px;
+    height: 1px;
     font-size: 12px;
 }
 
@@ -1487,6 +1392,26 @@ ul.features {
     font-size: 16px;
     font-weight: bold;
     margin-top: 18px;
+    margin-bottom:25px;
+    padding: 8px 33px;
+    text-align: center;
+    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+    vertical-align: middle;
+    width: auto;
+    border: 0;
+}
+
+.button .submitSearchView {
+    background: none repeat scroll 0 0 #F9BF1D;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom:25px;
     padding: 8px 33px;
     text-align: center;
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
@@ -1502,6 +1427,13 @@ ul.features {
     border-radius: 8px;
     border: 0;
     transition: background 0.1s linear 0s, color 0.1s linear 0s;
+}
+
+
+.button .comment {
+    margin-top: 16px;
+    color: red;
+    font-size: 12px;
 }
 
 .buttonbackoffice .submit {
@@ -1521,20 +1453,14 @@ ul.features {
     width: auto;
     border: 0;
     float:left;
-
 }
 
-.button .comment {
-    margin-top: 16px;
-    color: red;
-    font-size: 12px;
-}
 
 .btn-primary:hover,
 .buttonbackoffice .submit:hover,
 .button .submit:hover {
     background: none repeat scroll 0 0 #F9BF1D;
-    color: #FFFFFF;
+    color: #ffffff !important;
     text-decoration: none;
     cursor: pointer;
     outline: none;
@@ -1576,8 +1502,10 @@ ul.features {
     color: #F9BF1D;
     border-bottom: 0px solid #6EB663;
     box-shadow: 0 0 0px #DEDEDE;
+    font-size:20px;
+    font-weight:900;
 }
-
+ 
 .reserva .col-md-6 img {
     width: 95%;
 }
@@ -1950,3 +1878,6 @@ ul.features {
 
     height: 500px;
 }
+
+
+                                                        /*Fim CSS Ricardo Oliveira*/

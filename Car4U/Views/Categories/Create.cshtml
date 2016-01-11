@@ -5,15 +5,14 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Criar nova Categoria</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Category</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -36,17 +35,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Warranty, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Warranty, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="+ Adicionar" class="btn btn-default" />
+                <div class="buttonbackoffice" style="float: none">
+                    <button class="submit  icon-Add" type="submit"> Adicionar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("PrivateIndex", "Categories")'"> Voltar </button>
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
+

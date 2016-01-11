@@ -6,32 +6,38 @@
 @{
     ViewBag.Title = "Delete";
 }
-<div class="page-header">
-    <h2>Eliminar Marca</h2>
-</div>
+
+
+
+<h2>Tem a certeza que pretende apagar esta Marca?</h2>
 <div>
 
-    <h4>Tem a certeza que quer eliminar marca?</h4>
 
-    <dl class="form-group">
+    <dl class="dl-horizontal">
         <dt>
-            @Html.LabelFor(model => model.Description, "Nome", htmlAttributes: new { @class = "control-label col-md-2" })
+            <h4> @Html.DisplayNameFor(model => model.Description) : </h4>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            <h4> @Html.DisplayFor(model => model.Description) </h4>
         </dd>
 
     </dl>
-</div>
-<div class="row">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
 
-        <div class=" buttonbackoffice">
-            <input type="submit" value="Apagar Marca" class="submit" />
-            <button class="submit" type="button" onclick="location.href='@Url.Action("Index", "Brands")'">Voltar</button>
+    <div class="form-group">
+        <div class="buttonbackoffice">
+
+            @using (Html.BeginForm())
+            {
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions">
+                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                </div>
+            }
+            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'"> Voltar </button> 
         </div>
-    }
+
+    </div>
 </div>

@@ -7,55 +7,45 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
     }
 <br />
-<h4 style="color:black">Extras</h4>
+<h2 style="color:black">Extras</h2>
 <br />
-<div class="form-group">    
+    
     <div class="buttonbackoffice">
-        <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "ExtraModels")'"> Adicionar </button>
+        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "ExtraModels")'"> Adicionar </button>
     </div>    
-</div>
-   
 
-    <table class="table">
+
+    <table class="table tableheader">
+    <tr>
+        <th> Extra </th>
+        <th>Tipo de Extra</th>
+        <th>Preço </th>
+        <th>Quantidade</th>
+        <th>Acções</th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                Extra
-                @*@Html.DisplayNameFor(model => model.ExtraModelType.Description)*@
-            </th>
-            <th>
-                Tipo de Extra
-                @*@Html.DisplayNameFor(model => model.Model)*@
-            </th>
-            <th>
-                Preço
-                @*@Html.DisplayNameFor(model => model.Price)*@
-            </th>
-            <th>
-                Quantidade
-                @*@Html.DisplayNameFor(model => model.Stock)*@
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExtraModelType.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                <div class="buttonbackoffice">
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                    @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                </div>
+            </td>
         </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExtraModelType.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stock)
-                </td>
-                <td>
-                    @Html.ActionLink(" Editar ", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) |
-                    @Html.ActionLink(" Detalhes ", "Details", new { id = item.ID }, new { @class = "icon-Details" }) |
-                    @Html.ActionLink(" Apagar ", "Delete", new { id = item.ID }, new { @class = "icon-Delete" })
-                </td>
-            </tr>
-        }
-    </table>
+    }
+</table>
+

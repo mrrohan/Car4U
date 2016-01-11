@@ -1,0 +1,527 @@
+/* --------------------------------------------------
+//
+// reservation styles
+// author:      jw
+// created:     28.09.2010
+//
+// ----------------------------------------------- */
+
+    /* -----------------------------------------------
+    form defaults
+    ----------------------------------------------- */
+    form div.sx-gc-form-paragraph,
+    form p {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        padding: 0 0 5px 0;
+        margin: 0;
+    }
+
+    form .sx-gc-button-wrapper p {
+        clear: none;
+    }
+
+    form .sx-gc-entry {
+        clear: both;
+        width: 100%;
+        float: left;
+        padding: 0 0 5px 0;
+    }
+
+    form p.sx-gc-singlenotice {
+        padding: 10px 0 15px 0;
+    }
+    
+    form p.sx-gc-notice {
+        padding: 0 0 15px 0;
+    }
+
+    input {
+        border: 1px solid #a2a2a2;
+        font-size: 12px;
+        padding: 1px 0 0 0;
+        height: 17px;
+        vertical-align: middle;
+    }
+
+    #bp_file,
+    input[type='file'] {
+        height: auto;
+    }
+
+    select {
+        border: 1px solid #a2a2a2;
+        padding: 0;
+        font-size: 12px;
+        height: 20px;
+        vertical-align: middle;
+    }
+    
+    * html select {
+        font-size: 13px;
+    }
+    
+    * + html select {
+        font-size: 13px;
+    } 
+    
+    * html input {
+        font-size: 13px;
+    }
+    
+    * + html input {
+        font-size: 13px;
+    }
+
+    textarea {
+        font-size: 11px;
+        border: 1px solid #a2a2a2;
+        width: 30%;
+        height: 70px;
+    }
+
+    input[type=hidden] {
+        border:none;
+        padding:0;
+        margin:0;
+    }
+
+    .sx-gc-leftfloater {
+        float:left;
+    }
+
+    .sx-gc-rightfloater {
+        float:right;
+    }
+
+    /* -----------------------------------------------
+    form globals
+    ----------------------------------------------- */
+    input.sx-gc-ck,
+    input.sx-gc-rd {
+        vertical-align: middle;
+        margin: 3px 3px 3px 0;
+        height: 14px;
+        width: 14px !important;
+        border: none;
+    }
+
+    input.sx-gc-ck.sx-gc-leftfloater,
+    input.sx-gc-rd.sx-gc-leftfloater {
+        margin: 1px 5px 3px 0;
+    }
+
+    input.sx-gc-txt {
+        width: 30%;
+    }
+    select.sx-gc-txt {
+        width: 30.2%;
+    }
+
+    input.sx-gc-cvv {
+        width: 10%;
+    }
+
+    /* Anrede / Titel */
+    .sx-gc-title {
+        float: left;
+        width: 28.6%;
+    }
+    .sx-gc-grad {
+        float: right;
+        width: 70%;
+        margin: 0;
+    }
+
+    /* pair address/firstname */
+    select.sx-gc-af-adr {
+        float: left;
+        width: 32%;
+    }
+    input.sx-gc-af-nam {
+        float: right;
+        width: 65%;
+        margin: 0;
+    }
+
+	/* Bday, day, month, year */
+	select.sx-gc-dmy,
+    select.sx-gc-bday {
+        float: left;
+        margin: 0 1% 0 0;
+        width: 32.4%;
+    }
+	select.sx-gc-dmy-last,
+    select.sx-gc-bday-last {
+        float: right;
+        width: 32.2%;
+        margin: 0;
+    }
+    
+	/* kfz with minus within span */
+	input.sx-gc-kfz {
+        float: left;
+        margin: 0 1% 0 0;
+        width: 29%;
+    }
+    input.sx-gc-kfz-last {
+        float: right;
+        width: 30%;
+        margin: 0;
+    }
+
+    /* pair select phone-type or input phone area code , input phone */
+    select.sx-gc-tel-type {
+        float: left;
+        width: 32%;
+    }
+    input.sx-gc-tel-code {
+        float: left;
+        width: 31%;
+    }
+    input.sx-gc-tel {
+        float: right;
+        width: 65%;
+        margin: 0;
+    }
+
+    /* input-pair street and house-nr */
+    input.sx-gc-street {
+        float: left;
+        width: 74%;
+    }
+    input.sx-gc-housenr {
+        float: right;
+        width: 21.4%;
+        margin: 0;
+    }
+
+    /* input-pair zip and town */
+    input.sx-gc-zip {
+        float: left;
+        width: 21.4%;
+    }
+    input.sx-gc-town {
+        float: right;
+        width: 74%;
+        margin: 0;
+    }
+    
+    /* select-pair month and year */
+    select.sx-gc-my-month {
+        float: left;
+        width: 49%;
+    }
+    select.sx-gc-my-year {
+        float: right;
+        width: 49%;
+        margin: 0;
+    }
+
+    input.sx-gc-half,
+    select.sx-gc-half {
+        width: 49%;
+    }
+    
+    /* not specified pair */
+    .sx-gc-item1 {
+        float: left;
+        width: 48%;
+    }
+    .sx-gc-item2 {
+        float: right;
+        width: 48%;
+        margin: 0;
+    }
+
+    /* multientry */
+    .sx-gc-multientry-wrapper {
+        width: 30.2%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    * html .sx-gc-multientry-wrapper {
+        margin: 0 3px 0 0;
+    }
+
+    .sx-gc-multientry-wrapper span {
+        float: left;
+        margin: 0 1% 0 0;
+    }
+
+    .sx-gc-multientry-wrapper label {
+        padding: 0 20px 0 0;
+    }
+    
+    textarea.sx-gc-fullsize {
+        width: 99.6%;
+        height: 100px;
+    }
+
+    .sx-gc-radio-wrapper input {
+        float: left;
+        vertical-align: top;
+    }
+    
+    .sx-gc-radio-wrapper label {
+        display: block;
+        margin: 0 0 0 20px;
+    }
+
+    form ul.sx-gc-entry-list {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        padding: 0 0 10px 0;
+        margin: 0;
+    }
+    
+    /* -----------------------------------------------
+    customerform
+    ----------------------------------------------- */
+    .sx-gc-customerform {
+        border: 1px solid #a2a2a2;
+
+        -moz-box-shadow: 2px 2px 3px #BFBFBF;
+        -khtml-box-shadow: 2px 2px 3px #BFBFBF;
+        -webkit-box-shadow:2px 2px 3px #BFBFBF;
+        box-shadow: 2px 2px 3px #BFBFBF;
+
+        display: block;
+        margin: 0 0 20px 0;
+        padding: 10px 10px 0 10px;
+        min-height: 1px;
+    }
+
+    .sx-gc-customerform:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+
+    * html .sx-gc-customerform {
+        height: 1px;
+    }
+
+    .sx-gc-customerform span.sx-gc-label,
+    .sx-gc-customerform label.sx-gc-leftfloater {
+        float: left;
+        width: 30%;
+        margin: 0 1% 0 0;
+    }
+    
+    .sx-res-customer-content {
+        padding-bottom: 10px;
+        min-height: 1px;
+    }
+
+    .sx-res-customer-content:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }    
+    
+    .sx-gc-customerform h3 {
+        padding: 0 0 10px 0;
+        margin: 0;
+    }
+
+    .sx-gc-customerform h4 {
+        padding: 0 0 10px 0;
+        margin: 0;
+    }  
+
+    .sx-gc-customerform label.sx-gc-headlabel {
+        font-size: 12px;
+    }
+    
+    .sx-gc-customerform label.sx-gc-headlabel span {
+        font-weight: normal;
+        font-size: 11px;
+    }
+    
+    .sx-gc-customerform h3 span,
+    .sx-gc-customerform h4 span {
+        font-weight: normal;
+    }
+
+    .sx-gc-customerform.sx-gc-follow {
+        margin: 0 0 10px 0;
+    }
+    
+    .sx-gc-customerform .sx-gc-button-wrapper {
+        padding-top: 10px;
+    }
+
+    /* -----------------------------------------------
+    customerform 2 column
+    ----------------------------------------------- */ 
+    .sx-gc-customerform-2col div.sx-gc-fullfloater {
+        float: none;
+        clear: both;
+        display: block;
+        min-height: 1px;
+    }
+    
+    * html .sx-gc-customerform-2col div.sx-gc-fullfloater {
+        height: 1px;
+    }
+    
+    .sx-gc-customerform-2col div.sx-gc-fullfloater:after {
+        content: ".";
+        height: 0;
+        visibility: hidden;
+        clear: both;
+        display: block;
+    }
+    
+    .sx-gc-customerform-2col div.sx-gc-leftfloater {
+        clear: both;
+        width: 49%;
+    }
+    
+    .sx-gc-customerform-2col div.sx-gc-rightfloater {
+        width: 49%;
+    }
+
+    .sx-gc-customerform-2col span.sx-gc-label,
+    .sx-gc-customerform-2col label.sx-gc-leftfloater {
+        width: 39%;
+    }
+
+    .sx-gc-customerform-2col input.sx-gc-txt {
+        width: 50%;
+    }
+
+    .sx-gc-customerform-2col select.sx-gc-txt {
+        width: 50.8%;
+    }
+    
+    .sx-gc-customerform-2col textarea {
+        width: 50%;
+    }
+
+    .sx-gc-customerform-2col .sx-gc-multientry-wrapper {
+        width: 50.4%;
+    }
+
+    /* -----------------------------------------------
+    footnote
+    ----------------------------------------------- */
+    .sx-gc-footnote-1star {
+        background: transparent url(bg/bg-footnote-1star.gif) no-repeat left 2px;
+        padding: 0 0 5px 35px;
+        margin: 0;
+    }
+
+    .sx-gc-footnote-2star {
+        background: transparent url(bg/bg-footnote-2star.gif) no-repeat left 2px;
+        padding: 0 0 5px 35px;
+        margin: 0;
+    }
+
+    .sx-gc-footnote-3star {
+        background: transparent url(bg/bg-footnote-3star.gif) no-repeat left 2px;
+        padding: 0 0 5px 35px;
+        margin: 0;
+    }
+
+    .sx-gc-footnote-4star {
+        background: transparent url(bg/bg-footnote-4star.gif) no-repeat left 2px;
+        padding: 0 0 5px 35px;
+        margin: 0;
+    }
+
+    .sx-gc-footnote-5star {
+        background: transparent url(bg/bg-footnote-5star.gif) no-repeat left 2px;
+        padding: 0 0 5px 35px;
+        margin: 0;
+    }
+    
+    /* -----------------------------------------------
+    error
+    ----------------------------------------------- */
+    form ul.sx-gc-error-field label,
+    form div.sx-gc-error-field label,
+    form p.sx-gc-error-field label {
+        color: red;
+    }
+    
+    form p input.sx-gc-error-field {
+        border-color: red;
+    }
+    
+    form p select.sx-gc-error-field {
+        border-color: red;
+    }
+    
+    form p textarea.sx-gc-error-field {
+        border-color: red;
+    }
+    
+    /* -----------------------------------------------
+    additionals
+    ----------------------------------------------- */
+    form p .sx-gc-button-inline,
+    form .sx-gc-entry .sx-gc-button-inline {
+        vertical-align: middle;
+    }
+
+    .sx-gc-customerform-flat {
+        border: none;
+        -moz-box-shadow: none;
+        -khtml-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    /* -----------------------------------------------
+    Redesign customerdetails 2/2014
+    ----------------------------------------------- */
+
+    .sx-res-1col-large-form .sx-gc-customerform span.sx-gc-label,
+    .sx-res-1col-large-form .sx-gc-customerform label.sx-gc-leftfloater {
+        width: 45%;
+    }
+
+    .sx-res-1col-large-form  input.sx-gc-txt {
+        width: 45%;
+    }
+    .sx-res-1col-large-form select.sx-gc-txt {
+        width: 45.2%;
+    }
+
+    .sx-res-1col-large-form input.sx-gc-cvv {
+        width: 25%;
+    }
+
+    /* multientry */
+    .sx-res-1col-large-form .sx-gc-multientry-wrapper {
+        width: 45.2%;
+    }
+
+    .sx-res-1col-large-form .sx-gc-payment-wrapper {
+        display: inline-block;
+        width: 45.2%;
+    } 
+
+    .sx-res-1col-large-form .sx-gc-payment-wrapper ul {
+        overflow: hidden;
+        width: 100%;
+    }  
+
+    .sx-res-1col-large-form .sx-gc-payment-wrapper li {
+        float: left;
+        cursor: pointer;        
+    }    
+
+    .sx-res-1col-large-form .sx-gc-payment-wrapper select {
+        width: 100%;
+        margin: 0 0 2px 0;
+    }     

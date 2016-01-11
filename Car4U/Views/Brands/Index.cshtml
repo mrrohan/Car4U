@@ -9,35 +9,37 @@
     ViewBag.Title = "Index";
 }
 
-
-
-<div class="page-header">
 <h2>Marcas</h2>
-    </div>
 
-<div class="buttonbackoffice">
-    <button class="submit" type="button" onclick="location.href='@Url.Action("Create", "Brands")'">+ Adicionar Marca</button>
-</div>
-<table class="table stripedtable">
-    <tr>
-        <th>
-            Marcas
-            @*@Html.DisplayNameFor(model => model.Description)*@
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    <div class="buttonbackoffice">
+        @Html.ActionLink("Adicionar", "Create","Brands", new { @class = "icon-Add submit" })
+        </div>
 
-</table>
+        <table class="table tableheader">
+            <tr>
+                <th>
+                    Marcas
+                    @*@Html.DisplayNameFor(model => model.Description)*@
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <div class="buttonbackoffice">
+
+                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new {@class="icon-edit submit", @title = "Editar" }) 
+                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" }) 
+                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>

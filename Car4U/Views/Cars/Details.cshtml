@@ -97,16 +97,24 @@
 
         </div>
 <div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
-<div class="row col-lg-4 button btn-position-right">
+<div class="row col-lg-4 buttonbackoffice btn-position-right">
     <p>
        
         
         @if (Request.IsAuthenticated)
         {
-            @Html.ActionLink("Seguir carro", "FollowCar", new { carModel = Model.ID }, new { @class = "submit" })
+            @Html.ActionLink(" Seguir carro ", "FollowCar", new { carModel = Model.ID }, new { @class = " icon-Car submit", @title = " Seguir carro " })
         }
-        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, new { @class = "submit" })
-        @Html.ActionLink("Voltar", "Index", "Cars", new { @class = "submit " })
+        @Html.ActionLink(" Editar ", "Edit", new { id = Model.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+        @if (ViewBag.View == 1)
+        {
+            @Html.ActionLink(" Voltar ", "Index", "Cars", new { @class = " icon-back submit", @title = " Voltar " })
+        }
+            @if (ViewBag.View == 2)
+            {
+                <a id="edit-details" href="~/Home/Index"> Voltar</a>
+            }
+        
         
     </p>
 

@@ -1,0 +1,1066 @@
+/* --------------------------------------------------
+//
+// reservation start styles
+// author:      jw
+// created:     24.02.2011
+//
+// ----------------------------------------------- */
+    /* -----------------------------------------------
+    blanko template defaults
+    ----------------------------------------------- */
+    html {
+        height: 100.1%;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .blanko-wrapper {
+        height: 100.1%;
+    	margin: 0;
+    	padding: 0;
+    	text-align: center;
+	}
+
+    .blanko-wrapper h1 {
+        clear: both;
+        margin: 0 0 30px 0;
+        padding: 10px 0 7px 0;
+    }
+
+    .blanko-wrapper h2 {
+        font-size: 14px;
+        padding: 0 0 10px 0;
+    }
+
+    .blanko-wrapper h3,
+    .blanko-wrapper h4,
+    .blanko-wrapper h5,
+    .blanko-wrapper h6 {
+        font-size: 11px;
+        padding: 0 0 10px 0;
+    }
+
+    .blanko-wrapper a {
+        text-decoration: none;
+    }
+    
+    .blanko-wrapper ul,
+    .blanko-wrapper li {
+        list-style: none;
+    }
+
+    .blanko-wrapper img {
+        border: none;
+    }
+
+    .blanko-wrapper table {
+        border-collapse: collapse;
+        margin: 0 0 20px 0;
+    }
+
+    .blanko-wrapper th {
+        text-align: left;
+        vertical-align: top;
+        border-collapse: collapse;
+    }
+
+    .blanko-wrapper td {
+        vertical-align: top;
+        border-collapse: collapse;
+    }
+
+    #blanko,
+	#sx-gc-main {
+        text-align: left;
+        margin: 0 auto 0 auto;
+        padding: 5px;
+    }
+
+    /* -----------------------------------------------
+    t3
+    ----------------------------------------------- */
+
+    /* little t3-tpl fix */
+    #bgWrapper .mainComplete {
+        min-height: 650px;
+    }
+
+    /* -----------------------------------------------
+    global classes
+    ----------------------------------------------- */
+    .sx-gc-leftfloater {
+        float: left;
+    }
+
+    .sx-gc-rightfloater {
+        float: right;
+    }
+
+    .sx-gc-active {
+        cursor: pointer;
+        cursor: hand;
+        text-decoration: underline;
+    }
+
+    .sx-gc-error {
+        clear: both;
+        margin: 0 0 20px 0;
+        padding: 10px 10px 4px;
+    }
+
+    .sx-gc-error p {
+        font-weight: bold;
+        margin: 0;
+        padding: 0 0 6px;
+    }
+
+    .sx-gc-message {
+		padding: 10px;
+		margin:0 0 10px 0;
+	}
+
+    .sx-gc-message p {
+        padding: 0 0 6px 0;
+	}
+
+    /* -----------------------------------------------
+    start - IBE
+    ----------------------------------------------- */
+    
+    /* do not display res header in default typo3 template */
+    #mainContent #sx-reservation-start h1 {
+        display: none;
+    }  
+    
+    /* Special for Marketing */
+    .sx-marketing #sx-reservation-start {
+        padding: 10px 0 10px 0;
+    }
+
+    .sx-res-booking {
+        display: block;
+        margin: 0 0 20px 0;
+        padding: 10px 10px 5px 10px;
+        min-height: 1px;
+        zoom:1;
+    }
+
+    .sx-res-booking-row {
+        clear: both;
+        min-height: 1px;
+    }
+
+    .sx-res-booking-row:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    * html .sx-res-booking-row,
+    * html .sx-res-booking {
+        height: 1px;
+    }
+
+    .sx-res-booking div.sx-gc-leftfloater {
+        clear: both;
+        width: 49%;
+    }
+
+    .sx-res-booking div.sx-gc-rightfloater {
+        width: 49%;
+    }
+
+    .sx-res-booking p {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-booking-entry {
+        padding: 4px 2px 4px 2px;
+        font-size: 13px;
+        font-weight: normal;
+    }
+
+    .sx-res-booking .sx-gc-multientry-wrapper {
+        width: 89.8%;
+        display: block;
+        padding: 0 3px 0 3px;
+    }
+
+    .sx-gc-singleentry-wrapper .sx-res-booking-entry {
+        width: 90%;
+    }
+
+    .sx-gc-multientry-wrapper .sx-res-booking-entry {
+        width: 48%;
+        margin: 0 -3px 0 -3px;
+    }
+    
+    .sx-res-booking .sx-res-booking-pu-as-ret {
+        padding: 20px 0 3px 0;
+    }
+
+    .sx-res-booking label {
+        display: inline-block;
+        padding: 0 0 3px 0;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .sx-gc-del-col-wrapper label,
+    .sx-res-booking-pu-as-ret label {
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sx-res-booking #sx-js-res-pu-datetime,
+    .sx-res-booking #sx-js-res-ret-datetime {
+        padding: 0 0 6px 0;
+        overflow: visible;
+        width: 100%;
+    }
+
+    .sx-res-booking .sx-gc-error {
+        margin: 0 0 10px 0;
+        display: none;
+    }
+
+    .sx-home-options-wrapper {
+
+    }
+
+    .sx-home-options-wrapper p,
+    .sx-home-options-wrapper div {
+        padding:0 0 6px 0;
+    }
+
+    .sx-res-booking-del-col {
+        display: none;
+    }    
+
+    .sx-res-booking-coi {
+        display: none;
+    }
+
+    .sx-res-booking-coi-open {
+        display: block;
+    }
+
+    .sx-res-booking-del-col-open {
+        display: block;
+    }
+
+    .sx-res-booking-del-col span {
+        padding: 0 20px 0 0;
+    }        
+
+    .sx-res-residence-wrapper {
+        padding: 10px 0 10px 0;
+        display: none;
+        overflow: hidden;
+        zoom: 1;
+        width:45%;
+    }
+
+    .sx-res-residence-wrapper-open {
+        display: block;
+    }
+
+    .sx-res-residence-wrapper strong {
+        float: left;
+        width: 39%;
+    }
+
+    .sx-res-residence-wrapper .sx-toggle-posl {
+        float: right;
+        width: 59%;
+    }
+
+    /* -----------------------------------------------
+    datetime
+    ----------------------------------------------- */
+    #sx-js-res-ret-time-list,
+    #sx-js-res-pu-time-list {
+        border-top: none;
+    }
+
+    #sx-res-booking-form input.sx-gc-date {
+        background-image: none;
+    }
+
+    /* ie6 fix with send button */
+    * html .sx-res-booking-button-wrapper button,
+    * html .sx-res-booking-button-wrapper .sx-gc-button-cta-red span {
+     	position: static;
+    }
+
+    * html .sx-res-booking-button-wrapper .sx-gc-button-cta-red {
+     	filter: none;
+    }
+
+    /* -----------------------------------------------
+    datepicker
+    ----------------------------------------------- */
+    /*
+        ATTN! time z-index must be lower in the beginning
+        and higher while beeing displayed
+    */
+    .sx-res-datepicker {
+        position: relative;
+        z-index: 3100;
+        margin: 0 0 10px 0;
+    }
+
+    .ui-datepicker {
+        width: 90%;
+    }
+
+    .sx-res-datepicker .sx-res-info-wrapper-arrow {
+        left: 20px;
+        top: -11px;
+    }
+
+    .ui-datepicker.ui-datepicker-multi {
+        width: 30em !important;
+    }
+
+    .ui-datepicker table {
+        font-size: 1.1em;
+    }
+
+    .ui-datepicker .ui-datepicker-title select {
+        font-size: 0.90em;
+        margin: 1px 0 0 0;
+        padding: 1px;
+    }
+
+    .ui-datepicker-current-period-start a,
+    .ui-datepicker-current-period-start .ui-state-default {
+        font-weight: bold;
+    }
+
+    .ui-datepicker-current-period-end a,
+    .ui-datepicker-current-period-end .ui-state-default {
+        font-weight: bold;
+    }
+
+    .ui-datepicker-current-period a,
+    .ui-datepicker-current-period .ui-state-default {
+        font-weight: normal;
+    }
+
+    /* obsolete div if open datepicker */
+    #ui-datepicker-div {
+        display: none;
+    }
+
+    /* -----------------------------------------------
+    login
+    ----------------------------------------------- */
+    .sx-res-login-state {
+        padding: 0 0 10px 0;
+    }
+
+    .sx-res-login-state a {
+        text-decoration: underline;
+    }
+
+    .sx-res-login-state .sx-res-login-state-corp {
+        margin-left: 10px;
+    }
+
+    .sx-gc-login-button-wrapper {
+        padding: 10px 50px 10px 10px;
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    #sx-res-mnum-list li {
+        clear: both;
+        overflow: hidden;
+        zoom: 1;
+        padding: 6px 0 6px 0;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-mnum-list li .sx-gc-leftfloater {
+        width: 27%;
+        text-decoration: underline;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    #sx-res-mnum-list li .sx-gc-rightfloater {
+        width: 72%;
+    }
+
+    .sx-res-customer-content .sx-gc-singleentry-wrapper {
+        padding-left: 40%;
+    }
+
+    .sx-res-booking-login {
+        clear: both;
+    }
+    
+    .sx-js-res-login-state-corp {
+        margin-top: 6px;
+        display: block;
+    }
+    
+    .sx-res-customer-content div.sx-res-login-entry {
+        width: 50%;
+    }
+
+    /* display in ie only, modern browsers use placeholder */
+    .sx-res-dpl-in-ie {
+        display: none;
+    }
+
+    .ie7 .sx-res-dpl-in-ie,
+    .ie8 .sx-res-dpl-in-ie,
+    .ie9 .sx-res-dpl-in-ie {
+        display: block;
+        margin: 0 0 3px 0;
+    }   
+    
+    .ie9 .sx-res-booking-login label.sx-res-dpl-in-ie {
+        margin-left: 40%;
+    }  
+
+    /* -----------------------------------------------
+    ddlist
+    ----------------------------------------------- */
+    .sx-res-ddlist-wrapper {
+        padding: 0 0 10px 0;
+        clear: both;
+    }
+
+    .sx-res-ddlist-wrapper li em {
+        font-style: normal;
+        text-decoration: underline;
+    }
+
+    .sx-res-ddlist-wrapper .sx-ddlist-suggest {
+        width: 700px;
+        height: 500px;
+        margin: -3px 0 0 0;
+    }
+
+    .sx-res-ret-location .sx-ddlist-suggest {
+        left: -270px;
+    }
+
+    .sx-ddlist-suggest ul.sx-res-suggestlist {
+        width: 40%;
+        height: 100%;
+        float: left;        
+    }
+
+    .sx-ddlist-suggest .sx-res-info-wrapper {
+        width: 60%;
+        height: 100%;
+        float: right;
+        position: relative;
+        margin: 0 0 0 -3px;
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-railway {
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        padding-left: 20px;
+    }
+
+    .sx-res-ddlist-wrapper li.sx-res-stationcat-station-airport {
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        padding-left: 20px;
+    }
+
+    .sx-res-ddlist-wrapper li h5 span {
+        font-weight: normal;
+        display: block;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        padding: 5px 0 5px 40px;
+        height: 39px;
+    }
+    
+
+    /* -----------------------------------------------
+    test external scroll
+    ----------------------------------------------- */
+    .sx-res-scroll-down {
+
+        background: #fff url(icon/icon-scroll-down.gif) no-repeat 3px 3px;
+        border: 3px solid #000;
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px 3px;
+
+        cursor: pointer;
+        cursor: hand;
+
+        position: absolute;
+        bottom: -10px;
+        left: 240px;
+        padding: 3px;
+        width: 40px;
+        height: 40px;
+        display: block;
+        z-index: 10000;
+    }
+
+    /* -----------------------------------------------
+    suggest infos
+    ----------------------------------------------- */
+    .sx-res-info-wrapper .sx-res-info-content {
+        padding: 10px;
+    }
+
+    .sx-res-info-wrapper table {
+        width: 100%;
+        margin: 0 0 6px 0;
+    }
+
+    .sx-res-info-wrapper td {
+        vertical-align: top;
+        padding: 0 5px 1px 0;
+    }
+
+    .sx-res-phone-cost-note {
+        font-size: 10px;
+    }
+
+    .sx-res-phone-cost-note {
+        font-size: 10px;
+        padding: 0;
+        margin: 0 0 3px 0;
+    }
+    
+    .sx-res-station-hint {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 5px 2px 5px;
+    }
+    
+    /* -----------------------------------------------
+    info arrows
+    ----------------------------------------------- */
+    .sx-res-info-wrapper-arrow {
+        width: 23px;
+        height: 12px;
+        position: absolute;
+        top: -12px;
+        left: 6%;
+    }
+
+    .sx-res-ret-location .sx-res-info-wrapper-arrow {
+        left: 44%;
+    }
+    
+    .sx-res-datepicker .sx-res-info-wrapper-arrow {
+        left: 20px;
+        top: -11px;
+    }
+    
+    .sx-ddlist-time.sx-res-info-wrapper-arrow {
+        left: 20px;
+        top: -12px;
+    }
+
+    /* -----------------------------------------------
+    google-maps
+    ----------------------------------------------- */
+    .sx-js-res-google-map {
+        width: 98%;
+        height: 280px;
+        position: absolute;
+        right: 1%;
+        bottom: 1%;
+    }  
+
+    .sx-res-waiting-fff {
+        background: #fff url(icon/bg/bg-loader-fff.gif) no-repeat 50% 50% !important;
+    }
+
+    /* less height for ret */
+    #sx-js-res-ret-google-map {
+        height: 240px;
+    }
+
+    /* -----------------------------------------------
+    datetime
+    ----------------------------------------------- */
+    .ddlist-wrapper .sx-ddlist-time {
+        width: 100%;
+        height: 300px;
+        left: 0;
+        margin-top: 5px;
+    }
+
+    .ddlist-wrapper .sx-ddlist-time ul {
+        width: 36%;
+        float: right;
+    }
+
+    .ddlist-wrapper .sx-res-openhours-info {
+        width: 62%;
+        float: left;
+        padding: 10px 0 10px 1%;
+    }
+
+    .sx-ddlist-time .sx-res-info-wrapper-arrow {
+        left: 56%;
+    }
+
+    .sx-res-openhours-info p,
+    .sx-res-openhours-info .sx-res-phone-info,
+    .sx-res-openhours-info .sx-res-fax-info {
+        display: none;
+    }
+
+    .sx-res-openhours-info td {
+        padding: 5px 3px 5px 0;
+    }
+
+    .sx-ddlist-time li {
+        padding: 3px 5px 3px 5px;
+    }
+
+    .sx-ddlist-time .ddlist-handle { 
+        margin: 0;    
+    }    
+    
+    /* -----------------------------------------------
+    sugges modified for topoffer, newsletter etc
+    ----------------------------------------------- */
+    #sx-reservation-booking-ibe-wrapper .sx-res-ddlist-wrapper .sx-ddlist-suggest {
+        width: 556px;
+        height: 350px;
+        margin: -3px 0 0 0;
+    }
+
+    #sx-reservation-booking-ibe-wrapper .sx-res-ret-location .sx-ddlist-suggest {
+        left: -281px;
+    }
+    
+    #sx-reservation-booking-ibe-wrapper .sx-ddlist-suggest ul.sx-res-suggestlist {
+        width: 45%;
+    }
+
+    #sx-reservation-booking-ibe-wrapper .sx-ddlist-suggest .sx-res-info-wrapper {
+        width: 54%;
+    }
+    
+    #sx-reservation-booking-ibe-wrapper .sx-js-res-google-map {
+        display:none;
+    }
+    
+    #sx-reservation-booking-ibe-wrapper .sx-res-ret-location .sx-res-info-wrapper-arrow {
+        left: 56%;
+    }
+
+
+    /* -----------------------------------------------
+    extended version: margin 45 px and
+    extended head-container
+    ----------------------------------------------- */
+    #sx-extended-head {
+        display: none;
+    }
+
+    .sx-base-extended #sx-extended-head {
+        padding: 20px 45px 10px 45px;
+        margin: 0 0 10px 0;
+        min-height: 240px;
+        border: 1px solid #000000;
+        background-color: rgba(0,0,0,0.5);
+    	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-khtml-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	color: #ffffff;
+    	display: block;
+    }
+    
+    * html #sx-extended-head {
+        height: 240px;
+    }
+
+    .sx-base-extended #sx-extended-head .sx-extended-head-row {
+        min-height: 1px;
+    }
+
+    .sx-base-extended #sx-extended-head .sx-extended-head-row:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+    }
+
+    /* overwrite tt_corporate for extended header */
+    .sx-base-extended #sx-extended-head .sx-base-logo {
+        float:left;
+    }
+
+    .sx-base-extended #sx-extended-head .sx-extended-content {
+        overflow: hidden;
+        zoom: 1;
+        float: right;
+        width: 739px;
+        margin: 0 0 0 -3px;
+    }
+
+    * html .sx-base-extended #sx-extended-head {
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../common/img/app/typo3/tt_corporate_base/sx-base-bg-content-top-transparent.png', sizingMethod='scale');
+        background:none;
+        height: 1px;
+    }
+
+    * + html .sx-base-extended #sx-extended-head {
+        filter: none;
+        background: url(../../../common/img/app/typo3/tt_corporate_base/sx-base-bg-content-top-transparent.png") repeat scroll left top transparent;
+    }
+
+    .sx-base-extended #sx-reservation-start {
+        padding: 20px 45px 50px 45px;
+        margin: 0 0 10px 0;
+        min-height: 220px;
+        z-index: 1;
+        position: relative;
+        border: 3px solid #ff6600;
+        background: #fff;
+    	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	-khtml-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    	box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    }
+
+    /* -----------------------------------------------
+    fleet dedails extended head-container
+    ----------------------------------------------- */
+    #sx-extended-head .sx-res-fleet-details {
+        width: 490px;
+    }
+    
+    #sx-extended-head .sx-res-fleet-img {
+        width: 220px;
+        margin: 0 0 0 -3px;
+        padding: 5px;
+
+        border: 0 solid #ffffff;
+        -moz-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px 5px;
+        background: #ffffff;
+        overflow: hidden;
+
+    	-moz-box-shadow:  inset 0px 0px 5px #000000;
+    	-webkit-box-shadow:  inset 0px 0px 5px #000000;
+    	-khtml-box-shadow:  inset 0px 0px 5px #000000;
+    	box-shadow: inset 0px 0px 5px #000000;
+    }
+    
+    #sx-extended-head .sx-res-fleet-img img {
+        display: block;
+    }
+    
+    #sx-extended-head h2 {
+        padding: 0 0 8px 0;
+        margin: 0 0 12px 0;
+        border-bottom: 1px dotted #ffffff;
+        line-height: 130%;
+        font-size: 18px;
+    }
+    
+    #sx-extended-head h2 span {
+        display: block;
+        font-size: 12px;
+    }
+    
+    #sx-extended-head h2 strong {
+        color: #ff6600;
+        font-size: 22px;
+        margin: 0 6px 0 6px;
+    }
+    
+    #sx-extended-head dl {
+        text-align: left;
+        margin: 0 0 10px 0;
+        font-size: 11px;
+        color: #ffffff;
+        float: left;
+        width: 52%;
+    }
+
+    #sx-extended-head dt {
+        clear: both;
+        float: left;
+        width: 47%;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    #sx-extended-head dd {
+        padding: 0 0 0 48%;
+        margin: 0 0 3px 0;
+    }
+    
+    #sx-extended-head dd:after {
+        content: '.';
+        clear: both;
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+    
+    #sx-extended-head .sx-res-fleet-example h4 {
+        font-size: 11px;
+        color: #ffffff;
+        font-weight: normal;
+    }
+    
+    #sx-extended-head .sx-res-fleet-example {
+        font-size: 11px;
+        color: #ffffff;
+        float: right;
+        width: 38%;
+    }
+
+    #sx-extended-head .sx-fleet-additional-hint {
+        clear:both;
+    }
+
+    /* -----------------------------------------------
+    agent rates
+    ----------------------------------------------- */
+    .sx-res-agentrates-form .sx-gc-button-verysmall-next {
+        margin: 0 6% 0 0;
+    }
+
+    .sx-res-agent-ratelist li {
+        margin: 0 0 10px 0;
+    }
+
+    .sx-res-agent-ratelist img,
+    .sx-res-agent-ratelist label,
+    .sx-res-agent-ratelist input {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px 0 0;
+    }
+
+    .sx-res-agent-ratelist label span {
+        display: block;
+    }
+    
+    /* neu... */
+    .sx-res-agentrate-wrapper {
+        padding-bottom: 5px;
+    }
+    
+    .sx-res-agentrate-wrapper label,
+    .sx-res-agentrate-wrapper input {
+        vertical-align: middle;
+    }
+    
+    .sx-res-agentrate-wrapper label {
+        display: inline-block;
+    }
+    
+    .sx-res-agentrate-wrapper li p {
+        padding: 10px 6px 10px 70px;
+        margin: 0;
+    }
+    
+    .sx-res-agentrate-wrapper ul {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .sx-res-agentrate-wrapper li {
+        width: 49.6%;
+        float: left;
+    }
+    
+    .sx-res-agentrate-wrapper .sx-res-agentrate-content {
+        margin: 10px 0 0 0;
+        padding: 20px 0 0 0;
+    }
+    
+    .sx-res-agent-lisoselect {
+        float: right;
+        margin: -60px 0 0 0;
+    }
+
+    /* -----------------------------------------------
+    partner header
+    ----------------------------------------------- */
+    .sx-partner-img-header img {
+        width: 100%;
+        height: auto;
+    }  
+
+
+
+    /* -----------------------------------------------
+    DELIVERY/COLLECTION DEL-COL
+    ----------------------------------------------- */ 
+    .sx-res-ddlist-wrapper .sx-gc-singleentry-wrapper .sx-res-booking-entry {
+        width: 90.1%;
+    }
+
+
+    .sx-res-ddlist-wrapper .sx-js-res-geodelcol-ck-del,
+    .sx-res-ddlist-wrapper .sx-js-res-geodelcol-ck-col {
+        margin-right: 8.6%;
+        line-height: 20px;
+    }
+
+
+    .sx-res-ddlist-wrapper .sx-js-res-geodelcol-ck-del label,
+    .sx-res-ddlist-wrapper .sx-js-res-geodelcol-ck-col label {
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+
+    .sx-res-ddlist-wrapper .sx-js-res-geodelcol-ck-del input[type='checkbox'],
+    .sx-res-ddlist-wrapper .sx-js-res-geodelcol-ck-col input[type='checkbox'] {
+        margin-top: 0;
+    }
+
+
+    .sx-gc-multientry-wrapper .sx-res-booking-entry {
+        margin-right: -4px;
+    }
+    .ie7 .sx-gc-multientry-wrapper .sx-res-booking-entry {
+        margin-right: -3px;
+    }
+    
+    /* ---------------------------- */
+    /* ---------------------------- */
+
+    .sx-res-del-col {
+        padding-right: 39px;
+    }
+
+
+    .sx-res-del-col .sx-gc-zip {
+        float: left;
+        width: 25%;
+    }   
+
+
+    .sx-res-del-col .sx-gc-city {
+        float: left;
+        width: 67%;
+        margin-left: 3.1%;
+    }
+    .ie7 .sx-res-del-col .sx-gc-city {
+        margin-right: 0.8%;
+    }
+    .ie8 .sx-res-del-col .sx-gc-city {
+        margin-right: 0.7%;
+    }
+
+
+    .sx-res-del-col .sx-gc-multientry-wrapper {
+        width: 100%;
+    }
+
+
+    .sx-res-del-col select.sx-res-booking-entry {
+        width: 100%; 
+        height: auto;
+        min-height: 29px;
+        padding: 5px 0 5px 0;
+
+        background: #ffffff;
+        color: #000000;
+    }
+    .ie7 .sx-res-del-col select.sx-res-booking-entry {
+        width: 100.2%;
+    }
+    .ie8 .sx-res-del-col select.sx-res-booking-entry {
+        min-height: auto;
+        width: 100%;
+    }
+
+
+    .sx-gc-singleentry-wrapper .sx-res-booking-entry {
+        width: 100%;
+    }
+
+
+    .sx-res-del-col input.sx-res-booking-entry,
+    .sx-res-del-col textarea.sx-res-booking-entry {
+        padding: 3px 5px 3px 5px;
+    }  
+
+
+    .sx-res-del-col textarea {
+        height: 30px;
+    }
+
+
+    .sx-res-del-col .sx-res-del-col-hd {
+        padding: 10px 0 10px 0;
+        font-weight: bold;
+    }  
+
+
+    .sx-res-geodelcol-alt {
+        width: 95.4%;
+        padding: 2%;
+        margin-top: 6px;
+
+        -moz-border-radius: 3px;
+        -khtml-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px 3px;
+
+        background: #fff3e3;
+        border: 1px solid #7A2624;
+        color:#7a2624;
+    } 
+    .ie8 .sx-res-geodelcol-alt {
+        width: 95.7%;
+    } 
+
+
+    .sx-res-geodelcol-alt p {
+        font-weight: bold;
+    }
+
+
+    .sx-res-geodelcol-alt li {
+        text-decoration: underline;
+        color:#7a2624;
+        margin: 0 0 4px 0;
+        cursor: pointer;
+    }      
+
+    .sx-res-geodelcol-del2colcopylink-container {
+        display: block;
+        float: right;
+    }
+
+    .sx-res-geodelcol-del2colcopylink-container a {
+        font-weight: normal;
+        text-decoration: underline;
+    }
+
+
