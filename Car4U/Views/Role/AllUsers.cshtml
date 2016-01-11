@@ -6,32 +6,33 @@
     ViewBag.Title = "AllUsers";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
-<h2>Empregados</h2>
-<div class="buttonbackoffice">
-    <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("RegisterEmployee", "Role")'"> Adicionar Empregado </button>
+<div class="page-header">
+    <h2>Empregados</h2>
 </div>
-
-<table class="table tableheader">
-    <tr>
-        <th> @Html.DisplayNameFor(model => model.Email) </th>
-        <th> @Html.DisplayNameFor(model => model.Name)</th>
-        <th>Acções</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="container">
+    <div class="buttonbackoffice">
+        <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("RegisterEmployee", "Role")'"> Adicionar Empregado </button>
+    </div>
+    <table class="table tableheader">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>               
-                <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span>
-            </td>
-           
+            <th> @Html.DisplayNameFor(model => model.Email) </th>
+            <th> @Html.DisplayNameFor(model => model.Name)</th>
+            <th>Acções</th>
         </tr>
-    }
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/DeleteUserRole?id=@item.Id" class="delLink" style="color:red;">Tirar dos Empregados</a></span>
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>

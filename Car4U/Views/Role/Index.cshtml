@@ -5,28 +5,32 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<div class="buttonbackoffice" style="margin-top:40px">
-    <h2 style="margin-bottom:20px">Cargos Existentes</h2>
-
-    @Html.ActionLink(" Criar Novo Cargo", "Create", "Role ", new { @class = "icon-Add submit" }) 
-    @Html.ActionLink(" Controlar Cargos de Utilizadores ", "ManageUserRoles", "Role", new { @class = "icon-Users submit" }) 
+<div class="page-header">
+    <h2>Cargos Existentes</h2>
 </div>
-<div style="margin-top:80px">
-    @foreach (var role in Model)
-    {
-        <table class="table tableheader", style="width:250px">
-            <tr>
-                <td style="width:140px">
-                    <strong>@role.Name</strong>
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", "Role", new { @class = "icon-Edit submit" }, new { roleName = @role.Name })
-                </td>
-                <td >
-                    <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/Delete?RoleName=@role.Name" class="delLink icon-Delete" style="color:red;">Delete</a></span>
-                </td>
-            </tr>
-        </table>
-    }
+<div class="container">
+    <div class="buttonbackoffice" style="margin-top:40px">
+
+
+        @Html.ActionLink(" Criar Novo Cargo", "Create", "Role ", new { @class = "icon-Add submit" })
+        @Html.ActionLink(" Controlar Cargos de Utilizadores ", "ManageUserRoles", "Role", new { @class = "icon-Users submit" })
+    </div>
+    <div style="margin-top:80px">
+        @foreach (var role in Model)
+        {
+            <table class="table tableheader" , style="width:250px">
+                <tr>
+                    <td style="width:140px">
+                        <strong>@role.Name</strong>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", "Role", new { @class = "icon-Edit submit" }, new { roleName = @role.Name })
+                    </td>
+                    <td>
+                        <span onclick="return confirm('Are you sure to delete?')"><a href="/Role/Delete?RoleName=@role.Name" class="delLink icon-Delete" style="color:red;">Delete</a></span>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
 </div>
