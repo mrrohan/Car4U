@@ -458,7 +458,7 @@ namespace Car4U.Controllers
                     string body = @"Exmos Senhor(a), " + reservation.Name + "\n" + "\n";
                         body = body + "A sua reserva foi efetuada com sucesso." + "\n";
                         body = body + "O valor da sua reserva é o seguinte: " + price + "€." + "\n" + "\n";
-                        body = body + "Detalhes para pagamento" + "\n" + ":" + "\n";
+                        body = body + "Detalhes para pagamento" + ":" + "\n";
                         body = body + "Entidade: " + entidade + "\n";
                         body = body + "Referência: " + MULTI + "\n";
                         body = body + "Montante: " + price + "€." + "\n" + "\n";
