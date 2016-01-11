@@ -680,7 +680,12 @@ div.token-input-dropdown-facebook {
 .icon-Users:before {
     content: '\1f465';
 }
-/* Cargos Utilizadores */
+/* Cargos Utilizadores */  
+
+.icon-Car:before {
+    content: '\1f698';
+}
+/* Carrro */  
 
 /*Fim CSS António Gonçalves*/
 
