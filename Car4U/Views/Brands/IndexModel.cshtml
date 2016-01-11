@@ -41,7 +41,7 @@
                         <div class="buttonbackoffice">
                             @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Select" })
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                            @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                           
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
                         </div>
                     </td>
@@ -55,15 +55,15 @@
             <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 divFixed" style="width:370px;">
 
                 <h2>Modelos de @ViewBag.Brand </h2>
-                <div class="buttonbackoffice" style="margin-bottom:50px">
+                @*<div class="buttonbackoffice" style="margin-bottom:50px">
                     @Html.ActionLink(" Adicionar novo Modelo ", "Create", "CarModels", new { id = ViewBag.ID }, new { @class = "icon-Add submit" })
-                </div>
+                </div>*@
 
 
                 <table class="table tableheader">
                     <tr>
                         <th>Modelos</th>
-                        <th>Acções</th>
+                        @*<th>Acções</th>*@
                     </tr>
                     @foreach (var item in Model)
                 {
@@ -72,15 +72,15 @@
                             <td>
                                 @item.Description
                             </td>
-                            <td>
+                            @*<td>
 
                                 <div class="buttonbackoffice" >
-                                    @Html.ActionLink(" ", "Edit", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
-                                    @Html.ActionLink(" ", "Details", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Details submit", @title = "Detalhes" })
-                                    @Html.ActionLink(" ", "Delete", "Brands", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
+                                    @Html.ActionLink(" ", "Edit", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
+                                   
+                                    @Html.ActionLink(" ", "Delete", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
                                 </div>
 
-                            </td>
+                            </td>*@
                         </tr>
                     }
                 </table>

@@ -8,49 +8,49 @@
 }
 
 <div class="page-header">
-    <h2>Eliminar Carro</h2>
+    <h3>Tem a certeza que pretende apagar este Carro?</h3>
 </div>
-<h4>Tem a certeza que pretende apagar este Carro?</h4>
+
 <div class="container">
     <div class=" form-horizontal">
         <div class="form-group">
             <div class=" col-md-10">
                 <table class=" table tableheader table-responsive" style="width:200px">
-                    <tr><th></th><th></th></tr>
+                  
                     <tr>
-                        <td>Descrição</td>
+                        <th>Descrição</th>
                         <td>@Html.DisplayFor(model => model.carModel.Description)</td>
                     </tr>
                     <tr>
-                        <td>Categoria</td>
+                        <th>Categoria</th>
                         <td>@Html.DisplayFor(model => model.category.CategoryName)</td>
                     </tr>
                     <tr>
-                        <td>Combustivel</td>
+                        <th>Combustivel</th>
                         <td>@Html.DisplayFor(model => model.fuelType.Description)</td>
                     </tr>
                     <tr>
-                        <td>Matricula</td>
+                        <th>Matricula</th>
                         <td>@Html.DisplayFor(model => model.LicensePlate)</td>
                     </tr>
                     <tr>
-                        <td>Data de Registo</td>
+                        <th>Data de Registo</th>
                         <td>@Html.DisplayFor(model => model.RegisterDate)</td>
                     </tr>
                     <tr>
-                        <td>Nº Portas</td>
+                        <th>Nº Portas</th>
                         <td>@Html.DisplayFor(model => model.NDoors)</td>
                     </tr>
                     <tr>
-                        <td>nº Bagagens</td>
+                        <th>nº Bagagens</th>
                         <td>@Html.DisplayFor(model => model.NLuggage)</td>
                     </tr>
                     <tr>
-                        <td>Cilindrada</td>
+                        <th>Cilindrada</th>
                         <td>@Html.DisplayFor(model => model.Engine)</td>
                     </tr>
                     <tr>
-                        <td>Potencia</td>
+                        <th>Potencia</th>
                         <td>@Html.DisplayFor(model => model.HorsePower)</td>
                     </tr>
                 </table>
@@ -66,7 +66,7 @@
                             <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
                         </div>
                     }
-                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> Voltar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "Cars")'"> Voltar </button>
                 </div>
             </div>
         </div>
