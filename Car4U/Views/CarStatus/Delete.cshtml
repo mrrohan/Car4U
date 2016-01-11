@@ -5,61 +5,54 @@
 @{
     ViewBag.Title = "Delete";
 }
-<h2>Delete</h2>
-<h3>Tem a certeza que pretende apagar este estado de carro?</h3>
-<div>
+<div class="page-header">
+    <h2>Delete</h2>
+</div>
+<div class=" container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h3>Tem a certeza que pretende apagar este estado de carro?</h3>
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Car.LicensePlate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Car.LicensePlate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Status.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Status.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Observation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Observation)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.BeginDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BeginDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FinishDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FinishDate)
-        </dd>
-    </dl>
-    <div class="form-group">
-        <div class="buttonbackoffice">
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr><th></th><th></th></tr>
+                    <tr>
+                        <td>Matricula</td>
+                        <td>@Html.DisplayFor(model => model.Car.LicensePlate)</td>
+                    </tr>
+                    <tr>
+                        <td>Estado de Disponibilidade</td>
+                        <td>@Html.DisplayFor(model => model.Observation)</td>
+                    </tr>
+                    <tr>
+                        <td>Observações de Disponibilidade</td>
+                        <td>@Html.DisplayFor(model => model.Status.Description)</td>
+                    </tr>
 
-            @using (Html.BeginForm())
-            {
+                    <tr>
+                        <td>Data de Inicio</td>
+                        <td>@Html.DisplayFor(model => model.BeginDate)</td>
+                    </tr>
+                    <tr>
+                        <td>Data de Fim</td>
+                        <td>@Html.DisplayFor(model => model.FinishDate)</td>
+                    </tr>
+                </table>
 
-                @Html.AntiForgeryToken()
+                <div class="buttonbackoffice">
 
-                <div class="form-actions">
+                    @using (Html.BeginForm())
+                    {
 
-                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        @Html.AntiForgeryToken()
 
+                        <div class="form-actions">
+                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        </div>
+                    }
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarStatus")'"> Voltar </button>
                 </div>
-            }
-
-            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarStatus")'"> > Voltar </button>
-
+            </div>
         </div>
-
     </div>
-    
 </div>

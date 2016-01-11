@@ -3,43 +3,42 @@
 @{
     ViewBag.Title = "Delete";
 }
+<div class="page-header">
+    <h2>Eliminar Modelo de Carro</h2>
+</div>
+<div class=" container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h2>Tem a certeza que pretende eliminar este modelo?</h2>
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr><th></th><th></th></tr>
+                    <tr>
+                        <td>Marca</td>
+                        <td>@Html.DisplayFor(model => model.brand.Description)</td>
+                    </tr>
+                    <tr>
+                        <td>Modelo</td>
+                        <td>@Html.DisplayFor(model => model.Description)</td>
+                    </tr>
+                </table>
 
-<h2>Tem a certeza que pretende eliminar este model?</h2>
-<div>
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.brand.Description)
-        </dt>
+                <div class="buttonbackoffice">
 
-        <dd>
-            @Html.DisplayFor(model => model.brand.Description)
-        </dd>
+                    @using (Html.BeginForm())
+                    {
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                        @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                        <div class="form-actions">
+                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                        </div>
+                    }
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> Voltar </button>
 
-    </dl>
-
-    <div class="form-group">
-        <div class="buttonbackoffice">
-
-            @using (Html.BeginForm())
-            {
-
-                @Html.AntiForgeryToken()
-
-                <div class="form-actions">
-                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
                 </div>
-            }
-            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> > Voltar </button>
-
+            </div>
         </div>
     </div>
 </div>

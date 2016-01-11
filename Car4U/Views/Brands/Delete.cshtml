@@ -8,36 +8,32 @@
 }
 
 
-
-<h2>Tem a certeza que pretende apagar esta Marca?</h2>
-<div>
-
-
-    <dl class="dl-horizontal">
-        <dt>
-            <h4> @Html.DisplayNameFor(model => model.Description) : </h4>
-        </dt>
-
-        <dd>
-            <h4> @Html.DisplayFor(model => model.Description) </h4>
-        </dd>
-
-    </dl>
-
+<div class="page-header">
+    <h2>Eliminar Marca</h2>
+</div>
+<div class="form-horizontal">
     <div class="form-group">
-        <div class="buttonbackoffice">
+        <div class=" col-md-10">
+            <div>
+                <h3>Tem a certeza que pretende apagar esta Marca?</h3>
+                <h4>
+                    Marca: @Html.DisplayFor(model => model.Description)
+                </h4>
+            </div>
+            <div class="buttonbackoffice">
 
-            @using (Html.BeginForm())
-            {
+                @using (Html.BeginForm())
+                {
 
-                @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
-                <div class="form-actions">
-                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
-                </div>
-            }
-            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'"> Voltar </button> 
+                    <div class="form-actions">
+                        <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                    </div>
+                }
+                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'"> Voltar </button>
+            </div>
+
         </div>
-
     </div>
 </div>
