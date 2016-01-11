@@ -11,34 +11,34 @@
 <table class="table tableheader">
 
     <tr class="text-center">
-        <td class="neon-text">
+        <th>
             ID
             @*@Html.DisplayName("ID")*@
-        </td>
-        <td class="neon-text">
+        </th>
+        <th>
             Nome
             @*@Html.DisplayName("Nome")*@
-        </td>
-        <td class="neon-text">
+        </th>
+        <th>
             E-mail
             @*@Html.DisplayName("E-Mail")*@
-        </td>
+        </th>
    
         @*<td class="neon-text">
             Data de reserva
             @html.displayname("reservation date")
             @html.displaynamefor(model => model.reservationdate)
         </td>*@
-        <td class="neon-text">
+        <th>
             Data de Entrega
             @*@Html.DisplayName("Delivery Date")*@
             @*@Html.DisplayNameFor(model => model.DeliveryDate)*@
-        </td>
-        <td class="neon-text">
+        </th>
+        <th class="neon-text">
             Data de Recolha
             @*@Html.DisplayName(" Return Date")*@
             @*@Html.DisplayNameFor(model => model.ReturnDate)*@
-        </td>
+        </th>
         @*<td class="neon-text">
                 Categoria
                 @Html.DisplayName("Category")
@@ -51,11 +51,11 @@
                 Promoção
                 @Html.DisplayName("Promotion")
             </td>*@
-        <td class="neon-text">
+        <th>
             Preço Final
             @*@Html.DisplayName("Final Price")*@
             @*@Html.DisplayNameFor(model => model.FinalPrice)*@
-        </td>
+        </th>
     </tr>
 
     @foreach (var item in Model)

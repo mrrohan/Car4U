@@ -75,10 +75,10 @@
             </td>
             <td>
                 <div class="buttonbackoffice">
-                    @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new {@id="hover-icon", @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
-                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
-                    @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @id = "hover-icon", @class = "icon-Details submit", @title = "Detalhes" })
-                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
+                    @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
+                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new {@class = "icon-edit submit", @title = "Editar" })
+                    @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
                 </div>
             </td>
         </tr>
