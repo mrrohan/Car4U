@@ -1,10 +1,7 @@
 ﻿@model Car4U.Models.ExtraModel
-
 @{
     ViewBag.Title = "Edit";
 }
-
-
 
 
 @using (Html.BeginForm())
@@ -13,7 +10,7 @@
 
     <div class="form-horizontal">
         <h2>Editar Modelo Extra</h2>
-        
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
         <div class="form-group">
@@ -35,6 +32,16 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Stock, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+                @{
+                    List<Car4U.Models.ExtraItem> extitems = new List<Car4U.Models.ExtraItem>();
+                    extitems = ViewBag.ExtraItems;
+                    int extitemscount = extitems.Where(i => i.ExtraModelID == Model.ID).Count(i => (i.InUse == false));
+
+                    if (extitemscount == 0)
+                    {
+                        <p><span style="color: red">Não pode alterar o stock valores inferior a @Model.Stock , pois todos os items deste modelo estão em uso!</span></p>
+                    }
+                }
             </div>
         </div>
         <div class="form-group">
@@ -42,16 +49,14 @@
             <div class="col-md-10">
                 @Html.DropDownList("ExtraModelTypeID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ExtraModelTypeID, "", new { @class = "text-danger" })
-
                 <div class="buttonbackoffice">
                     <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
                     <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'"> Voltar </button>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
 }
-
 @*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
