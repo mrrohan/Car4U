@@ -190,8 +190,8 @@ namespace Car4U.DAL
             {
                 new ExtraModel {ID = 1, ExtraModelTypeID = 1, Model = "GPS", Price = 4.99, Stock = 3 },
                 new ExtraModel {ID = 2, ExtraModelTypeID = 2, Model = "Assento 8-12 anos", Price = 9.90, Stock = 3 },
-                new ExtraModel {ID = 3, ExtraModelTypeID = 2, Model = "Cadeira 0-7 anos", Price = 9.90, Stock = 3 },
-                new ExtraModel {ID = 4, ExtraModelTypeID = 2, Model = "Identificador Via Verde", Price = 9.90, Stock = 3 }
+                new ExtraModel {ID = 3, ExtraModelTypeID = 3, Model = "Cadeira 0-7 anos", Price = 9.90, Stock = 3 },
+                new ExtraModel {ID = 4, ExtraModelTypeID = 4, Model = "Identificador Via Verde", Price = 9.90, Stock = 3 }
             };
             mod.ForEach(s => context.ExtraModels.Add(s));
             context.SaveChanges();
@@ -211,9 +211,9 @@ namespace Car4U.DAL
                 new ExtraItem {ID = 8, ExtraModelID = 3 },
                 new ExtraItem {ID = 9, ExtraModelID = 3 },
                 //Via Verde - Identificador Via Verde - 3 items
-                new ExtraItem {ID = 9, ExtraModelID = 3 },
-                new ExtraItem {ID = 10, ExtraModelID = 3 },
-                new ExtraItem {ID = 11, ExtraModelID = 3 },
+                new ExtraItem {ID = 9, ExtraModelID = 4 },
+                new ExtraItem {ID = 10, ExtraModelID = 4 },
+                new ExtraItem {ID = 11, ExtraModelID = 4 },
 
             };
             item.ForEach(s => context.ExtraItems.Add(s));
