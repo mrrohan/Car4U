@@ -25,8 +25,8 @@
 
 
     @*<link rel="stylesheet" type="text/css" href="~/Content/css/RicardoOliveira.css">
-        <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
-        <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">*@
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css">*@
 
 </head>
 
@@ -36,14 +36,35 @@
             <div class="col-md-12">
                 <form method="get">
                     <ul class="nav fleet-nav pull-left">
-                        @foreach (var item in ViewBag.categories)
-                        {
-                            <li>
-                                <div align="center" style="width:70px ; height:70px">
-                                    <input type="checkbox" class="option-input radio" name="selectedCats" value="@item.ID" title="" /><h5><b>@item.CategoryName</b></h5>
-                                </div>
-                            </li>
+                        @{
+                             
+                            foreach (var item in ViewBag.categories )
+                            {
+                                var fui = 0;
+                                foreach (var i in ViewBag.catid)
+                                {
+                                    if (item.ID == i)
+                                    {
+                                        <li>
+                                            <div align="center" style="width:70px ; height:70px">
+                                                <input type="checkbox" class="option-input radio" name="selectedCats" value="@item.ID" title="" checked="checked" /><h5><b>@item.CategoryName</b></h5>
+                                            </div>
+                                        </li>
+                                        fui = 1;
+                                    }
+                                }
+                                if (fui == 0)
+                        { 
+                          <li>
+                              <div align="center" style="width:70px ; height:70px" >
+                                  <input type="checkbox" class="option-input radio" name="selectedCats" value="@item.ID" title="" /><h5><b>@item.CategoryName</b></h5>
+                              </div>                               
+                          </li>
                         }
+
+                            }
+}
+                      
                     </ul>
                     <div class="button">
                         <button id="btnFrota" class="submit" type="submit">Pesquisar</button>
@@ -227,7 +248,7 @@
                                             <li class="fuel" title="Tipo de combustível">@Html.DisplayFor(modelItem => item.fuelType.Description)</li>
                                             @*<li class="aircon" title="Ar condicionado">Ar condicionado</li>*@
                                             <li class="seats" title="Matricula"> @Html.DisplayFor(modelItem => item.LicensePlate)</li>
-
+                                        
                                         </ul>
                                     </div>
                                     <div>

@@ -47,9 +47,10 @@ namespace Car4U.Controllers
             }
 
 
+            
 
 
-            return View(viewModel);
+           return View(viewModel);
         }
 
         //Post Index
@@ -67,7 +68,7 @@ namespace Car4U.Controllers
         {
 
             var viewModel = new CarIndex();
-
+           
             viewModel.Infosender = new InfoSender();
 
             if (mpreliveryid != null)
@@ -87,29 +88,29 @@ namespace Car4U.Controllers
             if (begindate != null)
             {
                 viewModel.Infosender.BeginDate = begindate ?? default(DateTime);
-
+          
             }
             if (beginhour != null)
             {
                 viewModel.Infosender.BeginHour = beginhour ?? default(DateTime);
-
+              
             }
             if (enddate != null)
             {
                 viewModel.Infosender.EndDate = enddate ?? default(DateTime);
-
+           
             }
             if (endhour != null)
             {
                 viewModel.Infosender.EndHour = endhour ?? default(DateTime);
-
+              
             }
+        
 
-
-
-
-
-
+           
+         
+           
+          
             return View(viewModel);
         }
 
@@ -125,7 +126,7 @@ namespace Car4U.Controllers
             {
                 ViewBag.View = view;
             }
-
+            
             Car car = db.Cars.Find(id);
             if (car == null)
             {
@@ -203,7 +204,7 @@ namespace Car4U.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car)
-        {
+        { 
             if (ModelState.IsValid)
             {
                 db.Entry(car).State = EntityState.Modified;
@@ -315,7 +316,7 @@ namespace Car4U.Controllers
             {
                 ViewBag.ResultMessage = "Não deu para seguir o carro!";
             }
-
+            
 
             return RedirectToAction("Details/" + carModel);
         }
@@ -370,7 +371,7 @@ namespace Car4U.Controllers
             var DateAndTime = DateTime.Now;
             var today = DateAndTime.Date;
             var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Where(l => l.CarStatus.Count(c => c.FinishDate == today) > 0).Where(l => l.CarStatus.Count(c => c.Status.Description.Contains("Disponivel")) <= 0);
-
+           
             if (id != null)
             {
                 ViewBag.ID = id;
