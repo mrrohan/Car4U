@@ -22,51 +22,12 @@
         <table class="table tableheader table-responsive" style="width:85%">
 
     <tr class="text-center">
-                <th>
-                    ID
-                    @*@Html.DisplayName("ID")*@
-                </th>
-                <th>
-                    Nome
-                    @*@Html.DisplayName("Nome")*@
-                </th>
-                <th>
-                    E-mail
-                    @*@Html.DisplayName("E-Mail")*@
-                </th>
-
-                @*<td class="neon-text">
-                        Data de reserva
-                        @html.displayname("reservation date")
-                        @html.displaynamefor(model => model.reservationdate)
-                    </td>*@
-                <th>
-                    Data de Entrega
-                    @*@Html.DisplayName("Delivery Date")*@
-                    @*@Html.DisplayNameFor(model => model.DeliveryDate)*@
-                </th>
-                <th class="neon-text">
-                    Data de Recolha
-                    @*@Html.DisplayName(" Return Date")*@
-                    @*@Html.DisplayNameFor(model => model.ReturnDate)*@
-                </th>
-                @*<td class="neon-text">
-                        Categoria
-                        @Html.DisplayName("Category")
-                    </td>
-                    <td class="neon-text">
-                        Extras
-                        @Html.DisplayName("Extras")
-                    </td>
-                    <td class="neon-text">
-                        Promoção
-                        @Html.DisplayName("Promotion")
-                    </td>*@
-                <th>
-                    Preço Final
-                    @*@Html.DisplayName("Final Price")*@
-                    @*@Html.DisplayNameFor(model => model.FinalPrice)*@
-                </th>
+                <th>ID </th>
+                <th> Nome </th>
+                <th>E-mail</th>
+                <th> Data de Entrega</th>
+                <th >Data de Recolha  </th>               
+                <th>Preço Final </th>
                 <th style="width:200px">
                     + Opções
                 </th>
@@ -109,8 +70,7 @@
                             {
                                 @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar Reserva" })
 
-            @if(item.ReturnDate > DateTime.Now ){
-                @Html.ActionLink("Confirmar", "Edit", new { id = item.ID }, new { @class = "icon-edit" }) 
+            
             }
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes de Reserva" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Eliminar Reserva" })
