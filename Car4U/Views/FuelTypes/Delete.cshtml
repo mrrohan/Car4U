@@ -1,37 +1,40 @@
 ﻿@model Car4U.Models.FuelType
-
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 @{
     ViewBag.Title = "Delete";
 }
 
 
+<div class="page-header">
+    <h2>Eliminar tipo de combustivel</h2>
+</div>
 
-<h4>Tem a certeza que pretende apagar este tipo de combustivel?</h4>
-<div>
-        <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-
-            <div class="buttonbackoffice">
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-actions">
-                        <button class="submit icon-Delete" type="submit" value="Delete">Apagar</button>
-                    </div>
-                }
-                <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "FuelTypes")'"> Voltar </button>
+<div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class=" col-md-10">
+                <h4> Tem a certeza que pretende apagar este tipo de combustivel?</h4>
+                <table class=" table tableheader table-responsive" style="width:200px">
+                    <tr></tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Description)</td>
+                        <td>@Html.DisplayFor(model => model.Description)</td>
+                    </tr>
+                </table>
+                <div class="buttonbackoffice">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-actions">
+                            <button class="submit icon-Delete" type="submit" value="Delete">Apagar</button>
+                        </div>
+                    }
+                    <button class="submit icon-back" type="button" onclick="location.href='@Url.Action("Index", "FuelTypes")'"> Voltar </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
