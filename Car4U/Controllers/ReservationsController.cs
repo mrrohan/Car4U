@@ -251,7 +251,13 @@ namespace Car4U.Controllers
             }
             if (carid != null && categotyid!=null)
             {
+                ViewBag.view = 1;
+                
                 ViewBag.carother = db.Cars.Where(l=>l.ID!=carid).FirstOrDefault(l => l.CategoryID == categotyid);
+                if(ViewBag.carother == null)
+                {
+                    ViewBag.view = 0;
+                }
                 var car = db.Cars.SingleOrDefault(l => l.ID == carid);
                 var car2 = db.Cars.FirstOrDefault(l => l.CategoryID == categotyid);
 
@@ -301,7 +307,9 @@ namespace Car4U.Controllers
 
             ViewBag.ExtraItemsID = new SelectList(db.ExtraModels, "ID", "Model");
             ViewBag.ExtraModels = new List<ExtraModel>(db.ExtraModels);
-            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name");
+
+            var pais = db.Countries.SingleOrDefault(l => l.Name.Equals("Portugal"));
+            ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", pais.ID);
             if (reservation.CountryID != 0)
             {
                 ViewBag.CountryID = new SelectList(db.Countries, "ID", "Name", reservation.CountryID);
