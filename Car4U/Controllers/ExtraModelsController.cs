@@ -129,7 +129,11 @@ namespace Car4U.Controllers
 
                     }
                 }
+                modelIndb.Model = extraModel.Model;
+                modelIndb.Price = extraModel.Price;
                 modelIndb.Stock = extraModel.Stock;
+                modelIndb.ExtraModelTypeID = extraModel.ExtraModelTypeID;
+                
                 db.Entry(modelIndb).State = EntityState.Modified;                
                 db.SaveChanges();             
                 

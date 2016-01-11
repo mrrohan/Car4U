@@ -299,6 +299,8 @@
                                         {
                                             //if (cnt++ % 3 == 0)
                                             //{
+                                            if(m.Stock !=0)
+                                            { 
                                                 <div class="sx-res-config-entry sx-fake-checkbox">
                                                     <input type="checkbox" name="selectedExtraModels" value="@m.ID" />
                                                     <label for="sx-res-config-AD">
@@ -309,6 +311,7 @@
                                                 <div class="sx-res-config-unit"> por dia </div>
                                                 <div class="sx-res-config-cost"> @m.Price &euro;</div>
                                             //}
+                                            }
                                         }
                                     }
 
