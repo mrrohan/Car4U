@@ -11,6 +11,7 @@ using Car4U.Models;
 
 namespace Car4U.Controllers
 {
+     [Authorize(Roles = "Admin, Employee")]
     public class MeetingPointsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

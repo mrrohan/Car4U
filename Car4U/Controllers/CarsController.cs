@@ -19,6 +19,7 @@ namespace Car4U.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Cars
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Index()
         {
             var cars = db.Cars.Include(c => c.carModel).Include(c => c.category).Include(c => c.fuelType).Include(c => c.Gear);
@@ -136,6 +137,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars/Create
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Create()
         {
             ViewBag.GearID = new SelectList(db.Gears, "ID", "Description");
@@ -148,6 +150,7 @@ namespace Car4U.Controllers
         // POST: Cars/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [Authorize(Roles = "Admin, Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car, HttpPostedFileBase upload)
@@ -180,6 +183,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars/Edit/5
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -201,6 +205,7 @@ namespace Car4U.Controllers
         // POST: Cars/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [Authorize(Roles = "Admin, Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,LicensePlate,RegisterDate,NDoors,NLuggage,Engine,HorsePower,GearID,CategoryID,FuelTypeID,CarModelID")] Car car)
@@ -219,6 +224,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars/EditPhoto/5
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult EditPhoto(int? id)
         {
             if (id == null)
@@ -236,6 +242,7 @@ namespace Car4U.Controllers
         // POST: Cars/EditPhoto/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [Authorize(Roles = "Admin, Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditPhoto(HttpPostedFileBase upload, int? id)
@@ -266,6 +273,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars/Delete/5
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -281,6 +289,7 @@ namespace Car4U.Controllers
         }
 
         // POST: Cars/Delete/5
+         [Authorize(Roles = "Admin, Employee")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -322,6 +331,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Leaving Cars Index
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult LeavingCarsIndex(int? id)
         {
             var DateAndTime = DateTime.Now;
@@ -366,6 +376,7 @@ namespace Car4U.Controllers
         }
 
         // GET: Cars that are entering
+         [Authorize(Roles = "Admin, Employee")]
         public ActionResult EnteringCars(int? id)
         {
             var DateAndTime = DateTime.Now;

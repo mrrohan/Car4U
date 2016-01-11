@@ -79,6 +79,7 @@ namespace Car4U.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ExtraModel extraModel = db.ExtraModels.Find(id);
+            ViewBag.ExtraItems = new List<ExtraItem>(db.ExtraItems);
             if (extraModel == null)
             {
                 return HttpNotFound();
@@ -108,9 +109,12 @@ namespace Car4U.Controllers
                         var extitem = new ExtraItem();
                         while (deletecount > 0)
                         {
-                            extitem = db.ExtraItems.First(e => e.ExtraModelID == extraModel.ID && e.InUse == false);
-                            db.ExtraItems.Remove(extitem);
-                           
+                            extitem = db.ExtraItems.FirstOrDefault(e => e.ExtraModelID == extraModel.ID && e.InUse == false);
+                            if (extitem != null)
+                            {
+                                modelIndb.Stock = extraModel.Stock;
+                                db.ExtraItems.Remove(extitem);
+                            }
                             deletecount--;
 
                         }
@@ -126,12 +130,13 @@ namespace Car4U.Controllers
                             db.ExtraItems.Add(extitem);                            
                             createcount--;
                         }
+                        modelIndb.Stock = extraModel.Stock;
 
                     }
                 }
                 modelIndb.Model = extraModel.Model;
                 modelIndb.Price = extraModel.Price;
-                modelIndb.Stock = extraModel.Stock;
+                
                 modelIndb.ExtraModelTypeID = extraModel.ExtraModelTypeID;
                 
                 db.Entry(modelIndb).State = EntityState.Modified;                

@@ -12,6 +12,7 @@ using Car4U.ViewModels;
 
 namespace Car4U.Controllers
 {
+     [Authorize(Roles = "Admin, Employee")]
     public class BrandsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
