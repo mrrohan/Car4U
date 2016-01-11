@@ -6,15 +6,16 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<div class="page-header">
+<h2>Marca</h2>
+    </div>
 
 <div>
-    <h4>Brand</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    <h4>Editar Marca</h4>
+    
+    <dl class="form-group">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.LabelFor(model => model.Description, "Nome", htmlAttributes: new { @class = "control-label col-md-2" })
         </dt>
 
         <dd>
@@ -24,6 +25,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
+    <div class="buttonbackoffice">
+         <button class="submit" type="button" onclick="location.href='@Url.Action("Edit", "Brands", new { id = Model.ID })'">Editar</button>
+        <button class="submit" type="button" onclick="location.href='@Url.Action("Index", "Brands")'">Voltar</button>
+         </div>
 </p>

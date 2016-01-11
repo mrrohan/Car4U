@@ -11,13 +11,14 @@
 
 
 
-
+<div class="page-header">
 <h2>Marcas</h2>
+    </div>
 
-<p>
-    @Html.ActionLink("+ Adicionar", "Create")
-</p>
-<table class="table">
+<div class="buttonbackoffice">
+    <button class="submit" type="button" onclick="location.href='@Url.Action("Create", "Brands")'">+ Adicionar Marca</button>
+</div>
+<table class="table stripedtable">
     <tr>
         <th>
             Marcas

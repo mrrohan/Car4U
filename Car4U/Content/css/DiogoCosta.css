@@ -63,3 +63,21 @@ border-radius: 4px;
 
 
 /*Log in with Facebook button*/
+
+/*Striped table index brand*/
+.stripedtable th {
+    background-color:#f7b706;
+    
+    color:black;
+    }
+
+
+.stripedtable tbody, .stripedtable tr, .stripedtable td, .stripedtable th {
+    
+    font-family: Arial,sans-serif;
+}
+
+.stripedtable tbody tr:nth-child(odd) {
+   background-color: rgba(255, 216, 0, 0.39);
+}
+/*Striped table index brand*/
