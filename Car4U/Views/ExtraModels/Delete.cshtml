@@ -1,5 +1,8 @@
 ﻿@model Car4U.Models.ExtraModel
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
     ViewBag.Title = "Delete";
 }
 <div class="page-header">
@@ -30,21 +33,21 @@
                     </tr>
                 </table>
 
-                <div class="buttonbackoffice">
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-actions">
-                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
-                        </div>
-                    }
-                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'"> Voltar </button>
-                </div>
-            </div>
+            <div class="buttonbackoffice">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions">
+                        <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
+                    </div>
+                }
+                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "ExtraModels")'"> Voltar </button>
+            </div>        
+    </div>
         </div>
     </div>
 </div>
+   
 
-
-       
+    
 

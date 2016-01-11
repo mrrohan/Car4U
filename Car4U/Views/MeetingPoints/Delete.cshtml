@@ -1,5 +1,8 @@
 ﻿@model Car4U.Models.MeetingPoint
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
     ViewBag.Title = "Delete";
 }
 
@@ -19,20 +22,20 @@
                     </tr>
                 </table>
 
-                <div class="buttonbackoffice">
+        <div class="buttonbackoffice">
 
-                    @using (Html.BeginForm())
-                    {
+            @using (Html.BeginForm())
+            {
 
-                        @Html.AntiForgeryToken()
+                @Html.AntiForgeryToken()
 
-                        <div class="form-actions">
-                            <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
-                        </div>
-                    }
-                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "MeetingPoints")'"> Voltar </button>
-
+                <div class="form-actions">
+                    <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
                 </div>
+            }
+            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "MeetingPoints")'"> Voltar </button>
+
+        </div>
             </div>
         </div>
     </div>
