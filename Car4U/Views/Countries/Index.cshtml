@@ -18,13 +18,17 @@
             <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Countries")'"> Adicionar </button>
         </div>
         <table class="table tableheader">
-            <tr>
-                <th>
-                    Países
-                    @*@Html.DisplayNameFor(model => model.Name)*@
-                </th>
-                <th>Acções</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>
+                        Países
+                        @*@Html.DisplayNameFor(model => model.Name)*@
+                    </th>
+                    <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+                </tr>
+            </thead>
 
             @foreach (var item in Model)
             {
@@ -33,7 +37,7 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        <div class="buttonbackoffice">
+                        <div class="iconsbackoffice">
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })

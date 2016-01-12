@@ -8,28 +8,31 @@
 }
 
 <div class="page-header">
-<h2>Modelos de Veiculos</h2>
+    <h2>Modelos de Veiculos</h2>
 </div>
-<div class="container">
+
 <div class="container col-lg-6">
 
 
-    <div class="buttonbackoffice table-responsive ">
+    <div class="buttonbackoffice">
         <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarModels")'"> Adicionar Modelo de Veiculo </button>
     </div>
-    <table class="table tableheader">
-        <tr>
-            <th>
-                Marca
-                @*@Html.DisplayNameFor(model => model.brand.Description)*@
-            </th>
-            <th>
-                Modelo
-                @*@Html.DisplayNameFor(model => model.Description)*@
-            </th>
-            <th>Acções</th>
-        </tr>
-
+    <table class="table tableheader table-responsive">
+        <thead>
+            <tr>
+                <th width="200x">
+                    Marca
+                    @*@Html.DisplayNameFor(model => model.brand.Description)*@
+                </th>
+                <th width=200x">
+                    Modelo
+                    @*@Html.DisplayNameFor(model => model.Description)*@
+                </th>
+                <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -40,7 +43,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    <div class="buttonbackoffice">
+                    <div class="iconsbackoffice">
                         @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                         @*@Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })*@
                         @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
@@ -53,5 +56,4 @@
 
 
 
-</div>
 </div>

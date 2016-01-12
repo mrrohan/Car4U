@@ -11,7 +11,7 @@
 
 
 <div class="container">
-    <div class="container col-lg-6">
+    <div class="container col-lg-4">
 
         <div class="form-group">
             <div class="buttonbackoffice">
@@ -21,13 +21,17 @@
 
 
         <table class="table tableheader table-responsive">
-            <tr>
-                <th>
-                    Tipo de Extra
-                    @*@Html.DisplayNameFor(model => model.Description)*@
-                </th>
-                <th>Acções</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>
+                        Tipo de Extra
+                        @*@Html.DisplayNameFor(model => model.Description)*@
+                    </th>
+                    <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+                </tr>
+            </thead>
             @foreach (var item in Model)
             {
                 <tr>
@@ -35,7 +39,7 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        <div class="buttonbackoffice">
+                        <div class="iconsbackoffice">
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })

@@ -80,7 +80,7 @@
                 </li>
                 <li>
                     <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entrada de Veículos</a>
-                   
+
                 </li>
                 <li>
                     <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservas</a>
@@ -97,20 +97,19 @@
                 <li>
                     <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promoções</a>
                 </li>
-              
-               
+
+
                 <li>
                     <a id="Categories" href="~/Categories/PrivateIndex" class="sidebar-brand">Categorias</a>
+                </li>                
+                <li>
+                    <a id="Brands" href="~/Brands/IndexModel" class="sidebar-brand">Marcas</a>
                 </li>
                 <li>
                     <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">Modelo Veículo</a>
                 </li>
                 <li>
                     <a id="ExtraModels" href="~/ExtraModels/Index" class="sidebar-brand">Extras</a>
-                </li>
-                <li>
-                    <a id="Brands" href="~/Brands/IndexModel" class="sidebar-brand">Marcas</a>
-                </li>
                 <li>
                     <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">Local de encontro</a>
                 </li>
@@ -130,11 +129,11 @@
                     <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">Tipo de Extras</a>
                     <hr width="40%">
                 </li>
-              
-               
+
+
                 @if (User.IsInRole("Admin"))
                 {
-                  
+
                     <li>
                         <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
                     </li>
@@ -142,7 +141,7 @@
                         <a id="Role" href="~/Role/AllUsers" class="sidebar-brand">Todos Empregados</a>
                     </li>
                 }
-               
+
             </ul>
 
         </div>
@@ -151,11 +150,11 @@
         <!-- Page Content -->
         <div id="page-content-wrapper" class="col-lg-12">
             <div class="col-lg-0 buttonbackoffice">
-                <a href="#menu-toggle" class="btn btn-default submit backofice-slim" id="menu-toggle"><i class="fa fa-arrow-left fa-1g"></i></a>
+                <a href="#menu-toggle" class="btn btn-default submit backofice-slim" id="menu-toggle" style="position:inherit"><i class="fa fa-arrow-left fa-1g"></i></a>
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div @*class="col-lg-12*@>
+                    <div @*class="col-lg-10"*@>
                         <div class="container body-content">
                             <div style="margin-top:1px;margin-left:15px;">
                                 @RenderBody()
