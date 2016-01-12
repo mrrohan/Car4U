@@ -422,7 +422,7 @@ namespace Car4U.Controllers
               
                 var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
                 int ndaysres = span.Days;
-
+                ndaysres += 1;
                 //Promotion                
                 int bestpromobydays = 0;
                 try
