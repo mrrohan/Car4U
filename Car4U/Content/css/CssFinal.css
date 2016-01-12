@@ -430,16 +430,18 @@ input.facebook {
 }
 
 
-
+.search-img{
+    font-size:15px;
+}
 
 
 
 .moldura3 {
     border-radius: 20px;
     border: 2px solid #ffd800;
-    width: 490px;
-    float: left;
-    padding: 8px 8px 20px 8px;
+    width: 470px;
+    
+    padding: 8px 8px 8px 8px;
 }
 
 
@@ -457,7 +459,7 @@ input.facebook {
 }
 
 .positionright {
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .btn-position {
@@ -483,8 +485,33 @@ input.facebook {
 /*.table tr td:last-child {
     width: 150px !important;
 }*/
+.btn-file {
+    position: relative;
+    overflow:visible;
+    background-color:rgba(128, 128, 128, 0.81);
+    color:white;
+}
+.v:hover{
+    background-color:rgba(128, 128, 128, 0.36);
+    border-color:white;
+    color:white;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+   
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity:0;
+    outline: none;
+    background:#ccc;
+    cursor:inherit;
+    display: block;
 
-
+}
 .tableheader tbody tr {
     border-bottom: 2px solid #F9BF1D !important;
     border-radius: 6px;
@@ -507,7 +534,7 @@ input.facebook {
 
 .table thead:first-child tr:first-child th:last-child {
     border: 4px solid #F9BF1D;
-    
+   
 }
 
 .table tbody td:last-child {
@@ -561,6 +588,7 @@ input.facebook {
 .tableheader tr:hover td:last-child div {
     visibility: visible;
 }
+
 
 /*Fim CSS Luis Ricardo*/
 
@@ -738,7 +766,7 @@ div.token-input-dropdown-facebook {
 .icon-Confirmar:before {
     content: '\2714';
 }
-/* Confirmar */
+/* Confirmar */ 
 
 
 /*Fim CSS António Gonçalves*/
