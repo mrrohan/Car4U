@@ -11,7 +11,13 @@ namespace Car4U.DAL
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            //ricardoDB
+        //: base("car4UDB_v4", throwIfV1Schema: false)
+
+            //defaultDB
+        : base("DefaultConnection", throwIfV1Schema: false)
+
+
         {
         }
         public DbSet<Brand> Brands { get; set; }

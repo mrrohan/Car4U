@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<Car4U.Models.Status>
-
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
 @{
     ViewBag.Title = "Index";
 }
@@ -11,20 +9,24 @@
     <h2> Estado de Disponibilidade</h2>
 </div>
 
-<div class="container col-lg-8">
+<div class="container col-lg-4">
     <div class="form-group">
         <div class="buttonbackoffice">
             <button class="submit icon-Add" type="button" onclick="location.href='@Url.Action("Create", "Status")'"> Adicionar </button>
         </div>
     </div>
     <table class="table tableheader table-responsive">
-        <tr>
-            <th>
-                Estado
-                @*@Html.DisplayNameFor(model => model.Description)*@
-            </th>
-            <th>Acções</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>
+                    Estado
+                    @*@Html.DisplayNameFor(model => model.Description)*@
+                </th>
+                <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>

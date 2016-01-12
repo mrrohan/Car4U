@@ -6,59 +6,62 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <div class="page-header">
-<h2>Marcas de Automóvel</h2>
+    <h2>Marcas de Automóvel</h2>
 </div>
 <div class="container">
-<div class="buttonbackoffice" style="margin-bottom:70px">
-    @Html.ActionLink(" Adicionar Marcas ", "Create", "Brands", new { @class = "icon-Add submit" })
-</div>
+    <div class="buttonbackoffice" style="margin-bottom:70px">
+        @Html.ActionLink(" Adicionar Marcas ", "Create", "Brands", new { @class = "icon-Add submit" })
+    </div>
 
-<div class="container">
+    <div class="container">
 
-    <div class="table-responsive">
+        <div class="table-responsive">
 
-        <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 " style="width:370px">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 " style="width:370px">
 
-                <table class="table tableheader" style=" width:200px">
-                    <tr>
-                        <th>Marca</th>
-                        <th>Acções</th>
-                    </tr>
-                    @foreach (var item in ViewBag.Brands)
-                    {
-                        string selectedRow = "";
-                        if (item.ID == ViewBag.ID)
-                        {
-                            selectedRow = "success";
-                        }
-
-                        <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"' style="height:15px">
-
-                            <td>
-                                @item.Description
-                            </td>
-                            <td>
-                                <div class="buttonbackoffice">
-                                    @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Select" })
-                                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-
-                                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                                </div>
-                            </td>
+                    <table class="table tableheader" style="width:200px">
+                        <thead>
+                            <tr>
+                                <th>Marca</th>
+                                <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+                        </thead>
                         </tr>
-                    }
-                </table>
-            </div>
+                        @foreach (var item in ViewBag.Brands)
+                        {
+                            string selectedRow = "";
+                            if (item.ID == ViewBag.ID)
+                            {
+                                selectedRow = "success";
+                            }
 
-            @if (Model != null)
+                            <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"' style="height:15px">
+
+                                <td>
+                                    @item.Description
+                                </td>
+                                <td>
+                                    <div class="iconsbackoffice">
+                                        @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Ver Modelos" })
+                                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+                                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+                @if (Model != null)
             { <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2"></div>
             <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 divFixed" style="width:370px;">
 
                 <h2>Modelos de @ViewBag.Brand </h2>
                 @*<div class="buttonbackoffice" style="margin-bottom:50px">
-                    @Html.ActionLink(" Adicionar novo Modelo ", "Create", "CarModels", new { id = ViewBag.ID }, new { @class = "icon-Add submit" })
-                </div>*@
+                        @Html.ActionLink(" Adicionar novo Modelo ", "Create", "CarModels", new { id = ViewBag.ID }, new { @class = "icon-Add submit" })
+                    </div>*@
 
 
                 <table class="table tableheader">
@@ -75,28 +78,28 @@
                             </td>
                             @*<td>
 
-                                <div class="buttonbackoffice" >
-                                    @Html.ActionLink(" ", "Edit", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
+                                    <div class="buttonbackoffice" >
+                                        @Html.ActionLink(" ", "Edit", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
 
-                                    @Html.ActionLink(" ", "Delete", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
-                                </div>
+                                        @Html.ActionLink(" ", "Delete", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
+                                    </div>
 
-                            </td>*@
+                                </td>*@
                         </tr>
                     }
                 </table>
 
             </div>}
 
+            </div>
+
+
+
+
         </div>
 
 
 
-
     </div>
-
-
-
-</div>
 
 </div>

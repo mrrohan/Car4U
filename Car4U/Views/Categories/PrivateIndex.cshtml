@@ -12,7 +12,7 @@
     <h2>Categorias</h2>
 </div>
 <div class="container">
-    <div class="container col-lg-8">
+    <div class="container col-lg-6">
 
 
         <div class="buttonbackoffice">
@@ -20,20 +20,22 @@
         </div>
 
         <table class="table tableheader table-responsive">
-            <tr>
-                <th>
-                    Nome Categoria
-                </th>
-                <th>
-                    Preço
-                </th>
-                <th>
-                    Valor Caução
-                </th>
-                <th>
-
-                </th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>
+                        Nome Categoria
+                    </th>
+                    <th>
+                        Preço
+                    </th>
+                    <th>
+                        Valor Caução
+                    </th>
+                    <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+                </tr>
+            </thead>
 
             @foreach (var item in Model)
             {
@@ -42,13 +44,13 @@
                         @Html.DisplayFor(modelItem => item.CategoryName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Price)
+                        @Html.DisplayFor(modelItem => item.Price) €
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Warranty)
+                        @Html.DisplayFor(modelItem => item.Warranty) €
                     </td>
                     <td>
-                        <div class="buttonbackoffice">
+                        <div class="iconsbackoffice">
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })

@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<Car4U.Models.ExtraModel>
-
 @{
     ViewBag.Title = "Index";
 }
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    }
+}
 <div class="page-header">
     <h2>Extras</h2>
 </div>
-    <div class="container">
+<div class="container">
     <div class="container col-lg-8">
 
 
@@ -19,13 +18,18 @@
 
 
         <table class="table tableheader table-responsive">
-            <tr>
-                <th> Extra </th>
-                <th>Tipo de Extra</th>
-                <th>Preço </th>
-                <th>Quantidade</th>
-                <th>Acções</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th> Extra </th>
+                    <th>Tipo de Extra</th>
+                    <th>Preço </th>
+                    <th>Quantidade</th>
+                    <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+                </tr>
+            </thead>
+
             @foreach (var item in Model)
             {
                 <tr>
@@ -36,13 +40,13 @@
                         @Html.DisplayFor(modelItem => item.ExtraModelType.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Price)
+                        @Html.DisplayFor(modelItem => item.Price)€
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Stock)
+                        @Html.DisplayFor(modelItem => item.Stock) Un
                     </td>
                     <td>
-                        <div class="buttonbackoffice">
+                        <div class="iconsbackoffice">
                             @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                             @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                             @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })

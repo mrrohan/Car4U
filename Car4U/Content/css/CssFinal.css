@@ -2,9 +2,9 @@
 
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
-divFixed{
-    position:fixed;
-    margin-left:500px;
+divFixed {
+    position: fixed;
+    margin-left: 500px;
 }
 
 #footer {
@@ -484,6 +484,7 @@ input.facebook {
     width: 150px !important;
 }*/
 
+
 .tableheader tbody tr {
     border-bottom: 2px solid #F9BF1D !important;
     border-radius: 6px;
@@ -492,20 +493,39 @@ input.facebook {
 }
 
 .table thead > tr > th {
-    border-bottom: #F9BF1D 2px solid;
+    border-bottom: #F9BF1D 4px solid;
     vertical-align: middle !important;
     text-align: center;
 }
 
-.tableheader th:last-child {
-    border: 2px solid #F9BF1D;
-   
-}
+/*.tableheader th:last-child {
+   font-weight:900;   
+   font-size:14px;
+   font-style:oblique;
+}*/
 
 
 .table thead:first-child tr:first-child th:last-child {
-       border: 2px solid #F9BF1D;
+    border: 4px solid #F9BF1D;
+    
 }
+
+.table tbody td:last-child {
+    border-left: 4px solid #F9BF1D;
+    border-right: 4px solid #F9BF1D;
+}
+
+.table tbody button {
+    background: none;
+    font-size: 20px;
+    border-radius: unset;
+    margin-top: unset;
+    padding: unset;
+    margin-right:5px;
+    margin-left:3px;
+}
+
+
 .tableheader,
 .tableheader tbody > tr > td {
     vertical-align: middle !important;
@@ -535,7 +555,7 @@ input.facebook {
 
 .tableheader tr td:last-child div {
     visibility: hidden;
-    width: 150px;
+    width: 120px;
 }
 
 .tableheader tr:hover td:last-child div {
@@ -718,7 +738,7 @@ div.token-input-dropdown-facebook {
 .icon-Confirmar:before {
     content: '\2714';
 }
-/* Confirmar */ 
+/* Confirmar */
 
 
 /*Fim CSS António Gonçalves*/

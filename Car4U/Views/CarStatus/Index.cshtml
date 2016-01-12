@@ -13,41 +13,45 @@
         <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarStatus")'"> Adicionar </button>
     </div>
     <table class="table tableheader">
-        <tr>
-            <th>
-                Matrícula
-            </th>
-            <th>
-                Estado
-            </th>
-            <th>
-                Observações
-            </th>
-            <th>
-                Local de Entrega
-            </th>
-            <th>
-                Local de Recolha
+        <thead>
+            <tr>
+                <th>
+                    Matrícula
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Observações
+                </th>
+                <th>
+                    Local de Entrega
+                </th>
+                <th>
+                    Local de Recolha
 
-            </th>
-            <th>
-                Data Início
+                </th>
+                <th>
+                    Data Início
 
-            </th>
-            <th>
-                Hora Início
+                </th>
+                <th>
+                    Hora Início
 
-            </th>
-            <th>
-                Data Fim
+                </th>
+                <th>
+                    Data Fim
 
-            </th>
-            <th>
-                Hora Fim
+                </th>
+                <th>
+                    Hora Fim
 
-            </th>
-            <th>Acções</th>
-        </tr>
+                </th>
+                <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -79,7 +83,7 @@
                     @Html.DisplayFor(modelItem => item.FinishHour.TimeOfDay)
                 </td>
                 <td>
-                    <div class="buttonbackoffice">
+                    <div class="iconsbackoffice">
                         @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                         @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icon-Details submit", @title = "Detalhes" })
                         @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })

@@ -8,8 +8,8 @@
 <div class="page-header">
 <h2>Tipo de Caixa</h2>
 </div>
-<div class="container">
-<div class="container col-lg-6">
+
+<div class="container col-lg-4">
 
     <div class="buttonbackoffice">
         <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "Gears")'"> Adicionar </button>
@@ -22,7 +22,9 @@
                 Tipo de Caixa
                 @*@Html.DisplayNameFor(model => model.Description)*@
             </th>
-            <th>Acções</th>
+            <th style="font-weight:900;
+                    font-size:14px;
+                    font-style:oblique" ;>+ Opções</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -31,7 +33,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    <div class="buttonbackoffice">
+                    <div class="iconsbackoffice">
                         @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
                       
                         @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
@@ -40,5 +42,4 @@
             </tr>
         }
     </table>
-</div>
 </div>
