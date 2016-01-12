@@ -459,7 +459,7 @@ input.facebook {
 }
 
 .positionright {
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .btn-position {
@@ -488,11 +488,13 @@ input.facebook {
 .btn-file {
     position: relative;
     overflow:visible;
+    background-color:rgba(128, 128, 128, 0.81);
+    color:white;
 }
 .v:hover{
-    background-color:white!important;
+    background-color:rgba(128, 128, 128, 0.36);
     border-color:white;
-    color:#000;
+    color:white;
 }
 .btn-file input[type=file] {
     position: absolute;
@@ -500,7 +502,7 @@ input.facebook {
     right: 0;
     min-width: 100%;
     min-height: 100%;
-    font-size: 20px;
+   
     text-align: right;
     filter: alpha(opacity=0);
     opacity:0;
@@ -508,6 +510,7 @@ input.facebook {
     background:#ccc;
     cursor:inherit;
     display: block;
+  
 }
 .tableheader tbody tr {
     border-bottom: 2px solid #F9BF1D !important;
