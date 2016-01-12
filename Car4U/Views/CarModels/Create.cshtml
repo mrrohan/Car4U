@@ -40,7 +40,15 @@
                     <div class="">
                         <div class="buttonbackoffice" style="float: none">
                             <button class="submit  icon-Add" type="submit"> Adicionar </button>
-                            <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> Voltar </button>
+                            @if (ViewBag.View == 0)
+                            {
+                                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'"> Voltar </button>
+                            }
+                            else
+                            {
+                                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("IndexModel", "Brands")'"> Voltar </button>
+                            }
+                           
                         </div>
                     </div>
                 </div>

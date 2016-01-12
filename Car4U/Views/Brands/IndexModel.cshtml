@@ -66,7 +66,7 @@
 
                 <table class="table tableheader">
                     <tr>
-                        <th>Modelos</th>
+                        <th>Modelos  @Html.ActionLink(" Adicionar Modelo ", "Create", "CarModels", new { id = ViewBag.ID }, new { @class = "icon-Add submit" })</th>
                         @*<th>Acções</th>*@
                     </tr>
                     @foreach (var item in Model)
