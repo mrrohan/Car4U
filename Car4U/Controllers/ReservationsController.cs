@@ -26,7 +26,8 @@ namespace Car4U.Controllers
         // GET: Reservations
         public ActionResult Index()
         {
-            var reservations = db.Reservations.Include(r => r.Category).Include(r => r.Country).Include(r => r.MomentDelivery).Include(r => r.MomentReturn).Include(r => r.MPDelivery).Include(r => r.MPReturn);
+            var reservations = db.Reservations.OrderBy(l => l.Check == true);
+           // .Include(r => r.Category).Include(r => r.Country).Include(r => r.MomentDelivery).Include(r => r.MomentReturn).Include(r => r.MPDelivery).Include(r => r.MPReturn)
             return View(reservations.ToList());
         }
          [Authorize(Roles = "Admin, Employee")]
@@ -456,7 +457,48 @@ namespace Car4U.Controllers
                 db.SaveChanges();
                 
                 ///////////////////////////////////v mail sender
-            
+                //try
+                //{
+                //    string to = reservation.Email;
+                //    string from = "car4upt@portugalmail.pt";
+                //    string subject = "Reserva na Car4U";
+                //    string body = @"Exmos Senhor(a), " + reservation.Name + "\n" + "\n";
+                //    body = body + "A sua reserva foi efetuada com sucesso." + "\n";
+                //    body = body + "O valor da sua reserva é o seguinte: " + price + "€." + "\n" + "\n";
+                //    body = body + "Detalhes para pagamento" + ":" + "\n";
+                //    body = body + "Entidade: " + entidade + "\n";
+                //    body = body + "Referência: " + MULTI + "\n";
+                //    body = body + "Montante: " + price + "€." + "\n" + "\n";
+                //    body = body + "Detalhes da sua Reserva:" + "\n";
+                //    body = body + "Data de Levantamento: " + reservation.DeliveryDate.ToString("dd-MM-yyyy") + " pelas " + reservation.DeliveryHour.ToString("HH:mm") + "\n";
+                //    body = body + "Data de Entrega " + reservation.ReturnDate.ToString("dd-MM-yyyy") + " pelas " + reservation.ReturnHour.ToString("HH:mm") + "\n" + "\n";
+                //    body = body + "Para nossa segurança no acto de levantamento do veículo terá de nos ser entregue uma caução no valor de " + warrat + "€." + "\n" + "\n";
+                //    body = body + "Obrigado pela sua preferência.";
+
+                //    //string body = @"A sua reserva foi efetua com sucesso, Referência de MultiBanco:" + MULTI + ". Preço da reserva:" + price + "€" + " e a caução:" + warrat + "€ ." +"Dados da reserva:          Dia de inicio:"+reservation.DeliveryDate+"pelas"+reservation.DeliveryHour +"até:"+reservation.ReturnDate+"pelas"+reservation.ReturnHour;
+
+                //    var client = new SmtpClient("smtp.portugalmail.pt", 25)
+                //    {
+                //        Credentials = new NetworkCredential("car4upt@portugalmail.pt", "123456"),
+                //        EnableSsl = false
+                //    };
+
+                //    try
+                //    {
+                //        client.Send(from, to, subject, body);
+
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        Console.WriteLine("Exception caught in Sending Email(): {0}",
+                //                    ex.ToString());
+                //    }
+                //}
+                //catch
+                //{
+                //    Console.WriteLine("Erro no mail");
+
+                //}
                 return RedirectToAction("Confirm");
                     /////
                 //     }
