@@ -79,37 +79,8 @@
                     <div id="Title" class="sidebar-brand">Car4U - Backoffice</div>
                 </li>
                 <li>
-                    <a id="Brands" href="~/Brands/IndexModel" class="sidebar-brand">Marcas</a>
-                </li>
-                <li>
-                    <a id="Cars" href="~/Cars/Index" class="sidebar-brand">Frota</a>
-                </li>
-                <li>
-                    <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">Modelo Veículo</a>
-                </li>
-                <li>
-                    <a id="Gears" href="~/Gears/Index" class="sidebar-brand">Tipo de Caixa</a>
-                </li>
-                <li>
-                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">Estado Veículo</a>
-                </li>
-                <li>
-                    <a id="Categories" href="~/Categories/PrivateIndex" class="sidebar-brand">Categorias</a>
-                </li>
-                <li>
-                    <a id="Countries" href="~/Countries/Index" class="sidebar-brand">Países</a>
-                </li>
-                <li>
-                    <a id="ExtraModels" href="~/ExtraModels/Index" class="sidebar-brand">Extras</a>
-                </li>
-                <li>
-                    <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">Tipo de Extras</a>
-                </li>
-                <li>
-                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">Tipos Combustível</a>
-                </li>
-                <li>
-                    <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">Local de encontro</a>
+                    <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entrada de Veículos</a>
+                   
                 </li>
                 <li>
                     <a id="Reservations" href="~/Reservations/Index" class="sidebar-brand">Reservas</a>
@@ -118,21 +89,60 @@
                     <a id="Role" href="~/Cars/LeavingCarsIndex" class="sidebar-brand">Saida de Veículos</a>
                 </li>
                 <li>
-                    <a id="Role" href="~/Cars/EnteringCars" class="sidebar-brand">Entrada de Veículos</a>
+                    <a id="Cars" href="~/Cars/Index" class="sidebar-brand">Frota</a>
                 </li>
                 <li>
-                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Adicionar Estado</a>
-                    <hr width="40%">
+                    <a id="CarStatus" href="~/CarStatus/Index" class="sidebar-brand">Estado Veículo</a>
                 </li>
                 <li>
                     <a id="Promotions" href="~/Promotions/Index" class="sidebar-brand">Promoções</a>
                 </li>
+              
+               
                 <li>
-                    <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
+                    <a id="Categories" href="~/Categories/PrivateIndex" class="sidebar-brand">Categorias</a>
                 </li>
                 <li>
-                    <a id="Role" href="~/Role/AllUsers" class="sidebar-brand">Todos Empregados</a>
+                    <a id="CarModels" href="~/CarModels/Index" class="sidebar-brand">Modelo Veículo</a>
                 </li>
+                <li>
+                    <a id="ExtraModels" href="~/ExtraModels/Index" class="sidebar-brand">Extras</a>
+                </li>
+                <li>
+                    <a id="Brands" href="~/Brands/IndexModel" class="sidebar-brand">Marcas</a>
+                </li>
+                <li>
+                    <a id="MeetingPoints" href="~/MeetingPoints/Index" class="sidebar-brand">Local de encontro</a>
+                </li>
+                <li>
+                    <a id="Countries" href="~/Countries/Index" class="sidebar-brand">Países</a>
+                </li>
+                <li>
+                    <a id="Gears" href="~/Gears/Index" class="sidebar-brand">Tipo de Caixa</a>
+                </li>
+                <li>
+                    <a id="Status" href="~/Status/Index" class="sidebar-brand">Tipos de Estado</a>
+                </li>
+                <li>
+                    <a id="FuelTypes" href="~/FuelTypes/Index" class="sidebar-brand">Tipos Combustível</a>
+                </li>
+                <li>
+                    <a id="ExtraModelTypes" href="~/ExtraModelTypes/Index" class="sidebar-brand">Tipo de Extras</a>
+                    <hr width="40%">
+                </li>
+              
+               
+                @if (User.IsInRole("Admin"))
+                {
+                  
+                    <li>
+                        <a id="Role" href="~/Role/ManageUserRoles" class="sidebar-brand">Permissões</a>
+                    </li>
+                    <li>
+                        <a id="Role" href="~/Role/AllUsers" class="sidebar-brand">Todos Empregados</a>
+                    </li>
+                }
+               
             </ul>
 
         </div>
