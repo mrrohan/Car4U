@@ -485,7 +485,30 @@ input.facebook {
 /*.table tr td:last-child {
     width: 150px !important;
 }*/
-
+.btn-file {
+    position: relative;
+    overflow:visible;
+}
+.v:hover{
+    background-color:white!important;
+    border-color:white;
+    color:#000;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 20px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity:0;
+    outline: none;
+    background:#ccc;
+    cursor:inherit;
+    display: block;
+}
 .tableheader tbody tr {
     border-bottom: 2px solid #F9BF1D !important;
     border-radius: 6px;
@@ -543,6 +566,7 @@ input.facebook {
 .tableheader tr:hover td:last-child div {
     visibility: visible;
 }
+
 
 /*Fim CSS Luis Ricardo*/
 
