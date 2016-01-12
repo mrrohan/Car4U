@@ -600,7 +600,7 @@ namespace Car4U.Controllers
                     string from = "car4upt@portugalmail.pt";
                     string subject = "Reserva na Car4U";
                     string body = @"Exmos Senhor(a) " + reservationmaster.Name + "\n" + "\n";
-                    body = body + "A sua reserva foi efetuada com sucesso, e tem a seguinte identificação" + reservationmaster.ID + " ." + "\n";
+                    body = body + "A sua reserva foi efetuada com sucesso, e tem a seguinte identificação: reserva nº: " + reservationmaster.ID + " ." + "\n";
                     body = body + "O valor da sua reserva é o seguinte: " + reservationmaster.FinalPrice + "€." + "\n" + "\n";
                     body = body + "Detalhes para pagamento" + ":" + "\n";
                     body = body + "Entidade: " + entidade + "\n";
