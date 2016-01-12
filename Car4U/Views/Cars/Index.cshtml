@@ -5,19 +5,19 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<div class="page-header">
-    <h2>Frota Car4U</h2>
-</div>
-<div class="container">
-    <div id="carIndexTable" class="container col-md-12">
 
-        <div class="form-group">
-            <div class="buttonbackoffice">
+<h2>Frota Car4U</h2>
 
-                @Html.ActionLink(" Adicionar", "Create", "Cars", new { @class = "icon-Add submit" })
-            </div>
+<div id="carIndexTable" class="container col-md-12">
+
+    <div class="form-group">
+        <div class="buttonbackoffice">
+
+            @Html.ActionLink(" Adicionar", "Create", "Cars", new { @class = "icon-Add submit" })
         </div>
-        <table class="table tableheader table-responsive">
+    </div>
+    <table class="table tableheader table-responsive">
+        <thead>
             <tr>
                 <th class="tableheader1"></th>
 
@@ -34,61 +34,61 @@
                 <th>Acções </th>
             </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td style="background-color:#ffffff">
-                        <div class="control-image">
-                            @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
-                            {
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="background-color:#ffffff">
+                    <div class="control-image">
+                        @if (item.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+                        {
 
-                                <img width="100" height="auto" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                            <img width="100" height="auto" src="~/images/@item.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
 
-                            }
-                        </div>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.carModel.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.category.CategoryName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fuelType.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LicensePlate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RegisterDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NDoors)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NLuggage)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Engine)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HorsePower)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Gear.Description)
-                    </td>
-                    <td>
-                        <div class="buttonbackoffice">
-                            @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
-                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                            @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                        </div>
-                    </td>
-                </tr>
-            }
+                        }
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.carModel.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fuelType.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicensePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NDoors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NLuggage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Engine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorsePower)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gear.Description)
+                </td>
+                <td>
+                    <div class="iconsbackoffice">
+                        @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit ", @title = "Editar Foto" })
+                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit ", @title = "Editar" })
+                        @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details ", @title = "Detalhes" })
+                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete ", @title = "Apagar" })
+                    </div>
+                </td>
+            </tr>
+        }
 
-        </table>
+    </table>
 
-    </div>
 </div>
