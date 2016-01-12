@@ -45,19 +45,7 @@ namespace Car4U.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            MomentReturn momentReturn = db.MomentReturns.SingleOrDefault(u => u.ReservationID == id);
-            Reservation reserv = db.Reservations.FirstOrDefault(r => r.ID == id);
-
-            if (reserv != null)
-            {
-                foreach(var item in reserv.ExtraItems)
-                {
-                    item.InUse = false;
-                    db.Entry(item).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-               
-            }
+            MomentReturn momentReturn = db.MomentReturns.SingleOrDefault(u => u.ReservationID == id);            
 
             if (momentReturn != null)
             {
@@ -81,7 +69,33 @@ namespace Car4U.Controllers
                      momentReturn.ReservationID = id ?? default(int);
                 }
 
-                momentReturn.Date = DateTime.Now;
+                Reservation reserv = db.Reservations.FirstOrDefault(r => r.ID == id);
+
+                if (reserv != null)
+                {
+                    Car c = db.Cars.FirstOrDefault(ca => ca.ID == reserv.carID);
+                    if (c != null)
+                    {
+                        CarStatus cs = db.CarStatus.FirstOrDefault(cars => cars.CarID == c.ID && cars.BeginDate == reserv.DeliveryDate && cars.FinishDate == reserv.ReturnDate);
+                        cs.Outside = false;
+                        if (cs.FinishDate > DateTime.Now)
+                        {
+                            cs.FinishDate = DateTime.Now;
+                        }
+                        db.Entry(cs).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+
+
+                    foreach (var item in reserv.ExtraItems)
+                    {
+                        item.InUse = false;
+                        db.Entry(item).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+
+                    momentReturn.Date = DateTime.Now;
+                }
                 db.MomentReturns.Add(momentReturn);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Reservations");
