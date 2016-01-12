@@ -437,9 +437,9 @@ input.facebook {
 .moldura3 {
     border-radius: 20px;
     border: 2px solid #ffd800;
-    width: 490px;
-    float: left;
-    padding: 8px 8px 20px 8px;
+    width: 470px;
+    
+    padding: 8px 8px 8px 8px;
 }
 
 

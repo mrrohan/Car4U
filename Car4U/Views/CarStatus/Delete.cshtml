@@ -6,30 +6,30 @@
     ViewBag.Title = "Delete";
 }
 <div class="page-header">
-    <h2>Eliminar Estado de Veiculo</h2>
+    <h3>Tem a certeza que pretende apagar este estado de carro?</h3>
 </div>
 <div class=" container">
     <div class=" form-horizontal">
         <div class="form-group">
             <div class=" col-md-10">
-                <h3>Tem a certeza que pretende apagar este estado de carro?</h3>
+                
 
                 <table class=" table tableheader table-responsive" style="width:200px">                    
                     <tr>
-                        <td>Matricula</td>
+                        <th>Matricula</th>
                         <td>@Html.DisplayFor(model => model.Car.LicensePlate)</td>
                     </tr>
                     <tr>
-                        <td>Estado de Disponibilidade</td>
+                        <th>Estado de Disponibilidade</th>
                         <td>@Html.DisplayFor(model => model.Observation)</td>
                     </tr>
                     <tr>
-                        <td>Observações de Disponibilidade</td>
+                        <th>Observações de Disponibilidade</th>
                         <td>@Html.DisplayFor(model => model.Status.Description)</td>
                     </tr>
 
                     <tr>
-                        <td>Data de Inicio</td>
+                        <th>Data de Inicio</th>
                         <td>@Html.DisplayFor(model => model.BeginDate)</td>
                     </tr>
                     <tr>

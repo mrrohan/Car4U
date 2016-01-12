@@ -126,12 +126,12 @@
    
         <div class="col-lg-7 moldura3 positionright">
 
-            <img id="img" src="" height="300" width="470">
+            <img id="img" src="" height="auto" width="450">
 
             <div class="form-group">
                 @Html.Label("Fotografia", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <input type="file" id="Photo" name="upload" />
+                    <input class="icon-add search-img" type="file" id="Photo" name="upload" />
                 </div>
             </div>
         </div>
@@ -140,13 +140,12 @@
     
 }
 <div class="form-group">
-    <div class=" button col-md-offset-2 col-md-10">
+    <div class=" buttonbackoffice col-md-offset-2 col-md-10">
         <input type="submit" value="+ Adicionar" class="submit" />
+        @Html.ActionLink("Volta", "Index", "Cars", new { @class = "submit icon-back" })
     </div>
 </div>
-<div class="button btn-position-right positiontop">
-    @Html.ActionLink("Voltar à Lista", "Index", "Cars", new { @class = "submit" })
-</div>
+
 <script>
     function readURL(input) {
         if (input.files && input.files[0]) {

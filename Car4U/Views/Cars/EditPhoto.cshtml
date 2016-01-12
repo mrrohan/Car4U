@@ -26,8 +26,8 @@
                     <h3> Fotografia atual</h3>
 
                 </div>
-                <div>
-                    <img width="450" height="auto" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                <div class="moldura3" style="margin-top:20px;">
+                    <img id="img" width="450" height="auto" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
                 </div>
             }
 
@@ -35,6 +35,9 @@
 
 
         <div class="col-lg-6" style="margin-top: 200px;">
+
+          
+
             <div class="form-group" style="margin-top: 20px;">
                 @Html.Label("Nova Fotografia", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -56,3 +59,20 @@
 
     }
 </div>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#Photo").change(function () {
+        readURL(this);
+    });
+</script>
