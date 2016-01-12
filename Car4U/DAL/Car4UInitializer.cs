@@ -358,7 +358,6 @@ namespace Car4U.DAL
             {
                 new Status { ID = 1, Description = "Venda" },
                 new Status { ID = 2, Description = "Oficina" },
-                new Status { ID = 3, Description = "Disponivel" },
                 new Status { ID = 4, Description = "Lavagem" },
                 new Status { ID = 5, Description = "Reservado" },
             };
