@@ -19,7 +19,9 @@ namespace Car4U.Controllers
         // GET: CarStatus
         public ActionResult Index()
         {
+            ViewBag.Cars = db.Cars;
             var carStatus = db.CarStatus.Include(c => c.Car).Include(c => c.Status);
+            ViewBag.reserva = new List<Reservation>(db.Reservations);
             return View(carStatus.ToList());
         }
 

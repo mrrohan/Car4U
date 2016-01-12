@@ -61,11 +61,18 @@
             <h4 style="position:center">Items Extra</h4>
             <div>
                 @*@Html.displaynamefor(model => model.extraitems) :*@
-
-                @foreach (var item in Model.ExtraItems)
+                <ul>
+                    @foreach (var item in Model.ExtraItems)
                 {
-                    @Html.DisplayFor(Item => item.ExtraModel.Model)
-                }
+                        <li>
+                            @Html.DisplayFor(Item => item.ExtraModel.Model)
+                        </li>
+
+                    }
+                </ul>
+
+
+
             </div>
         }
 

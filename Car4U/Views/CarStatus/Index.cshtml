@@ -8,13 +8,16 @@
 <div class="page-header">
     <h2>Estado dos Veiculos</h2>
 </div>
-<div class="container">
+<div class="container col-lg-11">
     <div class="buttonbackoffice">
         <button class="submit icon-Add" style="float:left" type="button" onclick="location.href='@Url.Action("Create", "CarStatus")'"> Adicionar </button>
     </div>
     <table class="table tableheader">
         <thead>
             <tr>
+                <th>
+                    ID Reserva
+                </th>
                 <th>
                     Matrícula
                 </th>
@@ -56,6 +59,19 @@
         {
             <tr>
                 <td>
+                    @{
+                        List<Car4U.Models.Reservation> reservations = new List<Car4U.Models.Reservation>();
+                        // List<Car4U.Models.Car> carro = new List<Car4U.Models.Car>();
+                        reservations = ViewBag.reserva;
+                        //carro = ViewBag.Cars;
+                        var reserv = reservations.FirstOrDefault(l => l.carID == item.CarID && l.DeliveryDate == item.BeginDate);
+                    }
+                    @if (reserv != null)
+                    {
+                        <span>@reserv.ID</span>
+                    }
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Car.LicensePlate)
                 </td>
                 <td>
@@ -90,6 +106,6 @@
                     </div>
                 </td>
             </tr>
-        }
+                        }
     </table>
 </div>
