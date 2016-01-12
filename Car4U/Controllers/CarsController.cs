@@ -264,10 +264,12 @@ namespace Car4U.Controllers
                     car.FilePaths = new List<FilePath>();
                     car.FilePaths.Add(photo);
                     upload.SaveAs(Path.Combine(Server.MapPath("~/images"), photo.FileName));
+
+                    db.Entry(car).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Details/" + id + "&view = 1");
                 }
-                db.Entry(car).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Details/" + id + "&view = 1");
+             
             }
             return View(car);
         }
@@ -304,7 +306,7 @@ namespace Car4U.Controllers
         //
         // GET: /FollowCar/5
         [Authorize]
-        public ActionResult FollowCar(int? carModel)
+        public ActionResult FollowCar(int? carModel, int view)
         {
             string userid = User.Identity.GetUserId();
             var currentUser = db.Users.SingleOrDefault(u => u.Id == userid);
@@ -325,9 +327,7 @@ namespace Car4U.Controllers
             {
                 ViewBag.ResultMessage = "Não deu para seguir o carro!";
             }
-            
-
-            return RedirectToAction("Details/" + carModel);
+            return Redirect("Details/"+carModel+"?view="+view);
         }
 
         // GET: Leaving Cars Index

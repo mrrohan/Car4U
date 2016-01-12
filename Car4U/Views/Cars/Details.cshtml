@@ -1,6 +1,16 @@
 ﻿@model Car4U.Models.Car
 @{
+   
+}
+
+
+@if (ViewBag.View == 1)
+{
     Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@if (ViewBag.View == 2)
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @{
@@ -13,28 +23,28 @@
 
 <div class="container">
     <div class="row">
-    <div class="col-lg-7 moldura3 positiontop"style="margin-left:20px;">
-        @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
-        {
+        <div class="col-lg-7 moldura3 positiontop" style="margin-left:20px;">
+            @if (Model.FilePaths.Any(f => f.FileType == Car4U.Models.FileType.Photo))
+            {
 
-            <img width="470" height="300" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
+                <img width="470" height="300" src="~/images/@Model.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName" alt="" />
 
-        }
+            }
 
-        <!-- Load Facebook SDK for JavaScript -->
-        <div id="fb-root"></div>
-        <script>
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.5&appId=1541189936202435";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
+            <!-- Load Facebook SDK for JavaScript -->
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.5&appId=1541189936202435";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
 
-        <!-- Your share button code -->
-        
-    </div>
+            <!-- Your share button code -->
+
+        </div>
 
         <div class="col-lg-5 positiontop">
             <table class="table tabledetails positionright">
@@ -94,33 +104,32 @@
                     </tr>
                 </tbody>
             </table>
-            
-        </div>
 
         </div>
-<div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
-<div class="row col-lg-4 buttonbackoffice btn-position-right">
-    <p>
-       
-        
-        @if (Request.IsAuthenticated)
-        {
-            @Html.ActionLink(" Seguir carro ", "FollowCar", new { carModel = Model.ID }, new { @class = " icon-Car submit", @title = " Seguir carro " })
-        }
-        @Html.ActionLink(" Editar ", "Edit", new { id = Model.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-        @if (ViewBag.View == 1)
-        {
-            @Html.ActionLink(" Voltar ", "Index", "Cars", new { @class = " icon-back submit", @title = " Voltar " })
-        }
+
+    </div>
+    <div class="fb-share-button" data-href="https://www.facebook.com/Car4U-1317607318265322/" data-layout="button_count"></div>
+    <div class="row col-lg-4 buttonbackoffice btn-position-right">
+        <p>
+
+
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink(" Seguir carro ", "FollowCar", new { carModel = Model.ID, view = @ViewBag.View }, new { @class = " icon-Car submit", @title = " Seguir carro " })
+            }
+            @Html.ActionLink(" Editar ", "Edit", new { id = Model.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+            @if (ViewBag.View == 1)
+            {
+                @Html.ActionLink(" Voltar ", "Index", "Cars", new { @class = " icon-back submit", @title = " Voltar " })
+            }
             @if (ViewBag.View == 2)
             {
                 <a id="edit-details" href="~/Home/Index"> Voltar</a>
             }
-        
-        
-    </p>
+
+
+        </p>
+
+    </div>
 
 </div>
-
-</div>
-
