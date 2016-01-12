@@ -76,7 +76,7 @@
                     <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
 
 
-                    @if (User.IsInRole("Admin"))
+                    @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
                     {
                         <li>
                             @Html.ActionLink("Office", "BackOffice", "Home")

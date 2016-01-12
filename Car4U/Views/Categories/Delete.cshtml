@@ -16,7 +16,7 @@
                 <div class=" col-md-10">
                     <h3>Tem a certeza que pretende eliminar esta categoria?</h3>
                     <table class=" table tableheader table-responsive" style="width:200px">
-                        <tr><th></th><th></th></tr>
+                        <tr><td></td><td></td></tr>
                         <tr>
                             <td>Nome de Categoria</td>
                             <td>@Html.DisplayFor(model => model.CategoryName)</td>
@@ -41,7 +41,7 @@
                                 <button class="submit  icon-Delete" type="submit" value="Delete"> Apagar </button>
                             </div>
                         }
-                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("PrivateIndex", "ExtraModels")'"> Voltar </button>
+                        <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("PrivateIndex", "Categories")'"> Voltar </button>
 
                     </div>
                 </div>

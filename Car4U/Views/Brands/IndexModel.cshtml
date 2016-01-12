@@ -18,36 +18,35 @@
     <div class="table-responsive">
 
         <div class="row">
-
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 " style="width:370px">
 
-                <table class="table tableheader">
+                <table class="table tableheader" style=" width:200px">
                     <tr>
                         <th>Marca</th>
                         <th>Acções</th>
                     </tr>
                     @foreach (var item in ViewBag.Brands)
-            {
-                string selectedRow = "";
-                if (item.ID == ViewBag.ID)
-                {
-                    selectedRow = "success";
-                }
+                    {
+                        string selectedRow = "";
+                        if (item.ID == ViewBag.ID)
+                        {
+                            selectedRow = "success";
+                        }
 
-                <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"' style="height:15px">
+                        <tr class="@selectedRow" onclick='window.location.href="/Brands/IndexModel/@item.ID"' style="height:15px">
 
-                    <td>
-                        @item.Description
-                    </td>
-                    <td>
-                        <div class="buttonbackoffice">
-                            @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Select" })
-                            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                           
-                            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
-                        </div>
-                    </td>
-                </tr>
+                            <td>
+                                @item.Description
+                            </td>
+                            <td>
+                                <div class="buttonbackoffice">
+                                    @Html.ActionLink(" ", "IndexModel", new { id = item.ID }, new { @class = "icon-Select submit", @title = "Select" })
+                                    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
+
+                                    @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                                </div>
+                            </td>
+                        </tr>
                     }
                 </table>
             </div>
