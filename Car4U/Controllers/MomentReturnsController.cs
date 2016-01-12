@@ -46,6 +46,19 @@ namespace Car4U.Controllers
             }
 
             MomentReturn momentReturn = db.MomentReturns.SingleOrDefault(u => u.ReservationID == id);
+            Reservation reserv = db.Reservations.FirstOrDefault(r => r.ID == id);
+
+            if (reserv != null)
+            {
+                foreach(var item in reserv.ExtraItems)
+                {
+                    item.InUse = false;
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+               
+            }
+
             if (momentReturn != null)
             {
                 return RedirectToAction("Details/" + id);
