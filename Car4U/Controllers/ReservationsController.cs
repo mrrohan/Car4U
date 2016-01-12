@@ -272,7 +272,7 @@ namespace Car4U.Controllers
 
                         ViewBag.img = "/images/" + car.FilePaths.First(f => f.FileType == Car4U.Models.FileType.Photo).FileName;
 
-                    }
+                    }                    
                     ViewBag.car = car;
                     var span = reservation.ReturnDate.Subtract(reservation.DeliveryDate);
                     int ndaysres = span.Days;
@@ -291,7 +291,7 @@ namespace Car4U.Controllers
 
                     ViewBag.car = car2;
                 }
-            }
+            }else { return RedirectToAction("Erro", "Home"); }
 
             string userid = User.Identity.GetUserId();
             var currentuser = db.Users.SingleOrDefault(u => u.Id == userid);
