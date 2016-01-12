@@ -8,20 +8,21 @@
 <div class=" page-header">
     <h2>Detalhes de Veiculo</h2>
 </div>
-
-<div class="form-horizontal">
-    <div >
-        <div class=" col-md-10">
-            <div>
-                <h4>Marca: @Html.DisplayFor(model => model.brand.Description)</h4>
-            </div>
-            <div>
-                <h4> Modelo: @Html.DisplayFor(model => model.Description)</h4>
-            </div>
-             <div class="buttonbackoffice">
-                <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "CarModels", new { id = Model.ID })'"> Editar </button>
-                <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "CarModels", new { id = Model.ID })'"> Eliminar </button>
-                <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'">  Voltar </button>
+<div class="container">
+    <div class="form-horizontal">
+        <div>
+            <div class=" col-md-10">
+                <div>
+                    <h4>Marca: @Html.DisplayFor(model => model.brand.Description)</h4>
+                </div>
+                <div>
+                    <h4> Modelo: @Html.DisplayFor(model => model.Description)</h4>
+                </div>
+                <div class="buttonbackoffice">
+                    <button class="submit icon-edit" type="button" onclick="location.href='@Url.Action("Edit", "CarModels", new { id = Model.ID })'"> Editar </button>
+                    <button class="submit  icon-Delete" type="button" onclick="location.href='@Url.Action("Delete", "CarModels", new { id = Model.ID })'"> Eliminar </button>
+                    <button class="submit  icon-back" type="button" onclick="location.href='@Url.Action("Index", "CarModels")'">  Voltar </button>
+                </div>
             </div>
         </div>
     </div>

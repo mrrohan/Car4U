@@ -5,9 +5,10 @@
     ViewBag.Title = "EditPhoto";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
+<div class="page-header">
 <h2>Editar Fotografia</h2>
-
+</div>
+<div class="container">
 <div class="container col-lg-12">
 
     @using (Html.BeginForm(Html.BeginForm("EditPhoto", "Cars", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })))

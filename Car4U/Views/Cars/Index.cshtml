@@ -17,22 +17,24 @@
         </div>
     </div>
     <table class="table tableheader table-responsive">
-        <tr>
-            <th class="tableheader1"></th>
+        <thead>
+            <tr>
+                <th class="tableheader1"></th>
 
-            <th>Modelo </th>
-            <th>Categoria</th>
-            <th  style="width:5%">Tipo Combustível</th>
-            <th>Matrícula </th>
-            <th>Data Registo </th>
-            <th>Nº Portas </th>
-            <th style="width:5%">Capacidade Mala </th>
-            <th style="width:5%">Cilindrada (cc)  </th>
-            <th style="width:5%">Potência (cv)</th>
-            <th>Caixa </th>
-            <th>Acções </th>
-        </tr>
+                <th>Modelo </th>
+                <th>Categoria</th>
+                <th style="width:5%">Tipo Combustível</th>
+                <th>Matrícula </th>
+                <th>Data Registo </th>
+                <th>Nº Portas </th>
+                <th style="width:5%">Capacidade Mala </th>
+                <th style="width:5%">Cilindrada (cc)  </th>
+                <th style="width:5%">Potência (cv)</th>
+                <th>Caixa </th>
+                <th>Acções </th>
+            </tr>
 
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -77,11 +79,11 @@
                     @Html.DisplayFor(modelItem => item.Gear.Description)
                 </td>
                 <td>
-                    <div class="buttonbackoffice">
-                        @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit submit", @title = "Editar Foto" })
-                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit submit", @title = "Editar" })
-                        @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details submit", @title = "Detalhes" })
-                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete submit", @title = "Apagar" })
+                    <div class="iconsbackoffice">
+                        @Html.ActionLink(" ", "EditPhoto", new { id = item.ID }, new { @class = "icon-Photo-Edit ", @title = "Editar Foto" })
+                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icon-edit ", @title = "Editar" })
+                        @Html.ActionLink(" ", "Details", new { id = item.ID, view = 1 }, new { @class = "icon-Details ", @title = "Detalhes" })
+                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "icon-Delete ", @title = "Apagar" })
                     </div>
                 </td>
             </tr>

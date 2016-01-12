@@ -6,21 +6,21 @@
     ViewBag.Title = "Delete";
 }
 <div class="page-header">
-    <h2>Tem a certeza que pretende eliminar este modelo?</h2>
+    <h2>Eliminar Modelo de Carro</h2>
 </div>
 <div class=" container">
     <div class=" form-horizontal">
         <div class="form-group">
-            <div class=" col-md-10" >
-               
+            <div class=" col-md-10">
+                <h2>Tem a certeza que pretende eliminar este modelo?</h2>
                 <table class=" table tableheader table-responsive" style="width:200px">
-                    
+                    <tr><th></th><th></th></tr>
                     <tr>
-                        <th>Marca</th>
-                        <th>Modelo</th>
+                        <td>Marca</td>
+                        <td>@Html.DisplayFor(model => model.brand.Description)</td>
                     </tr>
                     <tr>
-                        <td>@Html.DisplayFor(model => model.brand.Description)</td>
+                        <td>Modelo</td>
                         <td>@Html.DisplayFor(model => model.Description)</td>
                     </tr>
                 </table>
@@ -43,4 +43,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

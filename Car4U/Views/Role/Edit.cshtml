@@ -5,39 +5,43 @@
 @{
     ViewBag.Title = "Edit";
 }
+<div class="page-header">
+    <h2>Editar Cargo</h2>
+</div>
+<div class="container">
+    <div class=" form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <div class="buttonbackoffice" style="margin-bottom:5px">
 
-<div class=" form-horizontal">
-    <div class="form-group">
-        <div class="col-md-10">
-            <div class="buttonbackoffice" style="margin-bottom:5px">
-                <h2>Editar Cargo</h2>
 
-                @Html.ActionLink(" List Roles ", "Index", "Role", new { @class = "icon-Details1 submit" })
-                @Html.ActionLink(" Controlar Cargos de Utilizadores ", "ManageUserRoles", "Role", new { @class = "icon-Users submit" })
+                    @Html.ActionLink(" List Roles ", "Index", "Role", new { @class = "icon-Details1 submit" })
+                    @Html.ActionLink(" Controlar Cargos de Utilizadores ", "ManageUserRoles", "Role", new { @class = "icon-Users submit" })
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="form-group">
-        <div class="col-md-10">
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-                @Html.HiddenFor(model => model.Id)
-                <div>
-                    <h4> Cargo </h4>
-                </div>
-                <div>
-                    @Html.TextBoxFor(model => model.Name)
-                </div>
-                <div class="buttonbackoffice">
-                    @*<input class="icon-Save submit " type="submit" value="Save" />*@
-                    <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
-                </div>
-            }
+        <div class="form-group">
+            <div class="col-md-10">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+                    <div>
+                        <h4> Cargo </h4>
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.Name)
+                    </div>
+                    <div class="buttonbackoffice">
+                        @*<input class="icon-Save submit " type="submit" value="Save" />*@
+                        <button class="submit icon-Save" type="submit" value="Save"> Guardar </button>
+                    </div>
+                }
 
+            </div>
         </div>
     </div>
 </div>

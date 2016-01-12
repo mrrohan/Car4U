@@ -5,8 +5,10 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+<div class="page-header">
 <h2>Marcas de Automóvel</h2>
-
+</div>
+<div class="container">
 <div class="buttonbackoffice" style="margin-bottom:70px">
     @Html.ActionLink(" Adicionar Marcas ", "Create", "Brands", new { @class = "icon-Add submit" })
 </div>
@@ -76,7 +78,7 @@
 
                                 <div class="buttonbackoffice" >
                                     @Html.ActionLink(" ", "Edit", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-edit submit", @title = "Editar" })
-                                   
+
                                     @Html.ActionLink(" ", "Delete", "CarModels", new { id = item.ID }, new { @id = "hover-icon", @class = "icon-Delete submit", @title = "Apagar" })
                                 </div>
 
@@ -98,3 +100,4 @@
 
 </div>
 
+</div>

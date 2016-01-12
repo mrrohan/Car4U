@@ -5,9 +5,12 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<div>
+<div class="page-header">
+    <h2>Adicionar Cargo</h2>
+</div>
+<div class="container">
     <div class="buttonbackoffice" style="margin-bottom:5px">
-        <h2>Adicionar Cargo</h2>
+        
 
         @Html.ActionLink(" List Roles ", "Index", "Role", new { @class = "icon-Details1 submit" })
         @Html.ActionLink(" Controlar Cargos de Utilizadores ", "ManageUserRoles", "Role", new { @class = "icon-Users submit" })

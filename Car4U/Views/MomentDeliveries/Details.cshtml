@@ -4,41 +4,37 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>MomentDelivery</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Observation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Observation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReservationID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReservationID)
-        </dd>
-
-    </dl>
+<div class="page-header">
+    <h2>Details</h2>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Apagar", "Delete", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index", "Reservations")
-</p>
+<div class="container">
+    <div>
+        <h4>MomentDelivery</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Observation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Observation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ReservationID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ReservationID)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Apagar", "Delete", new { id = Model.ID }) |
+        @Html.ActionLink("Voltar", "Index", "Reservations")
+    </p>
+</div>
